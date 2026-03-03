@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === BBC CORPORATE THEME 2026 === */
+    /* Final Standard: Navy for Authority, Gold for Action */
+
+    /* Brand Navy (#0F1E33) */
+    --primary: 215 55% 13%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Action Gold (#B08B3E) */
+    --accent: 42 48% 47%;
+    --accent-foreground: 0 0% 100%;
+    /* Dark Navy Text on Gold */
+
+    /* Backgrounds & Neutrals */
+    --background: 0 0% 98%;
+    --foreground: 215 55% 13%;
+    /* Darker Navy for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 55% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 55% 13%;
+
+    --secondary: 215 55% 13%;
+    /* Navy as secondary */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 98%;
+    --muted-foreground: 220 9% 46%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 48 97% 48%;
+    /* Gold Ring for action focus */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Global Hyperlink Standard - Body Text Only */
+  main p a:not([role="button"]):not(.no-style),
+  main li a:not([role="button"]):not(.no-style),
+  .prose a:not([role="button"]):not(.no-style) {
+    color: #0F1E33;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out;
+  }
+
+  main p a:not([role="button"]):not(.no-style):hover,
+  main li a:not([role="button"]):not(.no-style):hover,
+  .prose a:not([role="button"]):not(.no-style):hover {
+    color: #253a5e;
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-[#0F1E33];
+    font-family: var(--font-heading, 'Inter'), sans-serif;
+  }
+
+  /* Global Button Standards - Corporate Rules */
+  /* Rule: Navy or Gold backgrounds MUST have white text */
+
+  .bg-accent,
+  .bg-primary,
+  .bg-accent\/90,
+  .bg-primary\/90,
+  button.bg-accent,
+  button.bg-primary,
+  a[role="button"].bg-accent,
+  a[role="button"].bg-primary {
+    color: white !important;
+  }
+
+  /* Rule: Any hover resulting in Navy or Gold MUST have white text */
+  .hover\:bg-accent:hover,
+  .hover\:bg-primary:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    color: white !important;
+  }
+
+  .btn-primary {
+    @apply bg-[#B08B3E] hover:bg-[#8F6F2E] text-white font-bold rounded-md shadow-lg transition-all duration-200 transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-[#0F1E33] text-[#0F1E33] font-bold hover:bg-[#0F1E33] hover:text-white transition-all duration-200;
+  }
+
+
+
+  .bg-primary *,
+  .bg-accent *,
+  .hover\:bg-primary:hover *,
+  .hover\:bg-accent:hover * {
+    color: inherit !important;
+  }
+}
+
+@layer components {
+
+  /* Corporate Section Spacing */
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  /* Corporate Card Style */
+  .card-corporate {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+}

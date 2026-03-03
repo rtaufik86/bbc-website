@@ -1,0 +1,21 @@
+export type Json =
+    | string
+    | number
+    | boolean
+    | null
+    | { [key: string]: Json | undefined }
+    | Json[]
+
+export interface Database {
+    public: {
+        Tables: {
+            // Generated types will go here
+        }
+        Views: {
+            // Generated views will go here
+        }
+        Functions: {
+            // Generated functions will go here
+        }
+    }
+}
