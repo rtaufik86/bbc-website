@@ -278,19 +278,19 @@ export default function SewaKantorClient() {
                             </div>
                         </div>
 
-                        {/* Unit 3 15m2 */}
+                        {/* Unit 3 16m2 */}
                         <div className="bg-white border border-primary/5 shadow-sm rounded-none hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
                             <div className="relative h-64 w-full bg-primary/5 overflow-hidden">
                                 <Image
                                     src="/images/private-office/bbc-private-office-suite-sofa-01.jpg.JPG"
-                                    alt="Unit 15m2 Bintaro Business Centre"
+                                    alt="Unit 16m2 Bintaro Business Centre"
                                     fill
                                     className="object-cover transition-transform duration-700 hover:scale-110"
                                 />
-                                <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest">Unit 15m²</div>
+                                <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest">Unit 16m²</div>
                             </div>
                             <div className="p-8 flex flex-col flex-1">
-                                <h3 className="text-2xl font-bold text-primary mb-2 font-heading">Unit 15m² – Untuk Tim 3–4 Orang</h3>
+                                <h3 className="text-2xl font-bold text-primary mb-2 font-heading">Unit 16m² – Untuk Tim 3–4 Orang</h3>
                                 <p className="text-charcoal/60 text-sm mb-8 font-light italic">Ruang lebih luas dengan area kolaborasi.</p>
 
                                 <div className="mb-8 flex-1">
@@ -306,7 +306,7 @@ export default function SewaKantorClient() {
                                 <Button
                                     variant="outline"
                                     className="w-full border-primary text-primary hover:bg-primary hover:text-white py-6 text-xs font-bold uppercase tracking-widest rounded-none transition-all duration-300"
-                                    onClick={() => trackEvent('cta_click', 'unit_availability_15m2')}
+                                    onClick={() => trackEvent('cta_click', 'unit_availability_16m2')}
                                     asChild
                                 >
                                     <a href={waUrl} target="_blank" rel="noopener noreferrer">Cek Ketersediaan Unit Ini</a>
@@ -372,17 +372,6 @@ export default function SewaKantorClient() {
                             />
                             <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                                 <p className="text-white font-bold text-[10px] uppercase tracking-widest">Executive Suite</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-square overflow-hidden shadow-lg group">
-                            <Image
-                                src="/images/sewa-kantor/ruangan-kantor-modern.png"
-                                alt="Koridor Kantor Modern BBC"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Akses Koridor Premium</p>
                             </div>
                         </div>
                         <div className="relative aspect-square overflow-hidden shadow-lg group">
