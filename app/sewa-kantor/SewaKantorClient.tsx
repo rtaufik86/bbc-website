@@ -134,11 +134,11 @@ export default function SewaKantorClient() {
                             </p>
                         </div>
 
-                        {/* Image */}
+                        {/* Image - Authentic Room Photo */}
                         <div className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px]">
-                            <div className="relative w-full h-full overflow-hidden shadow-2xl skew-y-0 group">
+                            <div className="relative w-full h-full overflow-hidden shadow-2xl group">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200"
+                                    src="/images/sewa-kantor/ruangan-kantor-utama.jpg"
                                     alt="Kantor siap pakai Bintaro Business Centre"
                                     fill
                                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -330,6 +330,87 @@ export default function SewaKantorClient() {
                 </div>
             </section>
 
+            {/* NEW: VISUALISASI RUANGAN (GALLERY) */}
+            <section className="py-24 lg:py-32 bg-white border-y border-primary/5">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                        <div className="max-w-2xl">
+                            <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Galeri Realita</span>
+                            <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-primary mb-6 font-heading">
+                                Visualisasi Ruangan Kantor BBC
+                            </h2>
+                            <p className="text-charcoal/60 font-light text-lg">
+                                Foto asli ruangan kami di Jakarta Selatan. Bukan mockup 3D, melainkan lingkungan kerja nyata yang siap Anda gunakan hari ini.
+                            </p>
+                        </div>
+                        <Button
+                            className="bg-accent text-white px-10 py-6 text-xs font-bold uppercase tracking-widest rounded-none shadow-xl shadow-accent/20 hover:bg-primary transition-all"
+                            asChild
+                        >
+                            <a href={waUrl} target="_blank" rel="noopener noreferrer">Minta Foto Unit Lainnya</a>
+                        </Button>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="lg:col-span-2 lg:row-span-2 relative aspect-square lg:aspect-auto overflow-hidden shadow-lg group">
+                            <Image
+                                src="/images/sewa-kantor/ruangan-kantor-staff.jpg"
+                                alt="Ruang Kerja Tim BBC"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                                <p className="text-white font-bold text-xs uppercase tracking-widest">Ruang Kerja Kolaboratif</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-square overflow-hidden shadow-lg group">
+                            <Image
+                                src="/images/sewa-kantor/ruangan-kantor-sofa.jpg"
+                                alt="Ruang Kantor dengan Area Sofa BBC"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Executive Suite</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-square overflow-hidden shadow-lg group">
+                            <Image
+                                src="/images/sewa-kantor/ruangan-kantor-modern.png"
+                                alt="Koridor Kantor Modern BBC"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Akses Koridor Premium</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-square overflow-hidden shadow-lg group">
+                            <Image
+                                src="/images/sewa-kantor/ruangan-kantor-minimalis.jpg"
+                                alt="Ruang Kantor Minimalis BBC"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Unit Minimalis & Fokus</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-square overflow-hidden shadow-lg group">
+                            <Image
+                                src="/images/sewa-kantor/ruangan-kantor-bersih.jpg"
+                                alt="Ruang Kantor Bersih BBC"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Profesional Environment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* D) WHAT'S INCLUDED (ALL-INCLUSIVE) */}
             <section className="py-24 lg:py-32 bg-white">
                 <div className="container mx-auto px-6">
@@ -386,8 +467,8 @@ export default function SewaKantorClient() {
                             <div className="absolute inset-0 border-[20px] border-bg-paper translate-x-10 translate-y-10"></div>
                             <div className="relative h-full w-full overflow-hidden shadow-2xl">
                                 <Image
-                                    src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG"
-                                    alt="Interior kantor siap pakai Bintaro Business Centre dengan meja kerja dan furniture profesional"
+                                    src="/images/sewa-kantor/ruangan-kantor-staff.jpg"
+                                    alt="Interior kantor siap pakai Bintaro Business Centre dengan tim profesional sedang bekerja"
                                     fill
                                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                                 />
