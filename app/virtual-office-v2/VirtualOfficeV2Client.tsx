@@ -43,7 +43,7 @@ export default function VirtualOfficeV2Client() {
             <section className="relative h-[70vh] flex items-center bg-primary overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                        src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG"
                         alt="Virtual Office Jakarta Selatan"
                         fill
                         className="object-cover opacity-60 grayscale-[20%]"
@@ -241,8 +241,8 @@ export default function VirtualOfficeV2Client() {
                             <div
                                 key={i}
                                 className={`relative group h-full flex flex-col p-8 lg:p-12 transition-all duration-500 rounded-none ${pkg.highlighted
-                                        ? 'bg-primary text-white shadow-[0_45px_100px_rgba(15,30,51,0.25)] border-transparent scale-105 z-20'
-                                        : 'bg-white text-primary border border-primary/5 hover:border-accent shadow-sm'
+                                    ? 'bg-primary text-white shadow-[0_45px_100px_rgba(15,30,51,0.25)] border-transparent scale-105 z-20'
+                                    : 'bg-white text-primary border border-primary/5 hover:border-accent shadow-sm'
                                     }`}
                             >
                                 {pkg.highlighted && (
@@ -269,8 +269,8 @@ export default function VirtualOfficeV2Client() {
                                 </ul>
                                 <Button
                                     className={`w-full py-7 font-black rounded-none h-auto uppercase tracking-widest text-[10px] transition-all duration-500 shadow-xl ${pkg.highlighted
-                                            ? 'bg-accent text-white hover:bg-white hover:text-primary shadow-accent/20'
-                                            : 'bg-primary text-white hover:bg-accent hover:shadow-accent/40'
+                                        ? 'bg-accent text-white hover:bg-white hover:text-primary shadow-accent/20'
+                                        : 'bg-primary text-white hover:bg-accent hover:shadow-accent/40'
                                         }`}
                                     asChild
                                 >

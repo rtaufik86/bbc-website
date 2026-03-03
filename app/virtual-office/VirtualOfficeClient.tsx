@@ -92,7 +92,7 @@ export default function VirtualOfficeClient() {
                         </div>
                         <div className="w-full lg:w-1/2 relative h-[400px] lg:h-[500px]">
                             <Image
-                                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                                src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG"
                                 alt="Virtual Office Jakarta Selatan Bintaro Business Centre"
                                 fill
                                 className="object-cover shadow-2xl transition-transform duration-1000"

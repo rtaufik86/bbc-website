@@ -400,6 +400,62 @@ export default function SewaKantorClient() {
                 </div>
             </section>
 
+            {/* NEW: RUANG MEETING PROFESIONAL (GALLERY) */}
+            <section className="py-24 lg:py-32 bg-bg-paper border-b border-primary/5">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-right lg:text-left">
+                        <div className="max-w-2xl lg:ml-0 ml-auto text-left w-full">
+                            <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Boardroom & Discussion</span>
+                            <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-primary mb-6 font-heading">
+                                Ruang Meeting Profesional
+                            </h2>
+                            <p className="text-charcoal/60 font-light text-lg">
+                                Fasilitas pertemuan yang mendukung kredibilitas bisnis Anda. Tersedia mulai dari Boardroom formal hingga Small Meeting Room yang nyaman.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
+                            <Image
+                                src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG"
+                                alt="Boardroom Bintaro Business Centre"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Formal Meeting</p>
+                                <p className="text-white font-bold text-lg uppercase tracking-tight">Main Boardroom</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
+                            <Image
+                                src="/images/meeting-room/small-meeting/bbc-meeting-room-small-roundtable-wide-01.jpg.JPG"
+                                alt="Small Meeting Room Bintaro Business Centre"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Private Discussion</p>
+                                <p className="text-white font-bold text-lg uppercase tracking-tight">Small Meeting Room</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
+                            <Image
+                                src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-front-01.jpg.JPG"
+                                alt="Boardroom Perspective Bintaro Business Centre"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Strategic Space</p>
+                                <p className="text-white font-bold text-lg uppercase tracking-tight">Executive Presentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* D) WHAT'S INCLUDED (ALL-INCLUSIVE) */}
             <section className="py-24 lg:py-32 bg-white">
                 <div className="container mx-auto px-6">
