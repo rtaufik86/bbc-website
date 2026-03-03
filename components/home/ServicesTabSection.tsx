@@ -14,7 +14,7 @@ const services = [
         description: 'Kantor private fully furnished siap digunakan hari pertama. Tanpa biaya setup, tanpa instalasi internet, tanpa beli furnitur — langsung operasional dengan internet bisnis stabil hingga 100 Mbps, listrik unlimited, AC, dan resepsionis profesional.',
         benefits: [
             'Tersedia lebih dari 70 unit di berbagai ukuran',
-            'Akses ruangan hingga pukul 22.00',
+            'Akses ruangan hingga pukul 20.00',
             'Dukungan resepsionis profesional di jam operasional'
         ],
         image: '/images/private-office/bbc-private-office-suite-sofa-01.jpg.JPG',

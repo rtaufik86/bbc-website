@@ -269,21 +269,22 @@ export default function HomePage() {
 
             {/* HERO SECTION */}
             <section className="relative flex flex-col md:min-h-[85vh] md:flex-row md:items-center md:justify-center pt-24 md:pt-20 bg-bg-paper overflow-hidden">
-                {/* Desktop Background (Hidden on Mobile usually, or kept as subtle pattern) */}
-                <div className="absolute inset-0 z-0 opacity-0 md:opacity-0 overflow-hidden">
+                {/* Desktop Background - Authentic Building Photo */}
+                <div className="absolute inset-0 z-0 opacity-20 overflow-hidden">
                     <Image
-                        src="/images/lobby/bbc-lobby-front-01.jpg.JPG"
-                        alt="Background Pattern"
+                        src="/images/foto-gedung-bbc.jpg"
+                        alt="Background Gedung Bintaro Business Centre"
                         fill
                         className="object-cover grayscale"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-b from-bg-paper via-transparent to-bg-paper" />
                 </div>
 
                 {/* Mobile-Only Full Width Image */}
                 <div className="w-full relative aspect-[4/3] md:hidden mb-8">
                     <Image
-                        src="/images/lobby/bbc-lobby-front-01.jpg.JPG"
-                        alt="Bintaro Business Centre Lobby"
+                        src="/images/foto-gedung-bbc.jpg"
+                        alt="Gedung Bintaro Business Centre Jakarta Selatan"
                         fill
                         className="object-cover"
                         priority

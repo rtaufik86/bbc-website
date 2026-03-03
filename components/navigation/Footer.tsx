@@ -85,7 +85,7 @@ export default function Footer() {
                             <li><Link href="/kontak" className="hover:text-white transition-colors py-1 block">Kontak</Link></li>
                         </ul>
                         <div className="mt-8 pt-4 border-t border-slate-800">
-                            <p className="text-[#D1D5DB] text-sm"><strong className="text-white">Akses Ruangan:</strong><br />24/7 untuk penyewa kantor</p>
+                            <p className="text-[#D1D5DB] text-sm"><strong className="text-white">Akses Ruangan:</strong><br />Hingga 20.00 untuk penyewa kantor</p>
                         </div>
                     </div>
                 </div>

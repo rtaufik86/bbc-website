@@ -148,7 +148,7 @@ export default function SewaKantorPage() {
                         "name": "Bagaimana jam akses untuk klien?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 22.00 WIB di ruangan sesuai kebijakan operasional yang berlaku. Kami tidak menyediakan akses 24 jam dengan kartu saat ini."
+                            "text": "Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 20.00 WIB di ruangan sesuai kebijakan operasional yang berlaku. Kami tidak menyediakan akses 24 jam dengan kartu saat ini."
                         }
                     },
                     {

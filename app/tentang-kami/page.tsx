@@ -117,8 +117,8 @@ export default function TentangKamiPage() {
                             </div>
                             <div className="mt-12 relative aspect-video overflow-hidden shadow-2xl skew-x-3">
                                 <Image
-                                    src="/images/lobby/bbc-lobby-front-01.jpg.JPG"
-                                    alt="Bintaro Business Centre Interior"
+                                    src="/images/foto-gedung-bbc.jpg"
+                                    alt="Gedung Bintaro Business Centre Jakarta Selatan"
                                     fill
                                     className="object-cover"
                                 />

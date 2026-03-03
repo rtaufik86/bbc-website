@@ -100,8 +100,8 @@ export default function FasilitasKantorPage() {
                         </div>
                         <div className="relative aspect-square shadow-3xl overflow-hidden">
                             <Image
-                                src="/images/lobby/bbc-lobby-front-01.jpg.JPG"
-                                alt="BBC Building Facilities"
+                                src="/images/foto-gedung-bbc.jpg"
+                                alt="Gedung Bintaro Business Centre Jakarta Selatan"
                                 fill
                                 className="object-cover"
                             />

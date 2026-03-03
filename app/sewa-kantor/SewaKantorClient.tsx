@@ -130,7 +130,7 @@ export default function SewaKantorClient() {
                             </div>
 
                             <p className="text-[10px] text-charcoal/40 font-medium uppercase tracking-widest flex items-center gap-2 italic">
-                                💡 Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 22.00 WIB di ruangan.
+                                💡 Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 20.00 WIB di ruangan.
                             </p>
                         </div>
 
@@ -350,7 +350,7 @@ export default function SewaKantorClient() {
                                     { icon: <CheckCircle2 className="w-5 h-5 text-accent" />, title: 'Resepsionis profesional', desc: 'Sambut tamu & terima telepon' },
                                     { icon: <CheckCircle2 className="w-5 h-5 text-accent" />, title: 'Pantry', desc: 'Area coffee break' },
                                     { icon: <CheckCircle2 className="w-5 h-5 text-accent" />, title: 'Handling surat & paket', desc: 'Terima dan simpan kiriman Anda' },
-                                    { icon: <CheckCircle2 className="w-5 h-5 text-accent" />, title: 'Akses klien hingga 22.00', desc: 'Fleksibilitas di luar jam standar' }
+                                    { icon: <CheckCircle2 className="w-5 h-5 text-accent" />, title: 'Akses klien hingga 20.00', desc: 'Fleksibilitas di luar jam standar' }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
                                         <div className="shrink-0 mt-1">{item.icon}</div>
@@ -616,7 +616,7 @@ export default function SewaKantorClient() {
                             },
                             {
                                 q: "Bagaimana jam akses untuk klien?",
-                                a: "Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 22.00 WIB di ruangan sesuai kebijakan operasional yang berlaku. Kami tidak menyediakan akses 24 jam dengan kartu saat ini."
+                                a: "Jam operasional admin hingga 17.00 WIB. Klien dapat bekerja hingga 20.00 WIB di ruangan sesuai kebijakan operasional yang berlaku. Kami tidak menyediakan akses 24 jam dengan kartu saat ini."
                             },
                             {
                                 q: "Dokumen apa yang dibutuhkan untuk mulai sewa?",

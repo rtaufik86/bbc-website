@@ -147,8 +147,8 @@ export default function KlienTestimoniPage() {
                         </div>
                         <div className="relative aspect-square grayscale hover:grayscale-0 transition-all duration-1000 shadow-3xl overflow-hidden border border-primary/5">
                             <Image
-                                src="/images/lobby/bbc-lobby-front-01.jpg.JPG"
-                                alt="BBC Trusted Environments"
+                                src="/images/foto-gedung-bbc.jpg"
+                                alt="Gedung Bintaro Business Centre"
                                 fill
                                 className="object-cover"
                             />
