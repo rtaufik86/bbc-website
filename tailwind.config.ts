@@ -69,11 +69,11 @@ const config: Config = {
                 }
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                heading: ['Playfair Display', 'serif'],
-                serif: ['Playfair Display', 'serif'], // Added for compatibility with reference class 'serif'
+                sans: ['var(--font-inter)', 'sans-serif'],
+                heading: ['var(--font-poppins)', 'var(--font-playfair)', 'serif'],
+                serif: ['var(--font-playfair)', 'serif'],
                 mono: ['JetBrains Mono', 'monospace'],
-                display: ['Playfair Display', 'serif'], // Added for compatibility with reference class 'font-display'
+                display: ['var(--font-playfair)', 'serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -39,11 +40,15 @@ export default function Header() {
                 {/* Left: Logo Section */}
                 <div className="flex justify-start">
                     <Link href="/">
-                        <img
-                            src="/images/logo.png"
-                            alt="Bintaro Business Centre"
-                            className="h-10 w-auto brightness-0 invert"
-                        />
+                        <div className="relative h-10 w-[160px]"> {/* explicit width to prevent shift */}
+                            <Image
+                                src="/images/logo.png"
+                                alt="Bintaro Business Centre"
+                                fill
+                                className="object-contain brightness-0 invert"
+                                priority
+                            />
+                        </div>
                     </Link>
                 </div>
 

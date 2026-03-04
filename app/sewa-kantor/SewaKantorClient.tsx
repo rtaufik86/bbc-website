@@ -23,6 +23,11 @@ import {
     Users,
     Layout
 } from 'lucide-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
 import {
@@ -330,17 +335,57 @@ export default function SewaKantorClient() {
                 </div>
             </section>
 
-            {/* NEW: VISUALISASI RUANGAN (GALLERY) */}
-            <section className="py-24 lg:py-32 bg-white border-y border-primary/5">
+            {/* NEW: VISUALISASI FASILITAS & LINGKUNGAN KERJA (COMBINED SLIDER) */}
+            <section className="py-24 lg:py-32 bg-white border-y border-primary/5 overflow-hidden">
+                <style jsx global>{`
+                    .viz-slider {
+                        padding-bottom: 60px !important;
+                    }
+                    .viz-slider .swiper-button-prev,
+                    .viz-slider .swiper-button-next {
+                        color: #B08B3E;
+                        background: white;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                        transition: all 0.3s ease;
+                        display: none !important;
+                    }
+                    @media (min-width: 768px) {
+                        .viz-slider .swiper-button-prev,
+                        .viz-slider .swiper-button-next {
+                            display: flex !important;
+                        }
+                    }
+                    .viz-slider .swiper-button-prev:hover,
+                    .viz-slider .swiper-button-next:hover {
+                        background: #B08B3E;
+                        color: white;
+                    }
+                    .viz-slider .swiper-pagination-bullet {
+                        background: #B08B3E;
+                        opacity: 0.3;
+                        width: 12px;
+                        height: 12px;
+                    }
+                    .viz-slider .swiper-pagination-bullet-active {
+                        opacity: 1;
+                        background: #B08B3E;
+                        width: 30px;
+                        border-radius: 6px;
+                    }
+                `}</style>
+
                 <div className="container mx-auto px-6">
-                    <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
-                        <div className="max-w-2xl">
-                            <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Galeri Realita</span>
+                    <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-left">
+                        <div className="max-w-3xl">
+                            <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Eksklusivitas Fasilitas</span>
                             <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-primary mb-6 font-heading">
-                                Visualisasi Ruangan Kantor BBC
+                                Galeri Fasilitas & Lingkungan Kerja
                             </h2>
                             <p className="text-charcoal/60 font-light text-lg">
-                                Foto asli ruangan kami di Jakarta Selatan. Bukan mockup 3D, melainkan lingkungan kerja nyata yang siap Anda gunakan hari ini.
+                                Foto asli ruangan kantor dan ruang meeting kami di Jakarta Selatan. Bukan mockup 3D, melainkan lingkungan kerja nyata yang siap mendukung profesionalisme bisnis Anda hari ini.
                             </p>
                         </div>
                         <Button
@@ -351,108 +396,66 @@ export default function SewaKantorClient() {
                         </Button>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div className="lg:col-span-2 lg:row-span-2 relative aspect-square lg:aspect-auto overflow-hidden shadow-lg group">
-                            <Image
-                                src="/images/sewa-kantor/ruangan-kantor-staff.jpg"
-                                alt="Ruang Kerja Tim BBC"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                                <p className="text-white font-bold text-xs uppercase tracking-widest">Ruang Kerja Kolaboratif</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-square overflow-hidden shadow-lg group">
-                            <Image
-                                src="/images/sewa-kantor/ruangan-kantor-sofa.jpg"
-                                alt="Ruang Kantor dengan Area Sofa BBC"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Executive Suite</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-square overflow-hidden shadow-lg group">
-                            <Image
-                                src="/images/sewa-kantor/ruangan-kantor-minimalis.jpg"
-                                alt="Ruang Kantor Minimalis BBC"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Unit Minimalis & Fokus</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-square overflow-hidden shadow-lg group">
-                            <Image
-                                src="/images/sewa-kantor/ruangan-kantor-bersih.jpg"
-                                alt="Ruang Kantor Bersih BBC"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                                <p className="text-white font-bold text-[10px] uppercase tracking-widest">Profesional Environment</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* NEW: RUANG MEETING PROFESIONAL (GALLERY) */}
-            <section className="py-24 lg:py-32 bg-bg-paper border-b border-primary/5">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-right lg:text-left">
-                        <div className="max-w-2xl lg:ml-0 ml-auto text-left w-full">
-                            <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Boardroom & Discussion</span>
-                            <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-primary mb-6 font-heading">
-                                Ruang Meeting Profesional
-                            </h2>
-                            <p className="text-charcoal/60 font-light text-lg">
-                                Fasilitas pertemuan yang mendukung kredibilitas bisnis Anda. Tersedia mulai dari Boardroom formal hingga Small Meeting Room yang nyaman.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
-                            <Image
-                                src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG"
-                                alt="Boardroom Bintaro Business Centre"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Formal Meeting</p>
-                                <p className="text-white font-bold text-lg uppercase tracking-tight">Main Boardroom</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
-                            <Image
-                                src="/images/meeting-room/small-meeting/bbc-meeting-room-small-roundtable-wide-01.jpg.JPG"
-                                alt="Small Meeting Room Bintaro Business Centre"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Private Discussion</p>
-                                <p className="text-white font-bold text-lg uppercase tracking-tight">Small Meeting Room</p>
-                            </div>
-                        </div>
-                        <div className="relative aspect-[4/3] overflow-hidden shadow-xl group">
-                            <Image
-                                src="/images/meeting-room/boardroom/bbc-meeting-room-boardroom-front-01.jpg.JPG"
-                                alt="Boardroom Perspective Bintaro Business Centre"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                                <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-2">Strategic Space</p>
-                                <p className="text-white font-bold text-lg uppercase tracking-tight">Executive Presentation</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Swiper
+                        modules={[Navigation, Pagination, Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
+                        breakpoints={{
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 2.5 }
+                        }}
+                        className="viz-slider"
+                    >
+                        {[
+                            {
+                                src: "/images/sewa-kantor/ruangan-kantor-staff.jpg",
+                                alt: "Ruang Kerja Tim BBC",
+                                title: "Ruang Kerja Kolaboratif"
+                            },
+                            {
+                                src: "/images/sewa-kantor/ruangan-kantor-sofa.jpg",
+                                alt: "Ruang Kantor dengan Area Sofa BBC",
+                                title: "Executive Suite"
+                            },
+                            {
+                                src: "/images/sewa-kantor/ruangan-kantor-minimalis.jpg",
+                                alt: "Ruang Kantor Minimalis BBC",
+                                title: "Unit Minimalis & Fokus"
+                            },
+                            {
+                                src: "/images/sewa-kantor/ruangan-kantor-bersih.jpg",
+                                alt: "Ruang Kantor Bersih BBC",
+                                title: "Profesional Environment"
+                            },
+                            {
+                                src: "/images/meeting-room/boardroom/bbc-meeting-room-boardroom-wide-01.jpg.JPG",
+                                alt: "Boardroom Bintaro Business Centre",
+                                title: "Main Boardroom (Formal Meeting)"
+                            },
+                            {
+                                src: "/images/meeting-room/small-meeting/bbc-meeting-room-small-roundtable-wide-01.jpg.JPG",
+                                alt: "Small Meeting Room Bintaro Business Centre",
+                                title: "Small Meeting Room (Private Discussion)"
+                            }
+                        ].map((img, idx) => (
+                            <SwiperSlide key={idx}>
+                                <div className="relative aspect-video overflow-hidden shadow-lg group bg-primary/5">
+                                    <Image
+                                        src={img.src}
+                                        alt={img.alt}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                        <p className="text-white font-bold text-sm uppercase tracking-widest">{img.title}</p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </section>
 

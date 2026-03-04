@@ -5,6 +5,27 @@ import WhatsAppFloating from '@/components/cta/WhatsAppFloating'
 import Script from 'next/script'
 import './globals.css'
 
+import { Inter, Poppins, Playfair_Display } from 'next/font/google'
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-inter',
+})
+
+const poppins = Poppins({
+    weight: ['700'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-poppins',
+})
+
+const playfair = Playfair_Display({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-playfair',
+})
+
 export const metadata: Metadata = {
     metadataBase: new URL('https://bintarobusinesscentre.com'),
     title: {
@@ -31,30 +52,34 @@ export const metadata: Metadata = {
 
 const globalSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Bintaro Business Centre",
-    "legalName": "PT. Ganesha Dwipaya Bhakti",
-    "url": "https://www.bintarobusinesscentre.com",
-    "logo": "https://www.bintarobusinesscentre.com/logo.png",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. RC. Veteran No. 1-i",
-        "addressLocality": "Pesanggrahan",
-        "addressRegion": "Jakarta Selatan",
-        "postalCode": "12330",
-        "addressCountry": "ID"
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-6.2721934",
-        "longitude": "106.7599445"
-    },
-    "telephone": "+62-21-7362639",
-    "openingHours": "Mon-Fri 09:00-17:00, Sat 09:00-15:00",
-    "sameAs": [
-        "https://www.facebook.com/bintarobusinesscenter",
-        "https://www.instagram.com/bintarobusinesscenter",
-        "https://www.linkedin.com/company/bintarobusinesscenter"
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Bintaro Business Centre",
+            "legalName": "PT. Ganesha Dwipaya Bhakti",
+            "url": "https://www.bintarobusinesscentre.com",
+            "logo": "https://www.bintarobusinesscentre.com/logo.png",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jl. RC. Veteran No. 1-i",
+                "addressLocality": "Pesanggrahan",
+                "addressRegion": "Jakarta Selatan",
+                "postalCode": "12330",
+                "addressCountry": "ID"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "-6.2721934",
+                "longitude": "106.7599445"
+            },
+            "telephone": "+62-21-7362639",
+            "openingHours": "Mon-Fri 09:00-17:00, Sat 09:00-15:00",
+            "sameAs": [
+                "https://www.facebook.com/bintarobusinesscenter",
+                "https://www.instagram.com/bintarobusinesscenter",
+                "https://www.linkedin.com/company/bintarobusinesscenter"
+            ]
+        }
     ]
 }
 
@@ -64,7 +89,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="id" className="scroll-smooth">
+        <html lang="id" className={`${inter.variable} ${poppins.variable} ${playfair.variable} scroll-smooth`}>
             <head>
                 {/* Google Tag Manager - Head */}
                 <Script id="gtm-head" strategy="afterInteractive">
@@ -77,23 +102,19 @@ export default function RootLayout({
                     `}
                 </Script>
 
-                {/* Organization Schema */}
+                {/* Global Schema */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(globalSchema) }}
                 />
-                {/* Google Fonts Preconnect */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 
-                {/* Placeholder for Meta Pixel */}
+                {/* Meta Pixel */}
                 <Script id="meta-pixel" strategy="afterInteractive">
                     {`
                   !function(f,b,e,v,n,t,s)
                   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                  if(!f._fbq)f._fbq=n;n.push(n);n.loaded=!0;n.version='2.0';
                   n.queue=[];t=b.createElement(e);t.async=!0;
                   t.src=v;s=b.getElementsByTagName(e)[0];
                   s.parentNode.insertBefore(t,s)}(window, document,'script',

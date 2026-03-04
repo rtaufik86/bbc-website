@@ -17,7 +17,7 @@ const services = [
             'Akses ruangan hingga pukul 20.00',
             'Dukungan resepsionis profesional di jam operasional'
         ],
-        image: '/images/private-office/bbc-private-office-suite-sofa-01.jpg.JPG',
+        image: '/images/private-office/bbc-private-office-suite-sofa-01.jpg',
         link: '/sewa-kantor',
         cta: 'Lihat Ketersediaan Ruangan'
     },
@@ -31,7 +31,7 @@ const services = [
             'Surat keterangan domisili untuk keperluan legal',
             'Layanan penerusan surat'
         ],
-        image: '/images/private-office/bbc-private-office-suite-workdesk-01.jpg.JPG',
+        image: '/images/private-office/bbc-private-office-suite-workdesk-01.jpg',
         link: '/virtual-office',
         cta: 'Pelajari Paket Virtual Office'
     },
@@ -45,7 +45,7 @@ const services = [
             'Pengurusan NIB, SIUP, dan izin operasional',
             'Konsultasi gratis untuk kebutuhan legalitas bisnis'
         ],
-        image: '/images/private-office/bbc-private-office-suite-wide-01.jpg.JPG',
+        image: '/images/private-office/bbc-private-office-suite-wide-01.jpg',
         link: '/legal/pendirian-pt-jakarta-selatan',
         cta: 'Konsultasi Legal Gratis'
     }
@@ -79,7 +79,7 @@ export default function ServicesTabSection() {
                 </div>
 
                 {/* Interactive Content Area */}
-                <div className="bg-white border-t-2 border-accent shadow-sm min-h-[800px] flex flex-col relative overflow-hidden">
+                <div className="bg-white border-t-2 border-accent shadow-sm min-h-[600px] md:min-h-[800px] flex flex-col relative overflow-hidden">
 
                     {/* Content Area with SEO-friendly rendering (all items in DOM) */}
                     <div className="relative flex-grow flex flex-col justify-center">

@@ -57,7 +57,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
 
   /* Global Hyperlink Standard - Body Text Only */
@@ -84,7 +84,7 @@
   h5,
   h6 {
     @apply font-bold tracking-tight text-[#0F1E33];
-    font-family: var(--font-heading, 'Inter'), sans-serif;
+    font-family: var(--font-poppins), var(--font-playfair), sans-serif;
   }
 
   /* Global Button Standards - Corporate Rules */

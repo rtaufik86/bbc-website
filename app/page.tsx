@@ -268,19 +268,20 @@ export default function HomePage() {
             />
 
             {/* HERO SECTION */}
-            <section className="relative flex flex-col md:min-h-[85vh] md:flex-row md:items-center md:justify-center pt-24 md:pt-20 bg-bg-paper overflow-hidden">
+            <section className="relative flex flex-col md:min-h-[85vh] md:flex-row md:items-center md:justify-center pt-24 md:pt-20 bg-[#FAFAF8] overflow-hidden">
                 {/* Desktop Background - Authentic Building Photo */}
-                <div className="absolute inset-0 z-0 opacity-20 overflow-hidden">
+                <div className="absolute inset-0 z-0 opacity-20 hidden md:block overflow-hidden">
                     <Image
                         src="/images/foto-gedung-bbc.jpg"
                         alt="Background Gedung Bintaro Business Centre"
                         fill
                         className="object-cover grayscale"
+                        sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-bg-paper via-transparent to-bg-paper" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAF8] via-transparent to-[#FAFAF8]" />
                 </div>
 
-                {/* Mobile-Only Full Width Image */}
+                {/* Mobile-Only Full Width Image - Optimized for LCP */}
                 <div className="w-full relative aspect-[4/3] md:hidden mb-8">
                     <Image
                         src="/images/foto-gedung-bbc.jpg"
@@ -288,6 +289,7 @@ export default function HomePage() {
                         fill
                         className="object-cover"
                         priority
+                        sizes="100vw"
                     />
                 </div>
 
