@@ -65,7 +65,9 @@ export default function VirtualOfficeClient() {
                         <div className="w-full lg:w-1/2">
                             <span className="inline-block text-accent font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">Solusi Efisiensi Bisnis</span>
                             <h1 className="text-4xl lg:text-6xl font-bold text-primary leading-[1.1] mb-8 font-heading">
-                                Virtual Office Jakarta Selatan – <span className="text-accent underline decoration-accent/30 underline-offset-8">Alamat Bisnis Resmi untuk Perusahaan Non-PKP</span>
+                                Virtual Office Jakarta Selatan — <br />
+                                <span className="text-accent underline decoration-accent/30 underline-offset-8">Alamat Bisnis Resmi</span> <br />
+                                Tanpa Biaya Kantor Fisik
                             </h1>
                             <p className="text-lg text-charcoal/70 mb-10 leading-relaxed max-w-2xl font-light">
                                 Alamat profesional di Jakarta Selatan untuk pendirian PT/CV Non-PKP, NIB, dan NPWP—tanpa biaya kantor fisik. Beroperasi sejak 2007.
@@ -428,37 +430,63 @@ export default function VirtualOfficeClient() {
                 </div>
             </section>
 
-            {/* H) LOCATION */}
+            {/* H) LOCATION & ACCESS Styled Map */}
             <section className="py-24 lg:py-32 bg-primary text-white">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-12 gap-16 items-center">
                         <div className="lg:col-span-12 text-center mb-16">
                             <span className="text-accent font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">Aksesibilitas</span>
-                            <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-bold mb-8 font-heading text-white">Lokasi Strategis di Jakarta Selatan – Alamat Bisnis Resmi DKI Jakarta</h2>
+                            <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-bold mb-8 font-heading text-white">
+                                Lokasi Strategis di Jakarta Selatan – Alamat Bisnis Resmi DKI Jakarta
+                            </h2>
                             <p className="text-white/70 text-lg max-w-4xl mx-auto font-light leading-relaxed">
-                                Bintaro Business Centre berlokasi di Jakarta Selatan—bukan Tangerang Selatan. Ini memberikan keunggulan administratif signifikan untuk perusahaan yang memerlukan domisili DKI Jakarta.
-                                <br /><br />
-                                Bintaro Business Centre berlokasi di Pesanggrahan, Jakarta Selatan, dengan akses langsung melalui Pintu Tol Veteran dan Jalan RC Veteran Raya. Kawasan ini berada di perbatasan strategis antara Bintaro Jaya dan Pondok Indah, memberikan keunggulan alamat administratif DKI Jakarta dengan konektivitas tinggi ke area bisnis utama. Klien dari Rempoa dan sekitarnya juga dapat mengakses lokasi kami dalam hitungan menit.
+                                Bintaro Business Centre (Pesanggrahan, Jakarta Selatan) memberikan keunggulan alamat administratif DKI Jakarta yang penting untuk legalitas perusahaan. Terletak strategis dengan akses cepat ke kawasan bisnis dan perumahan premium.
                             </p>
                         </div>
 
-                        <div className="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {[
-                                { title: 'Pintu Tol Veteran', desc: '5 menit' },
-                                { title: 'Bintaro Jaya', desc: 'Akses langsung' },
-                                { title: 'Pondok Indah', desc: '15 menit' },
-                                { title: 'Rempoa', desc: 'Area sekitar' }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-white/10 p-6 border border-white/20 text-center">
-                                    <h4 className="text-accent font-bold text-lg mb-2">{item.title}</h4>
-                                    <p className="text-white/70 text-sm">{item.desc}</p>
+                        <div className="lg:col-span-5 space-y-12">
+                            <div>
+                                <h6 className="text-[10px] font-bold text-accent uppercase tracking-widest mb-6 border-b border-accent/20 pb-3">Akses Utama:</h6>
+                                <ul className="space-y-4">
+                                    {[
+                                        'Pintu Tol Veteran – Koneksi langsung dari Jakarta Pusat, Selatan, dan Tangerang',
+                                        'RC Veteran Raya – Arteri utama dengan akses mudah dari arah Bintaro Jaya',
+                                        'Dekat area bisnis Cilandak, Kebayoran Lama, dan Pondok Indah'
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-4 items-center">
+                                            <MapPin className="w-4 h-4 text-accent" />
+                                            <span className="text-sm font-medium text-white/80">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 className="text-[10px] font-bold text-accent uppercase tracking-widest mb-6 border-b border-accent/20 pb-3">Nearby Points:</h6>
+                                <div className="grid grid-cols-2 gap-4">
+                                    {['Pondok Indah', 'Bintaro Jaya', 'Rempoa', 'Tanah Kusir', 'RS Fatmawati', 'PIM & BXC'].map((item, i) => (
+                                        <div key={i} className="bg-white/5 p-4 border border-white/10 flex items-center gap-3">
+                                            <Check className="w-4 h-4 text-accent" />
+                                            <span className="text-[10px] font-bold uppercase tracking-wider">{item}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        <div className="lg:col-span-12 text-center mt-8">
-                            <p className="text-white/40 text-xs font-medium italic">
-                                Lokasi di perbatasan memberikan fleksibilitas geografis tanpa mengorbankan status administratif DKI.
+                            </div>
+                            <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold italic border-l-2 border-accent/30 pl-6 py-2">
+                                Lokasi di perbatasan memberikan fleksibilitas geografis tanpa mengorbankan status administratif DKI Jakarta.
                             </p>
+                        </div>
+
+                        <div className="lg:col-span-7 h-[500px] border border-white/10 relative overflow-hidden group">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.90382379!2d106.7644!3d-6.2764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f032231dc913%3A0xf6039556d0d26733!2sBintaro%20Business%20Centre!5e0!3m2!1sid!2sid!4v1709600000000!5m2!1sid!2sid"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(85%)' }}
+                                allowFullScreen
+                                loading="lazy"
+                                className="opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+                            ></iframe>
+                            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-primary via-transparent to-transparent"></div>
                         </div>
                     </div>
                 </div>
