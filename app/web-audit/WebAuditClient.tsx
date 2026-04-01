@@ -64,9 +64,9 @@ interface AuditPage {
     breadcrumb: boolean;
     firstMoneyLinkBefore300: boolean;
     crossSiloLinks: number;
-    anchorDistribution: Record<string, number>;
+    anchorDistribution: Record<string, any>;
     orphanRisk: boolean;
-    status: 'Green' | 'Yellow' | 'Red';
+    status: string;
 }
 
 interface WebAuditClientProps {
