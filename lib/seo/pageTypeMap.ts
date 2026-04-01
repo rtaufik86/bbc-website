@@ -64,18 +64,6 @@ export const PAGE_TYPE_MAP: Record<string, PageConfig> = {
     },
 
     // WEAPON PAGES - LEGAL
-    '/virtual-office-jakarta-selatan': { 
-        type: 'weapon', 
-        entity: 'Virtual Office Jakarta Selatan',
-        title: 'Virtual Office Jakarta Selatan: Fungsi & Implikasi Legalitas',
-        description: 'Peran virtual office di Jakarta Selatan dalam struktur perizinan usaha. Implikasi domisili DKI untuk NIB, NPWP, pendirian PT, dan kelancaran administrasi.'
-    },
-    '/alamat-bisnis-jakarta-selatan': { 
-        type: 'weapon', 
-        entity: 'Alamat Bisnis Jakarta Selatan',
-        title: 'Alamat Bisnis Jakarta Selatan: Implikasi Administratif & Legalitas',
-        description: 'Pemilihan domisili mempengaruhi aspek legalitas, perizinan, dan operasional bisnis. Gambaran implikasi administratif alamat bisnis di Jakarta Selatan.'
-    },
     '/virtual-office/jakarta-selatan': { 
         type: 'weapon', 
         entity: 'Virtual Office Jakarta Selatan',
@@ -122,13 +110,6 @@ export const PAGE_TYPE_MAP: Record<string, PageConfig> = {
         title: 'Sewa Kantor Murah Jakarta Selatan: Kelebihan & Keterbatasan',
         description: 'Perbedaan model kantor berbiaya rendah di Jakarta Selatan. Kelebihan dan keterbatasan yang membentuk nilai riil dari tiap pilihan fasilitas dan infrastruktur.'
     },
-    '/sewa-kantor-jakarta-selatan': { 
-        type: 'weapon', 
-        entity: 'Sewa Kantor Jakarta Selatan',
-        title: 'Sewa Kantor Jakarta Selatan: Pertimbangan yang Sering Diabaikan',
-        description: 'Evaluasi kelayakan kantor di Jakarta Selatan dari sisi lokasi, legalitas domisili, dan infrastruktur. Faktor yang membentuk keputusan operasional jangka panjang.'
-    },
-
     // WEAPON PAGES - GEO
     '/kantor-dekat-bintaro-jaya': { 
         type: 'weapon', 
@@ -140,7 +121,7 @@ export const PAGE_TYPE_MAP: Record<string, PageConfig> = {
         type: 'weapon', 
         entity: 'Kantor Dekat Tol Veteran',
         title: 'Kantor Dekat Tol Veteran Jakarta Selatan | Konektivitas & Akses',
-        description: 'Konektivitas dan infrastruktur bisnis di sekitar Pintu Tol Veteran, Jakarta Selatan. Akses JORR W2S menuju Pondok Indah, Bintaro, dan koridor selatan.'
+        description: 'Konektivitas and infrastruktur bisnis di sekitar Pintu Tol Veteran, Jakarta Selatan. Akses JORR W2S menuju Pondok Indah, Bintaro, and koridor selatan.'
     },
 
     // HUB PAGES

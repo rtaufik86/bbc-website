@@ -737,7 +737,7 @@ export default function VirtualOfficeClient() {
                     </div>
                     <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
-                            <Link href="/virtual-office-jakarta-selatan">Virtual Office Jakarta Selatan</Link>
+                            <Link href="/virtual-office/jakarta-selatan">Virtual Office Jakarta Selatan</Link>
                         </Button>
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
                             <Link href="/virtual-office-bintaro">Virtual Office Bintaro</Link>
@@ -746,7 +746,7 @@ export default function VirtualOfficeClient() {
                             <Link href="/harga-virtual-office-jakarta-selatan">Harga VO Jakarta Selatan</Link>
                         </Button>
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
-                            <Link href="/alamat-bisnis-jakarta-selatan">Alamat Bisnis & Legalitas</Link>
+                            <Link href="/virtual-office/alamat-bisnis-jakarta-selatan">Alamat Bisnis & Legalitas</Link>
                         </Button>
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
                             <Link href="/harga-virtual-office">Risiko Harga Murah</Link>

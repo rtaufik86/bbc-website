@@ -172,7 +172,7 @@
       "recommendations": []
     },
     {
-      "path": "/alamat-bisnis-jakarta-selatan",
+      "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "title": "Alamat Bisnis Jakarta Selatan: Implikasi Administratif & Legalitas",
       "pageType": "weapon",
       "cluster": "virtual-office",
@@ -181,18 +181,14 @@
       "hasBreadcrumb": true,
       "orphanRisk": false,
       "inboundCount": 4,
-      "outboundCount": 1,
-      "contextualOutboundCount": 1,
-      "crossClusterOutboundCount": 0,
+      "outboundCount": 4,
+      "contextualOutboundCount": 4,
+      "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 11.5,
-      "status": "red",
-      "warnings": [
-        "Weapon page outbound < 3"
-      ],
+      "authorityScore": 19,
+      "status": "green",
+      "warnings": [],
       "recommendations": [
-        "🔗 Link to /virtual-office-bintaro (Strong Sibling)",
-        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Weak Sibling)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
       ]
     },
@@ -672,12 +668,12 @@
       "inSitemap": true,
       "hasBreadcrumb": true,
       "orphanRisk": false,
-      "inboundCount": 2,
-      "outboundCount": 5,
-      "contextualOutboundCount": 4,
+      "inboundCount": 3,
+      "outboundCount": 6,
+      "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 15,
+      "authorityScore": 20.5,
       "status": "yellow",
       "warnings": [
         "First money link not < 300 words"
@@ -758,7 +754,7 @@
       ]
     },
     {
-      "path": "/sewa-kantor-jakarta-selatan",
+      "path": "/sewa-kantor/jakarta-selatan",
       "title": "Sewa Kantor Jakarta Selatan: Pertimbangan yang Sering Diabaikan",
       "pageType": "weapon",
       "cluster": "sewa-kantor",
@@ -766,19 +762,15 @@
       "inSitemap": true,
       "hasBreadcrumb": true,
       "orphanRisk": false,
-      "inboundCount": 1,
-      "outboundCount": 1,
-      "contextualOutboundCount": 1,
+      "inboundCount": 3,
+      "outboundCount": 6,
+      "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 5.5,
-      "status": "red",
-      "warnings": [
-        "Weapon page outbound < 3"
-      ],
+      "authorityScore": 20.5,
+      "status": "green",
+      "warnings": [],
       "recommendations": [
-        "🔗 Link to /kantor-dekat-tol-veteran (Strong Sibling)",
-        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Weak Sibling)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
       ]
     },
@@ -831,16 +823,15 @@
       "inSitemap": true,
       "hasBreadcrumb": true,
       "orphanRisk": true,
-      "inboundCount": 0,
-      "outboundCount": 3,
-      "contextualOutboundCount": 3,
+      "inboundCount": 4,
+      "outboundCount": 4,
+      "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 2.5,
+      "authorityScore": 14,
       "status": "red",
       "warnings": [
-        "Orphan Page",
-        "Indexable but 0 Inbound Links"
+        "Orphan Page"
       ],
       "recommendations": [
         "🎯 Request inbound link from /virtual-office",
@@ -856,12 +847,12 @@
       "inSitemap": true,
       "hasBreadcrumb": true,
       "orphanRisk": false,
-      "inboundCount": 1,
-      "outboundCount": 3,
-      "contextualOutboundCount": 3,
+      "inboundCount": 5,
+      "outboundCount": 4,
+      "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 11.5,
+      "authorityScore": 23,
       "status": "green",
       "warnings": [],
       "recommendations": [
@@ -885,9 +876,7 @@
       "authorityScore": 90,
       "status": "green",
       "warnings": [],
-      "recommendations": [
-        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Boost Weak Weapon)"
-      ]
+      "recommendations": []
     },
     {
       "path": "/virtual-office-bintaro",
@@ -911,7 +900,7 @@
       ]
     },
     {
-      "path": "/virtual-office-jakarta-selatan",
+      "path": "/virtual-office/jakarta-selatan",
       "title": "Virtual Office Jakarta Selatan: Fungsi & Implikasi Legalitas",
       "pageType": "weapon",
       "cluster": "virtual-office",
@@ -919,19 +908,15 @@
       "inSitemap": true,
       "hasBreadcrumb": true,
       "orphanRisk": false,
-      "inboundCount": 4,
-      "outboundCount": 1,
-      "contextualOutboundCount": 1,
-      "crossClusterOutboundCount": 0,
+      "inboundCount": 5,
+      "outboundCount": 4,
+      "contextualOutboundCount": 4,
+      "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 11.5,
-      "status": "red",
-      "warnings": [
-        "Weapon page outbound < 3"
-      ],
+      "authorityScore": 23,
+      "status": "green",
+      "warnings": [],
       "recommendations": [
-        "🔗 Link to /virtual-office-bintaro (Strong Sibling)",
-        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Weak Sibling)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
       ]
     },
@@ -984,7 +969,7 @@
       "positionBucket": "late"
     },
     {
-      "from": "/alamat-bisnis-jakarta-selatan",
+      "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "to": "/virtual-office",
       "anchorText": "BBC menyediakan virtual office di Jakarta Selatan",
       "linkType": "contextual",
@@ -1165,7 +1150,7 @@
     },
     {
       "from": "/harga-virtual-office-jakarta-selatan",
-      "to": "/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "anchorText": "Fungsi alamat bisnis Jakarta Selatan",
       "linkType": "contextual",
       "isCrossCluster": true,
@@ -1786,7 +1771,7 @@
     },
     {
       "from": "/",
-      "to": "/virtual-office-jakarta-selatan",
+      "to": "/virtual-office/jakarta-selatan",
       "anchorText": "paket VO Jakarta Selatan",
       "linkType": "contextual",
       "isCrossCluster": true,
@@ -2092,7 +2077,7 @@
     },
     {
       "from": "/sewa-kantor",
-      "to": "/sewa-kantor-jakarta-selatan",
+      "to": "/sewa-kantor/jakarta-selatan",
       "anchorText": "Sewa Kantor Jakarta Selatan",
       "linkType": "related",
       "isCrossCluster": false,
@@ -2154,7 +2139,7 @@
       "positionBucket": "late"
     },
     {
-      "from": "/sewa-kantor-jakarta-selatan",
+      "from": "/sewa-kantor/jakarta-selatan",
       "to": "/sewa-kantor",
       "anchorText": "Bintaro Business Centre menyediakan kantor siap pakai di Jakarta Selatan",
       "linkType": "contextual",
@@ -2335,7 +2320,7 @@
     },
     {
       "from": "/virtual-office",
-      "to": "/virtual-office-jakarta-selatan",
+      "to": "/virtual-office/jakarta-selatan",
       "anchorText": "Virtual Office Jakarta Selatan",
       "linkType": "contextual",
       "isCrossCluster": false,
@@ -2362,7 +2347,7 @@
     },
     {
       "from": "/virtual-office",
-      "to": "/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "anchorText": "Alamat Bisnis & Legalitas",
       "linkType": "related",
       "isCrossCluster": false,
@@ -2425,7 +2410,7 @@
     },
     {
       "from": "/virtual-office-bintaro",
-      "to": "/virtual-office-jakarta-selatan",
+      "to": "/virtual-office/jakarta-selatan",
       "anchorText": "virtual office Jakarta Selatan",
       "linkType": "contextual",
       "isCrossCluster": false,
@@ -2434,7 +2419,7 @@
     },
     {
       "from": "/virtual-office-bintaro",
-      "to": "/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "anchorText": "alamat bisnis Jakarta Selatan",
       "linkType": "contextual",
       "isCrossCluster": false,
@@ -2461,7 +2446,7 @@
     },
     {
       "from": "/virtual-office-bintaro",
-      "to": "/virtual-office-jakarta-selatan",
+      "to": "/virtual-office/jakarta-selatan",
       "anchorText": "Virtual Office Jakarta Selatan",
       "linkType": "related",
       "isCrossCluster": false,
@@ -2470,7 +2455,7 @@
     },
     {
       "from": "/virtual-office-bintaro",
-      "to": "/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "anchorText": "Alamat Bisnis Jakarta Selatan",
       "linkType": "related",
       "isCrossCluster": false,
@@ -2487,7 +2472,7 @@
       "positionBucket": "late"
     },
     {
-      "from": "/virtual-office-jakarta-selatan",
+      "from": "/virtual-office/jakarta-selatan",
       "to": "/virtual-office",
       "anchorText": "Bintaro Business Centre menyediakan virtual office dengan alamat administratif DKI Jakarta",
       "linkType": "contextual",

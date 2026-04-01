@@ -5,14 +5,14 @@ const title = 'Alamat Bisnis Jakarta Selatan: Implikasi Administratif dan Legali
 const description = 'Pilih yurisdiksi alamat bisnis yang tepat di Jakarta Selatan. Temukan kaitan erat NIB, NPWP, dan KPP dengan lokasi domisili awal perusahaan Anda.'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan' },
     title,
     description,
     openGraph: {
         type: 'article',
         title,
         description,
-        url: 'https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan',
+        url: 'https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan',
         siteName: 'Bintaro Business Centre',
         images: [{ url: '/images/sewa-kantor/ruangan-kantor-utama.jpg' }]
     }
@@ -24,15 +24,15 @@ export default function Page() {
         "@graph": [
             {
                 "@type": "WebPage",
-                "@id": "https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan/#webpage",
-                "url": "https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan",
                 "name": title,
                 "description": description,
                 "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
             },
             {
                 "@type": "Article",
-                "@id": "https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan/#article",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan/#article",
                 "headline": title,
                 "description": description,
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
@@ -74,7 +74,7 @@ export default function Page() {
         <WeaponPageTemplate
             title={title}
             description={description}
-            canonicalUrl="https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan"
+            canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan"
             schemaObject={schemaObject}
             hero={{
                 badge1: 'Legal Foundation',
@@ -166,7 +166,7 @@ export default function Page() {
             relatedArticles={{
                 title: 'ARTIKEL TERKAIT SEPUTAR HUKUM',
                 links: [
-                    { title: 'Status Regulasi Virtual Office Jakarta', href: '/virtual-office-jakarta-selatan' },
+                    { title: 'Status Regulasi Virtual Office Jakarta', href: '/virtual-office/jakarta-selatan' },
                     { title: 'Definisi Area Bintaro Selatan', href: '/virtual-office-bintaro' }
                 ]
             }}

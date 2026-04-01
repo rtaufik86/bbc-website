@@ -138,7 +138,7 @@ export default function Page() {
                 title: 'ARTIKEL TERKAIT',
                 links: [
                     { title: 'Cara Menilai Harga Sewa Bintaro', href: '/sewa-kantor/harga' },
-                    { title: 'Sewa Kantor Jakarta Selatan Eksklusif', href: '/sewa-kantor-jakarta-selatan' },
+                    { title: 'Sewa Kantor Jakarta Selatan Eksklusif', href: '/sewa-kantor/jakarta-selatan' },
                     { title: 'Alamat Bisnis Sah Jakarta Selatan', href: '/alamat-bisnis-jakarta-selatan' }
                 ]
             }}

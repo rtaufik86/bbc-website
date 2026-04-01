@@ -5,14 +5,14 @@ const title = 'Virtual Office Jakarta Selatan: Fungsi Legalitas Perizinan NIB da
 const description = 'Menelusuri batasan operasional penyewaan alamat bisnis komersial. Ketahui posisi virtual office untuk KBLI Jasa dan hubungannya di ranah hukum DKI.'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan' },
     title,
     description,
     openGraph: {
         type: 'article',
         title,
         description,
-        url: 'https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan',
+        url: 'https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan',
         siteName: 'Bintaro Business Centre',
         images: [{ url: '/images/foto-gedung-bbc.jpg' }]
     }
@@ -24,15 +24,15 @@ export default function Page() {
         "@graph": [
             {
                 "@type": "WebPage",
-                "@id": "https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan/#webpage",
-                "url": "https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan",
                 "name": title,
                 "description": description,
                 "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
             },
             {
                 "@type": "Article",
-                "@id": "https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan/#article",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan/#article",
                 "headline": title,
                 "description": description,
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
@@ -74,7 +74,7 @@ export default function Page() {
         <WeaponPageTemplate
             title={title}
             description={description}
-            canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan"
+            canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan"
             schemaObject={schemaObject}
             hero={{
                 badge1: 'Perizinan Legal',

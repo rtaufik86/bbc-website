@@ -803,7 +803,7 @@ export default function SewaKantorClient() {
                     </div>
                     <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
-                            <Link href="/sewa-kantor-jakarta-selatan">Sewa Kantor Jakarta Selatan</Link>
+                            <Link href="/sewa-kantor/jakarta-selatan">Sewa Kantor Jakarta Selatan</Link>
                         </Button>
                         <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
                             <Link href="/sewa-kantor/bintaro">Sewa Kantor Bintaro</Link>

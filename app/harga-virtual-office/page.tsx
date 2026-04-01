@@ -132,15 +132,15 @@ export default function Page() {
                     title: 'Alamat Bisnis Jakarta Selatan',
                     desc: 'Memahami mengapa yurisdiksi DKI Jakarta penting untuk NIB, NPWP, and PKP.',
                     ctaLabel: 'Panduan Alamat Bisnis',
-                    href: '/alamat-bisnis-jakarta-selatan'
+                    href: '/virtual-office/alamat-bisnis-jakarta-selatan'
                 }
             }}
             relatedArticles={{
                 title: 'ARTIKEL TERKAIT',
                 links: [
-                    { title: 'Virtual Office Jakarta Selatan: Konsep, Legalitas, and Untuk Siapa', href: '/virtual-office-jakarta-selatan' },
-                    { title: 'Alamat Bisnis Jakarta Selatan: Fondasi Legal Perusahaan Anda', href: '/alamat-bisnis-jakarta-selatan' },
-                    { title: 'Sewa Kantor Jakarta Selatan: Opsi Kantor Fisik untuk Kepatuhan PKP', href: '/sewa-kantor-jakarta-selatan' },
+                    { title: 'Virtual Office Jakarta Selatan: Konsep, Legalitas, and Untuk Siapa', href: '/virtual-office/jakarta-selatan' },
+                    { title: 'Alamat Bisnis Jakarta Selatan: Fondasi Legal Perusahaan Anda', href: '/virtual-office/alamat-bisnis-jakarta-selatan' },
+                    { title: 'Sewa Kantor Jakarta Selatan: Opsi Kantor Fisik untuk Kepatuhan PKP', href: '/sewa-kantor/jakarta-selatan' },
                     { title: 'Pendirian PT Jakarta Selatan: Biaya & Prosedur Terbaru', href: '/legal/pendirian-pt-jakarta-selatan' }
                 ]
             }}

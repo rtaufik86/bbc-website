@@ -140,7 +140,7 @@ export default function Page() {
                 links: [
                     { title: 'Kantor Dekat Tol Veteran JORR (W2S)', href: '/kantor-dekat-tol-veteran' },
                     { title: 'Kantor Dekat Bintaro Jaya (Pesanggrahan Jaksel)', href: '/kantor-dekat-bintaro-jaya' },
-                    { title: 'Sewa Kantor Jakarta Selatan', href: '/sewa-kantor-jakarta-selatan' }
+                    { title: 'Sewa Kantor Jakarta Selatan', href: '/sewa-kantor/jakarta-selatan' }
                 ]
             }}
             faq={{

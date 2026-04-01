@@ -30,9 +30,9 @@ const silos: SiloGroup[] = [
         title: "Silo Virtual Office (Jaksel Focus)",
         icon: <MapPin className="w-5 h-5 text-accent" />,
         links: [
-            { title: "Virtual Office Jakarta Selatan", href: "/virtual-office-jakarta-selatan" },
+            { title: "Virtual Office Jakarta Selatan", href: "/virtual-office/jakarta-selatan" },
             { title: "Virtual Office Bintaro", href: "/virtual-office-bintaro" },
-            { title: "Alamat Bisnis Jakarta Selatan", href: "/alamat-bisnis-jakarta-selatan" },
+            { title: "Alamat Bisnis Jakarta Selatan", href: "/virtual-office/alamat-bisnis-jakarta-selatan" },
             { title: "Legalitas & Domisili Resmi", href: "/legal" }
         ]
     }

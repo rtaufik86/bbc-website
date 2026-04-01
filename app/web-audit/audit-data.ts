@@ -376,14 +376,14 @@ export const auditData = [
         "status": "Green"
     },
     {
-        "path": "/alamat-bisnis-jakarta-selatan",
+        "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
         "pageType": "weapon",
         "indexability": "index",
         "title": "Alamat Bisnis Jakarta Selatan: Implikasi Administratif & Legalitas",
         "titleLength": 66,
         "description": "Pemilihan domisili mempengaruhi aspek legalitas, perizinan, dan operasional bisnis. Gambaran implikasi administratif alamat bisnis di Jakarta Selatan.",
         "descriptionLength": 150,
-        "canonical": "https://www.bintarobusinesscentre.com/alamat-bisnis-jakarta-selatan",
+        "canonical": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan",
         "robots": "index, follow",
         "wordCount": 1184,
         "h1Count": 1,
@@ -934,7 +934,7 @@ export const auditData = [
                 "position": 2783
             },
             {
-                "href": "/alamat-bisnis-jakarta-selatan",
+                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
                 "anchor": "Fungsi alamat bisnis Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
@@ -2337,7 +2337,7 @@ export const auditData = [
                 "position": 17448
             },
             {
-                "href": "/virtual-office-jakarta-selatan",
+                "href": "/virtual-office/jakarta-selatan",
                 "anchor": "paket VO Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
@@ -3046,7 +3046,7 @@ export const auditData = [
                 "position": 48944
             },
             {
-                "href": "/sewa-kantor-jakarta-selatan",
+                "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": false,
                 "isMoneyPage": false,
@@ -3245,7 +3245,7 @@ export const auditData = [
                 "anchor": "Cek ketersediaan unit"
             },
             {
-                "from": "/sewa-kantor-jakarta-selatan",
+                "from": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Bintaro Business Centre menyediakan kantor siap pakai di Jakarta Selatan"
             },
             {
@@ -3316,14 +3316,14 @@ export const auditData = [
         "status": "Green"
     },
     {
-        "path": "/sewa-kantor-jakarta-selatan",
+        "path": "/sewa-kantor/jakarta-selatan",
         "pageType": "weapon",
         "indexability": "index",
         "title": "Sewa Kantor Jakarta Selatan: Pertimbangan yang Sering Diabaikan",
         "titleLength": 63,
         "description": "Evaluasi kelayakan kantor di Jakarta Selatan dari sisi lokasi, legalitas domisili, dan infrastruktur. Faktor yang membentuk keputusan operasional jangka panjang.",
         "descriptionLength": 161,
-        "canonical": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan",
+        "canonical": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan",
         "robots": "index, follow",
         "wordCount": 1010,
         "h1Count": 1,
@@ -3793,7 +3793,7 @@ export const auditData = [
                 "position": 49519
             },
             {
-                "href": "/virtual-office-jakarta-selatan",
+                "href": "/virtual-office/jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
@@ -3814,7 +3814,7 @@ export const auditData = [
                 "position": 51331
             },
             {
-                "href": "/alamat-bisnis-jakarta-selatan",
+                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
                 "anchor": "Alamat Bisnis & Legalitas",
                 "isContextual": false,
                 "isMoneyPage": false,
@@ -3858,7 +3858,7 @@ export const auditData = [
         ],
         "linksIn": [
             {
-                "from": "/alamat-bisnis-jakarta-selatan",
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
                 "anchor": "BBC menyediakan virtual office di Jakarta Selatan"
             },
             {
@@ -3986,7 +3986,7 @@ export const auditData = [
                 "anchor": "Lihat Semua Paket"
             },
             {
-                "from": "/virtual-office-jakarta-selatan",
+                "from": "/virtual-office/jakarta-selatan",
                 "anchor": "Bintaro Business Centre menyediakan virtual office dengan alamat administratif DKI Jakarta"
             }
         ],
@@ -4069,14 +4069,14 @@ export const auditData = [
                 "position": 3454
             },
             {
-                "href": "/virtual-office-jakarta-selatan",
+                "href": "/virtual-office/jakarta-selatan",
                 "anchor": "virtual office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
                 "position": 4601
             },
             {
-                "href": "/alamat-bisnis-jakarta-selatan",
+                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
                 "anchor": "alamat bisnis Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
@@ -4097,14 +4097,14 @@ export const auditData = [
                 "position": 8140
             },
             {
-                "href": "/virtual-office-jakarta-selatan",
+                "href": "/virtual-office/jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": false,
                 "isMoneyPage": false,
                 "position": 8368
             },
             {
-                "href": "/alamat-bisnis-jakarta-selatan",
+                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
                 "anchor": "Alamat Bisnis Jakarta Selatan",
                 "isContextual": false,
                 "isMoneyPage": false,
@@ -4152,14 +4152,14 @@ export const auditData = [
         "status": "Green"
     },
     {
-        "path": "/virtual-office-jakarta-selatan",
+        "path": "/virtual-office/jakarta-selatan",
         "pageType": "weapon",
         "indexability": "index",
         "title": "Virtual Office Jakarta Selatan: Fungsi & Implikasi Legalitas",
         "titleLength": 60,
         "description": "Peran virtual office di Jakarta Selatan dalam struktur perizinan usaha. Implikasi domisili DKI untuk NIB, NPWP, pendirian PT, dan kelancaran administrasi.",
         "descriptionLength": 154,
-        "canonical": "https://www.bintarobusinesscentre.com/virtual-office-jakarta-selatan",
+        "canonical": "https://www.bintarobusinesscentre.com/virtual-office/jakarta-selatan",
         "robots": "index, follow",
         "wordCount": 1106,
         "h1Count": 1,

@@ -5,14 +5,14 @@ const title = 'Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis
 const description = 'Panduan komprehensif sewa kantor di Jakarta Selatan. Temukan alasan mengapa domisili DKI Jakarta vital untuk perizinan NIB dan pengurusan pajak bisnis Anda.'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan' },
     title,
     description,
     openGraph: {
         type: 'article',
         title,
         description,
-        url: 'https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan',
+        url: 'https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan',
         siteName: 'Bintaro Business Centre',
         images: [{ url: '/images/sewa-kantor/ruangan-kantor-utama.jpg' }]
     }
@@ -24,15 +24,15 @@ export default function Page() {
         "@graph": [
             {
                 "@type": "WebPage",
-                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan/#webpage",
-                "url": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan",
                 "name": title,
                 "description": description,
                 "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
             },
             {
                 "@type": "Article",
-                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan/#article",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#article",
                 "headline": title,
                 "description": description,
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
@@ -74,7 +74,7 @@ export default function Page() {
         <WeaponPageTemplate
             title={title}
             description={description}
-            canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan"
+            canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan"
             schemaObject={schemaObject}
             hero={{
                 badge1: 'Geographic Authority',
