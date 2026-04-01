@@ -1,16 +1,8 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
-import InternalLink from '@/components/seo/InternalLink'
-import RelatedContent from '@/components/seo/RelatedContent'
-import Script from 'next/script'
-import { Check, MessageCircle, MapPin, Building2, TrendingUp, Clock, ArrowRight, CheckCircle2, Navigation, Gauge } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const currentYear = new Date().getFullYear();
-const title = 'Kantor Dekat Tol Veteran Jakarta Selatan | Akses Cepat dari BSD & Serpong'
-const description = 'Sewa kantor strategis dekat pintu tol Veteran (JORR W2S). Lokasi di Jakarta Selatan dengan akses super cepat dari BSD, Serpong, dan Tangerang. Cek unit di BBC.'
+const title = 'Kantor Dekat Tol Veteran: Akses Strategis Jakarta Selatan via JORR W2S'
+const description = 'Panduan konektivitas kantor di sekitar Pintu Tol Veteran JORR W2S. Akses ke koridor bisnis Jakarta Selatan, Bintaro, dan Tangerang dalam satu lokasi.'
 
 export const metadata: Metadata = {
     alternates: { canonical: 'https://www.bintarobusinesscentre.com/kantor-dekat-tol-veteran' },
@@ -22,19 +14,11 @@ export const metadata: Metadata = {
         description,
         url: 'https://www.bintarobusinesscentre.com/kantor-dekat-tol-veteran',
         siteName: 'Bintaro Business Centre',
-        images: [{ url: '/images/hero-lokasi.jpg' }]
+        images: [{ url: '/images/sewa-kantor/ruangan-kantor-staff.jpg' }]
     }
 }
 
-const relatedArticles = [
-    { title: 'Kantor Dekat Bintaro Jaya', description: 'Infrastruktur bisnis Jakarta Selatan dalam jangkauan.', href: '/kantor-dekat-bintaro-jaya' },
-    { title: 'Sewa Kantor Jakarta Selatan', description: 'Panduan memilih lokasi kantor strategis di Jaksel.', href: '/sewa-kantor-jakarta-selatan' },
-    { title: 'Sewa Kantor', description: 'Unit kantor siap pakai all-inclusive di Pesanggrahan.', href: '/sewa-kantor' }
-]
-
 export default function Page() {
-    const waMessage = "Hallo, saya ingin info sewa kantor di Jakarta Selatan."
-
     const schemaObject = {
         "@context": "https://schema.org",
         "@graph": [
@@ -51,7 +35,6 @@ export default function Page() {
                 "@id": "https://www.bintarobusinesscentre.com/kantor-dekat-tol-veteran/#article",
                 "headline": title,
                 "description": description,
-                "image": "https://www.bintarobusinesscentre.com/images/hero-lokasi.jpg",
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
                 "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
             }
@@ -59,120 +42,118 @@ export default function Page() {
     }
 
     return (
-        <main className="bg-white">
-            <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }} />
-
-            {/* HERO */}
-            <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-40 bg-primary overflow-hidden">
-                <div className="absolute inset-0 opacity-15 grayscale">
-                    <Image
-                        src="/images/hero-lokasi.jpg"
-                        alt="Kantor Dekat Tol Veteran"
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                </div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl">
-                        <SEOBreadcrumbs items={[{ label: 'Kantor Dekat Tol Veteran' }]} />
-                        <span className="inline-block text-accent font-bold text-xs uppercase tracking-[0.4em] mb-8 mt-12 font-sans">Weapon Page — Sewa Kantor Cluster</span>
-                        <h1 className="text-4xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 font-heading">
-                            Kantor Dekat Tol Veteran: Akses Jakarta Selatan dari Penjuru Jabotabek
-                        </h1>
-                        <p className="text-xl text-white/80 leading-relaxed max-w-2xl font-light mb-12">
-                            Akses cepat bukan kemewahan—ini faktor produktivitas. Temukan kantor siap pakai di Pesanggrahan, Jakarta Selatan, bersinggungan langsung dengan JORR W2S.
-                        </p>
-                        <Button className="bg-accent text-white hover:bg-white hover:text-primary rounded-none shadow-xl h-auto py-5 px-10 text-xs font-bold uppercase tracking-widest" asChild>
-                            <Link href="/sewa-kantor">Cek Lokasi & Unit</Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-
-            {/* CONTENT */}
-            <section className="py-24 bg-white">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto prose prose-lg prose-slate prose-headings:text-primary prose-headings:font-heading prose-headings:font-bold prose-accent:text-accent">
-                        <p className="text-2xl leading-relaxed text-charcoal/60 font-light mb-16">
-                            Bagi pengusaha dengan mobilitas tinggi—klien di BSD hari ini, meeting di Jakarta Pusat besok—lokasi kantor tidak boleh menjadi bottleneck. Dapatkan <Link href="/harga-sewa-kantor-bintaro" className="text-accent underline">harga sewa kantor Bintaro</Link> terbaik di lokasi yang strategis dekat pintu tol sebagai aset operasional nyata.
-                        </p>
-
-                        <h2 className="text-3xl mt-16 mb-8 font-heading">Kenapa Kedekatan dengan Tol Sangat Relevan?</h2>
-                        <p>
-                            Akses tol tercepat berarti tim Anda masuk kerja lebih efisien. Klien dari berbagai arah—baik dari arah Tangerang, Jakarta Barat, atau TB Simatupang—dapat menemukan <Link href="/kantor-dekat-bintaro-jaya" className="text-accent hover:underline">kantor dekat Bintaro Jaya</Link> Anda dengan mudah via navigasi standar tanpa harus menembus kemacetan jalan-jalan kecil.
-                        </p>
-
-                        <div className="grid sm:grid-cols-2 gap-8 not-prose my-16">
-                            <div className="p-10 bg-bg-paper border-b-4 border-accent shadow-sm">
-                                <Navigation className="w-10 h-10 text-accent mb-6" />
-                                <h4 className="font-bold text-primary mb-4 text-xl">Dari BSD & Serpong</h4>
-                                <p className="text-charcoal/70 text-sm leading-relaxed">Gunakan JORR W2S dan keluar di area Veteran. Rute langsung, tanpa navigasi jalan kecil yang membingungkan.</p>
-                            </div>
-                            <div className="p-10 bg-bg-paper border-b-4 border-accent shadow-sm">
-                                <Gauge className="w-10 h-10 text-accent mb-6" />
-                                <h4 className="font-bold text-primary mb-4 text-xl">Dari Tangerang & Jakbar</h4>
-                                <p className="text-charcoal/70 text-sm leading-relaxed">Terhubung via JORR—memungkinkan akses ke BBC dari arah barat tanpa harus masuk ke pusat kemacetan Jakarta.</p>
-                            </div>
-                        </div>
-
-                        <h2 className="text-3xl mt-16 mb-8 font-heading text-center italic leading-tight">"Akses Jakarta Selatan, Hubungan Seluruh Jabotabek"</h2>
-                        <p className="text-center text-charcoal/60 font-light max-w-2xl mx-auto">
-                            Satu detail penting: Pintu Tol Veteran berada di perbatasan. Namun <Link href="/sewa-kantor/bintaro" className="text-accent font-bold hover:underline">sewa kantor Bintaro</Link> (Bintaro Business Centre) berada sepenuhnya di wilayah Jakarta Selatan (DKI Jakarta), memberikan Anda legitimasi administratif yang dicari.
-                        </p>
-
-                        <div className="bg-primary p-12 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-                            <h3 className="text-2xl font-bold mb-8 !text-white font-heading">Fasilitas Kantor Dekat Tol Veteran</h3>
-                            <div className="space-y-6 not-prose">
-                                {[
-                                    { t: 'Parkir untuk 30+ Kendaraan', d: 'Tersedia gratis untuk tenant dan tamu selama jam operasional.', i: Check },
-                                    { t: 'Alamat Jakarta Selatan Sah', d: 'Dibutuhkan untuk PKP, NIB, dan domisili perusahaan DKI Jakarta.', i: Check },
-                                    { t: 'Fasilitas All-Inclusive', d: 'Internet dedicated, AC maintenance, listrik, & resepsionis lengkap.', i: Check }
-                                ].map((row, i) => (
-                                    <div key={i} className="flex gap-4 items-start">
-                                        <div className="bg-accent p-1 rounded-full"><row.i className="w-4 h-4 text-white" /></div>
-                                        <div>
-                                            <h4 className="font-bold text-white text-base mb-1">{row.t}</h4>
-                                            <p className="text-white/60 text-[10px] leading-relaxed">{row.d}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="not-prose border border-primary/5 p-12 rounded-3xl bg-bg-paper mt-20 shadow-xl border-t-8 border-accent">
-                            <h3 className="text-2xl font-bold text-primary mb-6 font-heading">FAQ: Lokasi & Akses</h3>
-                            <div className="space-y-8">
-                                <div>
-                                    <h4 className="font-bold text-primary mb-2">Apakah parkir tersedia untuk klien?</h4>
-                                    <p className="text-charcoal/70 text-sm leading-relaxed">Ya. BBC menyediakan parkir untuk 30 kendaraan, tersedia gratis selama jam operasional untuk tenant dan tamu.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-primary mb-2">Mudahkah ditemukan di Google Maps?</h4>
-                                    <p className="text-charcoal/70 text-sm leading-relaxed">Sangat mudah. Alamat kami: Jl. RC. Veteran No. 1-i, Bintaro, Pesanggrahan, Jakarta Selatan. Lokasi kami terdaftar akurat di Maps.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-20 text-center">
-                            <Button className="bg-accent text-white hover:bg-white hover:text-primary rounded-none shadow-xl h-auto py-6 px-12 text-xs font-bold uppercase tracking-widest" asChild>
-                                <Link href="/sewa-kantor">Jadwalkan Survey Lokasi</Link>
-                            </Button>
-                        </div>
-
-                        <div className="mt-12 text-[10px] text-charcoal/40 font-bold uppercase tracking-[0.3em] flex flex-wrap gap-4 justify-center">
-                            <Link href="/kantor-dekat-bintaro-jaya" className="hover:text-accent transition-colors">Kantor Dekat Bintaro Jaya</Link>
-                            <Link href="/harga-sewa-kantor-bintaro" className="hover:text-accent transition-colors">Harga Sewa Kantor Bintaro</Link>
-                            <Link href="/sewa-kantor-jakarta-selatan" className="hover:text-accent transition-colors">Sewa Kantor Jakarta Selatan</Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <footer className="container mx-auto px-6 py-24 border-t border-primary/5">
-                <RelatedContent articles={relatedArticles} title="Insight Strategis" />
-            </footer>
-        </main>
+        <WeaponPageTemplate
+            title={title}
+            description={description}
+            canonicalUrl="https://www.bintarobusinesscentre.com/kantor-dekat-tol-veteran"
+            schemaObject={schemaObject}
+            hero={{
+                badge1: 'Akses Logistik',
+                badge2: 'JORR W2S',
+                h1: 'Kantor Dekat Tol Veteran: Akses Strategis Lintas Jakarta Selatan',
+                subheading: 'Mobilitas tinggi berarti perbedaan efisiensi antar jarak pintu tol sangat krusial. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre berlokasi ~1,3 km dari Pintu Tol Veteran</a> dengan akses instan fasilitas kantor siap pakai Pesanggrahan, Jakarta Selatan.',
+                ctaLabel: 'Keuntungan Ber-kantor Dekat Tol',
+                ctaHref: '#problem',
+                image: '/images/sewa-kantor/ruangan-kantor-staff.jpg'
+            }}
+            problem={{
+                title: 'Peran Akses Tol dalam Efisiensi Operasional Harian',
+                paragraphs: [
+                    'Bagi perusahaan yang memiliki kebutuhan mobilitas tinggi — baik itu kelancaran distribusi logistik armada, intensitas kunjungan klien yang tinggi, atau koordinasi antar cabang reguler — kedekatan dengan pintu tol bukan sekadar soal kenyamanan.',
+                    'Waktu tempuh yang lebih pendek dari dan ke kantor menjamin biaya transportasi irit, mempermudah kalkulasi jadwal kunjungan, dan menjaga level produktivitas energi tim yang bergerak. Di kota sepadat Jakarta, selisih 2–3 kilometer dari pintu tol bisa berarti kerugian waktu 20–30 menit perjalanan kemacetan jam sibuk.',
+                    'Penjabaran <a href="/harga-sewa-kantor-bintaro" class="text-accent hover:underline">harga sewa kantor Bintaro dibandingkan kawasan lain di Jakarta Selatan</a> akan menjadi referensi apakah efisiensi logistik ini diimbangi dengan struktur biaya bulanan masuk akal di kantong perusahaan.'
+                ]
+            }}
+            education={{
+                title: 'Konektivitas Segitiga Emas: JORR W2S Tol Veteran',
+                items: [
+                    {
+                        title: 'Arah Selatan-Barat (Tangerang Raya)',
+                        content: 'Pintu Tol Veteran bermuara ke arah Pondok Aren, Serpong, dan BSD. Ini sangat relevan bagi perusahaan yang beroperasi pada klaster perumahan di Tangerang Selatan atau kompleks industri padat di barat.'
+                    },
+                    {
+                        title: 'Arah Utara (Soekarno-Hatta & Kebon Jeruk)',
+                        content: 'Lewat sambungan JORR W2S Utara tembus langsung ke pintu tol Kebon Jeruk, Cengkareng, dan bandara komersial internasional Soekarno-Hatta. Sangat penting bagi ekspor-impor (pengiriman barang udara) dan C-suite yang melanglang buana antar-pulau tiap bulan.'
+                    },
+                    {
+                        title: 'Arah Timur-Dalam (Cilandak & Fatmawati)',
+                        content: 'Akses Jakarta Selatan bagian dalam seperti TB Simatupang, Fatmawati, Lebak Bulus mengandalkan jalur ini. <a href="/kantor-dekat-bintaro-jaya" class="text-accent hover:underline">Halaman kantor dekat Bintaro Jaya</a> membahas bagaimana posisi lintasan ini menghubungkan administrasi penting eksternal.'
+                    }
+                ]
+            }}
+            authority={{
+                title: 'Keunggulan Lokasi Pesanggrahan - Veteran Secara Mikro',
+                highlight: 'Tak hanya tol, fasilitas sekitar koridor Tol Veteran sangat mengakomodir operasional makro suatu gedung perkantoran skala manapun.',
+                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg',
+                items: [
+                    { icon: 'Search', text: 'Perluasan rekrutmen mudah: akses yang dekat pintu tol JORR W2S tak membatasi geografi SDM melamar dan pulang malam ke Depok / Bekasi' },
+                    { icon: 'Truck', text: 'Efisiensi armada logistik tanpa blusukan masuk ke kemacetan lokal tak terprediksi dalam area pasar Pesanggrahan' },
+                    { icon: 'Users', text: 'Mitra & partner mudah bertamu ke lobi sehingga memperkuat representasi profesionalisme rapat korporat Anda' },
+                    { icon: 'Zap', text: 'Perbankan besar dan restoran yang mengapit jalan arteri utama sangat mensupor tim frontliner backoffice reguler di sekitar' }
+                ]
+            }}
+            value={{
+                title: 'Dampak Lokasi Pintu Tol Veteran Terhadap Budaya Kerja',
+                items: [
+                    { title: 'Tepat Waktu', desc: 'Kemudahan kalkulasi mobilitas tanpa kejebak lampu merah meminimalisir keterlambatan absensi WFO secara signifikan', icon: 'Clock' },
+                    { title: 'Persepsi VIP Klien', desc: 'Klien akan menilai positif bila alamat perseroan Anda dekat <a href="/sewa-kantor/bintaro" class="text-accent hover:underline">sewa kantor Bintaro dengan fasilitas resepsionis tingkat A+</a> yang begitu mudah di-Gojek', icon: 'CheckCircle' },
+                    { title: 'Jangkau Perbatasan', desc: 'Tumbuh melampaui limit area selatan', icon: 'Globe' },
+                    { title: 'Siklus Operasional Normal', desc: 'Di jam terlarang malam (jam truk), suplai di jalan arteri raya ini masih terbuka leluasa untuk pengiriman instan barang garmen / material', icon: 'ShieldAlert' }
+                ]
+            }}
+            options={{
+                title: 'Temukan Konfigurasi Ruangan Yang Tepat',
+                intro: 'Kenyamanan mobilitas harus dipadukan dengan ruangan produktif.',
+                option1: {
+                    title: 'Pusat Logistik Mini',
+                    desc: 'Ruang Service office tertutup yang bisa digunakan sebagai pusat command stok dan admin.',
+                    suitableForTitle: 'Akses Armada',
+                    suitableForDesc: 'Menurunkan barang sample komersil, material distribusi ringan.',
+                    bullets: ['Ruang Eksklusif', '24 Jam Keamanan']
+                },
+                option2: {
+                    title: 'Hub Konsultansi / Branch',
+                    desc: 'Ruang yang diperuntukkan bagi manajer regional selatan-barat menerima report para rep.',
+                    suitableForTitle: 'Fasilitas Kolaborasi',
+                    suitableForDesc: 'Rapat dan brain-storming di ruang yang privat.',
+                    bullets: ['WiFi Stabil', 'Resepsionis Ramah Untuk Tamu']
+                }
+            }}
+            internalLinks={{
+                title: 'Gali Insight Harga dan Opsi Lainnya',
+                card1: {
+                    title: 'Daftar Harga Bintaro Office',
+                    desc: 'Simulasi budget sewa dengan keunggulan akses logistik perbatasan ibukota.',
+                    ctaLabel: 'Referensi Biaya',
+                    href: '/harga-sewa-kantor-bintaro'
+                },
+                card2: {
+                    title: 'Sewa Kantor Jakarta Selatan',
+                    desc: 'Bandingkan inventori lengkap BBC untuk unit 2, 4, hingga 8 pax siap survei.',
+                    ctaLabel: 'Pilih Kantor',
+                    href: '/sewa-kantor'
+                }
+            }}
+            relatedArticles={{
+                title: 'ARTIKEL TERKAIT',
+                links: [
+                    { title: 'Kantor Dekat Bintaro Jaya', href: '/kantor-dekat-bintaro-jaya' },
+                    { title: 'Sewa Kantor Bintaro: Konsep & Fasilitas', href: '/sewa-kantor/bintaro' }
+                ]
+            }}
+            faq={{
+                title: 'FAQ Area Tol Veteran',
+                items: [
+                    { q: 'Apakah ada kemacetan signifikan di sekitar Pintu Tol Veteran?', a: 'Seperti sebagian besar pintu tol di Jakarta, kepadatan biasanya terjadi pada jam masuk kerja (07.00–09.00) dan jam pulang (17.00–19.00). Di luar jam tersebut, akses relatif lancar.' },
+                    { q: 'Apakah tersedia transportasi umum ke kawasan ini?', a: 'Kawasan Pesanggrahan dapat diakses melalui beberapa rute angkutan umum (termasuk TransJakarta terdekat), meskipun ojek online masih menjadi moda yang paling efisien untuk first/last-mile perjalanan halte stasiun.' }
+                ]
+            }}
+            bottomCTA={{
+                title: 'Maksimalkan Akselerasi Bisnis Armada Anda',
+                subtitle: 'Ambil alih jam produktif Anda. Akses 10 menit ke jalan toll bebas hambatan sangat bernilai ketimbang kemacetan dalam kota metropolitan.',
+                primaryCTA: { label: 'Survei Unit Hari Ini', href: 'https://wa.me/628128888069' },
+                secondaryCTA: { label: 'Tinjauan Sewa Jaksel', href: '/sewa-kantor' }
+            }}
+        />
     )
 }

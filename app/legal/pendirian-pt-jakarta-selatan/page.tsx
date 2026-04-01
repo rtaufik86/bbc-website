@@ -1,21 +1,9 @@
 import { Metadata } from 'next'
+import { getMetadata } from '@/lib/seo/pageTypeMap'
 import PendirianPTClient from './PendirianPTClient'
 import Script from 'next/script'
 
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan' },
-    title: 'Pendirian PT Jakarta Selatan — Sistematis, Tanpa Bolak-Balik | BBC',
-    description: 'Jasa pendirian PT & legalitas di Jakarta Selatan. Proses resmi, terstruktur, estimasi 14–21 hari kerja. Dari setup hingga PKP aktif.',
-    openGraph: {
-        title: 'Pendirian PT Jakarta Selatan — Sistematis, Tanpa Bolak-Balik | BBC',
-        description: 'Jasa pendirian PT & legalitas di Jakarta Selatan. Proses resmi, terstruktur, estimasi 14–21 hari kerja. Dari setup hingga PKP aktif.',
-        images: ['/images/hero-virtual-office.jpg'],
-        url: 'https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan',
-        siteName: 'Bintaro Business Centre',
-        locale: 'id_ID',
-        type: 'website',
-    }
-}
+export const metadata: Metadata = getMetadata('/legal/pendirian-pt-jakarta-selatan')
 
 export default function JasaLegalPage() {
     const schema = {

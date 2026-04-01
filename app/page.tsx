@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { getMetadata } from '@/lib/seo/pageTypeMap'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -48,17 +49,7 @@ const testimonials = [
     }
 ]
 
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/' },
-    title: 'Bintaro Business Centre – Serviced Office & Virtual Office Jakarta Selatan Sejak 2007',
-    description: 'Bintaro Business Centre menyediakan serviced office, virtual office, dan layanan legal di Pesanggrahan, Jakarta Selatan sejak 2007. Alamat Jakarta Selatan untuk PKP dan izin usaha. Konsultasi gratis.',
-    keywords: ['bintaro business centre', 'serviced office jakarta selatan', 'virtual office jakarta selatan', 'kantor jakarta selatan', 'sewa kantor bintaro', 'alamat legal jakarta selatan', 'pkp jakarta selatan', 'pesanggrahan', 'business centre pesanggrahan'],
-    openGraph: {
-        title: 'Bintaro Business Centre – Serviced Office & Virtual Office Jakarta Selatan Sejak 2007',
-        description: 'Bintaro Business Centre menyediakan serviced office, virtual office, dan layanan legal di Pesanggrahan, Jakarta Selatan sejak 2007. Alamat Jakarta Selatan untuk PKP dan izin usaha.',
-        images: ['/images/hero-home.jpg']
-    }
-}
+export const metadata: Metadata = getMetadata('/')
 
 export default function HomePage() {
     const jsonLd = {

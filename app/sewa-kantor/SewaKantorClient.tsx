@@ -756,7 +756,7 @@ export default function SewaKantorClient() {
                                 q: "Apakah tersedia layanan pendukung lain selain sewa kantor?",
                                 a: (
                                     <p className="mt-4">
-                                        Untuk kebutuhan alamat legal tanpa harus menyewa fisik setiap hari, silakan pelajari <Link href="/virtual-office" className="text-accent font-bold hover:underline">layanan virtual office Bintaro Business Centre</Link> yang hemat biaya namun tetap kredibel.
+                                        Untuk kebutuhan alamat legal tanpa harus menyewa fisik setiap hari, silakan pelajari <Link href="/virtual-office" className="text-accent font-bold hover:underline">layanan virtual office Bintaro Business Centre</Link> yang hemat biaya namun tetap kredibel. Anda juga dapat melihat <Link href="/harga-virtual-office" className="text-primary font-bold hover:underline">perbandingan harga virtual office</Link> untuk detail lebih lanjut.
                                     </p>
                                 )
                             }
@@ -794,6 +794,40 @@ export default function SewaKantorClient() {
                 </div>
             </section>
 
+            {/* J) SEO CLUSTER LINKS */}
+            <section className="py-20 bg-slate-50 border-t border-primary/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Eksplorasi Lokal</span>
+                        <h2 className="text-2xl font-bold text-primary font-heading">Panduan Sewa Kantor & Lokasi</h2>
+                    </div>
+                    <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/sewa-kantor-jakarta-selatan">Sewa Kantor Jakarta Selatan</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/sewa-kantor/bintaro">Sewa Kantor Bintaro</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/harga-sewa-kantor-bintaro">Harga Sewa Kantor Bintaro</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/kantor-dekat-bintaro-jaya">Kantor Dekat Bintaro Jaya</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/kantor-dekat-tol-veteran">Kantor Dekat Tol Veteran</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/sewa-kantor/harga">List Harga Kantor</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/sewa-kantor/kantor-siap-pakai-bintaro">Kantor Siap Pakai</Link>
+                        </Button>
+                    </div>
+                </div>
+            </section>
+
+            <SiloNavigation />
             {/* I) FINAL CTA WITH FORM */}
             <section className="py-24 lg:py-32 relative text-white bg-primary overflow-hidden">
                 <div className="absolute inset-0 opacity-10">

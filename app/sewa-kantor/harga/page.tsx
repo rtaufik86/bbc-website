@@ -1,15 +1,9 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
-import ArticleHeader from '@/components/seo/ArticleHeader'
-import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
-import InternalLink from '@/components/seo/InternalLink'
-import RelatedContent from '@/components/seo/RelatedContent'
-import { CheckCircle2 } from 'lucide-react'
-import Script from 'next/script'
+import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const currentYear = new Date().getFullYear();
-const title = `Harga Sewa Kantor Bintaro: Perbandingan & Tips Hemat ${currentYear}`
-const description = `Daftar harga sewa kantor di Bintaro ${currentYear}: serviced office, coworking, virtual office. Perbandingan harga per lokasi. Tips hemat biaya kantor untuk bisnis Anda.`
+const currentYear = new Date().getFullYear()
+const title = `Cara Menilai Harga Sewa Kantor di Bintaro: Faktor dan Struktur Biaya ${currentYear}`
+const description = 'Penjelasan cara menilai nilai nyata ruang kantor di Bintaro. Faktor lokasi, fasilitas, dan struktur kontrak yang membentuk perbandingan antar pilihan.'
 
 export const metadata: Metadata = {
     alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/harga' },
@@ -20,275 +14,148 @@ export const metadata: Metadata = {
         title,
         description,
         url: 'https://www.bintarobusinesscentre.com/sewa-kantor/harga',
-        images: ['/og-harga-sewa-kantor-bintaro.jpg']
+        siteName: 'Bintaro Business Centre',
+        images: [{ url: '/images/sewa-kantor/ruangan-kantor-minimalis.jpg' }]
     }
 }
 
-const relatedArticles = [
-    {
-        title: "Sewa Kantor Bintaro: Panduan Lengkap",
-        description: "Pelajari jenis-jenis kantor, lokasi strategis, dan tips memilih kantor yang tepat di Bintaro.",
-        href: "/sewa-kantor/bintaro"
-    },
-    {
-        title: "Kantor Siap Pakai Bintaro",
-        description: "Keunggulan plug-and-play office dan mengapa ini solusi ideal untuk startup dan SME.",
-        href: "/sewa-kantor/kantor-siap-pakai-bintaro"
-    },
-    {
-        title: "Sewa Kantor Jakarta Selatan",
-        description: "Panduan komprehensif lokasi premium dan alternatif strategis di Jaksel.",
-        href: "/sewa-kantor/jakarta-selatan"
-    }
-]
-
-export default function HargaSewaKantorBintaroPage() {
-    // Article Schema
-    const articleSchema = {
+export default function Page() {
+    const schemaObject = {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": title,
-        "description": description,
-        "image": "https://www.bintarobusinesscentre.com/images/sewa-kantor/harga.jpg",
-        "datePublished": "2025-02-10",
-        "dateModified": "2026-02-15",
-        "author": {
-            "@type": "Organization",
-            "name": "Bintaro Business Center"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Bintaro Business Center",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.bintarobusinesscentre.com/logo.png"
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/harga/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/sewa-kantor/harga",
+                "name": title,
+                "description": description,
+                "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
+            },
+            {
+                "@type": "Article",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/harga/#article",
+                "headline": title,
+                "description": description,
+                "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
+                "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
             }
-        }
+        ]
     }
 
     return (
-        <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-            />
-
-            <article className="py-12 md:py-20 bg-white">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <SEOBreadcrumbs items={[{ label: 'Harga Sewa Kantor Bintaro' }]} />
-
-                    <ArticleHeader
-                        title={title}
-                        date="2026-02-15"
-                    />
-
-                    <div className="mt-8 mb-10">
-                        <Image
-                            src="/images/hero-harga-sewa-kantor-bintaro.jpg"
-                            alt="Harga sewa kantor di Bintaro Business Center"
-                            width={1200}
-                            height={630}
-                            className="w-full h-auto rounded-2xl shadow-sm"
-                            priority
-                        />
-                    </div>
-
-                    <div className="prose prose-lg max-w-none text-slate-700">
-                        <p className="text-xl leading-relaxed text-slate-600 mb-6">
-                            Mencari kantor siap pakai di Bintaro dengan harga yang transparan dan kompetitif?
-                            Panduan lengkap ini membahas rentang harga sewa kantor di area Bintaro,
-                            perbandingan dengan area lain di Jakarta Selatan, dan tips hemat untuk bisnis Anda di tahun {currentYear}.
-                        </p>
-
-                        <p className="mb-6">
-                            Range harga sewa kantor di Bintaro untuk serviced office berkisar Rp 3-6 juta per bulan,
-                            tergantung ukuran dan lokasi. {' '}
-                            <InternalLink
-                                href="/sewa-kantor"
-                                anchorType="brand-service"
-                                position="intro"
-                            >
-                                Bintaro Business Center menawarkan paket transparan
-                            </InternalLink>
-                            {' '}dengan semua utilitas, internet, furniture, dan resepsionis sudah included
-                            dalam harga—tanpa biaya tersembunyi.
-                        </p>
-
-                        <p className="mb-8">
-                            Dibandingkan dengan area premium seperti TB Simatupang (Rp 5-10 juta/bulan) atau
-                            Sudirman-Thamrin (Rp 8-15 juta/bulan), Bintaro menawarkan value proposition yang
-                            lebih baik: lokasi strategis dengan akses tol langsung, okupansi tinggi (indikator
-                            kualitas), dan harga yang lebih terjangkau.
-                        </p>
-
-                        <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
-                            Rentang harga sewa kantor di Bintaro berdasarkan ukuran
-                        </h2>
-
-                        <div className="bg-slate-50 rounded-xl p-6 mb-8 border border-slate-200">
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">Kantor 10m² (Kapasitas 1-2 orang)</h3>
-                            <ul className="space-y-2 mb-4">
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-bbc-gold-600 mt-0.5 flex-shrink-0" />
-                                    <span><strong>Harga:</strong> Rp 3.5 - 4 juta/bulan</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-bbc-gold-600 mt-0.5 flex-shrink-0" />
-                                    <span><strong>Termasuk:</strong> Furniture standar, AC, internet dedicated</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-bbc-gold-600 mt-0.5 flex-shrink-0" />
-                                    <span><strong>Cocok untuk:</strong> Startup early-stage, konsultan mandiri</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-bbc-blue-50 rounded-xl p-6 mb-8 border-2 border-bbc-blue-200">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-xl font-bold text-slate-900">Kantor 12m² (Kapasitas 2-3 orang)</h3>
-                                <span className="bg-bbc-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                    POPULAR
-                                </span>
-                            </div>
-                            <ul className="space-y-2 mb-4">
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-bbc-blue-600 mt-0.5 flex-shrink-0" />
-                                    <span><strong>Harga:</strong> Rp 4.5 - 5.5 juta/bulan</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-bbc-blue-600 mt-0.5 flex-shrink-0" />
-                                    <span><strong>Termasuk:</strong> 3 Meja kerja, AC, view jendela, internet dedicated</span>
-                                </li>
-                            </ul>
-                            <p className="text-sm text-bbc-blue-700 italic">
-                                💡 Ukuran paling banyak dipilih klien BBC (okupansi 90%)
-                            </p>
-                        </div>
-
-                        <p className="mb-8">
-                            Dengan harga yang kompetitif, Anda mendapatkan bukan hanya ruang kantor,
-                            tapi ekosistem bisnis yang mendukung produktivitas. {' '}
-                            <InternalLink
-                                href="/sewa-kantor"
-                                anchorType="generic"
-                                position="mid-content"
-                            >
-                                Lihat detail lengkap apa yang termasuk dalam harga sewa kami
-                            </InternalLink>
-                            {' '}untuk memastikan tidak ada biaya tersembunyi.
-                        </p>
-
-                        <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
-                            Perbandingan harga Bintaro vs area lain di Jakarta Selatan
-                        </h2>
-
-                        <div className="overflow-x-auto mb-8">
-                            <table className="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                                <thead className="bg-bbc-blue-500 text-white">
-                                    <tr>
-                                        <th className="p-4 text-left">Area</th>
-                                        <th className="p-4 text-left">Harga/m² (Rp/bulan)</th>
-                                        <th className="p-4 text-left">Akses Tol</th>
-                                        <th className="p-4 text-left">Parkir</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-200">
-                                    <tr className="hover:bg-slate-50">
-                                        <td className="p-4 font-semibold text-bbc-blue-600">Bintaro (RC Veteran)</td>
-                                        <td className="p-4">300k - 400k</td>
-                                        <td className="p-4">✅ Langsung</td>
-                                        <td className="p-4">✅ Luas & Gratis</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-50">
-                                        <td className="p-4">TB Simatupang</td>
-                                        <td className="p-4">500k - 700k</td>
-                                        <td className="p-4">⚠️ Macet jam sibuk</td>
-                                        <td className="p-4">💰 Berbayar</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-50">
-                                        <td className="p-4">Sudirman-Thamrin</td>
-                                        <td className="p-4">800k - 1.2jt</td>
-                                        <td className="p-4">⚠️ Sangat macet</td>
-                                        <td className="p-4">💰💰 Mahal</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <p className="mb-8 bg-bbc-gold-50 border-l-4 border-bbc-gold-500 p-6 rounded-r-lg">
-                            <strong className="text-bbc-gold-800 block mb-2">💡 Insight Hemat:</strong>
-                            <span className="text-bbc-gold-700">
-                                Dengan memilih Bintaro, Anda bisa menghemat <strong>40-60%</strong> dibanding
-                                area premium, tanpa mengorbankan kualitas fasilitas atau akses strategis.
-                            </span>
-                        </p>
-
-                        <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
-                            Apa saja yang termasuk dalam harga? (Hindari biaya tersembunyi)
-                        </h2>
-
-                        <div className="grid md:grid-cols-2 gap-6 mb-8">
-                            <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                                <h3 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
-                                    <CheckCircle2 className="w-5 h-5" />
-                                    Sudah Termasuk (All-In)
-                                </h3>
-                                <ul className="space-y-2 text-sm text-green-700">
-                                    <li>✅ Furniture lengkap</li>
-                                    <li>✅ Internet dedicated</li>
-                                    <li>✅ Listrik & AC</li>
-                                    <li>✅ Resepsionis profesional</li>
-                                    <li>✅ Cleaning service & Maintenance</li>
-                                    <li>✅ Parkir luas</li>
-                                </ul>
-                            </div>
-                            <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-                                <h3 className="text-lg font-bold text-amber-800 mb-4">
-                                    Biaya Tambahan (Opsional)
-                                </h3>
-                                <ul className="space-y-2 text-sm text-amber-700">
-                                    <li>💰 Deposit jaminan (dikembalikan)</li>
-                                    <li>💰 Meeting room per jam</li>
-                                    <li>💰 Telepon line dedicated</li>
-                                    <li>💰 Printing & Fotokopi</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <p className="mb-8">
-                            Dibandingkan dengan menyewa kantor konvensional yang membutuhkan setup cost
-                            Rp 50-100 juta, {' '}
-                            <InternalLink
-                                href="/sewa-kantor"
-                                anchorType="service-location"
-                                position="mid-content"
-                            >
-                                kantor siap pakai di Bintaro Business Center
-                            </InternalLink>
-                            {' '}memungkinkan Anda memulai dengan investasi minimal dan kontrak fleksibel.
-                        </p>
-
-                        <div className="bg-gradient-to-br from-bbc-blue-500 to-bbc-blue-600 rounded-2xl p-8 md:p-12 text-white text-center mt-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Siap mencari kantor siap pakai di Bintaro?
-                            </h2>
-                            <p className="text-xl mb-8 text-bbc-blue-50">
-                                Dapatkan penawaran terbaik dengan okupansi terbukti dan fasilitas lengkap.
-                            </p>
-                            <InternalLink
-                                href="/sewa-kantor"
-                                anchorType="descriptive"
-                                position="cta"
-                                className="bg-bbc-gold-500 hover:bg-bbc-gold-600 text-white font-bold px-8 py-4 rounded-lg text-lg inline-flex items-center gap-2"
-                            >
-                                Lihat Paket Sewa Kantor Kami →
-                            </InternalLink>
-                        </div>
-                    </div>
-
-                    <RelatedContent articles={relatedArticles} />
-                </div>
-            </article>
-        </>
+        <WeaponPageTemplate
+            title={title}
+            description={description}
+            canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/harga"
+            schemaObject={schemaObject}
+            hero={{
+                badge1: 'Evaluasi Penawaran',
+                badge2: 'Kantor Bintaro',
+                h1: 'Cara Menilai Harga Sewa Kantor di Bintaro Secara Kritis',
+                subheading: 'Dua ruang dengan harga sama bisa memberikan nilai aktual sangat berbeda di Bintaro. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">BBC menyediakan kantor all-in di Jakarta Selatan</a> — struktur harga kami adalah landasan benchmark transparan saat Anda bernegosiasi.',
+                ctaLabel: 'Kerangka Dasar Penilaian Sewa',
+                ctaHref: '#problem',
+                image: '/images/sewa-kantor/ruangan-kantor-minimalis.jpg'
+            }}
+            problem={{
+                title: 'Dimensi Harga Sewa Kantor di Bintaro: Ukuran vs Kenyataan',
+                paragraphs: [
+                    'Ukuran ruang adalah variabel paling langsung yang mempengaruhi harga sewa. Namun hubungannya tidak selalu linear — harga per meter persegi bisa lebih tinggi untuk ruang kecil karena ada biaya minimum operasional yang harus ditanggung oleh operasional (cleaning, resepsionis) siap tiap blok.',
+                    'Sebagai contoh, kantor 10m² (Kapasitas 1-2 orang) berada di kisaran terendah, optimal bagi konsultan pendiri. Memasuki area 12m–20m (Kapasitas 2-8 tim), terjadi kurva harga yang lebih ramah bagi <a href="/sewa-kantor/bintaro" class="text-accent hover:underline">konsep fasilitas scale up sewa kantor Bintaro skala departemen ini</a>. Namun tanpa mengecek lokasi, nilai murni hanya janji angka.',
+                    'Lokasi Bintaro melintang cukup lebar secara administratif, Anda berisiko terjebak penyedia yang memposisikan letaknya dekat mall elit tangsel namun jauh dari jalur logistik ekspres kota metropolitan utamanya.'
+                ]
+            }}
+            education={{
+                title: 'Perbandingan Harga Bintaro vs Area Jakarta Lain',
+                items: [
+                    {
+                        title: 'Akses vs Harga Kompetitif Bintaro/Pesanggrahan',
+                        content: 'Berada di pinggiran Jorr W2S dan perbatasan kawasan bisnis Bintaro Jaya memberi harga terjangkau ketimbang TB Simatupang. <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">Akses 1,3km dari Pintu Tol Veteran</a> menjamin harga ini dibayar pula dengan keterhubungan prima tanpa menyuap macet Fatmawati. Yurisdiksi full DKI Jakarta.'
+                    },
+                    {
+                        title: 'TB Simatupang Business District',
+                        content: 'Wilayah perkantoran tower ini menuntut premium pricing korporat Tbk dan multinasional. Sering terjebak botleneck lampu merah arteri. Opex / sewa di situ bisa 300% dari koridor Pesanggrahan namun pamor prestisenya sangat tajam untuk banking sektoral.'
+                    },
+                    {
+                        title: 'Gemerlap Sudirman-Thamrin CBD',
+                        content: 'Puncak biaya sewa tertinggi se-Indonesia dengan tantangan operasional harian bergejolak (ganjil-genap, demo). Pilihan elit murni, bila Anda tak wajib bermarkas di titik o-kilometers ini, radius perbatasan selatan adalah kelegaan cost efficiency luar biasa.'
+                    }
+                ]
+            }}
+            authority={{
+                title: 'Apa yang Termasuk vs Tersembunyi di Penawaran Anda?',
+                highlight: 'Biaya over-use dan eskalasi tahunan adalah momok terdiam dari broker ruang konvensional ketika menekan harga depan terlihat gila murah.',
+                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg',
+                items: [
+                    { icon: 'Zap', text: 'All-In: Utilitas PLN murni, AC terpusat / dinding, sanitasi toilet (sudah dibayar bersih)' },
+                    { icon: 'Smile', text: 'Resepsionis frontdesk di-shared layaknya karyawan representasi tanpa menguras slip gaji rekrutmen' },
+                    { icon: 'CreditCard', text: 'Harga sewa tak mencakup Deposit 1–3 bulan tunai. Pertanyakan cash-flow lock dana jaminan ini' },
+                    { icon: 'Clock', text: 'Kuota penggunaan meeting room eksklusif: apakah gratis harian / jam di paket atau tagih ketat log pemakaian per-menit.' }
+                ]
+            }}
+            value={{
+                title: 'Biaya Tak Langsung Yang Harus Ditekan Manajemen',
+                items: [
+                    { title: 'Time to Operasional', desc: 'Bila tidak "Siap Pakai/Furnished", biaya kontraktor dan pusing kepala fitting out akan setara 60% sewa (capex vs opex).', icon: 'Clock' },
+                    { title: 'Biaya Pindah Legalitas PT', desc: 'Lokasi yang bukan wilayah valid bisnis mengharuskan cabut izin NIB untuk pindah kabupaten, buang 1-2 bulan lumpuh admin.', icon: 'FileText' },
+                    { title: 'Biaya Terminasi Dini', desc: 'Pahamilah klausul pemutusan bila PT bubar atau sebaliknya membludak perlu pindah cepat — apakah pinalti wajar?', icon: 'AlertTriangle' },
+                    { title: 'Biaya Maintenance', desc: 'Bohlam mati, AC netes, wastafel tersumbat. Penyedia Service office mengatasinya dalam 5 menit, ruko sewa perantara mensyaratkan Anda bayar tukang dari kantong sendiri.', icon: 'ShieldCheck' }
+                ]
+            }}
+            options={{
+                title: 'Menghitung Total Cost of Occupancy Ruang Bebas Stres',
+                intro: 'Harga hanyalah fasad pertama, nilailah operasional akhir (net balance).',
+                option1: {
+                    title: 'Serviced Office (Siap Kerja)',
+                    desc: 'Harga tinggi di kertas tagihan awal bulanan.',
+                    suitableForTitle: 'Implikasi Akhir:',
+                    suitableForDesc: 'Biaya ekstra tak terduga nol%. Tidak ada drama teknisi gedung minta charge ke Anda. Internet wifi putus segera dibackup IT in-house lantai.',
+                    bullets: ['Biaya Statis Fix', 'Risiko Penuh Operator Gedung']
+                },
+                option2: {
+                    title: 'Ruko Kosong (Konvensional)',
+                    desc: 'Harga 50% lebih murah per meter sekan mata pada kuitansi DP.',
+                    suitableForTitle: 'Implikasi Akhir:',
+                    suitableForDesc: 'Ratusan juta lari ke interior, partisi internet provider komersial. Jika bulan keenam atap bocor menetes ke laptop karyawan — kerugian dan stres Anda tanggung 100%.',
+                    bullets: ['Capex Besar di Awal', 'Penguras Waktu Terus Menerus']
+                }
+            }}
+            internalLinks={{
+                title: 'Eksplorasi Parameter Harga Secara Regional Bintaro',
+                card1: {
+                    title: 'Panduan Harga Bintaro Kompleks',
+                    desc: 'Pelajari harga sewa di koridor selatan sebagai fundamental operasional ekspansi.',
+                    ctaLabel: 'Bongkar Struktur Harga',
+                    href: '/harga-sewa-kantor-bintaro'
+                },
+                card2: {
+                    title: 'Sewa Kantor Virtual Office Berizin Jakarta Selatan',
+                    desc: 'Bila harga fisik masih berat, turunkan komitmen ke Virtual Office dengan hasil surat izin legalitas tetap kuat perpanjangan administrasi.',
+                    ctaLabel: 'Solusi Virtual Pilihan',
+                    href: '/harga-virtual-office-jakarta-selatan'
+                }
+            }}
+            relatedArticles={{
+                title: 'ARTIKEL TERKAIT',
+                links: [
+                    { title: 'Kantor Dekat Tol Veteran JORR (W2S)', href: '/kantor-dekat-tol-veteran' },
+                    { title: 'Kantor Dekat Bintaro Jaya (Pesanggrahan Jaksel)', href: '/kantor-dekat-bintaro-jaya' },
+                    { title: 'Sewa Kantor Jakarta Selatan', href: '/sewa-kantor-jakarta-selatan' }
+                ]
+            }}
+            faq={{
+                title: 'Pertanyaan Praktis Sewa Ruangan Bintaro',
+                items: [
+                    { q: 'Apakah meeting room dan internet di BBC sudah all-in dalam harga per paket per m2?', a: 'Internet koneksi fiber broadband dedikasi sepenuhnya disediakan gratis. Meeting room dikelola melalui skema jam kuota free / allowance per-bulan berdasar luasan ruang; setelah melampaui baru tarif murah dipatok proporsional guna fairness.' },
+                    { q: 'Harga paket per bulan apakah wajib bayar full setahun secara tunai 100% di depan kontrak?', a: 'Metode term of payment dapat didiskusikan mulai dari kuartalan hingga tahunan demi menyejukkan cash flow perusahaan yang sedang berkembang pesat (terutama IT start-up atau kontraktor event murni).' }
+                ]
+            }}
+            bottomCTA={{
+                title: 'Negosiasikan Posisi dan Ruangan Anda Sekarang',
+                subtitle: 'Datang langsung bersama pimpinan finance Anda. Hitunglah cost ratio operasional BBC menghadapi risiko capex Ruko/office telanjang sebelum meneken sepeser tagihan pun.',
+                primaryCTA: { label: 'Tanya Penawaran via WA', href: 'https://wa.me/628128888069' },
+                secondaryCTA: { label: 'Lihat Detail Paket Bintaro Center', href: '/sewa-kantor' }
+            }}
+        />
     )
 }

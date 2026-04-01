@@ -1,17 +1,9 @@
 import { Metadata } from 'next'
+import { getMetadata } from '@/lib/seo/pageTypeMap'
 import SewaKantorClient from './SewaKantorClient'
 import Script from 'next/script'
 
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor' },
-    title: 'Sewa Kantor Siap Pakai Jakarta Selatan | Dekat Bintaro Jaya & Pondok Indah | BBC',
-    description: 'Sewa kantor siap pakai di Jakarta Selatan sejak 2007. Dekat Pintu Tol Veteran, Bintaro Jaya, dan Pondok Indah. Survey gratis. Langsung operasional.',
-    openGraph: {
-        title: 'Sewa Kantor Siap Pakai Jakarta Selatan | Dekat Bintaro Jaya & Pondok Indah | BBC',
-        description: 'Sewa kantor siap pakai di Jakarta Selatan sejak 2007. Dekat Pintu Tol Veteran, Bintaro Jaya, dan Pondok Indah. Survey gratis. Langsung operasional.',
-        images: ['/images/private-office/bbc-private-office-suite-wide-01.jpg.JPG']
-    }
-}
+export const metadata: Metadata = getMetadata('/sewa-kantor')
 
 export default function SewaKantorPage() {
     const schema = {

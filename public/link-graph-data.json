@@ -1,0 +1,2499 @@
+{
+  "nodes": [
+    {
+      "path": "/admin/account",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/leads",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 3.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/leads/[id]",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 2,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 1.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/products",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/products/[id]",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/sales",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/settings",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 2,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/admin/settings/telegram",
+      "title": "BBC Admin",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/alamat-bisnis-jakarta-selatan",
+      "title": "Alamat Bisnis Jakarta Selatan: Implikasi Administratif & Legalitas",
+      "pageType": "weapon",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 11.5,
+      "status": "red",
+      "warnings": [
+        "Weapon page outbound < 3"
+      ],
+      "recommendations": [
+        "🔗 Link to /virtual-office-bintaro (Strong Sibling)",
+        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Weak Sibling)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/auth/reset-password",
+      "title": "Reset Password",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/fasilitas-kantor",
+      "title": "Fasilitas Kantor | Bintaro Business Centre",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 5,
+      "outboundCount": 8,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 6,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 18.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/forgot-password",
+      "title": "Forgot Password",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/harga-sewa-kantor-bintaro",
+      "title": "Harga Sewa Kantor Bintaro: Struktur Biaya & Variabel",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 19.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/harga-virtual-office",
+      "title": "Virtual Office Jakarta Selatan: Faktor Penentu Nilai Layanan",
+      "pageType": "weapon",
+      "cluster": "other",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 6,
+      "contextualOutboundCount": 6,
+      "crossClusterOutboundCount": 6,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 26,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/harga-virtual-office-jakarta-selatan",
+      "title": "Virtual Office Jakarta Selatan: Breakdown Biaya & Perbandingan",
+      "pageType": "weapon",
+      "cluster": "other",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 2,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 13.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/internal-links",
+      "title": "Internal Links",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 0,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/kantor-dekat-bintaro-jaya",
+      "title": "Kantor Dekat Bintaro Jaya & Tol Veteran | Koridor Bisnis Jaksel",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 19.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/kantor-dekat-tol-veteran",
+      "title": "Kantor Dekat Tol Veteran Jakarta Selatan | Konektivitas & Akses",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 6,
+      "outboundCount": 4,
+      "contextualOutboundCount": 4,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 25,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/klien-dan-testimoni",
+      "title": "Klien & Testimoni | Bintaro Business Centre",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 9,
+      "contextualOutboundCount": 5,
+      "crossClusterOutboundCount": 7,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 15.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/kontak",
+      "title": "Kontak BBC | Bintaro Business Centre",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 1,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 1,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 6,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb",
+        "No contextual links"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/legal/cek-kbli",
+      "title": "Cek KBLI Usaha Jakarta Selatan: Panduan & Kategori",
+      "pageType": "weapon",
+      "cluster": "legal",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 2,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 6.5,
+      "status": "red",
+      "warnings": [
+        "Weapon page outbound < 3",
+        "Missing breadcrumb"
+      ],
+      "recommendations": [
+        "🔗 Link to /legal (Money Page)",
+        "🔗 Link to /legalitas-dan-perizinan-bbc (Strong Sibling)",
+        "🔗 Link to /legal/pkp-perdagangan (Weak Sibling)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/legal",
+      "title": "Legalitas Usaha Jakarta Selatan: PT, KBLI & PKP | BBC",
+      "pageType": "money",
+      "cluster": "legal",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 13,
+      "contextualOutboundCount": 10,
+      "crossClusterOutboundCount": 9,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 20,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🔗 Link to /legalitas-dan-perizinan-bbc (Boost Weak Weapon)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/legal/pendirian-pt-jakarta-selatan",
+      "title": "Pendirian PT Jakarta Selatan Resmi DKI | 14–21 Hari Kerja",
+      "pageType": "weapon",
+      "cluster": "legal",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 16,
+      "outboundCount": 15,
+      "contextualOutboundCount": 5,
+      "crossClusterOutboundCount": 11,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 49.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb",
+        "First money link not < 300 words"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/legal/pkp-perdagangan",
+      "title": "PKP KBLI Non-Jasa Jakarta Selatan: Opsi & Persyaratan",
+      "pageType": "weapon",
+      "cluster": "legal",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 4,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 2,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 12.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": [
+        "🔗 Link to /legal (Money Page)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/legalitas-dan-perizinan-bbc",
+      "title": "Legalitas & Perizinan BBC | Bintaro Business Centre",
+      "pageType": "weapon",
+      "cluster": "legal",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 3,
+      "outboundCount": 6,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 5,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 16.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": [
+        "🔗 Link to /legal (Money Page)"
+      ]
+    },
+    {
+      "path": "/login",
+      "title": "Login",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 3.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/lokasi-kantor",
+      "title": "Lokasi BBC | Jl. RC Veteran, Pesanggrahan, Jakarta Selatan",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 6,
+      "outboundCount": 7,
+      "contextualOutboundCount": 6,
+      "crossClusterOutboundCount": 5,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 28,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/",
+      "title": "Bintaro Business Centre | Kantor, VO & Legalitas Jakarta Selatan",
+      "pageType": "homepage",
+      "cluster": "other",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": true,
+      "inboundCount": 0,
+      "outboundCount": 5,
+      "contextualOutboundCount": 5,
+      "crossClusterOutboundCount": 5,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 5.5,
+      "status": "red",
+      "warnings": [
+        "Orphan Page",
+        "Indexable but 0 Inbound Links"
+      ],
+      "recommendations": [
+        "🎯 Request inbound link from /harga-virtual-office"
+      ]
+    },
+    {
+      "path": "/ruang-meeting",
+      "title": "Ruang Meeting Jakarta Selatan | Bintaro Business Centre",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 6,
+      "contextualOutboundCount": 4,
+      "crossClusterOutboundCount": 4,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 10,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/sewa-kantor/bintaro",
+      "title": "Private Office Bintaro: Konsep, Fasilitas & Standar Layanan",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 17.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor/harga",
+      "title": "Sewa Kantor Bintaro: Cara Menilai Nilai Ruang Kantor",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 3,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 15.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor/jakarta-selatan",
+      "title": "Sewa Kantor Jakarta Selatan: Struktur Layanan & Fasilitas",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 5,
+      "contextualOutboundCount": 4,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 15,
+      "status": "yellow",
+      "warnings": [
+        "First money link not < 300 words"
+      ],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor/kantor-siap-pakai-bintaro",
+      "title": "Kantor Siap Pakai Bintaro: Apa yang Termasuk dalam Paket",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 2,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 7.5,
+      "status": "red",
+      "warnings": [
+        "Weapon page outbound < 3"
+      ],
+      "recommendations": [
+        "🔗 Link to /kantor-dekat-tol-veteran (Strong Sibling)",
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Weak Sibling)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor/murah-jakarta-selatan",
+      "title": "Sewa Kantor Murah Jakarta Selatan: Kelebihan & Keterbatasan",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": true,
+      "inboundCount": 0,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 1,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 2.5,
+      "status": "red",
+      "warnings": [
+        "Orphan Page",
+        "Indexable but 0 Inbound Links"
+      ],
+      "recommendations": [
+        "🎯 Request inbound link from /sewa-kantor",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor",
+      "title": "Sewa Kantor Jakarta Selatan Siap Pakai | 72 Unit Operasional",
+      "pageType": "money",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 42,
+      "outboundCount": 18,
+      "contextualOutboundCount": 8,
+      "crossClusterOutboundCount": 7,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 109,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Boost Weak Weapon)"
+      ]
+    },
+    {
+      "path": "/sewa-kantor-jakarta-selatan",
+      "title": "Sewa Kantor Jakarta Selatan: Pertimbangan yang Sering Diabaikan",
+      "pageType": "weapon",
+      "cluster": "sewa-kantor",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 5.5,
+      "status": "red",
+      "warnings": [
+        "Weapon page outbound < 3"
+      ],
+      "recommendations": [
+        "🔗 Link to /kantor-dekat-tol-veteran (Strong Sibling)",
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Weak Sibling)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/signup",
+      "title": "Signup",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 3.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    },
+    {
+      "path": "/tentang-kami",
+      "title": "Tentang BBC | Bintaro Business Centre",
+      "pageType": "support",
+      "cluster": "trust",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": false,
+      "orphanRisk": false,
+      "inboundCount": 7,
+      "outboundCount": 9,
+      "contextualOutboundCount": 5,
+      "crossClusterOutboundCount": 6,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 25.5,
+      "status": "red",
+      "warnings": [
+        "Missing breadcrumb"
+      ],
+      "recommendations": []
+    },
+    {
+      "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
+      "title": "Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas",
+      "pageType": "weapon",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": true,
+      "inboundCount": 0,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 1,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 2.5,
+      "status": "red",
+      "warnings": [
+        "Orphan Page",
+        "Indexable but 0 Inbound Links"
+      ],
+      "recommendations": [
+        "🎯 Request inbound link from /virtual-office",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/virtual-office/jakarta-selatan",
+      "title": "Virtual Office Jakarta Selatan: Kesesuaian Regulasi NIB & PKP",
+      "pageType": "weapon",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 3,
+      "contextualOutboundCount": 3,
+      "crossClusterOutboundCount": 1,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 11.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/virtual-office",
+      "title": "Virtual Office Jakarta Selatan Resmi DKI | PT & PKP (KBLI Jasa)",
+      "pageType": "money",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 33,
+      "outboundCount": 12,
+      "contextualOutboundCount": 6,
+      "crossClusterOutboundCount": 8,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 90,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Boost Weak Weapon)"
+      ]
+    },
+    {
+      "path": "/virtual-office-bintaro",
+      "title": "Virtual Office Bintaro: Konsep & Fasilitas Layanan",
+      "pageType": "weapon",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 1,
+      "outboundCount": 8,
+      "contextualOutboundCount": 5,
+      "crossClusterOutboundCount": 1,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 14.5,
+      "status": "green",
+      "warnings": [],
+      "recommendations": [
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/virtual-office-jakarta-selatan",
+      "title": "Virtual Office Jakarta Selatan: Fungsi & Implikasi Legalitas",
+      "pageType": "weapon",
+      "cluster": "virtual-office",
+      "isIndexable": true,
+      "inSitemap": true,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 4,
+      "outboundCount": 1,
+      "contextualOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": true,
+      "authorityScore": 11.5,
+      "status": "red",
+      "warnings": [
+        "Weapon page outbound < 3"
+      ],
+      "recommendations": [
+        "🔗 Link to /virtual-office-bintaro (Strong Sibling)",
+        "🔗 Link to /virtual-office/alamat-bisnis-jakarta-selatan (Weak Sibling)",
+        "🛡️ Link to /tentang-kami (Trust Signal)"
+      ]
+    },
+    {
+      "path": "/web-audit",
+      "title": "Web Audit",
+      "pageType": "utility",
+      "cluster": "other",
+      "isIndexable": false,
+      "inSitemap": false,
+      "hasBreadcrumb": true,
+      "orphanRisk": false,
+      "inboundCount": 0,
+      "outboundCount": 0,
+      "contextualOutboundCount": 0,
+      "crossClusterOutboundCount": 0,
+      "firstMoneyLinkUnder300": false,
+      "authorityScore": 1,
+      "status": "green",
+      "warnings": [],
+      "recommendations": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "/admin/leads",
+      "to": "/admin/leads/new",
+      "anchorText": "Add Lead",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/admin",
+      "to": "/admin/leads",
+      "anchorText": "View New Leads\r\n                            \r\n                                {newLeads} leads waiting for contact",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/admin",
+      "to": "/admin/settings",
+      "anchorText": "Organization Settings\r\n                                \r\n                                    Manage users, roles, and integrations",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "BBC menyediakan virtual office di Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "operasional kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/virtual-office",
+      "anchorText": "administrasi perusahaan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "Jadwalkan Survey Gratis",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Unit Tersedia",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang BBC",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Legalitas Pendirian",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/fasilitas-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "Paket Sewa Kantor",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-sewa-kantor-bintaro",
+      "to": "/sewa-kantor",
+      "anchorText": "Bintaro Business Centre menyediakan sewa kantor siap pakai",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-sewa-kantor-bintaro",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "Pintu Tol Veteran",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-sewa-kantor-bintaro",
+      "to": "/kantor-dekat-bintaro-jaya",
+      "anchorText": "Kantor dekat Bintaro Jaya di sisi Pesanggrahan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/virtual-office",
+      "anchorText": "Cek Paket & Harga Terbaru →",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/virtual-office",
+      "anchorText": "virtual office Bintaro Business Centre",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "jasa pendirian PT di Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/fasilitas-kantor",
+      "anchorText": "fasilitas kantor BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/sewa-kantor",
+      "anchorText": "sewa kantor siap pakai",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office",
+      "to": "/ruang-meeting",
+      "anchorText": "ruang meeting Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "BBC menawarkan Virtual Office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office-jakarta-selatan",
+      "to": "/harga-virtual-office",
+      "anchorText": "Harga virtual office dan faktor penentu nilainya",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/harga-virtual-office-jakarta-selatan",
+      "to": "/alamat-bisnis-jakarta-selatan",
+      "anchorText": "Fungsi alamat bisnis Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-bintaro-jaya",
+      "to": "/sewa-kantor",
+      "anchorText": "BBC menyediakan kantor berbatas langsung dengan Bintaro Jaya",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-bintaro-jaya",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "Pintu Tol Veteran di JORR W2S",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-bintaro-jaya",
+      "to": "/sewa-kantor/bintaro",
+      "anchorText": "sewa kantor Bintaro dengan detail tipe ruang",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-tol-veteran",
+      "to": "/sewa-kantor",
+      "anchorText": "Bintaro Business Centre berlokasi ~1,3 km dari Pintu Tol Veteran",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-tol-veteran",
+      "to": "/harga-sewa-kantor-bintaro",
+      "anchorText": "harga sewa kantor Bintaro dibandingkan kawasan lain di Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-tol-veteran",
+      "to": "/kantor-dekat-bintaro-jaya",
+      "anchorText": "Halaman kantor dekat Bintaro Jaya",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kantor-dekat-tol-veteran",
+      "to": "/sewa-kantor/bintaro",
+      "anchorText": "sewa kantor Bintaro dengan fasilitas resepsionis tingkat A+",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/sewa-kantor",
+      "anchorText": "infrastruktur gedung",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "layanan legalitas",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/virtual-office",
+      "anchorText": "alamat bisnis resmi",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/sewa-kantor",
+      "anchorText": "Jadwalkan Konsultasi",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/tentang-kami",
+      "anchorText": "Pelajari BBC Lebih Lanjut",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang BBC",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/sewa-kantor",
+      "anchorText": "Sewa Kantor",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/virtual-office",
+      "anchorText": "Virtual Office",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/klien-dan-testimoni",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Legalitas Usaha",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/kontak",
+      "to": "info@bintarobusinesscentre.com",
+      "anchorText": "info@bintarobusinesscentre.com",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/cek-kbli",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Konsultasi KBLI Profesional",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/cek-kbli",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Kembali ke Layanan Pendirian PT",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/sewa-kantor",
+      "anchorText": "ruang kantor fisik",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/virtual-office",
+      "anchorText": "layanan virtual office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Konsultasi Pendirian PT",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Sewa Kantor",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/sewa-kantor",
+      "anchorText": "sewa kantor BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/virtual-office",
+      "anchorText": "alamat bisnis resmi Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/legal/cek-kbli",
+      "anchorText": "pengecekan KBLI",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/legal/pkp-perdagangan",
+      "anchorText": "PKP Sektoral",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/virtual-office",
+      "anchorText": "paket virtual office BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/virtual-office",
+      "anchorText": "alamat bisnis resmi Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/virtual-office",
+      "anchorText": "paket virtual office BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Konsultasi Pendirian PT",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal",
+      "to": "/sewa-kantor",
+      "anchorText": "Hubungi Tim Legal",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "sewa kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "virtual office",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Virtual Office BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Service Office BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Paket Sewa Kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/legal",
+      "anchorText": "Pusat Layanan Legal",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/legal/cek-kbli",
+      "anchorText": "Cara Cek KBLI Perusahaan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/legal/pkp-perdagangan",
+      "anchorText": "Syarat PKP Perdagangan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Solusi Domisili VO",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Solusi Kantor Fisik (PKP)",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Hub Legalitas PT",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Virtual Office",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Service Office",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pendirian-pt-jakarta-selatan",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang BBC",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pkp-perdagangan",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Sewa Kantor &rarr;",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pkp-perdagangan",
+      "to": "/sewa-kantor",
+      "anchorText": "Pelajari Layanan &rarr;",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pkp-perdagangan",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Konsultasi Legalitas & PKP",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legal/pkp-perdagangan",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Kembali ke Layanan Pendirian PT",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/sewa-kantor",
+      "anchorText": "penggunaan ruang kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/virtual-office",
+      "anchorText": "Pelajari Virtual Office",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang BBC",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/sewa-kantor",
+      "anchorText": "Sewa Kantor",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/legalitas-dan-perizinan-bbc",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Layanan Pendirian PT",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/login",
+      "to": "/signup",
+      "anchorText": "Sign up",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "infrastruktur kantor fisik",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/virtual-office",
+      "anchorText": "alamat bisnis resmi",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "legalitas usaha",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "Jadwalkan Kunjungan Survey",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang BBC",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/fasilitas-kantor",
+      "anchorText": "Fasilitas Gedung",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/lokasi-kantor",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Unit Tersedia",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/",
+      "to": "/sewa-kantor",
+      "anchorText": "serviced office Bintaro Business Centre",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/",
+      "to": "/virtual-office",
+      "anchorText": "virtual office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/",
+      "to": "/sewa-kantor/jakarta-selatan",
+      "anchorText": "sewa kantor Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/",
+      "to": "/virtual-office-jakarta-selatan",
+      "anchorText": "paket VO Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/",
+      "to": "/kontak",
+      "anchorText": "Hubungi Kami Sekarang",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/sewa-kantor",
+      "anchorText": "Sewa Kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/virtual-office",
+      "anchorText": "Virtual Office Paket CP/FCP",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/fasilitas-kantor",
+      "anchorText": "Fasilitas Lainnya",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/sewa-kantor",
+      "anchorText": "Paket Sewa Kantor",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/virtual-office",
+      "anchorText": "Virtual Office",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/ruang-meeting",
+      "to": "/kontak",
+      "anchorText": "Hubungi Kami",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/bintaro",
+      "to": "/sewa-kantor",
+      "anchorText": "sewa kantor berkelas operasional matang tanpa setup modal besar",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/bintaro",
+      "to": "/harga-sewa-kantor-bintaro",
+      "anchorText": "Halaman harga sewa kantor Bintaro yang membahas struktur biaya secara detail",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/bintaro",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "Klien VIP masuk Pintu Tol Veteran JORR W2S",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/harga",
+      "to": "/sewa-kantor",
+      "anchorText": "BBC menyediakan kantor all-in di Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/harga",
+      "to": "/sewa-kantor/bintaro",
+      "anchorText": "konsep fasilitas scale up sewa kantor Bintaro skala departemen ini",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/harga",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "Akses 1,3km dari Pintu Tol Veteran",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Cek sewa kantor siap pakai Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/jakarta-selatan",
+      "to": "/sewa-kantor/harga",
+      "anchorText": "Cek Daftar Harga",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Pesan Survey Lokasi →",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/jakarta-selatan",
+      "to": "/sewa-kantor/harga",
+      "anchorText": "Baca Panduan Harga",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/jakarta-selatan",
+      "to": "/sewa-kantor/kantor-siap-pakai-bintaro",
+      "anchorText": "Baca Perbandingan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+      "to": "/sewa-kantor",
+      "anchorText": "kantor siap pakai Bintaro Business Center",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/murah-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "sewa kantor di Bintaro Business Center",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/murah-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "virtual office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor/murah-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Cek ketersediaan unit",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "layanan legal pendirian PT Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/sewa-kantor/jakarta-selatan",
+      "anchorText": "sewa kantor Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/kantor-dekat-bintaro-jaya",
+      "anchorText": "kantor dekat Bintaro Jaya",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "kantor dekat tol Veteran",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/harga-sewa-kantor-bintaro",
+      "anchorText": "harga sewa kantor Bintaro",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/virtual-office",
+      "anchorText": "layanan virtual office Bintaro Business Centre",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/harga-virtual-office",
+      "anchorText": "perbandingan harga virtual office",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/fasilitas-kantor",
+      "anchorText": "Fasilitas Gedung",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/legalitas-dan-perizinan-bbc",
+      "anchorText": "Legalitas & Perizinan",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/klien-dan-testimoni",
+      "anchorText": "Klien & Testimoni",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/sewa-kantor-jakarta-selatan",
+      "anchorText": "Sewa Kantor Jakarta Selatan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/sewa-kantor/bintaro",
+      "anchorText": "Sewa Kantor Bintaro",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/harga-sewa-kantor-bintaro",
+      "anchorText": "Harga Sewa Kantor Bintaro",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/kantor-dekat-bintaro-jaya",
+      "anchorText": "Kantor Dekat Bintaro Jaya",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/kantor-dekat-tol-veteran",
+      "anchorText": "Kantor Dekat Tol Veteran",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/sewa-kantor/harga",
+      "anchorText": "List Harga Kantor",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor",
+      "to": "/sewa-kantor/kantor-siap-pakai-bintaro",
+      "anchorText": "Kantor Siap Pakai",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/sewa-kantor-jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "Bintaro Business Centre menyediakan kantor siap pakai di Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/signup",
+      "to": "/login",
+      "anchorText": "Sign in",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "mid"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/virtual-office",
+      "anchorText": "layanan virtual office",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/sewa-kantor",
+      "anchorText": "layanan sewa kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "legalitas pendirian perusahaan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/legalitas-dan-perizinan-bbc",
+      "anchorText": "Verifikasi Legalitas Kami",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/sewa-kantor",
+      "anchorText": "Lihat Layanan Sewa Kantor",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/virtual-office",
+      "anchorText": "Info Virtual Office",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/fasilitas-kantor",
+      "anchorText": "Fasilitas Gedung",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/tentang-kami",
+      "to": "/klien-dan-testimoni",
+      "anchorText": "Klien & Testimoni",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Virtual office Bintaro Business Center",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Cek paket tersedia",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+      "to": "/jasa-legalitas",
+      "anchorText": "layanan legalitas di BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Virtual office Bintaro Business Center",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Lihat detail paket",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office/jakarta-selatan",
+      "to": "/sewa-kantor",
+      "anchorText": "serviced office di BBC",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/harga-virtual-office",
+      "anchorText": "rincian harga virtual office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/sewa-kantor",
+      "anchorText": "Service Office\r\n                                Kantor fisik private lengkap dengan furniture dan fasilitas all-in. Solusi untuk PKP.\r\n                                \r\n                                    Lihat Layanan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/legal/pendirian-pt-jakarta-selatan",
+      "anchorText": "Jasa Legal Pendirian PT\r\n                                Layanan pengurusan pendirian PT, CV, NIB, dan izin usaha lainnya secara profesional.\r\n                                \r\n                                    Lihat Layanan",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/virtual-office-jakarta-selatan",
+      "anchorText": "Virtual Office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/virtual-office-bintaro",
+      "anchorText": "Virtual Office Bintaro",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/harga-virtual-office-jakarta-selatan",
+      "anchorText": "Harga VO Jakarta Selatan",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/alamat-bisnis-jakarta-selatan",
+      "anchorText": "Alamat Bisnis & Legalitas",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/harga-virtual-office",
+      "anchorText": "Risiko Harga Murah",
+      "linkType": "related",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/virtual-office/jakarta-selatan",
+      "anchorText": "Area Layanan Jakarta Selatan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/legalitas-dan-perizinan-bbc",
+      "anchorText": "Legalitas & Perizinan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/tentang-kami",
+      "anchorText": "Tentang Kami",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office",
+      "to": "/lokasi-kantor",
+      "anchorText": "Lokasi & Akses",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/virtual-office",
+      "anchorText": "Tanya Ketersediaan Alamat",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/virtual-office-jakarta-selatan",
+      "anchorText": "virtual office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/alamat-bisnis-jakarta-selatan",
+      "anchorText": "alamat bisnis Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/virtual-office",
+      "anchorText": "Tanya Ketersediaan",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/virtual-office",
+      "anchorText": "Lihat Semua Paket",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/virtual-office-jakarta-selatan",
+      "anchorText": "Virtual Office Jakarta Selatan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/alamat-bisnis-jakarta-selatan",
+      "anchorText": "Alamat Bisnis Jakarta Selatan",
+      "linkType": "related",
+      "isCrossCluster": false,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-bintaro",
+      "to": "/harga-virtual-office-jakarta-selatan",
+      "anchorText": "Harga Virtual Office Jakarta Selatan",
+      "linkType": "contextual",
+      "isCrossCluster": true,
+      "isToMoneyPage": false,
+      "positionBucket": "late"
+    },
+    {
+      "from": "/virtual-office-jakarta-selatan",
+      "to": "/virtual-office",
+      "anchorText": "Bintaro Business Centre menyediakan virtual office dengan alamat administratif DKI Jakarta",
+      "linkType": "contextual",
+      "isCrossCluster": false,
+      "isToMoneyPage": true,
+      "positionBucket": "late"
+    }
+  ]
+}

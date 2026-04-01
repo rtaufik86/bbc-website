@@ -1,17 +1,8 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import ArticleHeader from '@/components/seo/ArticleHeader'
-import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
-import InternalLink from '@/components/seo/InternalLink'
-import RelatedContent from '@/components/seo/RelatedContent'
-import Script from 'next/script'
-import { Check, Mail, MessageCircle, MapPin, Building2, TrendingUp, Shield, Users, Clock, ArrowRight, CheckCircle2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const currentYear = new Date().getFullYear();
-const title = 'Sewa Kantor Jakarta Selatan | Perbandingan Area, Harga & Akses'
-const description = 'Panduan lengkap memilih lokasi sewa kantor di Jakarta Selatan. Perbandingan area TB Simatupang, Bintaro, Pondok Indah, dan Fatmawati untuk bisnis Anda.'
+const title = 'Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis'
+const description = 'Panduan komprehensif sewa kantor di Jakarta Selatan. Temukan alasan mengapa domisili DKI Jakarta vital untuk perizinan NIB dan pengurusan pajak bisnis Anda.'
 
 export const metadata: Metadata = {
     alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan' },
@@ -23,19 +14,11 @@ export const metadata: Metadata = {
         description,
         url: 'https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan',
         siteName: 'Bintaro Business Centre',
-        images: [{ url: '/images/hero-sewa-kantor-jakarta-selatan.jpg' }]
+        images: [{ url: '/images/sewa-kantor/ruangan-kantor-utama.jpg' }]
     }
 }
 
-const relatedArticles = [
-    { title: 'Harga Sewa Kantor Bintaro', description: 'Panduan lengkap biaya sewa kantor di kawasan Bintaro.', href: '/harga-sewa-kantor-bintaro' },
-    { title: 'Virtual Office Jakarta Selatan', description: 'Solusi alamat bisnis profesional tanpa kantor fisik.', href: '/virtual-office-jakarta-selatan' },
-    { title: 'Kantor Dekat Tol Veteran', description: 'Akses cepat Jakarta Selatan dari seluruh penjuru Jabotabek.', href: '/kantor-dekat-tol-veteran' }
-]
-
 export default function Page() {
-    const waMessage = "Hallo, saya ingin info sewa kantor di Jakarta Selatan."
-
     const schemaObject = {
         "@context": "https://schema.org",
         "@graph": [
@@ -52,210 +35,156 @@ export default function Page() {
                 "@id": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan/#article",
                 "headline": title,
                 "description": description,
-                "image": "https://www.bintarobusinesscentre.com/images/hero-sewa-kantor-jakarta-selatan.jpg",
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
                 "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
             },
             {
-                "@type": "BreadcrumbList",
-                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan/#breadcrumb",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.bintarobusinesscentre.com/" },
-                    { "@type": "ListItem", "position": 2, "name": "Sewa Kantor Jakarta Selatan" }
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Apakah seluruh kawasan Bintaro masuk Jakarta Selatan?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Tidak. Kawasan Bintaro terbagi antara Jakarta Selatan (Pesanggrahan) dan Tangerang Selatan. Pastikan konfirmasi kecamatan administratif sebelum memilih lokasi."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Apakah alamat di wilayah ini sah untuk NIB dan NPWP perusahaan?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Ya, lokasi fisik yang secara administratif berada di bawah yurisdiksi Jakarta Selatan (DKI Jakarta) mutlak valid dan sesuai standar DPMPTSP."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Selain legalitas, apa keuntungan berdomisili di wilayah ini?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Anda mendapatkan gengsi korporat, kedekatan logistik pada klien, dan perluasan sumber daya talenta muda (Gen-Z) yang senang dengan wilayah premium."
+                        }
+                    }
                 ]
             }
         ]
     }
 
     return (
-        <main className="bg-white">
-            <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }} />
-
-            {/* HERO SECTION */}
-            <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-40 bg-primary overflow-hidden">
-                <div className="absolute inset-0 opacity-20">
-                    <Image
-                        src="/images/hero-sewa-kantor-jakarta-selatan.jpg"
-                        alt="Sewa Kantor Jakarta Selatan"
-                        fill
-                        className="object-cover grayscale"
-                        priority
-                    />
-                </div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl">
-                        <SEOBreadcrumbs items={[{ label: 'Sewa Kantor Jakarta Selatan' }]} />
-                        <span className="inline-block text-accent font-bold text-xs uppercase tracking-[0.4em] mb-8 mt-12">Hub Page — Sewa Kantor Cluster</span>
-                        <h1 className="text-4xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 font-heading">
-                            Sewa Kantor di Jakarta Selatan: Panduan Memilih Lokasi yang Tepat
-                        </h1>
-                        <p className="text-xl text-white/80 mb-12 leading-relaxed max-w-2xl font-light">
-                            Jakarta Selatan bukan hanya wilayah residensial premium—ini adalah salah satu pusat bisnis paling aktif di Indonesia. Panduan faktual memetakan pilihan area, harga, dan akses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* INTRO SECTION */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-6">
-                    <div className="grid lg:grid-cols-12 gap-16 items-start max-w-7xl mx-auto">
-                        <div className="lg:col-span-8 prose prose-lg prose-slate max-w-none">
-                            <p className="text-xl leading-relaxed text-primary/80 font-medium italic border-l-4 border-accent pl-8 py-4 bg-accent/5 rounded-r-3xl">
-                                Jakarta Selatan memiliki kombinasi yang jarang ditemukan di kota lain: infrastruktur korporat yang mapan, kawasan residensial premium yang berdampingan dengan koridor bisnis, dan akses tol yang menghubungkan area ini ke seluruh Jabotabek.
-                            </p>
-
-                            <h2 className="text-3xl font-bold text-primary mt-16 mb-8 font-heading">Mengapa Jakarta Selatan menjadi pilihan utama?</h2>
-                            <p>
-                                Dari sisi regulasi, Jakarta Selatan berada dalam yurisdiksi DKI Jakarta. Artinya, perusahaan yang berdomisili di sini mendapatkan akses ke sistem administrasi bisnis Jakarta—termasuk pengurusan PKP, NIB, dan domisili perusahaan yang diproses oleh kantor-kantor pelayanan Jakarta Selatan. Ini berbeda signifikan dari wilayah yang secara populer disebut "Bintaro" tapi secara administratif masuk ke Tangerang Selatan.
-                            </p>
-
-                            <h2 className="text-3xl font-bold text-primary mt-16 mb-8 font-heading">Area-area utama sewa kantor di Jakarta Selatan</h2>
-
-                            <div className="grid sm:grid-cols-2 gap-8 not-prose mt-12">
-                                <div className="p-8 bg-bg-paper border border-primary/5 hover:border-accent transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-primary mb-4 font-heading">TB Simatupang</h3>
-                                    <p className="text-sm text-charcoal/70 leading-relaxed mb-6">Koridor korporat modern dengan konsentrasi gedung grade A tertinggi. Cocok untuk MNC dan firma hukum internasional.</p>
-                                </div>
-                                <div className="p-8 bg-bg-paper border border-primary/5 hover:border-accent transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-primary mb-4 font-heading">Kebayoran Baru</h3>
-                                    <p className="text-sm text-charcoal/70 leading-relaxed mb-6">Kawasan mapan dekat pusat kota dengan ekosistem bisnis yang sangat matang. Tarif kompetitif untuk profesional.</p>
-                                </div>
-                                <div className="p-8 bg-accent/5 border border-accent/20 hover:border-accent transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-primary mb-4 font-heading">Bintaro (Jaksel)</h3>
-                                    <p className="text-sm text-charcoal/70 leading-relaxed mb-6">Area berkembang dengan akses tol strategis. Ideal untuk SME dan startup yang ingin alamat Jakarta Selatan.</p>
-                                    <InternalLink href="/sewa-kantor" anchorType="brand-service" position="mid-content">Cek BBC di Jakarta Selatan</InternalLink>
-                                </div>
-                                <div className="p-8 bg-bg-paper border border-primary/5 hover:border-accent transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-primary mb-4 font-heading">Pondok Indah</h3>
-                                    <p className="text-sm text-charcoal/70 leading-relaxed mb-6">Premium residensial bertemu bisnis. Aura prestisius dengan harga sewa segmen atas.</p>
-                                    <InternalLink href="/harga-sewa-kantor-bintaro" anchorType="descriptive" position="mid-content">Cek Perbandingan Harga</InternalLink>
-                                </div>
-                            </div>
-
-                            <h2 className="text-3xl font-bold text-primary mt-16 mb-12 font-heading text-center">Perbandingan Karakteristik Per Area</h2>
-                            <div className="not-prose overflow-x-auto border border-primary/5 shadow-2xl mb-16 rounded-3xl overflow-hidden">
-                                <table className="w-full text-left">
-                                    <thead>
-                                        <tr className="bg-primary text-white">
-                                            <th className="p-6 font-bold text-xs uppercase tracking-widest">Area</th>
-                                            <th className="p-6 font-bold text-xs uppercase tracking-widest">Rentang Harga SO*</th>
-                                            <th className="p-6 font-bold text-xs uppercase tracking-widest">Keunggulan</th>
-                                            <th className="p-6 font-bold text-xs uppercase tracking-widest">Cocok untuk</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="text-sm divide-y divide-primary/5">
-                                        {[
-                                            { area: 'TB Simatupang', price: 'Rp 8–20 jt/bln', win: 'Grade A, korporat', fit: 'MNC, firma hukum' },
-                                            { area: 'Kebayoran Baru', price: 'Rp 6–15 jt/bln', win: 'Mapan, dekat pusat', fit: 'Konsultan, profesional' },
-                                            { area: 'Bintaro (Jaksel)', price: 'Rp 3–8 jt/bln', win: 'Tol, residensial', fit: 'SME, startup' },
-                                            { area: 'Pondok Indah', price: 'Rp 8–18 jt/bln', win: 'Premium, prestisius', fit: 'Bisnis segmen atas' },
-                                            { area: 'Fatmawati', price: 'Rp 4–10 jt/bln', win: 'MRT, moderat', fit: 'Tim berbasis transit' }
-                                        ].map((row, i) => (
-                                            <tr key={i} className="hover:bg-accent/5 transition-colors">
-                                                <td className="p-6 font-bold text-primary">{row.area}</td>
-                                                <td className="p-6 font-bold text-accent">{row.price}</td>
-                                                <td className="p-6">{row.win}</td>
-                                                <td className="p-6">{row.fit}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                                <div className="p-6 bg-bg-paper text-[10px] text-charcoal/40 uppercase tracking-widest font-bold text-center">
-                                    *Estimasi serviced office all-inclusive per unit. Harga bervariasi tergantung ukuran & fasilitas.
-                                </div>
-                            </div>
-
-                            <h2 className="text-3xl font-bold text-primary mt-16 mb-8 font-heading">Jenis kantor yang tersedia</h2>
-                            <p>
-                                <strong>Serviced office — solusi siap pakai</strong>. Ruangan yang dilengkapi furniture, internet, utilitas, dan resepsionis dalam satu harga. <InternalLink href="/sewa-kantor" anchorType="brand-service" position="mid-content">Serviced office BBC</InternalLink> mencakup seluruh fasilitas dalam satu paket all-inclusive.
-                            </p>
-                            <p>
-                                <strong>Virtual office — alamat tanpa ruang fisik</strong>. Memberikan alamat bisnis Jakarta Selatan tanpa biaya sewa kantor penuh. <InternalLink href="/virtual-office-jakarta-selatan" anchorType="service-location" position="mid-content">Layanan Virtual Office Jakarta Selatan</InternalLink> adalah opsi efisien untuk bisnis jasa.
-                            </p>
-
-                            <div className="bg-primary p-12 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-                                <h3 className="text-2xl font-bold mb-6 !text-white">Tips Memilih Area Kantor</h3>
-                                <p className="text-white/80 leading-relaxed mb-8">
-                                    Tanyakan dulu: dari mana sebagian besar tim Anda berangkat? Di mana klien utama Anda berada? Apakah bisnis Anda memerlukan alamat untuk PKP atau hanya untuk korespondensi? Jawaban ini akan mempersempit pilihan lebih cepat dari perbandingan harga manapun.
-                                </p>
-                                <Button className="bg-accent text-white hover:bg-white hover:text-primary rounded-none px-8 py-6 font-bold uppercase tracking-widest text-xs h-auto" asChild>
-                                    <Link href="/sewa-kantor">Cek Pilihan Ruang Kantor</Link>
-                                </Button>
-                            </div>
-
-                            <h2 className="text-3xl font-bold text-primary mt-16 mb-12 font-heading">Frequently Asked Questions</h2>
-                            <div className="not-prose space-y-6 mb-16">
-                                {[
-                                    { q: "Di mana area paling strategis untuk kantor di Jakarta Selatan?", a: "Tergantung kebutuhan bisnis. Untuk korporat: TB Simatupang. Untuk harga & akses: Bintaro (Jakarta Selatan). Untuk klien high-end: Pondok Indah." },
-                                    { q: "Apakah Jakarta Selatan lebih murah dari Jakarta Pusat?", a: "Secara umum ya, terutama area berkembang seperti Bintaro dan Cilandak. Area premium seperti TB Simatupang bisa setara Jakarta Pusat." },
-                                    { q: "Apakah semua Bintaro termasuk Jakarta Selatan?", a: "Tidak. Sebagian besar Bintaro Jaya berada di Tangerang Selatan. Hanya area Pesanggrahan yang secara administratif masuk Jakarta Selatan." }
-                                ].map((faq, i) => (
-                                    <div key={i} className="p-8 border border-primary/5 rounded-2xl hover:border-accent transition-colors">
-                                        <h4 className="font-bold text-primary mb-4">{faq.q}</h4>
-                                        <p className="text-charcoal/70 text-sm leading-relaxed">{faq.a}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="not-prose bg-bg-paper p-12 border-t-4 border-accent shadow-xl mb-16">
-                                <p className="text-lg leading-relaxed text-charcoal/80 mb-8 font-light italic">
-                                    "Bintaro Business Centre menyediakan serviced office di Jakarta Selatan—bukan Tangerang Selatan—dengan fasilitas all-inclusive pendukung 1.800+ perusahaan sejak 2007."
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <Button className="bg-primary text-white hover:bg-accent rounded-none shadow-lg h-auto py-5 px-10 text-xs font-bold uppercase tracking-widest" asChild>
-                                        <Link href="/sewa-kantor">Daftar Harga & Unit</Link>
-                                    </Button>
-                                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-none h-auto py-5 px-10 text-xs font-bold uppercase tracking-widest" asChild>
-                                        <Link href="/sewa-kantor">Jadwalkan Survey</Link>
-                                    </Button>
-                                </div>
-                            </div>
-
-                            <p className="text-xs text-charcoal/40 font-bold uppercase tracking-widest">
-                                Artikel terkait: <Link href="/harga-sewa-kantor-bintaro" className="text-accent underline">Harga Sewa Kantor Bintaro</Link> · <Link href="/virtual-office-jakarta-selatan" className="text-accent underline">Virtual Office Jakarta Selatan</Link>
-                            </p>
-                        </div>
-
-                        <aside className="lg:col-span-4 sticky top-32 space-y-12">
-                            <div className="p-8 bg-primary rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
-                                <h3 className="text-xl font-bold mb-6 relative z-10 font-heading">Butuh Bantuan Memilih?</h3>
-                                <p className="text-white/70 text-sm leading-relaxed mb-8 relative z-10">
-                                    Tim konsultan kami siap membantu Anda memetakan lokasi terbaik sesuai dengan KBLI dan target klien bisnis Anda.
-                                </p>
-                                <Button className="w-full bg-accent text-white hover:bg-white hover:text-primary rounded-none py-6 font-bold uppercase tracking-widest text-[10px] h-auto" asChild>
-                                    <Link href="/sewa-kantor">
-                                        Eksplorasi Layanan Kantor
-                                    </Link>
-                                </Button>
-                            </div>
-
-                            <div>
-                                <h3 className="text-lg font-bold text-primary mb-8 font-heading px-2">Layanan Terkait</h3>
-                                <div className="space-y-4">
-                                    {[
-                                        { title: 'Sewa Kantor', desc: 'Unit siap pakai all-inclusive', href: '/sewa-kantor' },
-                                        { title: 'Virtual Office', desc: 'Alamat bisnis Jakarta Selatan', href: '/virtual-office' },
-                                        { title: 'Jasa Legalitas', desc: 'Pendirian PT/CV & PKP', href: '/legal/pendirian-pt-jakarta-selatan' }
-                                    ].map((s, i) => (
-                                        <Link key={i} href={s.href} className="flex items-center p-6 bg-white border border-primary/5 hover:border-accent transition-all group">
-                                            <div className="flex-1">
-                                                <h4 className="font-bold text-primary text-sm mb-1 group-hover:text-accent transition-colors">{s.title}</h4>
-                                                <p className="text-charcoal/40 text-[10px] uppercase tracking-widest font-bold">{s.desc}</p>
-                                            </div>
-                                            <ArrowRight className="w-4 h-4 text-accent transition-transform group-hover:translate-x-1" />
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <RelatedContent articles={relatedArticles} title="Bacaan Strategis" layout="list" />
-                        </aside>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <WeaponPageTemplate
+            title={title}
+            description={description}
+            canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor-jakarta-selatan"
+            schemaObject={schemaObject}
+            hero={{
+                badge1: 'Geographic Authority',
+                badge2: 'Business Relevance',
+                h1: 'Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis',
+                subheading: 'Jakarta Selatan adalah salah satu wilayah administratif DKI Jakarta yang paling aktif sebagai pusat operasional bisnis di luar kawasan CBD inti. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre menyediakan sewa kantor siap pakai di Pesanggrahan, Jakarta Selatan</a> yang berada sepenuhnya dalam yurisdiksi administratif DKI Jakarta dengan akses langsung ke JORR W2S.',
+                ctaLabel: 'Lihat Legalitas Kawasan',
+                ctaHref: '#problem',
+                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg'
+            }}
+            problem={{
+                title: 'Mengapa Jakarta Selatan Menjadi Pusat Bisnis Strategis',
+                paragraphs: [
+                    'Jakarta Selatan menawarkan keseimbangan antara aksesibilitas, ekosistem bisnis, dan status administratif yang tidak dimiliki oleh semua kawasan di sekitar Jakarta. Berbeda dengan kawasan penyangga seperti Tangerang Selatan atau Depok yang secara geografis berdekatan, Jakarta Selatan berada sepenuhnya dalam yurisdiksi DKI Jakarta — yang memiliki implikasi langsung pada proses perizinan usaha.',
+                    'Perusahaan yang memilih domisili di Jakarta Selatan mendapatkan alamat administratif DKI yang memudahkan pengurusan NIB, NPWP perusahaan, dan berbagai izin operasional lainnya. Ini menjadi pertimbangan penting terutama bagi perusahaan baru yang sedang membangun struktur legal usahanya.',
+                    'Lokasi kantor berpengaruh langsung pada jam operasional — jarak ke klien utama dan konektivitas. Kawasan seperti Pesanggrahan menawarkan posisi menguntungkan: cukup dekat ke pusat untuk akses mitra bisnis, namun jauh dari kepadatan CBD ekstrem.'
+                ]
+            }}
+            education={{
+                title: 'Konektivitas dan Mobilitas Tim Harian',
+                items: [
+                    {
+                        title: 'Terkoneksi Jaringan Jalan Tol Utama',
+                        content: 'Pilihan strategis untuk operasional sangat dipengaruhi oleh kelancaran logistik udara dan luar kota. Sebuah <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">kantor dekat Tol Veteran</a> secara instan mendapat akses JORR W2S untuk menghubungkan lini kendaraan suplai.'
+                    },
+                    {
+                        title: 'Mobilitas Lintas Wilayah Jakarta-Banten',
+                        content: 'Bagi perusahaan di sektor distribusi laut, otomotif perakitan, konstruksi perumahan, atau layanan jasa terstruktur — memosisikan diri di persimpangan ini memudahkan rekrutmen staff pinggir kota.'
+                    },
+                    {
+                        title: 'Lingkungan Profesional Menunjang Image',
+                        content: 'Sebuah kantor di yurisdiksi unggulan menumbuhkan impresi bonafide saat pendaftaran tender korporasi besar atau pengajuan proyek BUMN.'
+                    }
+                ]
+            }}
+            authority={{
+                title: 'Jenis Ruang Kerja yang Tersedia di Jakarta Selatan',
+                highlight: 'Jakarta Selatan menawarkan beragam pilihan ruang kantor yang dapat disesuaikan dengan fase pertumbuhan dan investasi awal perusahaan.',
+                image: '/images/foto-gedung-bbc.jpg',
+                items: [
+                    { icon: 'Building2', text: 'Serviced Office — ruang fully furnished dengan layanan utilitas dan resepsionis terpusat.' },
+                    { icon: 'Layers', text: 'Kantor Konvensional — ruang kosong mentah untuk konfigurasi lay-out arsitektur perusahan Anda secara mandiri.' },
+                    { icon: 'MapPin', text: 'Virtual Office — alamat domisili absah legal yang dirancang untuk pendirian izin NIB PT dari rumah.' },
+                    { icon: 'CheckSquare', text: 'Fleksibilitas skalabilitas memungkinkan upgrade dari alamat virtual menjadi kantor kompartemen tertata.' }
+                ]
+            }}
+            value={{
+                title: 'Variabel Kunci Memilih Alamat di Jakarta Selatan',
+                items: [
+                    { title: 'Yurisdiksi Spesifik', desc: 'Pemilihan alamat mutlak harus di koridor DKI, bukan wilayah pinggiran Tangerang Selatan yang memblokir NPWP pendaftaran ganda.', icon: 'Map' },
+                    { title: 'Akses Klien', desc: 'Lokasi yang memangkas biaya transportasi logis untuk kunjungan tim pemasaran dari pusat perkantoran Sudirman.', icon: 'Target' },
+                    { title: 'Fleksibilitas Kontrak', desc: 'Sewa ruang modern menyediakan klausul fleksibel guna akomodasi pertumbuhan skala SDM di semester depan.', icon: 'ShieldCheck' },
+                    { title: 'Infrastruktur', desc: 'Dikelilingi perbankan, vendor penunjang surat-menyurat, serta fasilitas ritel dan F&B untuk kesejahteraan produktivitas tim.', icon: 'Zap' }
+                ]
+            }}
+            options={{
+                title: 'Kategori Solusi Ruang Kerja di Bintaro Business Centre',
+                intro: 'Fleksibilitas model usaha yang disesuaikan arus kas.',
+                option1: {
+                    title: 'Service Office Eksklusif',
+                    desc: 'Unit terisolasi, AC, dan furnitur privat bagi tim yang siap tempur tanpa ribet instalasi harian.',
+                    suitableForTitle: 'Cocok Untuk',
+                    suitableForDesc: 'Vendor logistik, trader alat berat, distributor berskala yang perlu kantor cabang sentral.',
+                    bullets: ['Verifikasi Legalitas Cepat', 'Resepsionis Profesional']
+                },
+                option2: {
+                    title: 'Virtual Office Premium',
+                    desc: 'Domisili bonafide untuk legalitas operasional akta pendirian, menekan pengeluaran infrastruktur hingga 80%.',
+                    suitableForTitle: 'Cocok Untuk',
+                    suitableForDesc: 'Startup software, studio kreatif, firma hukum dan penyedia lini jasa (KBLI Jasa).',
+                    bullets: ['Notifikasi Mail Handling', 'Akses Ruang Eksekutif Meeting']
+                }
+            }}
+            internalLinks={{
+                title: 'Pahami Struktur Biaya Ruangan Anda Sebelum Menyewa',
+                card1: {
+                    title: 'Estimasi Biaya Bintaro',
+                    desc: 'Ketahui seluk beluk pembagian angka di balik tagihan per bulan dalam evaluasi mandiri operasional kami.',
+                    ctaLabel: 'Cek Harga',
+                    href: '/harga-sewa-kantor-bintaro'
+                },
+                card2: {
+                    title: 'Pilihan Layanan Siap Pakai',
+                    desc: 'Gali metode kerja berfasilitas utuh tanpa disibukkan pusing administrasi dan perawatan struktur.',
+                    ctaLabel: 'Jelajahi Solusi',
+                    href: '/sewa-kantor/kantor-siap-pakai-bintaro'
+                }
+            }}
+            relatedArticles={{
+                title: 'ARTIKEL TERKAIT KONEKTIVITAS KAMI',
+                links: [
+                    { title: 'Sewa Kantor dengan Ruang Minimalis Bintaro', href: '/sewa-kantor/bintaro' },
+                    { title: 'Kantor Dekat Tol Veteran JORR', href: '/kantor-dekat-tol-veteran' },
+                    { title: 'Sewa Kantor Murah di Jakarta Selatan', href: '/sewa-kantor/murah-jakarta-selatan' }
+                ]
+            }}
+            faq={{
+                title: 'Pertanyaan Seputar Legalitas Domisili Bisnis Wilayah Selatan',
+                items: [
+                    { q: 'Apakah kawasan Pesanggrahan termasuk ke dalam Jakarta Selatan?', a: 'Ya, Pesanggrahan dan sebagian jalan RC Veteran berada penuh pada yurisdiksi Jakarta Selatan, menjadikannya kunci pembuka status kewilayahan DKI.' },
+                    { q: 'Berapa jarak dari kantor ini untuk mencapai bandara Soekarno-Hatta?', a: 'Melalui koridor Pintu Tol Veteran (JORR W2S Utara), Anda hanya butuh sekitar 20-30 menit dalam kondisi lalu lintas wajar menuju bandara antar-nusa.' },
+                    { q: 'Apakah Bintaro Business Centre menangani proses pendirian perusahaan dari nol?', a: 'Ya, Anda berhak menikmati fasilitas pengurusan inkubasi PT/CV hingga tuntas sebagai wujud support relasional layanan kami.' }
+                ]
+            }}
+            bottomCTA={{
+                title: 'Selesai Berkelana, Waktunya Mengambil Resolusi Operasional',
+                subtitle: 'Keputusan lokasi kantor sebaiknya didasarkan pada pola pergerakan logistik modern dan proteksi yurisdiksi. Dapatkan efisiensi dan fasilitas kelas wahid.',
+                primaryCTA: { label: 'Tanya Tim Konsultan Eksekutif', href: 'https://wa.me/628128888069' },
+                secondaryCTA: { label: 'Lihat Daftar Tarif Sewa', href: '/harga-sewa-kantor-bintaro' }
+            }}
+        />
     )
 }

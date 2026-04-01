@@ -1,185 +1,160 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui/button'
-import { CheckCircle2, MapPin, Clock, ArrowRight, Lightbulb, ChevronDown, MessageCircle, CornerUpRight, CarFront } from 'lucide-react'
-import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
-import InternalLink from '@/components/seo/InternalLink'
-import RelatedContent from '@/components/seo/RelatedContent'
+import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const currentYear = new Date().getFullYear();
-const title = `Sewa Kantor Bintaro Strategis Jakarta Selatan ${currentYear} | BBC`
-const description = `Pilihan sewa kantor Bintaro di Jalan RC Veteran. Lokasi strategis Jakarta Selatan, akses tol langsung, fasilitas lengkap, dan harga kompetitif tahun ${currentYear}.`
+const title = 'Sewa Kantor Bintaro: Konsep, Fasilitas, dan Kesesuaian Bisnis'
+const description = 'Gambaran konsep dan fasilitas private office di kawasan Bintaro, Jakarta Selatan. Ruang privat fully furnished dengan akses langsung ke Pintu Tol Veteran.'
 
 export const metadata: Metadata = {
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/bintaro' },
     title,
     description,
     openGraph: {
+        type: 'article',
         title,
         description,
-        images: ['/og-sewa-kantor-bintaro.jpg']
+        url: 'https://www.bintarobusinesscentre.com/sewa-kantor/bintaro',
+        siteName: 'Bintaro Business Centre',
+        images: [{ url: '/images/sewa-kantor/ruangan-kantor-bersih.jpg' }]
     }
 }
 
-// FAQ Data
-const faqData = [
-    {
-        question: "Apakah alamat Bintaro Business Centre masuk wilayah Jakarta Selatan secara hukum?",
-        answer: "Ya. Gedung BBC berlokasi di Jalan RC Veteran, Pesanggrahan, yang secara administratif masuk wilayah Jakarta Selatan."
-    },
-    {
-        question: "Apakah alamat ini bisa digunakan untuk pengurusan PKP?",
-        answer: "Bisa. BBC berada di zona komersial resmi dan dapat digunakan untuk domisili usaha serta pengurusan PKP."
-    },
-    {
-        question: "Apa keunggulan lokasi RC Veteran dibanding area Bintaro lainnya?",
-        answer: "RC Veteran memiliki akses langsung ke tol sehingga lebih efisien dibanding kawasan dalam Bintaro yang cenderung lebih padat."
-    },
-    {
-        question: "Apakah lokasi terkena aturan ganjil–genap?",
-        answer: "Tidak. Akses melalui Tol Veteran dan Tanah Kusir bebas ganjil–genap hingga ke gedung."
+export default function Page() {
+    const schemaObject = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/bintaro/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/sewa-kantor/bintaro",
+                "name": title,
+                "description": description,
+                "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
+            },
+            {
+                "@type": "Article",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/bintaro/#article",
+                "headline": title,
+                "description": description,
+                "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
+                "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
+            }
+        ]
     }
-];
 
-// Service Cards Data
-const serviceCards = [
-    {
-        title: "Private Office",
-        description: "Ruang kantor privat fully furnished di gedung perkantoran profesional. Cocok untuk tim kecil hingga menengah di Jakarta Selatan dengan akses langsung ke Tol Veteran.",
-        highlights: [
-            "Fully furnished",
-            "Zona komersial resmi",
-            "Akses 24/7"
-        ],
-        pricing: "Rp 3.5 Jt/bln",
-        ctaText: "Paket private office BBC",
-        ctaLink: "/sewa-kantor",
-        anchorType: "service-location"
-    },
-    {
-        title: "Virtual Office",
-        description: "Solusi alamat bisnis Jakarta Selatan untuk kebutuhan domisili usaha, pengurusan PKP, dan administrasi perusahaan.",
-        highlights: [
-            "Alamat resmi Jakarta Selatan",
-            "Mail + call handling",
-            "Domisili usaha & PKP"
-        ],
-        pricing: "Rp 500k/bln",
-        ctaText: "Paket virtual office BBC",
-        ctaLink: "/virtual-office",
-        anchorType: "brand-service"
-    }
-];
-
-const relatedArticles = [
-    {
-        title: "Harga Sewa Kantor Bintaro",
-        description: "Bandingkan harga per ukuran ruang dan cari paket yang paling efisien untuk tim Anda.",
-        href: "/sewa-kantor/harga"
-    },
-    {
-        title: "Sewa Kantor Jakarta Selatan",
-        description: "Gambaran area premium Jaksel dan alasan RC Veteran jadi opsi paling praktis.",
-        href: "/sewa-kantor/jakarta-selatan"
-    }
-]
-
-export default function SewaKantorBintaroPage() {
     return (
-        <main className="bg-white">
-            <section className="py-8 md:py-12 bg-white">
-                <div className="container mx-auto px-4 max-w-5xl">
-                    <SEOBreadcrumbs items={[
-                        { label: 'Sewa Kantor Bintaro' }
-                    ]} />
-                </div>
-            </section>
-
-            <section className="hero-section py-8 md:py-12 bg-white">
-                <div className="container mx-auto px-4 max-w-5xl">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-                        Sewa Kantor Bintaro di Jalan RC Veteran
-                    </h1>
-
-                    <p className="text-xl md:text-2xl mt-6 text-slate-700 leading-relaxed max-w-4xl">
-                        Lokasi strategis bebas macet, hanya ±500 meter dari <Link href="/kantor-dekat-tol-veteran" className="text-accent hover:underline">Pintu Tol Veteran</Link>. 
-                        Alamat legal <strong>Jakarta Selatan</strong> dengan akses cepat ke kawasan <Link href="/kantor-dekat-bintaro-jaya" className="text-accent hover:underline">Bintaro Jaya</Link>.
-                    </p>
-
-                    <div className="seo-anchor-paragraph mt-10 text-base md:text-lg leading-relaxed max-w-4xl text-slate-600 space-y-6">
-                        <p>
-                            Bintaro Business Center berlokasi di Jalan RC Veteran, Pesanggrahan, Jakarta Selatan.
-                            Lokasi ini merupakan gerbang utama yang menghubungkan Jakarta Selatan dengan Bintaro. {' '}
-                            <InternalLink
-                                href="/sewa-kantor"
-                                anchorType="brand-service"
-                                position="intro"
-                            >
-                                Paket sewa kantor di BBC
-                            </InternalLink>
-                            {' '}dirancang untuk efisiensi operasional bisnis Anda.
-                        </p>
-                    </div>
-
-                    <div className="cta-group mt-12 flex flex-col sm:flex-row gap-4">
-                        <Button size="lg" className="bg-bbc-blue-500 hover:bg-bbc-blue-600 text-white font-bold h-14 px-10 text-lg shadow-xl" asChild>
-                            <Link href="#pilihan-ruangan">
-                                Lihat Pilihan Ruangan
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="pilihan-ruangan" className="py-20 bg-slate-50">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-3 gap-8">
-                        {serviceCards.map((service, index) => (
-                            <div key={index} className="service-card bg-white border border-slate-100 rounded-2xl p-8 shadow-sm flex flex-col h-full">
-                                <h3 className="text-2xl font-bold mb-4 text-slate-900">{service.title}</h3>
-                                <p className="text-slate-600 mb-8 flex-grow">{service.description}</p>
-                                <div className="pricing text-3xl font-extrabold text-bbc-blue-600 mb-8 pt-6 border-t font-heading">
-                                    {service.pricing}
-                                </div>
-                                <div className="text-xs mb-4 text-slate-500 italic">
-                                    Lihat rincian <Link href="/harga-sewa-kantor-bintaro" className="text-accent hover:underline">harga sewa kantor Bintaro</Link> terbaru.
-                                </div>
-                                <Button size="lg" className="w-full bg-bbc-blue-500 hover:bg-bbc-blue-600 text-white font-bold h-12" asChild>
-                                    <Link href={service.ctaLink}>
-                                        {service.ctaText} →
-                                    </Link>
-                                </Button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="faq-section py-20 bg-white">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-slate-900">
-                        Tanya Jawab Sewa Kantor Bintaro
-                    </h2>
-                    <div className="grid gap-4">
-                        {faqData.map((faq, index) => (
-                            <details key={index} className="bg-slate-50 p-8 rounded-2xl">
-                                <summary className="font-bold text-xl cursor-pointer list-none list-item">
-                                    {faq.question}
-                                </summary>
-                                <p className="mt-4 text-slate-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </details>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-4 max-w-5xl">
-                    <RelatedContent articles={relatedArticles} title="Bacaan Lanjutan" />
-                </div>
-            </section>
-        </main>
+        <WeaponPageTemplate
+            title={title}
+            description={description}
+            canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/bintaro"
+            schemaObject={schemaObject}
+            hero={{
+                badge1: 'Konsep & Layout',
+                badge2: 'Working Space',
+                h1: 'Sewa Kantor Bintaro Eksekutif: Transformasi Ruangan Fisik All-In',
+                subheading: 'Koridor selatan Jakarta memiliki keunggulan aksesibilitas tol maupun ekosistem bisnis mapan (Bintaro Jaya). Ciptakan <a href="/sewa-kantor" class="text-accent font-bold hover:underline">sewa kantor berkelas operasional matang tanpa setup modal besar</a>, sepenuhnya legal di yurisdiksi Jakarta Selatan dengan BBC.',
+                ctaLabel: 'Konsep Layanan Ruang Serviced Office',
+                ctaHref: '#problem',
+                image: '/images/sewa-kantor/ruangan-kantor-bersih.jpg'
+            }}
+            problem={{
+                title: 'Private Office versus Kosong vs Coworking Bintaro',
+                paragraphs: [
+                    'Serviced office, atau kantor siap pakai, adalah model sewa kantor di mana unit ruang lantai Anda sudah dilengkapi dengan furnitur modular, infrastruktur jaringan terpasang (WiFi/kabel LAN), dan layanan back-office pendukung harian seperti resepsionis hingga kurir inter-office. Tenant nyaris tak perlu waktu renovasi.',
+                    'Kawasan Bintaro dan Pesanggrahan Jakarta Selatan menarik para pengelola property management ini dengan gencar, menyebabkan membeludaknya opsi co-working. Berbeda dari coworking space yang lazimnya shared/open plan nan bising (privat rentan) serta kosongan telanjang yang wajib kontraktor fitting out, model private office memangkas semuanya di hari yang sama.',
+                    '<a href="/harga-sewa-kantor-bintaro" class="text-accent hover:underline">Halaman harga sewa kantor Bintaro yang membahas struktur biaya secara detail</a> sangat merefleksikan margin ROI antara 3 model layanan korporat properti tersebut secara finansial per pax di tahun pertama operasional PT / CV atau Startup branch office.'
+                ]
+            }}
+            education={{
+                title: 'Paket Fasilitas Standard Serviced Office',
+                items: [
+                    {
+                        title: 'Workstations Modern Minimalist (Desks + Chairs + Tumb P.',
+                        content: 'Tersusun ergonomik mebel lemari credenza tanpa biaya angkut logistik / instalasi hardware rumit di muka ketika tim bertambah. Internet broadband dedicated untuk setiap ruang.'
+                    },
+                    {
+                        title: 'Tamu Di-Handle Front Desk & Lobby',
+                        content: 'Gedung memiliki staf terlatih khusus untuk call forwarding / transfer ekstensi meja layaknya enterprise MNC tanpa budget UMR khusus resepsionis perusahaan mikro rintisan. <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">Klien VIP masuk Pintu Tol Veteran JORR W2S</a>, mobil mereka akan diparkir di spot kami.'
+                    },
+                    {
+                        title: 'Opex Ditutup Utilitas & Kebersihan',
+                        content: 'Listrik (PLN tier korporat), sentral kompresor AC harian, utilitas sanitary toilet premium hingga house keeping tiap jam telah diblend (bundle) fix charge. Beban vendor cleaning hilang.'
+                    }
+                ]
+            }}
+            authority={{
+                title: 'Tipe Ruang Privat Yang Paling Digemari BBC',
+                highlight: 'Berdasarkan okupansi penuh kami, perusahaan selalu melakukan rightsizing unit. Ruang eksklusif memungkinkan penyewa mengecilkan / membesarkan skalabilitas unit bila demand naik / surut (flexibilitas down-sizing).',
+                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg',
+                items: [
+                    { icon: 'Smile', text: '1-3 Pax: Mini command center / hub consultan spesialis independen (Lawyer single).' },
+                    { icon: 'Users', text: '4-8 Pax: Scaleup SaaS startup, web design house studio, atau divisi rep cabang consumer goods.' },
+                    { icon: 'Target', text: 'Lebih dari 8 pax: Kontraktor MEP, distribution control office.' },
+                    { icon: 'Calendar', text: 'Booking jam meeting ruangan auditorium yang tak mengganggu hiruk pikuk pengerjaan laptop kolega sebelahnya.' }
+                ]
+            }}
+            value={{
+                title: 'Indikator Bisnis yang Wajib Beralih Ke Sini',
+                items: [
+                    { title: 'Pendirian Legal', desc: 'Sesuai UU, OSS mewajibkan kantor fisik untuk PKP Perdagangan/Distributor (cek zonasi KBLI).', icon: 'Award' },
+                    { title: 'Tim Cabang (Branch)', desc: 'Ekspansi wilayah Jabodetabek dari Jawa Barat sentral (Bandung) butuh rumah operasional sebulan.', icon: 'Map' },
+                    { title: 'Remote Tapi Butuh Base', desc: 'Kadang remote WFH butuh sentralisasi seminggu sekali (hybrid model).', icon: 'Sun' },
+                    { title: 'C-Level Privasi', desc: 'Direksi eksekutif menghargai kesunyian dinding peredam yang sulit dicari di cafe coworking.', icon: 'Lock' }
+                ]
+            }}
+            options={{
+                title: 'Katalog Kantor Bintaro BBC',
+                intro: 'Kondisi fisik gedung dengan protokol korporasi transparan.',
+                option1: {
+                    title: 'Mini Suite Bintaro',
+                    desc: 'Luas proporsional 10-14 sqm dilengkapi furnitur Aestetik.',
+                    suitableForTitle: 'Akomodasi:',
+                    suitableForDesc: 'Tim super kurus inti. Founder dan admin operasional tandem.',
+                    bullets: ['Biaya Variabel Ringan', 'Kontrak Lentur Pendek']
+                },
+                option2: {
+                    title: 'Medium Business Suite',
+                    desc: 'Luas lega 15-20+ sqm, partisi meja lebar dan laci sorong.',
+                    suitableForTitle: 'Akomodasi:',
+                    suitableForDesc: 'Tim solid siap delivery campaign, atau admin procurement massal.',
+                    bullets: ['Lingkungan Kondusif Rapat Kecil', 'Daya Tampung Skalatis']
+                }
+            }}
+            internalLinks={{
+                title: 'Langkah Evaluasi Kantor Impian Anda',
+                card1: {
+                    title: 'Minta Penawaran Sewa Bintaro',
+                    desc: 'Hitung RAB sewa di rentang bulan pilihan. Temukan benefit di tiap periode.',
+                    ctaLabel: 'Tinjau Harga',
+                    href: '/harga-sewa-kantor-bintaro'
+                },
+                card2: {
+                    title: 'Hubungan Area & Toll Operasional',
+                    desc: 'Pahami betapa pentingnya gerbang masuk keluar dari Veteran untuk tamu.',
+                    ctaLabel: 'Lihat Peta Akses Toll',
+                    href: '/kantor-dekat-tol-veteran'
+                }
+            }}
+            relatedArticles={{
+                title: 'ARTIKEL TERKAIT',
+                links: [
+                    { title: 'Cara Menilai Harga Sewa Bintaro', href: '/sewa-kantor/harga' },
+                    { title: 'Sewa Kantor Jakarta Selatan Eksklusif', href: '/sewa-kantor-jakarta-selatan' },
+                    { title: 'Alamat Bisnis Sah Jakarta Selatan', href: '/alamat-bisnis-jakarta-selatan' }
+                ]
+            }}
+            faq={{
+                title: 'FAQ Layanan & Ruangan Kantor Bintaro',
+                items: [
+                    { q: 'Berapa durasi kontrak minimum untuk sewa kantor di Bintaro?', a: 'Durasi kontrak bervariasi tergantung penyedia. Sebagian besar mengizinkan fleksibilitas sewa bulanan, per kuartal (3 bulan) minimal, hingga tahunan komitmen discount.' },
+                    { q: 'Apakah alamat kantor di Bintaro bisa digunakan untuk domisili perusahaan?', a: 'Tergantung lokasi spesifik dan IMB tata ruangnya. Alamat BBC di Pesanggrahan dapat mem-back up sah NIB serta NPWP korporasi PT sebagai domisili DKI Jakarta.' }
+                ]
+            }}
+            bottomCTA={{
+                title: 'Lihat Langsung Tata Ruang Kami Kapan Saja',
+                subtitle: 'Walk in tour 10 menit dengan tim penasihat operasional ruang BBC bisa mencerahkan struktur dan tata ruang sejati untuk kru Anda.',
+                primaryCTA: { label: 'Agendakan Survei Hari Ini', href: 'https://wa.me/628128888069' },
+                secondaryCTA: { label: 'Gallery Fasilitas Ruangan Utama Jaksel', href: '/sewa-kantor' }
+            }}
+        />
     )
 }

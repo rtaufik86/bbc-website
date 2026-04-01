@@ -5,7 +5,8 @@ import { AdminHeader } from '@/components/admin/AdminHeader'
 
 export const metadata = {
     title: 'CRM - BBC Admin',
-    description: 'Lead and customer management system'
+    description: 'Lead and customer management system',
+    robots: 'noindex, nofollow'
 }
 
 export default async function AdminLayout({

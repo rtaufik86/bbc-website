@@ -17,32 +17,12 @@
   {
     "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
     "destination": "/virtual-office",
-    "anchor": "Dapatkan Alamat Bisnis Sah"
-  },
-  {
-    "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Eksplorasi Alamat Bisnis"
-  },
-  {
-    "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Lihat Paket VO"
+    "anchor": "Virtual office Bintaro Business Centre menyediakan domisili di Pesanggrahan, Jakarta Selatan"
   },
   {
     "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
     "destination": "/virtual-office-jakarta-selatan",
-    "anchor": "Virtual Office Jakarta Selatan"
-  },
-  {
-    "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office-bintaro",
-    "anchor": "Virtual Office Bintaro"
-  },
-  {
-    "source": "app/alamat-bisnis-jakarta-selatan/page.tsx",
-    "destination": "/harga-virtual-office-jakarta-selatan",
-    "anchor": "Harga Virtual Office Jakarta Selatan"
+    "anchor": "dinamika virtual office Jakarta Selatan khusus NIB"
   },
   {
     "source": "app/fasilitas-kantor/page.tsx",
@@ -87,107 +67,97 @@
   {
     "source": "app/harga-sewa-kantor-bintaro/page.tsx",
     "destination": "/sewa-kantor",
-    "anchor": "Tanya Harga Spesifik"
+    "anchor": "Bintaro Business Centre menyediakan sewa kantor siap pakai"
   },
   {
     "source": "app/harga-sewa-kantor-bintaro/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Tanya Harga & Ketersediaan"
-  },
-  {
-    "source": "app/harga-sewa-kantor-bintaro/page.tsx",
-    "destination": "/sewa-kantor-jakarta-selatan",
-    "anchor": "Sewa Kantor Jakarta Selatan"
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "Pintu Tol Veteran"
   },
   {
     "source": "app/harga-sewa-kantor-bintaro/page.tsx",
     "destination": "/kantor-dekat-bintaro-jaya",
-    "anchor": "Kantor Dekat Bintaro Jaya"
+    "anchor": "Kantor dekat Bintaro Jaya di sisi Pesanggrahan"
   },
   {
-    "source": "app/harga-sewa-kantor-bintaro/page.tsx",
+    "source": "app/harga-virtual-office/page.tsx",
+    "destination": "/virtual-office",
+    "anchor": "Cek Paket & Harga Terbaru →"
+  },
+  {
+    "source": "app/harga-virtual-office/page.tsx",
+    "destination": "/virtual-office",
+    "anchor": "virtual office Bintaro Business Centre"
+  },
+  {
+    "source": "app/harga-virtual-office/page.tsx",
+    "destination": "/legal/pendirian-pt-jakarta-selatan",
+    "anchor": "jasa pendirian PT di Jakarta Selatan"
+  },
+  {
+    "source": "app/harga-virtual-office/page.tsx",
+    "destination": "/fasilitas-kantor",
+    "anchor": "fasilitas kantor BBC"
+  },
+  {
+    "source": "app/harga-virtual-office/page.tsx",
     "destination": "/sewa-kantor",
-    "anchor": "Panduan Lengkap Sewa Kantor Bintaro"
+    "anchor": "sewa kantor siap pakai"
+  },
+  {
+    "source": "app/harga-virtual-office/page.tsx",
+    "destination": "/ruang-meeting",
+    "anchor": "ruang meeting Jakarta Selatan"
   },
   {
     "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
     "destination": "/virtual-office",
-    "anchor": "Eksplorasi Paket Virtual Office"
+    "anchor": "BBC menawarkan Virtual Office Jakarta Selatan"
   },
   {
     "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Cek Detail Harga & Paket"
-  },
-  {
-    "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Bandingkan Paket Sekarang"
-  },
-  {
-    "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office-jakarta-selatan",
-    "anchor": "Virtual Office Jakarta Selatan"
-  },
-  {
-    "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office-bintaro",
-    "anchor": "Virtual Office Bintaro"
+    "destination": "/harga-virtual-office",
+    "anchor": "Harga virtual office dan faktor penentu nilainya"
   },
   {
     "source": "app/harga-virtual-office-jakarta-selatan/page.tsx",
     "destination": "/alamat-bisnis-jakarta-selatan",
-    "anchor": "Alamat Bisnis Jakarta Selatan"
+    "anchor": "Fungsi alamat bisnis Jakarta Selatan"
   },
   {
     "source": "app/kantor-dekat-bintaro-jaya/page.tsx",
     "destination": "/sewa-kantor",
-    "anchor": "Eksplorasi Pilihan Kantor"
-  },
-  {
-    "source": "app/kantor-dekat-bintaro-jaya/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Cek Ketersediaan Unit"
+    "anchor": "BBC menyediakan kantor berbatas langsung dengan Bintaro Jaya"
   },
   {
     "source": "app/kantor-dekat-bintaro-jaya/page.tsx",
     "destination": "/kantor-dekat-tol-veteran",
-    "anchor": "Kantor Dekat Tol Veteran"
+    "anchor": "Pintu Tol Veteran di JORR W2S"
   },
   {
     "source": "app/kantor-dekat-bintaro-jaya/page.tsx",
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "sewa kantor Bintaro dengan detail tipe ruang"
+  },
+  {
+    "source": "app/kantor-dekat-tol-veteran/page.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "Bintaro Business Centre berlokasi ~1,3 km dari Pintu Tol Veteran"
+  },
+  {
+    "source": "app/kantor-dekat-tol-veteran/page.tsx",
     "destination": "/harga-sewa-kantor-bintaro",
-    "anchor": "Harga Sewa Kantor Bintaro"
-  },
-  {
-    "source": "app/kantor-dekat-bintaro-jaya/page.tsx",
-    "destination": "/sewa-kantor-jakarta-selatan",
-    "anchor": "Sewa Kantor Jakarta Selatan"
-  },
-  {
-    "source": "app/kantor-dekat-tol-veteran/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Cek Lokasi & Unit"
-  },
-  {
-    "source": "app/kantor-dekat-tol-veteran/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Jadwalkan Survey Lokasi"
+    "anchor": "harga sewa kantor Bintaro dibandingkan kawasan lain di Jakarta Selatan"
   },
   {
     "source": "app/kantor-dekat-tol-veteran/page.tsx",
     "destination": "/kantor-dekat-bintaro-jaya",
-    "anchor": "Kantor Dekat Bintaro Jaya"
+    "anchor": "Halaman kantor dekat Bintaro Jaya"
   },
   {
     "source": "app/kantor-dekat-tol-veteran/page.tsx",
-    "destination": "/harga-sewa-kantor-bintaro",
-    "anchor": "Harga Sewa Kantor Bintaro"
-  },
-  {
-    "source": "app/kantor-dekat-tol-veteran/page.tsx",
-    "destination": "/sewa-kantor-jakarta-selatan",
-    "anchor": "Sewa Kantor Jakarta Selatan"
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "sewa kantor Bintaro dengan fasilitas resepsionis tingkat A+"
   },
   {
     "source": "app/klien-dan-testimoni/page.tsx",
@@ -252,7 +222,7 @@
   {
     "source": "app/legal/LegalClient.tsx",
     "destination": "/virtual-office",
-    "anchor": "virtual office"
+    "anchor": "layanan virtual office Jakarta Selatan"
   },
   {
     "source": "app/legal/LegalClient.tsx",
@@ -272,12 +242,17 @@
   {
     "source": "app/legal/LegalClient.tsx",
     "destination": "/virtual-office",
-    "anchor": "virtual office"
+    "anchor": "alamat bisnis resmi Jakarta Selatan"
   },
   {
     "source": "app/legal/LegalClient.tsx",
-    "destination": "/virtual-office",
-    "anchor": "virtual office"
+    "destination": "/legal/cek-kbli",
+    "anchor": "pengecekan KBLI"
+  },
+  {
+    "source": "app/legal/LegalClient.tsx",
+    "destination": "/legal/pkp-perdagangan",
+    "anchor": "PKP Sektoral"
   },
   {
     "source": "app/legal/LegalClient.tsx",
@@ -286,8 +261,13 @@
   },
   {
     "source": "app/legal/LegalClient.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "sewa kantor di BBC"
+    "destination": "/virtual-office",
+    "anchor": "alamat bisnis resmi Jakarta Selatan"
+  },
+  {
+    "source": "app/legal/LegalClient.tsx",
+    "destination": "/virtual-office",
+    "anchor": "paket virtual office BBC"
   },
   {
     "source": "app/legal/LegalClient.tsx",
@@ -323,6 +303,31 @@
     "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
     "destination": "/sewa-kantor",
     "anchor": "Lihat Paket Sewa Kantor"
+  },
+  {
+    "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
+    "destination": "/legal",
+    "anchor": "Pusat Layanan Legal"
+  },
+  {
+    "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
+    "destination": "/legal/cek-kbli",
+    "anchor": "Cara Cek KBLI Perusahaan"
+  },
+  {
+    "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
+    "destination": "/legal/pkp-perdagangan",
+    "anchor": "Syarat PKP Perdagangan"
+  },
+  {
+    "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
+    "destination": "/virtual-office",
+    "anchor": "Solusi Domisili VO"
+  },
+  {
+    "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "Solusi Kantor Fisik (PKP)"
   },
   {
     "source": "app/legal/pendirian-pt-jakarta-selatan/PendirianPTClient.tsx",
@@ -405,26 +410,6 @@
     "anchor": "Sign up"
   },
   {
-    "source": "app/lokasi/LokasiClient.tsx",
-    "destination": "/kontak",
-    "anchor": "Hubungi Kami"
-  },
-  {
-    "source": "app/lokasi/LokasiClient.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Service Office"
-  },
-  {
-    "source": "app/lokasi/LokasiClient.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Virtual Office"
-  },
-  {
-    "source": "app/lokasi/LokasiClient.tsx",
-    "destination": "/jasa-legalitas",
-    "anchor": "Jasa Legalitas"
-  },
-  {
     "source": "app/lokasi-kantor/page.tsx",
     "destination": "/sewa-kantor",
     "anchor": "infrastruktur kantor fisik"
@@ -486,6 +471,16 @@
   },
   {
     "source": "app/page.tsx",
+    "destination": "/sewa-kantor/jakarta-selatan",
+    "anchor": "sewa kantor Jakarta Selatan"
+  },
+  {
+    "source": "app/page.tsx",
+    "destination": "/virtual-office-jakarta-selatan",
+    "anchor": "paket VO Jakarta Selatan"
+  },
+  {
+    "source": "app/page.tsx",
     "destination": "/kontak",
     "anchor": "Hubungi Kami Sekarang"
   },
@@ -520,6 +515,56 @@
     "anchor": "Hubungi Kami"
   },
   {
+    "source": "app/sewa-kantor/bintaro/page.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "sewa kantor berkelas operasional matang tanpa setup modal besar"
+  },
+  {
+    "source": "app/sewa-kantor/bintaro/page.tsx",
+    "destination": "/harga-sewa-kantor-bintaro",
+    "anchor": "Halaman harga sewa kantor Bintaro yang membahas struktur biaya secara detail"
+  },
+  {
+    "source": "app/sewa-kantor/bintaro/page.tsx",
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "Klien VIP masuk Pintu Tol Veteran JORR W2S"
+  },
+  {
+    "source": "app/sewa-kantor/harga/page.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "BBC menyediakan kantor all-in di Jakarta Selatan"
+  },
+  {
+    "source": "app/sewa-kantor/harga/page.tsx",
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "konsep fasilitas scale up sewa kantor Bintaro skala departemen ini"
+  },
+  {
+    "source": "app/sewa-kantor/harga/page.tsx",
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "Akses 1,3km dari Pintu Tol Veteran"
+  },
+  {
+    "source": "app/sewa-kantor/kantor-siap-pakai-bintaro/page.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "sewa kantor Bintaro Business Centre (BBC)"
+  },
+  {
+    "source": "app/sewa-kantor/kantor-siap-pakai-bintaro/page.tsx",
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "solusi gedung kantor di Bintaro"
+  },
+  {
+    "source": "app/sewa-kantor/murah-jakarta-selatan/page.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "sewa kantor di Bintaro Business Centre (BBC)"
+  },
+  {
+    "source": "app/sewa-kantor/murah-jakarta-selatan/page.tsx",
+    "destination": "/sewa-kantor/harga",
+    "anchor": "perbandingan model konvensional dan modern yang diimplementasi komunal gedung profesional"
+  },
+  {
     "source": "app/sewa-kantor/SewaKantorClient.tsx",
     "destination": "/legal/pendirian-pt-jakarta-selatan",
     "anchor": "layanan legal pendirian PT Jakarta Selatan"
@@ -531,8 +576,28 @@
   },
   {
     "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/kantor-dekat-bintaro-jaya",
+    "anchor": "kantor dekat Bintaro Jaya"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "kantor dekat tol Veteran"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/harga-sewa-kantor-bintaro",
+    "anchor": "harga sewa kantor Bintaro"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
     "destination": "/virtual-office",
     "anchor": "layanan virtual office Bintaro Business Centre"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/harga-virtual-office",
+    "anchor": "perbandingan harga virtual office"
   },
   {
     "source": "app/sewa-kantor/SewaKantorClient.tsx",
@@ -555,34 +620,49 @@
     "anchor": "Klien & Testimoni"
   },
   {
-    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Cek Pilihan Ruang Kantor"
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/sewa-kantor-jakarta-selatan",
+    "anchor": "Sewa Kantor Jakarta Selatan"
   },
   {
-    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Daftar Harga & Unit"
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "Sewa Kantor Bintaro"
   },
   {
-    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
-    "destination": "/sewa-kantor",
-    "anchor": "Jadwalkan Survey"
-  },
-  {
-    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
     "destination": "/harga-sewa-kantor-bintaro",
     "anchor": "Harga Sewa Kantor Bintaro"
   },
   {
-    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office-jakarta-selatan",
-    "anchor": "Virtual Office Jakarta Selatan"
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/kantor-dekat-bintaro-jaya",
+    "anchor": "Kantor Dekat Bintaro Jaya"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "Kantor Dekat Tol Veteran"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/sewa-kantor/harga",
+    "anchor": "List Harga Kantor"
+  },
+  {
+    "source": "app/sewa-kantor/SewaKantorClient.tsx",
+    "destination": "/sewa-kantor/kantor-siap-pakai-bintaro",
+    "anchor": "Kantor Siap Pakai"
   },
   {
     "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
     "destination": "/sewa-kantor",
-    "anchor": "Eksplorasi Layanan Kantor"
+    "anchor": "Bintaro Business Centre menyediakan sewa kantor siap pakai di Pesanggrahan, Jakarta Selatan"
+  },
+  {
+    "source": "app/sewa-kantor-jakarta-selatan/page.tsx",
+    "destination": "/kantor-dekat-tol-veteran",
+    "anchor": "kantor dekat Tol Veteran"
   },
   {
     "source": "app/signup/page.tsx",
@@ -636,6 +716,11 @@
   },
   {
     "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/harga-virtual-office",
+    "anchor": "rincian harga virtual office Jakarta Selatan"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
     "destination": "/sewa-kantor",
     "anchor": "Service Office\r\n                                Kantor fisik private lengkap dengan furniture dan fa"
   },
@@ -643,6 +728,36 @@
     "source": "app/virtual-office/VirtualOfficeClient.tsx",
     "destination": "/legal/pendirian-pt-jakarta-selatan",
     "anchor": "Jasa Legal Pendirian PT\r\n                                Layanan pengurusan pendirian PT, CV, NIB, d"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/virtual-office-jakarta-selatan",
+    "anchor": "Virtual Office Jakarta Selatan"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/virtual-office-bintaro",
+    "anchor": "Virtual Office Bintaro"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/harga-virtual-office-jakarta-selatan",
+    "anchor": "Harga VO Jakarta Selatan"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/alamat-bisnis-jakarta-selatan",
+    "anchor": "Alamat Bisnis & Legalitas"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/harga-virtual-office",
+    "anchor": "Risiko Harga Murah"
+  },
+  {
+    "source": "app/virtual-office/VirtualOfficeClient.tsx",
+    "destination": "/virtual-office/jakarta-selatan",
+    "anchor": "Area Layanan Jakarta Selatan"
   },
   {
     "source": "app/virtual-office/VirtualOfficeClient.tsx",
@@ -662,67 +777,22 @@
   {
     "source": "app/virtual-office-bintaro/page.tsx",
     "destination": "/virtual-office",
-    "anchor": "Tanya Ketersediaan Alamat"
+    "anchor": "Sebuah domisili virtual office berkualitas di wilayah selatan seperti BBC"
   },
   {
     "source": "app/virtual-office-bintaro/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Tanya Ketersediaan"
-  },
-  {
-    "source": "app/virtual-office-bintaro/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Lihat Semua Paket"
-  },
-  {
-    "source": "app/virtual-office-bintaro/page.tsx",
-    "destination": "/virtual-office-jakarta-selatan",
-    "anchor": "Virtual Office Jakarta Selatan"
-  },
-  {
-    "source": "app/virtual-office-bintaro/page.tsx",
-    "destination": "/alamat-bisnis-jakarta-selatan",
-    "anchor": "Alamat Bisnis Jakarta Selatan"
-  },
-  {
-    "source": "app/virtual-office-bintaro/page.tsx",
-    "destination": "/harga-virtual-office-jakarta-selatan",
-    "anchor": "Harga Virtual Office Jakarta Selatan"
+    "destination": "/virtual-office/jakarta-selatan",
+    "anchor": "Kesesuaian Regulasi Virtual Office Jakarta"
   },
   {
     "source": "app/virtual-office-jakarta-selatan/page.tsx",
     "destination": "/virtual-office",
-    "anchor": "Cek Pilihan Paket Virtual Office"
-  },
-  {
-    "source": "app/virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Lihat Pilihan Paket"
-  },
-  {
-    "source": "app/virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Konsultasi Gratis"
+    "anchor": "Fasilitas virtual office eksklusif di wilayah Jakarta Selatan"
   },
   {
     "source": "app/virtual-office-jakarta-selatan/page.tsx",
     "destination": "/alamat-bisnis-jakarta-selatan",
-    "anchor": "Alamat Bisnis Jakarta Selatan"
-  },
-  {
-    "source": "app/virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office-bintaro",
-    "anchor": "Virtual Office Bintaro"
-  },
-  {
-    "source": "app/virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/harga-virtual-office-jakarta-selatan",
-    "anchor": "Harga Virtual Office Jakarta Selatan"
-  },
-  {
-    "source": "app/virtual-office-jakarta-selatan/page.tsx",
-    "destination": "/virtual-office",
-    "anchor": "Aktivasi Sekarang"
+    "anchor": "alamat bisnis dengan peninjauan sewa fisik 1 tahun legal di Jakarta Selatan."
   },
   {
     "source": "components/admin/LeadHeader.tsx",
@@ -826,6 +896,26 @@
   },
   {
     "source": "components/navigation/Footer.tsx",
+    "destination": "/sewa-kantor/bintaro",
+    "anchor": "Sewa Kantor Bintaro"
+  },
+  {
+    "source": "components/navigation/Footer.tsx",
+    "destination": "/sewa-kantor/jakarta-selatan",
+    "anchor": "Sewa Kantor Jakarta Selatan"
+  },
+  {
+    "source": "components/navigation/Footer.tsx",
+    "destination": "/virtual-office-bintaro",
+    "anchor": "Virtual Office Bintaro"
+  },
+  {
+    "source": "components/navigation/Footer.tsx",
+    "destination": "/virtual-office-jakarta-selatan",
+    "anchor": "Virtual Office Jakarta Selatan"
+  },
+  {
+    "source": "components/navigation/Footer.tsx",
     "destination": "/tentang-kami",
     "anchor": "Tentang Kami"
   },
@@ -851,12 +941,12 @@
   },
   {
     "source": "components/navigation/Footer.tsx",
-    "destination": "/kontak",
-    "anchor": "Kontak"
+    "destination": "/legal/cek-kbli",
+    "anchor": "Panduan KBLI & Legalitas"
   },
   {
     "source": "components/navigation/Footer.tsx",
-    "destination": "/sitemap",
+    "destination": "/sitemap.xml",
     "anchor": "Sitemap"
   },
   {
@@ -868,5 +958,10 @@
     "source": "components/navigation/Footer.tsx",
     "destination": "/terms",
     "anchor": "Terms of Service"
+  },
+  {
+    "source": "components/seo/SiloNavigation.tsx",
+    "destination": "/sewa-kantor",
+    "anchor": "Lihat Semua Layanan"
   }
 ]

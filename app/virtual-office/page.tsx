@@ -1,17 +1,9 @@
 import { Metadata } from 'next'
+import { getMetadata } from '@/lib/seo/pageTypeMap'
 import VirtualOfficeClient from './VirtualOfficeClient'
 import Script from 'next/script'
 
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office' },
-    title: 'Virtual Office Jakarta Selatan | Domisili Resmi DKI | BBC',
-    description: 'Virtual office Jakarta Selatan sejak 2007. Alamat resmi DKI untuk pendirian PT, CV, dan PKP (KBLI Jasa). Layanan pendukung untuk KBLI Selain Jasa. Konsultasi gratis.',
-    openGraph: {
-        title: 'Virtual Office Jakarta Selatan | Domisili Resmi DKI | BBC',
-        description: 'Virtual office Jakarta Selatan sejak 2007. Alamat resmi DKI untuk pendirian PT, CV, dan PKP (KBLI Jasa). Layanan pendukung untuk KBLI Selain Jasa. Konsultasi gratis.',
-        images: ['/images/hero-virtual-office.jpg']
-    }
-}
+export const metadata: Metadata = getMetadata('/virtual-office')
 
 export default function VirtualOfficePage() {
     const schema = {

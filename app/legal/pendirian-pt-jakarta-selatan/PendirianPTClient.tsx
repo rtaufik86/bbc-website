@@ -646,6 +646,33 @@ export default function PendirianPTClient() {
                 </div>
             </section>
 
+            {/* 10) SEO HUB LINKS */}
+            <section className="py-20 bg-slate-50 border-t border-primary/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Basis Pengetahuan Legal</span>
+                        <h2 className="text-2xl font-bold text-primary font-heading">Panduan & Perizinan Bisnis</h2>
+                    </div>
+                    <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/legal">Pusat Layanan Legal</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/legal/cek-kbli">Cara Cek KBLI Perusahaan</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/legal/pkp-perdagangan">Syarat PKP Perdagangan</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/virtual-office">Solusi Domisili VO</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/sewa-kantor">Solusi Kantor Fisik (PKP)</Link>
+                        </Button>
+                    </div>
+                </div>
+            </section>
+
             {/* RELATED SERVICES / LINK TO HUB */}
             <section className="py-20 bg-white border-t border-primary/5">
                 <div className="container mx-auto px-6">

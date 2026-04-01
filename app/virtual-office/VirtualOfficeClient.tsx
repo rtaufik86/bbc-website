@@ -500,7 +500,7 @@ export default function VirtualOfficeClient() {
                         <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Analisis Biaya</span>
                         <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6 font-heading">Virtual Office vs Kantor Fisik</h2>
                         <p className="text-charcoal/60 font-light text-lg">
-                            Virtual office memberikan legalitas administratif tanpa beban operasional—solusi ideal untuk bisnis yang memprioritaskan efisiensi dan belum memerlukan PKP.
+                            Virtual office memberikan legalitas administratif tanpa beban operasional—solusi ideal untuk bisnis yang memprioritaskan efisiensi dan belum memerlukan PKP. Baca selengkapnya tentang <Link href="/harga-virtual-office" className="text-accent font-bold hover:underline">rincian harga virtual office Jakarta Selatan</Link>.
                         </p>
                     </div>
 
@@ -724,6 +724,36 @@ export default function VirtualOfficeClient() {
                                 </span>
                             </div>
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* M) SEO CLUSTER LINKS */}
+            <section className="py-20 bg-slate-50 border-t border-primary/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <span className="text-accent font-bold uppercase tracking-[0.3em] text-[10px] block mb-4">Eksplorasi Lokal</span>
+                        <h2 className="text-2xl font-bold text-primary font-heading">Panduan Virtual Office & Alamat Bisnis</h2>
+                    </div>
+                    <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/virtual-office-jakarta-selatan">Virtual Office Jakarta Selatan</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/virtual-office-bintaro">Virtual Office Bintaro</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/harga-virtual-office-jakarta-selatan">Harga VO Jakarta Selatan</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/alamat-bisnis-jakarta-selatan">Alamat Bisnis & Legalitas</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/harga-virtual-office">Risiko Harga Murah</Link>
+                        </Button>
+                        <Button variant="outline" className="rounded-none border-primary/20 text-primary hover:border-accent" asChild>
+                            <Link href="/virtual-office/jakarta-selatan">Area Layanan Jakarta Selatan</Link>
+                        </Button>
                     </div>
                 </div>
             </section>
