@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { PAGE_TYPE_MAP, isIndexable } from '@/src/lib/seo/pageTypeMap'
+import { PAGE_TYPE_MAP, isIndexable } from '@/lib/seo/pageTypeMap'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.bintarobusinesscentre.com'
