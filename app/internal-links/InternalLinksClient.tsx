@@ -62,7 +62,7 @@ export default function InternalLinksClient({ linksData }: { linksData: LinkData
     return {
       ...link,
       sourceSlug: slug,
-      type
+      pageType: type
     }
   }).filter(link => {
     const matchesSearch = 
