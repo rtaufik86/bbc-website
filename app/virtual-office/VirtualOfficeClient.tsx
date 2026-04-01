@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
+import SiloNavigation from '@/components/seo/SiloNavigation'
 import {
     Accordion,
     AccordionContent,
@@ -672,6 +673,9 @@ export default function VirtualOfficeClient() {
                     </div>
                 </div>
             </section>
+
+            {/* Silo Navigation */}
+            <SiloNavigation />
 
             {/* L) RELATED SERVICES */}
             <section className="py-20 bg-white border-t border-primary/5">

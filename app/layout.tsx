@@ -27,7 +27,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://bintarobusinesscentre.com'),
+    metadataBase: new URL('https://www.bintarobusinesscentre.com'),
     title: {
         default: 'Bintaro Business Center | Sewa Kantor & Virtual Office Jakarta Selatan',
         template: '%s | Bintaro Business Center'
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'id_ID',
-        url: 'https://bintarobusinesscentre.com',
+        url: 'https://www.bintarobusinesscentre.com',
         siteName: 'Bintaro Business Center',
         images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Bintaro Business Center' }],
     },

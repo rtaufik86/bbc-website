@@ -95,7 +95,7 @@ export default function Page() {
                 <div className="container mx-auto px-6 text-center lg:text-left">
                     <div className="max-w-4xl mx-auto prose prose-lg prose-slate prose-headings:text-primary prose-headings:font-heading prose-headings:font-bold prose-accent:text-accent">
                         <p className="text-2xl leading-relaxed text-charcoal/60 font-light mb-16 text-center">
-                            Memahami kaitan antara alamat bisnis, kredibilitas, dan legitimasi hukum membantu Anda mengambil langkah tepat untuk pertumbuhan perusahaan.
+                            Memahami kaitan antara alamat bisnis, kredibilitas, dan legitimasi hukum membantu Anda mengambil langkah tepat, seperti beralih ke <Link href="/virtual-office-jakarta-selatan" className="text-accent underline">virtual office Jakarta Selatan</Link> untuk pertumbuhan perusahaan.
                         </p>
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Kenapa Alamat Jakarta Selatan Begitu Penting?</h2>
@@ -115,7 +115,7 @@ export default function Page() {
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Opsi Mendapatkan Alamat Bisnis</h2>
                         <p>
-                            <strong>Virtual Office</strong>. Opsi paling efisien biaya. Dapatkan alamat sah untuk pendirian PT & PKP (KBLI Jasa). <InternalLink href="/virtual-office" anchorType="brand-service" position="mid-content">Virtual Office BBC</InternalLink> beroperasi dari gedung fisik yang nyata.
+                            <strong>Virtual Office</strong>. Opsi paling efisien biaya. Dapatkan alamat sah untuk pendirian PT & PKP (KBLI Jasa). <Link href="/virtual-office-bintaro" className="text-accent hover:underline">Virtual Office Bintaro</Link> via BBC beroperasi dari gedung fisik yang nyata.
                         </p>
                         <p>
                             <strong>Service Office</strong>. Jika butuh ruang fisik & PKP KBLI Perdagangan. <InternalLink href="/sewa-kantor" anchorType="brand-service" position="mid-content">Service Office BBC</InternalLink> memenuhi syarat Ditjen Pajak untuk kontrak minimum 1 tahun.

@@ -101,7 +101,7 @@ export default function Page() {
                             Ini bukan masalah preferensi—ini masalah administrasi. Kawasan "Bintaro Jaya" terbagi antara dua wilayah administratif: sebagian masuk Pesanggrahan Jaksel (DKI Jakarta), sebagian besar masuk Tangerang Selatan.
                         </p>
                         <p>
-                            <strong>Bintaro Business Centre (BBC)</strong> berlokasi di Jl. RC. Veteran, Kec. Pesanggrahan—di sisi Jakarta. Ini fakta administratif yang dapat diverifikasi oleh instansi manapun.
+                            <strong>Bintaro Business Centre (BBC)</strong> berlokasi di Jl. RC. Veteran, Kec. Pesanggrahan—di sisi Jakarta. Ini fakta administratif yang dapat diverifikasi oleh instansi manapun, menjadikan kami solusi <Link href="/virtual-office-jakarta-selatan" className="text-accent hover:underline">virtual office Jakarta Selatan</Link> yang paling dekat dengan kawasan Bintaro Jaya.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-8 not-prose my-16">
@@ -123,7 +123,7 @@ export default function Page() {
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Siapa yang Membutuhkan Layanan Ini?</h2>
                         <ul className="space-y-4 text-charcoal/70">
-                            <li><CheckCircle2 className="w-5 h-5 text-accent inline mr-3" /> <strong>Pengusaha di Bintaro Jaya</strong> yang ingin kantor dekat rumah tapi beralamat Jakarta Selatan.</li>
+                            <li><CheckCircle2 className="w-5 h-5 text-accent inline mr-3" /> <strong>Pengusaha di Bintaro Jaya</strong> yang ingin kantor dekat rumah tapi memiliki <Link href="/alamat-bisnis-jakarta-selatan" className="text-accent hover:underline">alamat bisnis Jakarta Selatan</Link> yang kredibel.</li>
                             <li><CheckCircle2 className="w-5 h-5 text-accent inline mr-3" /> <strong>Konsultan & Profesional Jasa</strong> yang butuh PKP dengan alamat DKI Jakarta.</li>
                             <li><CheckCircle2 className="w-5 h-5 text-accent inline mr-3" /> <strong>Startup Baru</strong> yang belum butuh ruang fisik harian tapi butuh domisili resmi.</li>
                         </ul>

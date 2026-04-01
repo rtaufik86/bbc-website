@@ -30,6 +30,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
+import SiloNavigation from '@/components/seo/SiloNavigation'
 import {
     Accordion,
     AccordionContent,
@@ -534,7 +535,7 @@ export default function SewaKantorClient() {
                             <span className="text-accent font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">Aksesibilitas</span>
                             <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-bold mb-8 font-heading text-white">Lokasi Strategis di Jakarta Selatan – Dekat Kawasan Bisnis dan Perumahan Premium</h2>
                             <p className="text-white/70 text-lg max-w-4xl mx-auto font-light leading-relaxed">
-                                Bintaro Business Centre menyediakan solusi <Link href="/sewa-kantor/jakarta-selatan" className="text-accent font-bold hover:underline">sewa kantor Jakarta Selatan</Link> yang strategis di Pesanggrahan, dengan akses cepat melalui Pintu Tol Veteran dan Jalan RC Veteran Raya. Berada di sekitar Bintaro Jaya, Rempoa, dan kawasan Pondok Indah, lokasi ini memudahkan aktivitas bisnis sekaligus memberikan alamat administratif DKI Jakarta yang penting untuk kebutuhan legal dan perpajakan perusahaan.
+                                Bintaro Business Centre menyediakan solusi <Link href="/sewa-kantor/jakarta-selatan" className="text-accent font-bold hover:underline">sewa kantor Jakarta Selatan</Link> yang strategis di Pesanggrahan, dengan akses cepat melalui Pintu Tol Veteran dan Jalan RC Veteran Raya. Berada di sekitar <Link href="/kantor-dekat-bintaro-jaya" className="text-accent font-bold hover:underline">kantor dekat Bintaro Jaya</Link>, Rempoa, dan kawasan Pondok Indah, lokasi ini memudahkan aktivitas bisnis sekaligus memberikan alamat administratif DKI Jakarta. Temukan juga opsi <Link href="/kantor-dekat-tol-veteran" className="text-accent font-bold hover:underline">kantor dekat tol Veteran</Link> dengan penawaran <Link href="/harga-sewa-kantor-bintaro" className="text-accent font-bold hover:underline">harga sewa kantor Bintaro</Link> yang kompetitif.
                             </p>
                         </div>
 

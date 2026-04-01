@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Fasilitas Bintaro Business Centre | Infrastruktur Kantor Lengkap Jakarta Selatan',
     description: 'Fasilitas lengkap mendukung operasional bisnis: Service Office, Meeting Room, Parkir 30 Mobil, High Speed Internet, dan Resepsionis Profesional di Jakarta Selatan.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/fasilitas-kantor' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/fasilitas-kantor' },
 }
 
 export default function FasilitasKantorPage() {

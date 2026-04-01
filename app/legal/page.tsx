@@ -22,10 +22,10 @@ export default function LegalPage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://bintarobusinesscentre.com/#localbusiness",
+                "@id": "https://www.bintarobusinesscentre.com/#localbusiness",
                 "name": "Bintaro Business Centre",
-                "url": "https://bintarobusinesscentre.com/",
-                "image": "https://bintarobusinesscentre.com/images/og/bbc-og.jpg",
+                "url": "https://www.bintarobusinesscentre.com/",
+                "image": "https://www.bintarobusinesscentre.com/images/og/bbc-og.jpg",
                 "description": "Bintaro Business Centre menyediakan sewa kantor siap pakai (serviced office), virtual office, dan layanan legal terintegrasi di Jakarta Selatan sejak 2007.",
                 "telephone": "(021) 7362639",
                 "priceRange": "$$",
@@ -40,11 +40,11 @@ export default function LegalPage() {
             },
             {
                 "@type": "Service",
-                "@id": "https://bintarobusinesscentre.com/legal#service",
+                "@id": "https://www.bintarobusinesscentre.com/legal#service",
                 "name": "Layanan Legalitas Bisnis & Pendirian PT Jakarta Selatan",
                 "serviceType": "Legal Services",
                 "provider": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 },
                 "areaServed": [
                     {
@@ -79,28 +79,28 @@ export default function LegalPage() {
             },
             {
                 "@type": "WebPage",
-                "@id": "https://bintarobusinesscentre.com/legal#webpage",
-                "url": "https://bintarobusinesscentre.com/legal",
+                "@id": "https://www.bintarobusinesscentre.com/legal#webpage",
+                "url": "https://www.bintarobusinesscentre.com/legal",
                 "name": "Layanan Legalitas Bisnis & Pendirian PT Jakarta Selatan | BBC",
                 "isPartOf": {
-                    "@id": "https://bintarobusinesscentre.com/#website"
+                    "@id": "https://www.bintarobusinesscentre.com/#website"
                 }
             },
             {
                 "@type": "BreadcrumbList",
-                "@id": "https://bintarobusinesscentre.com/legal#breadcrumbs",
+                "@id": "https://www.bintarobusinesscentre.com/legal#breadcrumbs",
                 "itemListElement": [
                     {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Beranda",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Legal",
-                        "item": "https://bintarobusinesscentre.com/legal"
+                        "item": "https://www.bintarobusinesscentre.com/legal"
                     }
                 ]
             }

@@ -12,14 +12,14 @@ const title = `Panduan Lengkap Sewa Kantor Jakarta Selatan ${currentYear} | Harg
 const description = 'Panduan memilih kantor siap pakai Jakarta Selatan: perbandingan harga per area, jenis kantor, syarat PKP, dan tips menghindari kesalahan umum saat sewa kantor.'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan' },
     title,
     description,
     openGraph: {
         type: 'article',
         title,
         description,
-        url: 'https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan',
+        url: 'https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan',
         siteName: 'Bintaro Business Centre',
         images: [
             {
@@ -56,14 +56,14 @@ export default function Page() {
         "@graph": [
             {
                 "@type": "WebPage",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#webpage",
-                "url": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#webpage",
+                "url": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/",
                 "name": title,
                 "description": description,
                 "inLanguage": "id-ID",
                 "isPartOf": {
                     "@type": "WebSite",
-                    "@id": "https://bintarobusinesscentre.com/#website"
+                    "@id": "https://www.bintarobusinesscentre.com/#website"
                 },
                 "about": {
                     "@type": "Thing",
@@ -72,7 +72,7 @@ export default function Page() {
             },
             {
                 "@type": "Article",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#article",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#article",
                 "headline": "Panduan Sewa Kantor Jakarta Selatan – Perbandingan Harga, Jenis, dan Tips Memilih",
                 "description": "Panduan edukatif tentang serviced office di Jakarta Selatan, termasuk estimasi harga, perbandingan dengan ruko, dan syarat PKP berdasarkan KBLI.",
                 "author": {
@@ -84,17 +84,17 @@ export default function Page() {
                     "name": "Bintaro Business Centre",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://bintarobusinesscentre.com/logo.png"
+                        "url": "https://www.bintarobusinesscentre.com/logo.png"
                     }
                 },
                 "mainEntityOfPage": {
-                    "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#webpage"
+                    "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#webpage"
                 },
                 "inLanguage": "id-ID"
             },
             {
                 "@type": "Service",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#service-reference",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#service-reference",
                 "name": "Serviced Office Jakarta Selatan",
                 "description": "Serviced office di Jakarta Selatan dengan fasilitas lengkap and alamat administratif DKI Jakarta untuk kebutuhan legalitas bisnis.",
                 "areaServed": {
@@ -104,12 +104,12 @@ export default function Page() {
                 "provider": {
                     "@type": "Organization",
                     "name": "Bintaro Business Centre",
-                    "url": "https://bintarobusinesscentre.com"
+                    "url": "https://www.bintarobusinesscentre.com"
                 }
             },
             {
                 "@type": "FAQPage",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#faq",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#faq",
                 "mainEntity": [
                     {
                         "@type": "Question",
@@ -139,19 +139,19 @@ export default function Page() {
             },
             {
                 "@type": "BreadcrumbList",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#breadcrumb",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan/#breadcrumb",
                 "itemListElement": [
                     {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Sewa Kantor",
-                        "item": "https://bintarobusinesscentre.com/sewa-kantor/"
+                        "item": "https://www.bintarobusinesscentre.com/sewa-kantor/"
                     },
                     {
                         "@type": "ListItem",

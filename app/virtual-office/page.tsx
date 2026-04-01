@@ -3,7 +3,7 @@ import VirtualOfficeClient from './VirtualOfficeClient'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/virtual-office' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office' },
     title: 'Virtual Office Jakarta Selatan | Domisili Resmi DKI | BBC',
     description: 'Virtual office Jakarta Selatan sejak 2007. Alamat resmi DKI untuk pendirian PT, CV, dan PKP (KBLI Jasa). Layanan pendukung untuk KBLI Selain Jasa. Konsultasi gratis.',
     openGraph: {
@@ -19,10 +19,10 @@ export default function VirtualOfficePage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://bintarobusinesscentre.com/#localbusiness",
+                "@id": "https://www.bintarobusinesscentre.com/#localbusiness",
                 "name": "Bintaro Business Centre",
-                "url": "https://bintarobusinesscentre.com/",
-                "image": "https://bintarobusinesscentre.com/images/og/bbc-og.jpg",
+                "url": "https://www.bintarobusinesscentre.com/",
+                "image": "https://www.bintarobusinesscentre.com/images/og/bbc-og.jpg",
                 "description": "Bintaro Business Centre menyediakan sewa kantor siap pakai (serviced office), virtual office, dan layanan legal terintegrasi di Jakarta Selatan sejak 2007.",
                 "telephone": "(021) 7362639",
                 "priceRange": "$$",
@@ -42,11 +42,11 @@ export default function VirtualOfficePage() {
             },
             {
                 "@type": "Service",
-                "@id": "https://bintarobusinesscentre.com/virtual-office#service",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office#service",
                 "name": "Virtual Office Jakarta Selatan",
                 "serviceType": "Virtual Office",
                 "provider": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 },
                 "areaServed": [
                     {
@@ -56,7 +56,7 @@ export default function VirtualOfficePage() {
                 ],
                 "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://bintarobusinesscentre.com/virtual-office",
+                    "serviceUrl": "https://www.bintarobusinesscentre.com/virtual-office",
                     "availableLanguage": ["id", "en"]
                 },
                 "hasOfferCatalog": {
@@ -116,43 +116,43 @@ export default function VirtualOfficePage() {
             },
             {
                 "@type": "WebPage",
-                "@id": "https://bintarobusinesscentre.com/virtual-office#webpage",
-                "url": "https://bintarobusinesscentre.com/virtual-office",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office#webpage",
+                "url": "https://www.bintarobusinesscentre.com/virtual-office",
                 "name": "Virtual Office Jakarta Selatan | Domisili Resmi DKI | BBC",
                 "isPartOf": {
-                    "@id": "https://bintarobusinesscentre.com/#website"
+                    "@id": "https://www.bintarobusinesscentre.com/#website"
                 },
                 "about": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 }
             },
             {
                 "@type": "BreadcrumbList",
-                "@id": "https://bintarobusinesscentre.com/virtual-office#breadcrumbs",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office#breadcrumbs",
                 "itemListElement": [
                     {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Beranda",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Layanan",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": "Virtual Office",
-                        "item": "https://bintarobusinesscentre.com/virtual-office"
+                        "item": "https://www.bintarobusinesscentre.com/virtual-office"
                     }
                 ]
             },
             {
                 "@type": "FAQPage",
-                "@id": "https://bintarobusinesscentre.com/virtual-office#faq",
+                "@id": "https://www.bintarobusinesscentre.com/virtual-office#faq",
                 "mainEntity": [
                     {
                         "@type": "Question",

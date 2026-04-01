@@ -13,7 +13,7 @@ const title = `Kantor Siap Pakai Bintaro: Solusi Serviced Office Modern ${curren
 const description = `Temukan kantor fully furnished di Bintaro tahun ${currentYear}. Hemat biaya operasional, fasilitas lengkap (internet, resepsionis, meeting room), dan langsung siap pakai.`
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/sewa-kantor/kantor-siap-pakai-bintaro' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/kantor-siap-pakai-bintaro' },
     title,
     description,
     openGraph: {
@@ -48,7 +48,7 @@ export default function KantorSiapPakaiBintaroPage() {
         "@type": "Article",
         "headline": title,
         "description": description,
-        "image": "https://bintarobusinesscentre.com/images/hero-kantor-siap-pakai-bintaro.jpg",
+        "image": "https://www.bintarobusinesscentre.com/images/hero-kantor-siap-pakai-bintaro.jpg",
         "datePublished": "2025-02-18",
         "dateModified": "2026-02-15",
         "author": {

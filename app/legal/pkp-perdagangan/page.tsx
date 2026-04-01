@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Panduan PKP KBLI Selain Jasa (Perdagangan) | Jakarta Selatan | BBC',
     description: 'Panduan lengkap pengajuan PKP untuk KBLI selain jasa (trading, distributor, transportasi). Persyaratan sewa kantor fisik minimal 1 tahun di Jakarta Selatan.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/legal/pkp-perdagangan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/legal/pkp-perdagangan' },
 }
 
 export default function PKPPerdaganganPage() {

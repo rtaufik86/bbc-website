@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Sewa Ruang Meeting Jakarta Selatan | Bintaro Business Centre',
     description: 'Sewa ruang meeting profesional di Jakarta Selatan mulai dari Rp 50.000/jam. Kapasitas 6-12+ orang, lengkap dengan Wi-Fi, whiteboard, dan free flow coffee/tea.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/ruang-meeting' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/ruang-meeting' },
 }
 
 export default function RuangMeetingPage() {

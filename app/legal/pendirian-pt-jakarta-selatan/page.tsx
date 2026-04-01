@@ -3,14 +3,14 @@ import PendirianPTClient from './PendirianPTClient'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan' },
     title: 'Pendirian PT Jakarta Selatan — Sistematis, Tanpa Bolak-Balik | BBC',
     description: 'Jasa pendirian PT & legalitas di Jakarta Selatan. Proses resmi, terstruktur, estimasi 14–21 hari kerja. Dari setup hingga PKP aktif.',
     openGraph: {
         title: 'Pendirian PT Jakarta Selatan — Sistematis, Tanpa Bolak-Balik | BBC',
         description: 'Jasa pendirian PT & legalitas di Jakarta Selatan. Proses resmi, terstruktur, estimasi 14–21 hari kerja. Dari setup hingga PKP aktif.',
         images: ['/images/hero-virtual-office.jpg'],
-        url: 'https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan',
+        url: 'https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan',
         siteName: 'Bintaro Business Centre',
         locale: 'id_ID',
         type: 'website',
@@ -23,10 +23,10 @@ export default function JasaLegalPage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://bintarobusinesscentre.com/#localbusiness",
+                "@id": "https://www.bintarobusinesscentre.com/#localbusiness",
                 "name": "Bintaro Business Centre",
-                "url": "https://bintarobusinesscentre.com/",
-                "image": "https://bintarobusinesscentre.com/images/og/bbc-og.jpg",
+                "url": "https://www.bintarobusinesscentre.com/",
+                "image": "https://www.bintarobusinesscentre.com/images/og/bbc-og.jpg",
                 "description": "Bintaro Business Centre menyediakan sewa kantor siap pakai (serviced office), virtual office, ruang meeting, dan layanan legal terintegrasi di Jakarta Selatan sejak 2007.",
                 "telephone": "(021) 7362639",
                 "priceRange": "$$",
@@ -46,11 +46,11 @@ export default function JasaLegalPage() {
             },
             {
                 "@type": "Service",
-                "@id": "https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#service",
+                "@id": "https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#service",
                 "name": "Jasa Pendirian PT & PKP Jakarta Selatan",
                 "serviceType": "Legal Services",
                 "provider": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 },
                 "areaServed": [
                     {
@@ -60,7 +60,7 @@ export default function JasaLegalPage() {
                 ],
                 "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan",
+                    "serviceUrl": "https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan",
                     "availableLanguage": ["id", "en"]
                 },
                 "hasOfferCatalog": {
@@ -102,19 +102,19 @@ export default function JasaLegalPage() {
             },
             {
                 "@type": "WebPage",
-                "@id": "https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#webpage",
-                "url": "https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan",
+                "@id": "https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#webpage",
+                "url": "https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan",
                 "name": "Pendirian PT Jakarta Selatan — Sistematis, Tanpa Bolak-Balik | BBC",
                 "isPartOf": {
-                    "@id": "https://bintarobusinesscentre.com/#website"
+                    "@id": "https://www.bintarobusinesscentre.com/#website"
                 },
                 "about": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 }
             },
             {
                 "@type": "FAQPage",
-                "@id": "https://bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#faq",
+                "@id": "https://www.bintarobusinesscentre.com/legal/pendirian-pt-jakarta-selatan#faq",
                 "mainEntity": [
                     {
                         "@type": "Question",

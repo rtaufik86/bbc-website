@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Legalitas & Perizinan BBC | Transparansi Infrastruktur Bisnis',
     description: 'Bintaro Business Centre dioperasikan oleh PT. Ganesha Dwipaya Bhakti. Kami menjamin transparansi legalitas untuk dukungan domisili perusahaan dan pendaftaran PKP.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/legalitas-dan-perizinan-bbc' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/legalitas-dan-perizinan-bbc' },
 }
 
 export default function LegalitasBbcPage() {

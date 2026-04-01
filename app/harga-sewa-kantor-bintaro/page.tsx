@@ -95,7 +95,7 @@ export default function Page() {
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto prose prose-lg prose-slate prose-headings:text-primary prose-headings:font-heading prose-headings:font-bold prose-strong:text-primary prose-accent:text-accent">
                         <p className="text-2xl leading-relaxed text-charcoal/60 font-light mb-16">
-                            Menyatukan tim di kantor yang tepat dimulai dengan anggaran yang realistis. Di Bintaro, rentang harga dipengaruhi oleh jenis fasilitas, model kontrak, dan kelengkapan biaya operasional.
+                            Menyatukan tim di kantor yang tepat dimulai dengan anggaran yang realistis. Di <Link href="/sewa-kantor/bintaro" className="text-accent underline">Bintaro</Link>, rentang harga dipengaruhi oleh jenis fasilitas, model kontrak, dan kelengkapan biaya operasional.
                         </p>
 
                         <h2 className="text-3xl mt-16 mb-8">Faktor Penentu Harga Sewa Kantor</h2>
@@ -147,7 +147,7 @@ export default function Page() {
                             Dibandingkan TB Simatupang atau Pondok Indah, Bintaro (Jakarta Selatan) menawarkan harga yang secara konsisten <strong>30–50% lebih rendah</strong> untuk kategori serviced office dengan fasilitas sebanding.
                         </p>
                         <p>
-                            Bagi bisnis yang kliennya tersebar di Jabotabek, Bintaro Jakarta Selatan memberikan nilai terbaik: harga kompetitif, akses tol JORR W2S, dan alamat Jakarta Selatan yang sah untuk keperluan administratif.
+                            Bagi bisnis yang kliennya tersebar di Jabotabek, Bintaro Jakarta Selatan memberikan nilai terbaik: harga kompetitif, akses mudah bagi yang mencari <Link href="/kantor-dekat-tol-veteran" className="text-accent hover:underline">kantor dekat Tol Veteran</Link> atau <Link href="/kantor-dekat-bintaro-jaya" className="text-accent hover:underline">kantor dekat Bintaro Jaya</Link>, serta alamat Jakarta Selatan yang sah untuk keperluan administratif.
                         </p>
 
                         <div className="bg-bg-paper p-10 border-l-8 border-accent rounded-r-[3rem] my-16 shadow-lg">
@@ -184,12 +184,9 @@ export default function Page() {
                             <p className="text-white/70 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                                 Bintaro Business Centre menyediakan kantor siap pakai dengan harga transparan dan all-inclusive di Jakarta Selatan (9 m² - 36 m²).
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button className="bg-accent text-white hover:bg-white hover:text-primary rounded-none shadow-lg h-auto py-5 px-10 text-xs font-bold uppercase tracking-widest" asChild>
                                     <Link href="/sewa-kantor">Tanya Harga & Ketersediaan</Link>
-                                </Button>
-                                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary rounded-none h-auto py-5 px-10 text-xs font-bold uppercase tracking-widest" asChild>
-                                    <InternalLink href="/sewa-kantor" anchorType="brand-service" position="cta" className="!text-current">Lihat Detail Layanan</InternalLink>
                                 </Button>
                             </div>
                         </div>
@@ -198,7 +195,7 @@ export default function Page() {
                             <span>Artikel Terkait:</span>
                             <Link href="/sewa-kantor-jakarta-selatan" className="hover:text-accent transition-colors">Sewa Kantor Jakarta Selatan</Link>
                             <Link href="/kantor-dekat-bintaro-jaya" className="hover:text-accent transition-colors">Kantor Dekat Bintaro Jaya</Link>
-                            <Link href="/sewa-kantor" className="hover:text-accent transition-colors">Panduan Lengkap Sewa Kantor Bintaro</Link>
+                            <Link href="/kantor-dekat-tol-veteran" className="hover:text-accent transition-colors">Kantor Dekat Tol Veteran</Link>
                         </div>
                     </div>
                 </div>

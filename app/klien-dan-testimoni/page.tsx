@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Klien & Testimoni BBC | 1.800+ Perusahaan Telah Bergabung',
     description: 'Lebih dari 1.800 perusahaan telah mempercayakan infrastruktur bisnis mereka kepada Bintaro Business Centre sejak 2007. Lihat profil klien dan testimoni mereka.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/klien-dan-testimoni' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/klien-dan-testimoni' },
 }
 
 export default function KlienTestimoniPage() {

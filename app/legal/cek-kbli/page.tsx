@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Cek KBLI Usaha Jakarta Selatan | Panduan Klasifikasi Bisnis | BBC',
     description: 'Panduan cek KBLI untuk pendirian PT dan CV di Jakarta Selatan. Pastikan klasifikasi usaha Anda benar untuk kelancaran izin NIB dan pengajuan PKP.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/legal/cek-kbli' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/legal/cek-kbli' },
 }
 
 export default function CekKBLIPage() {

@@ -3,7 +3,7 @@ import SewaKantorClient from './SewaKantorClient'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/sewa-kantor' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor' },
     title: 'Sewa Kantor Siap Pakai Jakarta Selatan | Dekat Bintaro Jaya & Pondok Indah | BBC',
     description: 'Sewa kantor siap pakai di Jakarta Selatan sejak 2007. Dekat Pintu Tol Veteran, Bintaro Jaya, dan Pondok Indah. Survey gratis. Langsung operasional.',
     openGraph: {
@@ -19,10 +19,10 @@ export default function SewaKantorPage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://bintarobusinesscentre.com/#localbusiness",
+                "@id": "https://www.bintarobusinesscentre.com/#localbusiness",
                 "name": "Bintaro Business Centre",
-                "url": "https://bintarobusinesscentre.com/",
-                "image": "https://bintarobusinesscentre.com/images/og/bbc-og.jpg",
+                "url": "https://www.bintarobusinesscentre.com/",
+                "image": "https://www.bintarobusinesscentre.com/images/og/bbc-og.jpg",
                 "description": "Bintaro Business Centre menyediakan sewa kantor siap pakai (serviced office), virtual office, dan layanan legal terintegrasi di Jakarta Selatan sejak 2007.",
                 "telephone": "(021) 7362639",
                 "priceRange": "$$",
@@ -42,11 +42,11 @@ export default function SewaKantorPage() {
             },
             {
                 "@type": "Service",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor#service",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor#service",
                 "name": "Sewa Kantor Siap Pakai Jakarta Selatan",
                 "serviceType": "Serviced Office",
                 "provider": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 },
                 "areaServed": [
                     {
@@ -56,7 +56,7 @@ export default function SewaKantorPage() {
                 ],
                 "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://bintarobusinesscentre.com/sewa-kantor",
+                    "serviceUrl": "https://www.bintarobusinesscentre.com/sewa-kantor",
                     "availableLanguage": ["id", "en"]
                 },
                 "hasOfferCatalog": {
@@ -89,43 +89,43 @@ export default function SewaKantorPage() {
             },
             {
                 "@type": "WebPage",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor#webpage",
-                "url": "https://bintarobusinesscentre.com/sewa-kantor",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor#webpage",
+                "url": "https://www.bintarobusinesscentre.com/sewa-kantor",
                 "name": "Sewa Kantor Siap Pakai Jakarta Selatan | Dekat Bintaro Jaya & Pondok Indah | BBC",
                 "isPartOf": {
-                    "@id": "https://bintarobusinesscentre.com/#website"
+                    "@id": "https://www.bintarobusinesscentre.com/#website"
                 },
                 "about": {
-                    "@id": "https://bintarobusinesscentre.com/#localbusiness"
+                    "@id": "https://www.bintarobusinesscentre.com/#localbusiness"
                 }
             },
             {
                 "@type": "BreadcrumbList",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor#breadcrumbs",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor#breadcrumbs",
                 "itemListElement": [
                     {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Beranda",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Layanan",
-                        "item": "https://bintarobusinesscentre.com/"
+                        "item": "https://www.bintarobusinesscentre.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": "Sewa Kantor",
-                        "item": "https://bintarobusinesscentre.com/sewa-kantor"
+                        "item": "https://www.bintarobusinesscentre.com/sewa-kantor"
                     }
                 ]
             },
             {
                 "@type": "FAQPage",
-                "@id": "https://bintarobusinesscentre.com/sewa-kantor#faq",
+                "@id": "https://www.bintarobusinesscentre.com/sewa-kantor#faq",
                 "mainEntity": [
                     {
                         "@type": "Question",

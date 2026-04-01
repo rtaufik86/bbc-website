@@ -46,7 +46,7 @@ export default function LegalClient() {
                             </h1>
 
                             <p className="text-lg text-charcoal/70 mb-10 leading-relaxed max-w-3xl font-light">
-                                Mendirikan perusahaan di Jakarta Selatan bukan sekadar urusan dokumen. Ini tentang memiliki fondasi legal yang kuat — alamat domisili yang tepat, klasifikasi usaha yang benar, dan infrastruktur bisnis yang siap mendukung pertumbuhan dari hari pertama. Di Bintaro Business Centre, layanan legalitas bukan berdiri sendiri. Ini bagian dari ekosistem bisnis terintegrasi yang mencakup <Link href="/sewa-kantor" className="text-accent hover:underline">ruang kantor fisik</Link> and <Link href="/virtual-office" className="text-accent hover:underline">virtual office</Link> di Jakarta Selatan.
+                                 Mendirikan perusahaan di Jakarta Selatan bukan sekadar urusan dokumen. Ini tentang memiliki fondasi legal yang kuat — alamat domisili yang tepat, klasifikasi usaha yang benar, dan infrastruktur bisnis yang siap mendukung pertumbuhan dari hari pertama. Di Bintaro Business Centre, layanan legalitas bukan berdiri sendiri. Ini bagian dari ekosistem bisnis terintegrasi yang mencakup <Link href="/sewa-kantor" className="text-accent hover:underline">ruang kantor fisik</Link> dan <Link href="/virtual-office" className="text-accent hover:underline">layanan virtual office Jakarta Selatan</Link> di Jakarta Selatan.
                             </p>
 
                             {/* Trust Indicators */}
@@ -108,7 +108,7 @@ export default function LegalClient() {
                                     Fondasi Legal yang Terintegrasi dengan Infrastruktur Bisnis
                                 </h2>
                                 <p className="text-charcoal/70 text-lg leading-relaxed mb-6 font-light">
-                                    Setiap proses legal yang kami fasilitasi terhubung langsung dengan fasilitas kantor, alamat usaha resmi, dan dukungan operasional di bawah satu atap — di Jakarta Selatan. Kebutuhan alamat fisik dapat dipenuhi melalui <Link href="/sewa-kantor" className="text-accent hover:underline">sewa kantor BBC</Link> yang sudah beroperasi sejak 2007, atau melalui <Link href="/virtual-office" className="text-accent hover:underline">virtual office</Link> untuk bisnis yang membutuhkan alamat resmi tanpa ruang fisik harian.
+                                    Setiap proses legal yang kami fasilitasi terhubung langsung dengan fasilitas kantor, alamat usaha resmi, dan dukungan operasional di bawah satu atap — di Jakarta Selatan. Kebutuhan alamat fisik dapat dipenuhi melalui <Link href="/sewa-kantor" className="text-accent hover:underline">sewa kantor BBC</Link> yang sudah beroperasi sejak 2007, atau melalui <Link href="/virtual-office" className="text-accent hover:underline">alamat bisnis resmi Jakarta Selatan</Link> untuk bisnis yang membutuhkan alamat resmi tanpa ruang fisik harian.
                                 </p>
                             </div>
                             <div className="bg-primary p-8 lg:p-12 relative overflow-hidden">
@@ -116,7 +116,7 @@ export default function LegalClient() {
                                 <div className="relative z-10 text-white">
                                     <h3 className="text-2xl font-bold mb-6 font-heading tracking-tight text-white">Layanan Legal Kami</h3>
                                     <div className="space-y-6 opacity-90 font-light">
-                                        <p>Solusi legalitas yang kami tawarkan mencakup seluruh aspek krusial bagi startup dan perusahaan berkembang di Indonesia.</p>
+                                        <p>Solusi legalitas yang kami tawarkan mencakup seluruh aspek krusial bagi startup dan perusahaan berkembang di Indonesia, mulai dari <Link href="/legal/cek-kbli" className="text-accent font-medium hover:underline">pengecekan KBLI</Link> hingga pengurusan <Link href="/legal/pkp-perdagangan" className="text-accent font-medium hover:underline">PKP Sektoral</Link>. Kami juga memfasilitasi kebutuhan integrasi operasional melalui <Link href="/virtual-office" className="text-accent font-medium hover:underline">paket virtual office BBC</Link> yang handal.</p>
                                         <ul className="space-y-4">
                                             {[
                                                 "Pendirian PT & CV Profesional",
@@ -181,7 +181,7 @@ export default function LegalClient() {
                                     <h3 className="text-2xl font-bold text-primary border-l-4 border-accent pl-6 font-heading tracking-tight">Bisnis KBLI Jasa</h3>
                                     <div className="text-charcoal/70 leading-relaxed font-light space-y-4">
                                         <p>
-                                            Perusahaan dengan klasifikasi KBLI Jasa — konsultan, IT, marketing, jasa keuangan, dan sejenisnya — memiliki fleksibilitas lebih tinggi dalam pemilihan alamat usaha. Pengajuan PKP dimungkinkan menggunakan alamat BBC, baik melalui <Link href="/virtual-office" className="text-accent font-semibold hover:underline">virtual office</Link> maupun kontrak sewa ruangan di bawah satu tahun.
+                                             Perusahaan dengan klasifikasi KBLI Jasa — konsultan, IT, marketing, jasa keuangan, dan sejenisnya — memiliki fleksibilitas lebih tinggi dalam pemilihan alamat usaha. Pengajuan PKP dimungkinkan menggunakan alamat BBC, baik melalui <Link href="/virtual-office" className="text-accent font-semibold hover:underline">alamat bisnis resmi Jakarta Selatan</Link> maupun kontrak sewa ruangan di bawah satu tahun.
                                         </p>
                                         <p>
                                             Bagi yang membutuhkan fleksibilitas operasional lebih tinggi, <Link href="/virtual-office" className="text-accent font-semibold hover:underline">paket virtual office BBC</Link> dirancang untuk mendukung kebutuhan domisili dan administrasi bisnis jasa secara efisien.
@@ -191,12 +191,12 @@ export default function LegalClient() {
                                 <div className="space-y-6 text-charcoal/70">
                                     <h3 className="text-2xl font-bold text-primary border-l-4 border-accent pl-6 font-heading tracking-tight">Bisnis KBLI Selain Jasa</h3>
                                     <div className="leading-relaxed font-light space-y-4">
-                                        <p>
-                                            Untuk sektor di luar jasa — termasuk perdagangan, transportasi, event organizer, logistik, dan bidang lain — persyaratan PKP dan operasional umumnya lebih kompleks. Dokumen pendukung yang diperlukan dapat mencakup bukti kontrak sewa satu hingga dua tahun, fasilitas kantor fisik yang terverifikasi.
-                                        </p>
-                                        <p>
-                                            Dalam konteks ini, <Link href="/sewa-kantor" className="text-accent font-semibold hover:underline">sewa kantor di BBC</Link> menjadi solusi yang paling langsung untuk memenuhi persyaratan tersebut — alamat Jakarta Selatan yang terverifikasi dan fasilitas fisik yang siap digunakan.
-                                        </p>
+                                         <p>
+                                             Untuk sektor di luar jasa — termasuk perdagangan, transportasi, event organizer, logistik, dan bidang lain — persyaratan PKP dan operasional umumnya lebih kompleks. Dokumen pendukung yang diperlukan dapat mencakup bukti kontrak sewa satu hingga dua tahun, fasilitas kantor fisik yang terverifikasi.
+                                         </p>
+                                         <p>
+                                             Dalam konteks ini, sewa kantor di BBC menjadi solusi yang paling langsung untuk memenuhi persyaratan tersebut — alamat Jakarta Selatan yang terverifikasi dan fasilitas fisik yang siap digunakan.
+                                         </p>
                                     </div>
                                 </div>
                             </div>

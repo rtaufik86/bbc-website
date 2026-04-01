@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Lokasi Bintaro Business Centre: Jakarta Selatan | Akses Strategis',
     description: 'Bintaro Business Centre berlokasi di Jakarta Selatan (Kecamatan Pesanggrahan), murni wilayah administratif Jakarta dengan akses tol JORR yang strategis.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/lokasi-kantor' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/lokasi-kantor' },
 }
 
 export default function LokasiKantorPage() {
@@ -160,6 +160,12 @@ export default function LokasiKantorPage() {
                             <h4 className="text-xl font-bold text-primary uppercase tracking-widest text-xs border-b border-accent/20 pb-4">Bintaro Jaya & Kebayoran</h4>
                             <p className="text-charcoal/70 text-sm leading-relaxed font-light">
                                 Akses langsung melalui koridor Jalan RC. Veteran arah utara. BBC adalah pusat bisnis terdekat bagi domisili kawasan Bintaro Sektor 1-9.
+                            </p>
+                        </div>
+                        <div className="space-y-6">
+                            <h4 className="text-xl font-bold text-primary uppercase tracking-widest text-xs border-b border-accent/20 pb-4">Rempoa & Tanah Kusir</h4>
+                            <p className="text-charcoal/70 text-sm leading-relaxed font-light">
+                                Berada di koridor yang sama, BBC menjadi pilihan praktis bagi operasional bisnis yang berbasis di Rempoa atau Tanah Kusir dengan waktu tempuh yang sangat singkat.
                             </p>
                         </div>
                     </div>

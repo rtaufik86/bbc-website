@@ -12,14 +12,14 @@ const title = `Harga Sewa Kantor Bintaro: Perbandingan & Tips Hemat ${currentYea
 const description = `Daftar harga sewa kantor di Bintaro ${currentYear}: serviced office, coworking, virtual office. Perbandingan harga per lokasi. Tips hemat biaya kantor untuk bisnis Anda.`
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/sewa-kantor/harga' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/harga' },
     title,
     description,
     openGraph: {
         type: 'article',
         title,
         description,
-        url: 'https://bintarobusinesscentre.com/sewa-kantor/harga',
+        url: 'https://www.bintarobusinesscentre.com/sewa-kantor/harga',
         images: ['/og-harga-sewa-kantor-bintaro.jpg']
     }
 }
@@ -49,7 +49,7 @@ export default function HargaSewaKantorBintaroPage() {
         "@type": "Article",
         "headline": title,
         "description": description,
-        "image": "https://bintarobusinesscentre.com/images/sewa-kantor/harga.jpg",
+        "image": "https://www.bintarobusinesscentre.com/images/sewa-kantor/harga.jpg",
         "datePublished": "2025-02-10",
         "dateModified": "2026-02-15",
         "author": {
@@ -61,7 +61,7 @@ export default function HargaSewaKantorBintaroPage() {
             "name": "Bintaro Business Center",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://bintarobusinesscentre.com/logo.png"
+                "url": "https://www.bintarobusinesscentre.com/logo.png"
             }
         }
     }

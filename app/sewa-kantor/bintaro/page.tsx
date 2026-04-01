@@ -102,8 +102,8 @@ export default function SewaKantorBintaroPage() {
                     </h1>
 
                     <p className="text-xl md:text-2xl mt-6 text-slate-700 leading-relaxed max-w-4xl">
-                        Lokasi strategis bebas macet, hanya ±500 meter dari Pintu Tol Veteran.
-                        Alamat legal <strong>Jakarta Selatan</strong> dengan akses cepat ke kawasan Bintaro Jaya.
+                        Lokasi strategis bebas macet, hanya ±500 meter dari <Link href="/kantor-dekat-tol-veteran" className="text-accent hover:underline">Pintu Tol Veteran</Link>. 
+                        Alamat legal <strong>Jakarta Selatan</strong> dengan akses cepat ke kawasan <Link href="/kantor-dekat-bintaro-jaya" className="text-accent hover:underline">Bintaro Jaya</Link>.
                     </p>
 
                     <div className="seo-anchor-paragraph mt-10 text-base md:text-lg leading-relaxed max-w-4xl text-slate-600 space-y-6">
@@ -140,6 +140,9 @@ export default function SewaKantorBintaroPage() {
                                 <p className="text-slate-600 mb-8 flex-grow">{service.description}</p>
                                 <div className="pricing text-3xl font-extrabold text-bbc-blue-600 mb-8 pt-6 border-t font-heading">
                                     {service.pricing}
+                                </div>
+                                <div className="text-xs mb-4 text-slate-500 italic">
+                                    Lihat rincian <Link href="/harga-sewa-kantor-bintaro" className="text-accent hover:underline">harga sewa kantor Bintaro</Link> terbaru.
                                 </div>
                                 <Button size="lg" className="w-full bg-bbc-blue-500 hover:bg-bbc-blue-600 text-white font-bold h-12" asChild>
                                     <Link href={service.ctaLink}>

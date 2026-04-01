@@ -1,0 +1,95 @@
+AUTOMATION-READY LINKING SYSTEM v2.0
+
+Bintaro Business Centre (BBC)
+
+Document Type: Operational Execution System
+Status: ACTIVE
+Authority: GPT (Structural Authority)
+Users: Owner, GPT, Developer
+Scope: Existing page repair, future batch expansion, internal linking enforcement
+
+1. PURPOSE
+Dokumen ini mendefinisikan sistem operasional untuk mengelola internal linking BBC secara batch, terukur, dan konsisten.
+Tujuan utama:
+- Menghilangkan keputusan linking yang diambil ad hoc
+- Menstandarkan authority distribution antar halaman
+- Mencegah anchor duplication dan orphan pages
+- Menjaga silo integrity tanpa mengubah URL architecture
+- Membuat workflow siap scale untuk batch content berikutnya
+
+2. SYSTEM ROLE
+Automation-Ready Linking System v2.0 berfungsi sebagai:
+- linking operating system
+- batch structural generator
+- QA control layer
+- handoff layer untuk developer
+
+3. PRIMARY USERS
+A. Owner: Memberi input batch mingguan, menentukan prioritas, mengontrol implementasi.
+B. GPT: Membangun bulk page structure, menghasilkan linking map, audit dan repair planning.
+C. Developer: Mengeksekusi perubahan internal links tanpa interpretasi bebas.
+
+4. SYSTEM INPUTS
+- GSC report (indexing, weak impressions, redirect issues)
+- Internal link inventory (source, anchor, destination, page type)
+- Route / page inventory (page role: money/hub/weapon/trust/support)
+- Business demand input (topics & keywords)
+
+5. SYSTEM OUTPUTS
+- Output 1 — Cluster Diagnosis (health, overlinking, orphan risk)
+- Output 2 — Linking Repair Map (explicit A to B mapping)
+- Output 3 — Structural Brief Batch (parent/sibling/child metadata)
+- Output 4 — Developer Handoff (task-based execution sheet)
+
+6. CORE SYSTEM COMPONENTS
+6.1 PAGE REGISTRY
+Format: URL | Page Type | Primary Entity | Cluster | Parent | Siblings | Children | Money Page Destination | Cross-Silo Allowed?
+
+6.2 LINK RULE ENGINE
+- Homepage: Must link to primary money pages, geo hubs, trust pages.
+- Money Page: Must link to trust pages, key geo/hub, complementary services.
+- Hub Page: Must link to money page (max 3-4x), 2-4 spoke pages, sibling hubs.
+- Weapon / Spoke Page: Must link to parent hub, money page, minimum 1 sibling.
+
+6.3 ANCHOR GOVERNANCE ENGINE
+- Max 1 exact match anchor per page per destination.
+- Max 2 near-match anchors per page.
+- Brand/Contextual/Descriptive variations required for remainder.
+- Forbidden: generic "klik di sini", keyword stuffing, 3x+ identical anchors.
+
+6.4 LINK PLACEMENT ENGINE
+- Priority: Contextual body link > comparison section > FAQ > CTA > footer.
+- Spacing: 250-300 words between repeated destination links.
+- No stacking: Do not stack 3 links to same destination in one section.
+
+6.5 QA VALIDATION ENGINE
+- Check 1: Orphan Prevention (Every page needs 1+ contextual inbound link).
+- Check 2: Money Page Overload (Flag overlinking).
+- Check 3: Hub Integrity (Flag broken clusters).
+- Check 4: Anchor Duplication (Flag identical anchors > threshold).
+- Check 5: Cross-Silo Leakage (Flag unrelated silo links).
+
+7. WEEKLY OPERATING WORKFLOW
+1. Owner submits weekly input (GSC, inventory).
+2. GPT runs batch diagnosis.
+3. GPT generates repair system (map, brief, task sheet).
+4. Developer executes and confirms.
+5. Owner returns updated inventory.
+6. GPT performs post-fix audit.
+
+8. SYSTEM MODES
+- MODE A: REPAIR (Fix existing links, reduce duplicates).
+- MODE B: EXPANSION (Add new clusters bulk).
+- MODE C: RECOVERY (Stagnation/crawl issues audit).
+
+9. FAILURE CONDITIONS
+- Repair without page registry.
+- Developer interprets links freely.
+- Anchor duplication not checked.
+- Footer-only linking (contextual links missing).
+
+10. SUCCESS CRITERIA
+- Cluster logic parent-child-sibling is clear.
+- Money page authority without overloading.
+- Weapon pages are not dead ends.
+- Anchor distribution is natural and no orphans.

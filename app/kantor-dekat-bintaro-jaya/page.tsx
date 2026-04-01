@@ -95,12 +95,12 @@ export default function Page() {
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto prose prose-lg prose-slate prose-headings:text-primary prose-headings:font-heading prose-headings:font-bold prose-accent:text-accent">
                         <p className="text-xl leading-relaxed text-charcoal/80 font-medium italic border-l-4 border-accent pl-8 py-4 bg-accent/5 rounded-r-3xl">
-                            Bintaro Jaya adalah kawasan hunian terbesar di selatan Jakarta—tapi tidak seluruhnya masuk wilayah DKI Jakarta. Kantor siap pakai BBC memberikan Anda alamat Jakarta Selatan di perbatasan Bintaro Jaya.
+                            Bintaro Jaya adalah kawasan hunian terbesar di selatan Jakarta—tapi tidak seluruhnya masuk wilayah DKI Jakarta. Kantor siap pakai BBC memberikan Anda alamat Jakarta Selatan di perbatasan Bintaro Jaya dengan <Link href="/harga-sewa-kantor-bintaro" className="text-accent hover:underline">harga sewa kantor Bintaro</Link> yang kompetitif.
                         </p>
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Kenapa Memilih Kantor di Jakarta Selatan?</h2>
                         <p>
-                            Alasannya sederhana: <strong>Administrasi & Yurisdiksi</strong>. Pengusaha di Bintaro Jaya Sektor 7, 9, atau sekitarnya memilih kantor di sisi Jakarta Selatan karena kebutuhan yurisdiksi DKI Jakarta untuk PKP, NPWP perusahaan, dan administrasi perpajakan pusat bisnis Ibu Kota.
+                            Alasannya sederhana: <strong>Administrasi & Yurisdiksi</strong>. Pengusaha di Bintaro Jaya Sektor 7, 9, atau sekitarnya memilih <Link href="/sewa-kantor/bintaro" className="text-accent underline">sewa kantor Bintaro</Link> di sisi Jakarta Selatan karena kebutuhan yurisdiksi DKI Jakarta untuk PKP, NPWP perusahaan, dan administrasi perpajakan pusat bisnis Ibu Kota.
                         </p>
                         <p>
                             Alamat Jakarta Selatan memberikan sinyal kredibilitas yang berbeda dari alamat Tangerang Selatan—terutama untuk proposal tender dan hubungan klien korporat Jakarta.
@@ -108,7 +108,7 @@ export default function Page() {
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Akses Strategis dari Bintaro Jaya</h2>
                         <p>
-                            Bintaro Business Centre berlokasi di Jl. RC. Veteran—berbatasan langsung dengan kawasan Bintaro Jaya di sisi timur. Akses tempuh sangat singkat melalui koridor Jl. RC. Veteran atau via <strong>Pintu Tol Veteran</strong> pada ruas JORR W2S.
+                            Bintaro Business Centre berlokasi di Jl. RC. Veteran—berbatasan langsung dengan kawasan Bintaro Jaya di sisi timur. Akses tempuh sangat singkat melalui koridor Jl. RC. Veteran atau via <Link href="/kantor-dekat-tol-veteran" className="text-accent hover:underline">Pintu Tol Veteran</Link> pada ruas JORR W2S.
                         </p>
                         <p>
                             Ini adalah model kantor paling logis: Alamat Jakarta Selatan, dengan jarak tempuh harian (commute) yang sangat singkat dari rumah Anda di Bintaro Jaya.

@@ -102,7 +102,7 @@ export default function Page() {
                     <div className="grid lg:grid-cols-12 gap-16 items-start max-w-7xl mx-auto">
                         <div className="lg:col-span-8 prose prose-lg prose-slate max-w-none">
                             <p className="text-xl leading-relaxed text-primary font-medium border-l-4 border-accent pl-8 py-4 bg-accent/5 rounded-r-3xl italic">
-                                Virtual office memutus kaitan antara alamat bisnis dan kebutuhan ruang fisik, memberikan kredibilitas Jakarta Selatan dengan biaya sebagian kecil dari sewa kantor konvensional.
+                                Virtual office memutus kaitan antara alamat bisnis dan kebutuhan ruang fisik, memberikan kredibilitas <Link href="/alamat-bisnis-jakarta-selatan" className="text-accent hover:underline">alamat bisnis Jakarta Selatan</Link> dengan biaya sebagian kecil dari sewa kantor konvensional.
                             </p>
 
                             <h2 className="text-3xl font-bold text-primary mt-16 mb-8 font-heading">Apa itu virtual office dan fungsinya?</h2>
@@ -114,13 +114,13 @@ export default function Page() {
                             <div className="grid sm:grid-cols-2 gap-6 not-prose mb-12">
                                 {[
                                     { t: 'Konsultan & Profesional', d: 'Independen yang bekerja berbasis proyek dan butuh alamat kredibel.' },
-                                    { t: 'Startup Remote-First', d: 'Mendapat alamat domisili Jaksel untuk pendirian PT sambil tim bekerja remote.' },
+                                    { t: 'Startup Remote-First', d: 'Mendapat alamat domisili Jaksel untuk pendirian PT sambil tim bekerja remote dengan paket <Link href="/virtual-office-bintaro" className="text-accent hover:underline">virtual office Bintaro</Link>.' },
                                     { t: 'E-commerce & Digital', d: 'Butuh alamat resmi untuk NIB, NPWP, dan korespondensi bisnis.' },
                                     { t: 'Kantor Cabang Jakarta', d: 'Perusahaan luar kota yang ingin hadir secara administratif di Ibu Kota.' }
                                 ].map((item, i) => (
                                     <div key={i} className="p-8 bg-bg-paper border-l-4 border-accent rounded-r-2xl shadow-sm hover:shadow-md transition-shadow">
                                         <h4 className="font-bold text-primary mb-2">{item.t}</h4>
-                                        <p className="text-charcoal/70 text-sm leading-relaxed line-clamp-2">{item.d}</p>
+                                        <p className="text-charcoal/70 text-sm leading-relaxed line-clamp-2" dangerouslySetInnerHTML={{ __html: item.d }}></p>
                                     </div>
                                 ))}
                             </div>

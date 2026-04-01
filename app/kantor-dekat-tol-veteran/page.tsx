@@ -95,12 +95,12 @@ export default function Page() {
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto prose prose-lg prose-slate prose-headings:text-primary prose-headings:font-heading prose-headings:font-bold prose-accent:text-accent">
                         <p className="text-2xl leading-relaxed text-charcoal/60 font-light mb-16">
-                            Bagi pengusaha dengan mobilitas tinggi—klien di BSD hari ini, meeting di Jakarta Pusat besok—lokasi kantor tidak boleh menjadi bottleneck. Kantor di dekat pintu tol adalah aset operasional nyata.
+                            Bagi pengusaha dengan mobilitas tinggi—klien di BSD hari ini, meeting di Jakarta Pusat besok—lokasi kantor tidak boleh menjadi bottleneck. Dapatkan <Link href="/harga-sewa-kantor-bintaro" className="text-accent underline">harga sewa kantor Bintaro</Link> terbaik di lokasi yang strategis dekat pintu tol sebagai aset operasional nyata.
                         </p>
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading">Kenapa Kedekatan dengan Tol Sangat Relevan?</h2>
                         <p>
-                            Akses tol tercepat berarti tim Anda masuk kerja lebih efisien. Klien dari berbagai arah—baik dari arah Tangerang, Jakarta Barat, atau TB Simatupang—dapat menemukan lokasi Anda dengan mudah via navigasi standar tanpa harus menembus kemacetan jalan-jalan kecil.
+                            Akses tol tercepat berarti tim Anda masuk kerja lebih efisien. Klien dari berbagai arah—baik dari arah Tangerang, Jakarta Barat, atau TB Simatupang—dapat menemukan <Link href="/kantor-dekat-bintaro-jaya" className="text-accent hover:underline">kantor dekat Bintaro Jaya</Link> Anda dengan mudah via navigasi standar tanpa harus menembus kemacetan jalan-jalan kecil.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-8 not-prose my-16">
@@ -118,7 +118,7 @@ export default function Page() {
 
                         <h2 className="text-3xl mt-16 mb-8 font-heading text-center italic leading-tight">"Akses Jakarta Selatan, Hubungan Seluruh Jabotabek"</h2>
                         <p className="text-center text-charcoal/60 font-light max-w-2xl mx-auto">
-                            Satu detail penting: Pintu Tol Veteran berada di perbatasan. Namun <InternalLink href="/sewa-kantor" anchorType="brand-service" position="mid-content">Bintaro Business Centre</InternalLink> berada sepenuhnya di wilayah Jakarta Selatan (DKI Jakarta), memberikan Anda legitimasi administratif yang dicari.
+                            Satu detail penting: Pintu Tol Veteran berada di perbatasan. Namun <Link href="/sewa-kantor/bintaro" className="text-accent font-bold hover:underline">sewa kantor Bintaro</Link> (Bintaro Business Centre) berada sepenuhnya di wilayah Jakarta Selatan (DKI Jakarta), memberikan Anda legitimasi administratif yang dicari.
                         </p>
 
                         <div className="bg-primary p-12 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">

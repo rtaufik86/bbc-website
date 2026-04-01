@@ -10,6 +10,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import ServicesTabSection from '@/components/home/ServicesTabSection'
+import SiloNavigation from '@/components/seo/SiloNavigation'
 import {
     Quote,
     ArrowRight,
@@ -48,7 +49,7 @@ const testimonials = [
 ]
 
 export const metadata: Metadata = {
-    alternates: { canonical: '/' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/' },
     title: 'Bintaro Business Centre – Serviced Office & Virtual Office Jakarta Selatan Sejak 2007',
     description: 'Bintaro Business Centre menyediakan serviced office, virtual office, dan layanan legal di Pesanggrahan, Jakarta Selatan sejak 2007. Alamat Jakarta Selatan untuk PKP dan izin usaha. Konsultasi gratis.',
     keywords: ['bintaro business centre', 'serviced office jakarta selatan', 'virtual office jakarta selatan', 'kantor jakarta selatan', 'sewa kantor bintaro', 'alamat legal jakarta selatan', 'pkp jakarta selatan', 'pesanggrahan', 'business centre pesanggrahan'],
@@ -358,7 +359,7 @@ export default function HomePage() {
                                     Bintaro Business Centre adalah business centre di Pesanggrahan, Jakarta Selatan yang melayani lebih dari 500 klien sejak 2007. Kami menyediakan solusi terintegrasi untuk bisnis yang membutuhkan kredibilitas administratif tanpa kompleksitas operasional.
                                 </p>
                                 <p>
-                                    Dari startup hingga kantor perwakilan, perusahaan mempercayai <Link href="/sewa-kantor">serviced office Bintaro Business Centre</Link> sebagai solusi ruang kerja profesional mereka. Untuk bisnis yang membutuhkan alamat legal tanpa ruang fisik, <Link href="/virtual-office">virtual office Jakarta Selatan</Link> kami menjadi pilihan hemat biaya dengan dukungan administrasi PKP dan izin usaha. Layanan pendirian PT kami juga memberikan kemudahan legalitas sejak hari pertama.
+                                    Dari startup hingga kantor perwakilan, perusahaan mempercayai <Link href="/sewa-kantor">serviced office Bintaro Business Centre</Link> sebagai solusi ruang kerja profesional mereka. Untuk bisnis yang membutuhkan alamat legal tanpa ruang fisik, <Link href="/virtual-office" className="text-accent hover:underline">virtual office Jakarta Selatan</Link> kami menjadi pilihan hemat biaya dengan dukungan administrasi PKP dan izin usaha. Kami juga menyediakan opsi hub spesifik seperti <Link href="/sewa-kantor/jakarta-selatan" className="text-accent hover:underline">sewa kantor Jakarta Selatan</Link> dan <Link href="/virtual-office-jakarta-selatan" className="text-accent hover:underline">paket VO Jakarta Selatan</Link> untuk jangkauan pasar yang lebih luas. Layanan pendirian PT kami juga memberikan kemudahan legalitas sejak hari pertama.
                                 </p>
                                 <p>
                                     Dengan alamat Jakarta Selatan, Bintaro Business Centre memberikan keunggulan untuk pengajuan PKP, izin usaha, dan keperluan legalitas yang mensyaratkan domisili Jakarta.
@@ -443,6 +444,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
+            <SiloNavigation />
 
             {/* LOCATION SECTION — PRESTIGE BLOCK */}
             <section className="py-32 bg-primary text-white overflow-hidden">

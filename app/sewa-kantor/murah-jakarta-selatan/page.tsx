@@ -10,7 +10,7 @@ const title = `Sewa Kantor Murah Jakarta Selatan ${currentYear}: Area Bintaro & 
 const description = `Cari sewa kantor murah di Jakarta Selatan tahun ${currentYear}? Bintaro Business Center menawarkan tarif kompetitif dengan fasilitas lengkap di perbatasan Jaksel.`
 
 export const metadata: Metadata = {
-    alternates: { canonical: 'https://bintarobusinesscentre.com/sewa-kantor/murah-jakarta-selatan' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/sewa-kantor/murah-jakarta-selatan' },
     title,
     description,
     openGraph: {

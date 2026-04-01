@@ -21,7 +21,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
     title: 'Bintaro Business Centre: Infrastruktur Bisnis Terpercaya Jakarta Selatan | BBC',
     description: 'Sejak 2007, BBC telah menjadi fondasi operasional bagi 1.800+ perusahaan yang membutuhkan alamat bisnis sah, ruang kerja profesional, dan dukungan legalitas di Jakarta Selatan.',
-    alternates: { canonical: 'https://bintarobusinesscentre.com/tentang-kami' },
+    alternates: { canonical: 'https://www.bintarobusinesscentre.com/tentang-kami' },
 }
 
 export default function TentangKamiPage() {
