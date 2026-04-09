@@ -3,6 +3,7 @@ import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 export default function AlamatBisnisJakartaSelatanPage() {
     return (
         <WeaponPageTemplate
+            url="/virtual-office/alamat-bisnis-jakarta-selatan"
             title="Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas"
             description="Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda."
             canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan"

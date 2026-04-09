@@ -29,6 +29,7 @@ export interface Section {
 }
 
 export interface WeaponPageTemplateProps {
+    url: string       // NEW: for Entity Graph
     title: string
     description: string
     canonicalUrl: string
@@ -59,6 +60,7 @@ const iconMap: any = {
 }
 
 export default function WeaponPageTemplate({
+    url,
     title,
     description,
     canonicalUrl,
@@ -136,7 +138,7 @@ export default function WeaponPageTemplate({
                             </h1>
                             
                             <div className="prose prose-lg text-slate-600 max-w-xl mb-12">
-                                <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: injectInternalLinks(intro, { entity, location, pageType: 'weapon' }) }} />
+                                <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: injectInternalLinks(intro, url) }} />
                             </div>
 
                             {internalLinks?.intro && (
@@ -205,10 +207,10 @@ export default function WeaponPageTemplate({
                                  <div className="flex-1 prose prose-slate prose-lg max-w-none text-slate-600">
                                     {section.rawHtml ? (
                                         <div className="space-y-6 [&_a]:text-accent [&_a]:font-bold [&_a]:underline" 
-                                             dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.rawHtml || '', { entity, location, pageType: 'weapon' }) }} />
+                                             dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.rawHtml || '', url) }} />
                                     ) : (
                                         <p className="leading-relaxed whitespace-pre-line"
-                                           dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.content || '', { entity, location, pageType: 'weapon' }) }} />
+                                           dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.content || '', url) }} />
                                     )}
                                 </div>
 

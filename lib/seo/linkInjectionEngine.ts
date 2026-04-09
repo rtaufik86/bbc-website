@@ -4,6 +4,7 @@
  */
 
 import { getAnchorType } from './anchorGovernance';
+import { ENTITY_GRAPH } from './entityGraph';
 
 interface InjectionMetadata {
     entity: string;
@@ -22,37 +23,56 @@ const GEO_PAGES: Record<string, string> = {
     "bintaro": "/virtual-office/bintaro"
 };
 
+interface InjectionRule {
+    target: string;
+    keywords: RegExp[];
+    anchor: string;
+    priority: string;
+}
+
 /**
- * Memproses teks pasif dan menyuntikkan link secara otomatis berdasarkan aturan SEO
+ * Memproses teks pasif dan menyuntikkan link secara otomatis berdasarkan BBC Entity Graph
  */
-export function injectInternalLinks(html: string, meta: InjectionMetadata): string {
+export function injectInternalLinks(html: string, url: string): string {
+    const pageConfig = ENTITY_GRAPH[url];
+    if (!pageConfig) return html; // No graph config, return raw
+
     let processedHtml = html;
     let injectionCount = 0;
     const injectedTargets = new Set<string>();
 
-    const rules = [
-        // RULE 1: WEAPON -> MONEY (CRITICAL)
-        {
-            target: MONEY_PAGES[meta.entity],
-            keywords: [/virtual office/i, /sewa kantor/i, /alamat bisnis/i],
-            anchor: `${meta.entity === 'virtual-office' ? 'Virtual Office' : 'Sewa Kantor'} Jakarta Selatan`,
-            priority: 'high'
-        },
-        // RULE 2: WEAPON -> GEO
-        {
-            target: GEO_PAGES[meta.location],
-            keywords: [new RegExp(meta.location.replace('-', ' '), 'i'), /lokasi strategis/i],
-            anchor: meta.location.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-            priority: 'medium'
-        },
-        // RULE 3: SUPPORT
-        {
-            target: "/harga-virtual-office",
-            keywords: [/harga/i, /biaya/i, /paket/i],
-            anchor: "biaya virtual office",
-            priority: 'low'
-        }
-    ];
+    // BUILD DYNAMIC RULES FROM GRAPH RELATIONSHIPS
+    const rules: InjectionRule[] = [];
+
+    // Target Authority (e.g. Weapon -> Money)
+    if (pageConfig.relationships.targets) {
+        pageConfig.relationships.targets.forEach(targetUrl => {
+            const targetConfig = ENTITY_GRAPH[targetUrl];
+            if (targetConfig) {
+                rules.push({
+                    target: targetUrl,
+                    keywords: [new RegExp(targetConfig.primaryEntity, 'i')],
+                    anchor: targetConfig.primaryEntity.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+                    priority: 'high'
+                });
+            }
+        });
+    }
+
+    // Support Authority (e.g. Weapon -> Hub/Support)
+    if (pageConfig.relationships.supports) {
+        pageConfig.relationships.supports.forEach(targetUrl => {
+            const targetConfig = ENTITY_GRAPH[targetUrl];
+            if (targetConfig) {
+                rules.push({
+                    target: targetUrl,
+                    keywords: [new RegExp(targetConfig.primaryEntity, 'i')],
+                    anchor: targetConfig.primaryEntity,
+                    priority: 'medium'
+                });
+            }
+        });
+    }
 
     for (const rule of rules) {
         if (injectionCount >= 3) break; // SAFETY RULE 1: MAX 3 LINKS

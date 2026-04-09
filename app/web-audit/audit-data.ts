@@ -2200,7 +2200,7 @@ export const auditData: any[] = [
         "descriptionLength": 149,
         "canonical": "",
         "robots": "index, follow",
-        "wordCount": 571,
+        "wordCount": 565,
         "h1Count": 1,
         "h1Texts": [
             "Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi &amp; Legalitas"
@@ -2217,8 +2217,8 @@ export const auditData: any[] = [
         ],
         "h3Count": 0,
         "h3Texts": [],
-        "internalLinksTotal": 38,
-        "internalLinksContextual": 38,
+        "internalLinksTotal": 36,
+        "internalLinksContextual": 36,
         "linksOut": [
             {
                 "href": "/images/logo.png",
@@ -2278,7 +2278,7 @@ export const auditData: any[] = [
             },
             {
                 "href": "/virtual-office",
-                "anchor": "Virtual Office Jakarta Selatan",
+                "anchor": "Virtual Office",
                 "isContextual": true,
                 "isMoneyPage": true,
                 "position": 12063
@@ -2288,203 +2288,189 @@ export const auditData: any[] = [
                 "anchor": "Pesan Virtual Office",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 12403
+                "position": 12387
             },
             {
                 "href": "/https://wa.me/6281210002131",
                 "anchor": "Konsultasi Live",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 12832
+                "position": 12816
             },
             {
                 "href": "/virtual-office",
-                "anchor": "Virtual Office Jakarta Selatan",
+                "anchor": "Virtual Office",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 16863
-            },
-            {
-                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
-                "anchor": "Jakarta Selatan",
-                "isContextual": true,
-                "isMoneyPage": false,
-                "position": 18475
+                "position": 16847
             },
             {
                 "href": "/virtual-office",
-                "anchor": "Virtual Office Jakarta Selatan",
+                "anchor": "Virtual Office",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 19405
-            },
-            {
-                "href": "/virtual-office/alamat-bisnis-jakarta-selatan",
-                "anchor": "Jakarta Selatan",
-                "isContextual": true,
-                "isMoneyPage": false,
-                "position": 24339
+                "position": 19266
             },
             {
                 "href": "/kontak",
                 "anchor": "Hubungi Legal Support",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 28268
+                "position": 28006
             },
             {
                 "href": "/",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 29023
+                "position": 28761
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 29457
+                "position": 29195
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 30095
+                "position": 29833
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 30243
+                "position": 29981
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 30397
+                "position": 30135
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 30755
+                "position": 30493
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 30903
+                "position": 30641
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31067
+                "position": 30805
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31221
+                "position": 30959
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31581
+                "position": 31319
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31702
+                "position": 31440
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31825
+                "position": 31563
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31954
+                "position": 31692
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 32103
+                "position": 31841
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 32240
+                "position": 31978
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 33109
+                "position": 32847
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 33618
+                "position": 33356
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 34167
+                "position": 33905
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 35166
+                "position": 34904
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 35243
+                "position": 34981
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 35323
+                "position": 35061
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 35430
+                "position": 35168
             }
         ],
         "linksIn": [],
@@ -2499,9 +2485,9 @@ export const auditData: any[] = [
         "firstMoneyLinkBefore300": false,
         "crossSiloLinks": 0,
         "anchorDistribution": {
-            "location": 3,
-            "service": 6,
-            "service_location": 11,
+            "location": 1,
+            "service": 9,
+            "service_location": 8,
             "brand": 1,
             "generic": 0,
             "descriptive": 17
@@ -2513,10 +2499,10 @@ export const auditData: any[] = [
             "HIGH: first_link_position > 300 words (Rule G1)"
         ],
         "semanticGraph": {
-            "primaryEntity": "Jakarta Selatan",
+            "primaryEntity": "Virtual Office",
             "entities": [
-                "Jakarta Selatan",
                 "Virtual Office",
+                "Jakarta Selatan",
                 "Domisili Bisnis"
             ],
             "relationships": [
