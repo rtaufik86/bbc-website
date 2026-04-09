@@ -54,10 +54,27 @@ export async function middleware(request: NextRequest) {
         }
     )
 
-    // Handle 410 Gone for discontinued services
+    // SEO Redirects & 410 Gone Handling
     const path = request.nextUrl.pathname
-    if (path === '/sewa-gudang-bulanan' || path === '/sewa-gudang-bulanan/') {
-        return new NextResponse(null, { status: 410, statusText: 'Gone' })
+    const canonicalBase = 'https://www.bintarobusinesscentre.com'
+
+    // 1. Permanent Redirects (301) for legacy WordPress patterns
+    const redirectPatterns = ['/category', '/tag', '/page']
+    if (redirectPatterns.some(p => path === p || path.startsWith(p + '/'))) {
+        return NextResponse.redirect(new URL('/', canonicalBase), 301)
+    }
+
+    // 2. 410 Gone for removed/unsupported endpoints
+    const gonePatterns = ['/wp-json', '/lp']
+    const isGudangPattern = path === '/sewa-gudang-bulanan' || path === '/sewa-gudang-bulanan/'
+    
+    if (gonePatterns.some(p => path === p || path.startsWith(p + '/')) || isGudangPattern) {
+        // Preserved exceptions (landing pages that should still redirect)
+        const isPreserved = path === '/lp/jasa-sewa-kantor' || path === '/lp/jasa-sewa-kantor/'
+        
+        if (!isPreserved) {
+            return new NextResponse(null, { status: 410, statusText: 'Gone' })
+        }
     }
 
     // Refresh session if expired

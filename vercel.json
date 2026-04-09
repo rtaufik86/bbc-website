@@ -1,15 +1,3 @@
 {
-    "redirects": [
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "bintarobusinesscentre.com"
-                }
-            ],
-            "destination": "https://www.bintarobusinesscentre.com/$1",
-            "permanent": true
-        }
-    ]
+    "redirects": []
 }

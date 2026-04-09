@@ -1,244 +1,200 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import { Link as LinkIcon, Search, ExternalLink, Copy, Check } from 'lucide-react'
+import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
+import { 
+  ArrowLeft, Search, Filter, ArrowUpRight, 
+  ExternalLink, MousePointer2, TrendingUp, TrendingDown 
+} from 'lucide-react';
 
-interface LinkData {
-  source: string
-  destination: string
-  anchor: string
-  type?: string
+interface LinkInfo { href: string; anchor: string; isContextual: boolean; isMoneyPage: boolean }
+interface InboundLink { from: string; anchor: string }
+interface PageLinks {
+  path: string; pageType: string; title: string; indexability: string;
+  linksOut: LinkInfo[]; linksIn: InboundLink[]; status: string;
 }
+interface Props { linksData: PageLinks[] }
 
-const cleanPathToSlug = (path: string) => {
-  if (path.startsWith('components/')) return `[Component: ${path.split('/').pop()}]`
-  
-  let slug = path
-    .replace(/^app\//, '/')
-    .replace(/\/page\.tsx$/, '')
-    .replace(/\/page\.ts$/, '')
-    .replace(/\/route\.ts$/, '')
-    .replace(/\/Client\.tsx$/, '')
-    .replace(/\/SewaKantorClient\.tsx$/, '')
-    .replace(/\/VirtualOfficeClient\.tsx$/, '')
-    .replace(/\/LokasiClient\.tsx$/, '')
-    .replace(/\/LegalClient\.tsx$/, '')
-    .replace(/\/PendirianPTClient\.tsx$/, '')
-    .replace(/\/\([^)]+\)/g, '') // Remove route groups like (marketing)
-  
-  return slug === '/page' || slug === '' ? '/' : slug
-}
+export default function InternalLinksClient({ linksData }: Props) {
+  const [search, setSearch] = useState('');
+  const [filterType, setFilterType] = useState('all');
+  const [selected, setSelected] = useState<string | null>(null);
 
-const getPageType = (slug: string, providedType?: string) => {
-  if (providedType) return providedType
+  const filtered = useMemo(() => {
+    return linksData.filter(p => {
+      const matchSearch = p.path.toLowerCase().includes(search.toLowerCase()) || 
+                          p.title.toLowerCase().includes(search.toLowerCase());
+      const matchType = filterType === 'all' || p.pageType === filterType;
+      return matchSearch && matchType;
+    });
+  }, [linksData, search, filterType]);
 
-  const moneyPages = ['/sewa-kantor', '/virtual-office', '/legal/pendirian-pt-jakarta-selatan']
-  const weaponPrefixes = ['/sewa-kantor/', '/virtual-office-', '/harga-', '/kantor-dekat-', '/alamat-bisnis-']
-  const hubPages = ['/']
+  const selectedPage = filtered.find(p => p.path === selected);
 
-  if (hubPages.includes(slug)) return 'HUB PAGE'
-  if (moneyPages.includes(slug)) return 'MONEY PAGE'
-  if (weaponPrefixes.some(p => slug.startsWith(p))) return 'SEO WEAPON PAGE'
-  
-  return 'OTHERS'
-}
-
-export default function InternalLinksClient({ linksData }: { linksData: LinkData[] }) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [copied, setCopied] = useState(false)
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([])
-
-  const allTypes = ['HUB PAGE', 'MONEY PAGE', 'SEO WEAPON PAGE', 'OTHERS']
-
-  const toggleType = (type: string) => {
-    setSelectedTypes(prev => 
-      prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
-    )
-  }
-
-  const filteredLinks = linksData.map(link => {
-    const slug = cleanPathToSlug(link.source)
-    const type = getPageType(slug, link.type)
-    return {
-      ...link,
-      sourceSlug: slug,
-      pageType: type
-    }
-  }).filter(link => {
-    const matchesSearch = 
-      link.sourceSlug.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.destination.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.anchor.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.pageType.toLowerCase().includes(searchTerm.toLowerCase())
-    
-    const matchesType = selectedTypes.length === 0 || selectedTypes.includes(link.pageType)
-    
-    return matchesSearch && matchesType
-  })
-
-  const handleCopyAll = () => {
-    const textToCopy = filteredLinks
-      .map(l => `[${l.pageType}] Source: ${l.sourceSlug} | Anchor: "${l.anchor}" | Destination: ${l.destination}`)
-      .join('\n')
-    
-    navigator.clipboard.writeText(textToCopy)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+  const stats = useMemo(() => ({
+    total: linksData.length,
+    totalLinks: linksData.reduce((s, p) => s + p.linksOut.length, 0),
+    contextual: linksData.reduce((s, p) => s + p.linksOut.filter(l => l.isContextual).length, 0),
+  }), [linksData]);
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 pt-32">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold font-playfair text-slate-900 mb-4 flex items-center justify-center gap-3">
-            <LinkIcon className="text-bbc-gold-600" />
-            Internal Link Inventory
-          </h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Audit teknis untuk pemetaan anchor text dan distribusi internal linking di Bintaro Business Centre. (Development Only)
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <div className="p-6 border-b border-slate-200 bg-slate-50/50 space-y-4">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="relative max-w-md w-full">
-                <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-slate-400" />
-                </span>
-                <input
-                  type="text"
-                  placeholder="Cari link atau anchor text..."
-                  className="block w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-bbc-gold-500 focus:border-bbc-gold-500 sm:text-sm transition-all"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-
-              <button
-                onClick={handleCopyAll}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                  copied 
-                  ? 'bg-green-100 text-green-700' 
-                  : 'bg-bbc-gold-600 text-white hover:bg-bbc-gold-700 shadow-sm'
-                }`}
-              >
-                {copied ? <Check size={18} /> : <Copy size={18} />}
-                {copied ? 'Copied!' : 'Copy All for GPT'}
-              </button>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 mt-2 pt-4">
-              <span className="text-xs font-semibold text-slate-500 mr-2 uppercase tracking-wider">Filter Type:</span>
-              {allTypes.map(type => (
-                <button
-                  key={type}
-                  onClick={() => toggleType(type)}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider transition-all border ${
-                    selectedTypes.includes(type)
-                    ? (
-                      type === 'MONEY PAGE' ? 'bg-emerald-600 border-emerald-600 text-white' :
-                      type === 'HUB PAGE' ? 'bg-blue-600 border-blue-600 text-white' :
-                      type === 'SEO WEAPON PAGE' ? 'bg-amber-500 border-amber-500 text-white' :
-                      'bg-slate-600 border-slate-600 text-white'
-                    )
-                    : 'bg-white border-slate-200 text-slate-400 hover:border-slate-300'
-                  }`}
-                >
-                  {type}
-                </button>
-              ))}
-              {selectedTypes.length > 0 && (
-                <button 
-                  onClick={() => setSelectedTypes([])}
-                  className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2 ml-2"
-                >
-                  Clear All
-                </button>
-              )}
+    <div className="min-h-screen bg-slate-950 text-white font-sans">
+      <header className="border-b border-slate-800 bg-slate-900 px-8 py-5">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Link href="/seo-control-center" className="bg-slate-800 p-2.5 rounded-xl hover:bg-slate-700 transition-all border border-slate-700">
+               <ArrowLeft size={16} className="text-slate-400" />
+            </Link>
+            <div>
+               <div className="flex items-center gap-3">
+                  <h1 className="text-xl font-black text-white tracking-tight">INTERNAL LINK EXPLORER</h1>
+                  <span className="text-[10px] font-black bg-slate-800 text-slate-400 border border-slate-700 px-2 py-0.5 rounded-full uppercase tracking-widest">Connection Analyzer</span>
+               </div>
+               <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Cross-linking matrix and anchor text mapping</p>
             </div>
           </div>
-
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-slate-200">
-              <thead>
-                <tr className="bg-slate-50">
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Source (Slug)
-                  </th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Type
-                  </th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Anchor Text
-                  </th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Destination
-                  </th>
-                  <th scope="col" className="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-slate-200">
-                {filteredLinks.length > 0 ? filteredLinks.map((link, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/80 transition-colors group">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-mono">
-                      {link.sourceSlug.startsWith('/') ? (
-                        <a 
-                          href={link.sourceSlug} 
-                          className="text-slate-600 hover:text-bbc-gold-600 hover:underline transition-all flex items-center gap-1"
-                          target="_blank"
-                        >
-                          {link.sourceSlug}
-                        </a>
-                      ) : (
-                        <span className="text-slate-400 italic">{link.sourceSlug}</span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wider ${
-                        link.pageType === 'MONEY PAGE' ? 'bg-emerald-100 text-emerald-700' :
-                        link.pageType === 'HUB PAGE' ? 'bg-blue-100 text-blue-700' :
-                        link.pageType === 'SEO WEAPON PAGE' ? 'bg-amber-100 text-amber-700' :
-                        'bg-slate-100 text-slate-600'
-                      }`}>
-                        {link.pageType}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm font-medium text-slate-900">
-                      "{link.anchor}"
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-bbc-gold-700 underline underline-offset-4">
-                      {link.destination}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a 
-                        href={link.destination} 
-                        className="text-slate-400 hover:text-bbc-gold-600 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-                    </td>
-                  </tr>
-                )) : (
-                  <tr>
-                    <td colSpan={4} className="px-12 py-12 text-center text-slate-500">
-                      Tidak ada data yang cocok dengan pencarian Anda.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 italic">
-            Menampilkan {filteredLinks.length} internal links yang terdeteksi.
+          <div className="text-right">
+             <div className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Link Map Size</div>
+             <div className="text-sm font-black text-white">{stats.totalLinks} Connections / {stats.contextual} Contextual</div>
           </div>
         </div>
+      </header>
+
+      <div className="max-w-[1400px] mx-auto px-8 py-10 space-y-8">
+         <div className="flex gap-4 items-center">
+            <div className="relative flex-1 max-w-sm">
+               <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+               <input 
+                  type="text" 
+                  placeholder="Filter by path or keyword..." 
+                  value={search} 
+                  onChange={e => setSearch(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-800 rounded-2xl text-sm placeholder:text-slate-600 outline-none focus:border-slate-700 transition-all font-medium"
+               />
+            </div>
+            <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800">
+               {['all', 'money', 'weapon', 'hub', 'support'].map(t => (
+                  <button key={t} onClick={() => setFilterType(t)}
+                     className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${filterType === t ? 'bg-slate-800 text-white border border-slate-700' : 'text-slate-500 hover:text-slate-400'}`}>
+                     {t}
+                  </button>
+               ))}
+            </div>
+            <div className="text-slate-600 text-[11px] font-bold ml-auto">{filtered.length} entries matching</div>
+         </div>
+
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* List Table */}
+            <div className="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-[32px] overflow-hidden flex flex-col h-[700px]">
+               <div className="p-5 border-b border-slate-800 bg-slate-800/30">
+                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-[2px]">Index Table</span>
+               </div>
+               <div className="flex-1 overflow-y-auto divide-y divide-slate-800/50">
+                  {filtered.map(p => (
+                     <button key={p.path} onClick={() => setSelected(p.path)}
+                        className={`w-full text-left p-5 transition-all hover:bg-slate-800/20 group relative overflow-hidden ${selected === p.path ? 'bg-slate-800/50' : ''}`}>
+                        {selected === p.path && <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500" />}
+                        <div className="font-mono text-[11px] text-slate-300 group-hover:text-blue-400 transition-colors">{p.path}</div>
+                        <div className="text-[10px] text-slate-500 mt-1 uppercase font-bold flex justify-between">
+                           <span>{p.pageType}</span>
+                           <span className="tabular-nums">{p.linksIn.length} in / {p.linksOut.length} out</span>
+                        </div>
+                     </button>
+                  ))}
+               </div>
+            </div>
+
+            {/* Analysis Pane */}
+            <div className="lg:col-span-8 space-y-6">
+               {selectedPage ? (
+                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                     {/* Identity Card */}
+                     <div className="bg-slate-900 border border-slate-800 rounded-[32px] p-8 shadow-2xl relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-slate-800/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                           <div className="max-w-[450px]">
+                              <div className="text-[10px] font-black text-slate-500 uppercase tracking-[2px] mb-2 font-mono">Analyzed Connection Path</div>
+                              <h2 className="text-2xl font-black text-white leading-tight tracking-tight mb-2 uppercase break-all">{selectedPage.path}</h2>
+                              <p className="text-slate-400 text-xs font-semibold leading-relaxed line-clamp-1 italic">{selectedPage.title}</p>
+                           </div>
+                           <div className="flex items-center gap-4">
+                              <div className="text-center p-3 bg-slate-800 border border-slate-700 rounded-2xl min-w-[80px]">
+                                 <div className="text-2xl font-black text-white tabular-nums">{selectedPage.linksIn.length}</div>
+                                 <div className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1">Inbound</div>
+                              </div>
+                              <div className="text-center p-3 bg-slate-800 border border-slate-700 rounded-2xl min-w-[80px]">
+                                 <div className="text-2xl font-black text-white tabular-nums">{selectedPage.linksOut.length}</div>
+                                 <div className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1">Outbound</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Inbound Section */}
+                        <div className="space-y-4">
+                           <div className="flex items-center gap-2 mb-2">
+                              <div className="bg-emerald-500/10 p-1.5 rounded-lg border border-emerald-500/20">
+                                 <TrendingUp size={14} className="text-emerald-400" />
+                              </div>
+                              <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest">Inbound Paths (Discovery)</h3>
+                           </div>
+                           <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                              <div className="divide-y divide-slate-800/40">
+                                 {selectedPage.linksIn.length > 0 ? selectedPage.linksIn.map((link, i) => (
+                                    <div key={i} className="p-4 hover:bg-slate-800/30 transition-all">
+                                       <div className="font-mono text-[10px] text-emerald-400 flex items-center gap-2 mb-1.5">
+                                          <MousePointer2 size={10} className="text-emerald-500" /> {link.from}
+                                       </div>
+                                       <div className="text-[11px] text-slate-500 italic flex items-center gap-2">
+                                          Anchor: <strong className="text-slate-300 font-bold ml-1">"{link.anchor}"</strong>
+                                       </div>
+                                    </div>
+                                 )) : (
+                                    <div className="p-10 text-center text-[11px] text-slate-600 font-bold uppercase tracking-[2px]">Orphan page detected. No incoming paths.</div>
+                                 )}
+                              </div>
+                           </div>
+                        </div>
+
+                        {/* Outbound Section */}
+                        <div className="space-y-4">
+                           <div className="flex items-center gap-2 mb-2">
+                              <div className="bg-blue-500/10 p-1.5 rounded-lg border border-blue-500/20">
+                                 <TrendingDown size={14} className="text-blue-400" />
+                              </div>
+                              <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest">Outbound Paths (Authority Pass)</h3>
+                           </div>
+                           <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                              <div className="divide-y divide-slate-800/40">
+                                 {selectedPage.linksOut.length > 0 ? selectedPage.linksOut.map((link, i) => (
+                                    <div key={i} className="p-4 hover:bg-slate-800/30 transition-all">
+                                       <div className="font-mono text-[10px] text-blue-400 flex items-center justify-between gap-2 mb-1.5">
+                                          <span className="truncate">{link.href}</span>
+                                          {link.isContextual && <span className="shrink-0 bg-blue-500/10 text-blue-400 text-[8px] font-black px-1.5 py-0.5 rounded border border-blue-500/20 uppercase tracking-tighter">Contextual</span>}
+                                       </div>
+                                       <div className="text-[11px] text-slate-500 italic flex items-center gap-2">
+                                          Anchor: <strong className="text-slate-300 font-bold ml-1">"{link.anchor}"</strong>
+                                          {link.isMoneyPage && <span className="ml-auto text-[9px] font-black text-rose-400 uppercase tracking-widest">MONEY TARGET</span>}
+                                       </div>
+                                    </div>
+                                 )) : (
+                                    <div className="p-10 text-center text-[11px] text-slate-600 font-bold uppercase tracking-[2px]">Dead end page. No authority pass.</div>
+                                 )}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               ) : (
+                  <div className="h-full flex flex-col items-center justify-center text-center border-2 border-dashed border-slate-800 rounded-[40px] opacity-40 py-40">
+                     <ExternalLink size={48} className="text-slate-700 mb-6" />
+                     <div className="text-xs font-black text-slate-600 uppercase tracking-[4px]">Select path from index<br/>to analyze connections</div>
+                  </div>
+               )}
+            </div>
+         </div>
       </div>
     </div>
-  )
+  );
 }

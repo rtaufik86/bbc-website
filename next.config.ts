@@ -16,7 +16,33 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: false,
   async redirects() {
+    const canonicalBase = 'https://www.bintarobusinesscentre.com';
+    
     return [
+      // 1. Core Service Pages (Direct to Final Canonical URL)
+      { source: '/service-office', destination: `${canonicalBase}/sewa-kantor`, permanent: true },
+      { source: '/jasa-sewa-virtual-office-di-bintaro-jakarta-selatan', destination: `${canonicalBase}/virtual-office`, permanent: true },
+      { source: '/jasa-pembuatan-pt', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+      { source: '/jasa-legalitas', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+      { source: '/lp/jasa-sewa-kantor', destination: `${canonicalBase}/sewa-kantor`, permanent: true },
+
+      // 2. Business Service Page
+      { source: '/business-services', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+
+      // 3. Historical URL Preservation
+      { source: '/gallery', destination: `${canonicalBase}/tentang-kami`, permanent: true },
+
+      // 4. Targeted SEO & Historical Authority
+      { source: '/sewa-ruang-kantor-murah-di-jakarta-selatan', destination: `${canonicalBase}/sewa-kantor/murah-jakarta-selatan`, permanent: true },
+      { source: '/jasa-sewa-kantor-di-bintaro-jakarta-selatan', destination: `${canonicalBase}/sewa-kantor/bintaro`, permanent: true },
+      { source: '/tips-pintar-memilih-sewa-kantor-di-jakarta-selatan', destination: `${canonicalBase}/sewa-kantor/jakarta-selatan`, permanent: true },
+      { source: '/persyaratan-jasa-pembuatan-pt', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+      { source: '/kelebihan-dan-keuntungan-pt', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+      { source: '/pengertian-perseroan-terbatas', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+      { source: '/dasar-hukum-pendirian-pt', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
+
+      // 5. Host Canonicalization (Catch-all for non-www)
+      // Moved to end to ensure specific path redirects happen in 1-hop even from non-www
       {
         source: '/:path*',
         has: [
@@ -25,35 +51,9 @@ const nextConfig: NextConfig = {
             value: 'bintarobusinesscentre.com',
           },
         ],
-        destination: 'https://www.bintarobusinesscentre.com/:path*',
+        destination: `${canonicalBase}/:path*`,
         permanent: true,
       },
-      // 1. Core Service Pages (Preserving Authority)
-      { source: '/service-office', destination: '/sewa-kantor', permanent: true },
-      { source: '/jasa-sewa-virtual-office-di-bintaro-jakarta-selatan', destination: '/virtual-office', permanent: true },
-      { source: '/jasa-pembuatan-pt', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-      { source: '/jasa-legalitas', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-      { source: '/lp/jasa-sewa-kantor', destination: '/sewa-kantor', permanent: true },
-
-      // 2. Business Service Page (Critical Transition)
-      { source: '/business-services', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-
-      // 3. Category & Gallery (Backlink Preservation)
-      { source: '/category/sewa-ruang-kantor', destination: '/sewa-kantor/bintaro', permanent: true },
-      { source: '/category/virtual-office', destination: '/virtual-office', permanent: true },
-      { source: '/gallery', destination: '/tentang-kami', permanent: true },
-
-      // 4. Targeted SEO & Historical Authority (Preserved)
-      { source: '/sewa-ruang-kantor-murah-di-jakarta-selatan', destination: '/sewa-kantor/murah-jakarta-selatan', permanent: true },
-      { source: '/jasa-sewa-kantor-di-bintaro-jakarta-selatan', destination: '/sewa-kantor/bintaro', permanent: true },
-      { source: '/tips-pintar-memilih-sewa-kantor-di-jakarta-selatan', destination: '/sewa-kantor/jakarta-selatan', permanent: true },
-      { source: '/persyaratan-jasa-pembuatan-pt', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-      { source: '/kelebihan-dan-keuntungan-pt', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-      { source: '/pengertian-perseroan-terbatas', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-      { source: '/dasar-hukum-pendirian-pt', destination: '/legal/pendirian-pt-jakarta-selatan', permanent: true },
-
-      // 5. Note on 410 Gone: 
-      // Handled in middleware.ts for /sewa-gudang-bulanan as per directive.
     ]
   }
 };

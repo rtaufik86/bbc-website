@@ -17,7 +17,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/leads",
@@ -33,10 +42,19 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 3.5,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/leads/[id]",
@@ -55,7 +73,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin",
@@ -71,10 +98,19 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 1.5,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/products",
@@ -93,7 +129,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/products/[id]",
@@ -112,7 +157,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/sales",
@@ -131,7 +185,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/settings",
@@ -147,10 +210,19 @@
       "contextualOutboundCount": 0,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 2,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/admin/settings/telegram",
@@ -169,7 +241,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
@@ -185,12 +266,21 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 19,
+      "authorityScore": 11,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 19.584,
+        "propagationR1": 155.780352,
+        "propagationR2": 501.48313181257146,
+        "propagationR3": 1532.8039391957664
+      },
+      "_rawScore": 1012.1145604772482
     },
     {
       "path": "/auth/reset-password",
@@ -209,7 +299,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/fasilitas-kantor",
@@ -225,12 +324,21 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 6,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 18.5,
+      "authorityScore": 9,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 5,
+        "hardPenalty": -3,
+        "weightedInbound": 15.816,
+        "propagationR1": 91.20336914285714,
+        "propagationR2": 393.71049369926595,
+        "propagationR3": 1366.494028820678
+      },
+      "_rawScore": 898.1291187334408
     },
     {
       "path": "/forgot-password",
@@ -249,7 +357,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/harga-sewa-kantor-bintaro",
@@ -265,18 +382,27 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 19.5,
+      "authorityScore": 41,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 26.784000000000002,
+        "propagationR1": 271.65619200000003,
+        "propagationR2": 1443.218092620495,
+        "propagationR3": 5990.259752887901
+      },
+      "_rawScore": 3925.060839377136
     },
     {
       "path": "/harga-virtual-office",
       "title": "Virtual Office Jakarta Selatan: Faktor Penentu Nilai Layanan",
       "pageType": "weapon",
-      "cluster": "other",
+      "cluster": "virtual-office",
       "isIndexable": true,
       "inSitemap": true,
       "hasBreadcrumb": true,
@@ -284,18 +410,27 @@
       "inboundCount": 4,
       "outboundCount": 6,
       "contextualOutboundCount": 6,
-      "crossClusterOutboundCount": 6,
+      "crossClusterOutboundCount": 4,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 26,
+      "authorityScore": 25,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 25.704000000000004,
+        "propagationR1": 312.7163519999999,
+        "propagationR2": 1069.942641168419,
+        "propagationR3": 3605.1421036239662
+      },
+      "_rawScore": 2374.194367355578
     },
     {
       "path": "/harga-virtual-office-jakarta-selatan",
       "title": "Virtual Office Jakarta Selatan: Breakdown Biaya & Perbandingan",
       "pageType": "weapon",
-      "cluster": "other",
+      "cluster": "virtual-office",
       "isIndexable": true,
       "inSitemap": true,
       "hasBreadcrumb": true,
@@ -303,14 +438,23 @@
       "inboundCount": 2,
       "outboundCount": 3,
       "contextualOutboundCount": 3,
-      "crossClusterOutboundCount": 2,
+      "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 13.5,
+      "authorityScore": 7,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 10.944,
+        "propagationR1": 95.50079999999997,
+        "propagationR2": 322.14356419657145,
+        "propagationR3": 1044.2080654909673
+      },
+      "_rawScore": 702.2072425691288
     },
     {
       "path": "/internal-links",
@@ -329,7 +473,16 @@
       "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/kantor-dekat-bintaro-jaya",
@@ -345,12 +498,21 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 19.5,
+      "authorityScore": 38,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 24.768000000000004,
+        "propagationR1": 295.782144,
+        "propagationR2": 1311.1815825148951,
+        "propagationR3": 5564.871312597376
+      },
+      "_rawScore": 3647.5503531882946
     },
     {
       "path": "/kantor-dekat-tol-veteran",
@@ -366,12 +528,21 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 25,
+      "authorityScore": 56,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 37.152,
+        "propagationR1": 417.40953599999995,
+        "propagationR2": 2003.903209241295,
+        "propagationR3": 8082.583858716823
+      },
+      "_rawScore": 5290.255508165935
     },
     {
       "path": "/klien-dan-testimoni",
@@ -387,12 +558,21 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 7,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 15.5,
+      "authorityScore": 5,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 5,
+        "hardPenalty": -3,
+        "weightedInbound": 6.384,
+        "propagationR1": 47.613184,
+        "propagationR2": 181.5244713457117,
+        "propagationR3": 691.6237958940435
+      },
+      "_rawScore": 454.7474673311283
     },
     {
       "path": "/kontak",
@@ -408,13 +588,22 @@
       "contextualOutboundCount": 0,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 6,
+      "authorityScore": 0,
       "status": "red",
       "warnings": [
         "Missing breadcrumb",
         "No contextual links"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 1,
+        "hardPenalty": -3,
+        "weightedInbound": 8.556,
+        "propagationR1": 2.2470720000000006,
+        "propagationR2": 11.203555891200002,
+        "propagationR3": 54.83356381630462
+      },
+      "_rawScore": 37.919816480598
     },
     {
       "path": "/legal/cek-kbli",
@@ -430,7 +619,7 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 6.5,
+      "authorityScore": 1,
       "status": "red",
       "warnings": [
         "Weapon page outbound < 3",
@@ -441,7 +630,16 @@
         "🔗 Link to /legalitas-dan-perizinan-bbc (Strong Sibling)",
         "🔗 Link to /legal/pkp-perdagangan (Weak Sibling)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": -2,
+        "hardPenalty": -11,
+        "weightedInbound": 12.096,
+        "propagationR1": 32.754160246153845,
+        "propagationR2": 72.78591591115675,
+        "propagationR3": 194.93207468916933
+      },
+      "_rawScore": 119.75384854796008
     },
     {
       "path": "/legal",
@@ -457,13 +655,22 @@
       "contextualOutboundCount": 10,
       "crossClusterOutboundCount": 9,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 20,
+      "authorityScore": 1,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🔗 Link to /legalitas-dan-perizinan-bbc (Boost Weak Weapon)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 21,
+        "hardPenalty": 0,
+        "weightedInbound": 3.4560000000000004,
+        "propagationR1": 16.500326400000002,
+        "propagationR2": 50.552396444818285,
+        "propagationR3": 157.98806096346937
+      },
+      "_rawScore": 125.4202396262551
     },
     {
       "path": "/legal/pendirian-pt-jakarta-selatan",
@@ -479,13 +686,22 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 11,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 49.5,
+      "authorityScore": 22,
       "status": "red",
       "warnings": [
         "Missing breadcrumb",
         "First money link not < 300 words"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 9,
+        "hardPenalty": -3,
+        "weightedInbound": 65.616,
+        "propagationR1": 277.85145061978017,
+        "propagationR2": 995.2370310060719,
+        "propagationR3": 3164.175050006728
+      },
+      "_rawScore": 2095.5217825043733
     },
     {
       "path": "/legal/pkp-perdagangan",
@@ -501,7 +717,7 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 2,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 12.5,
+      "authorityScore": 2,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
@@ -509,7 +725,16 @@
       "recommendations": [
         "🔗 Link to /legal (Money Page)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 13,
+        "hardPenalty": -3,
+        "weightedInbound": 12.096,
+        "propagationR1": 32.754160246153845,
+        "propagationR2": 72.78591591115675,
+        "propagationR3": 194.93207468916933
+      },
+      "_rawScore": 142.75384854796008
     },
     {
       "path": "/legalitas-dan-perizinan-bbc",
@@ -525,14 +750,23 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 5,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 16.5,
+      "authorityScore": 12,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
       ],
       "recommendations": [
         "🔗 Link to /legal (Money Page)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 13,
+        "hardPenalty": -3,
+        "weightedInbound": 12.648,
+        "propagationR1": 133.09816799999996,
+        "propagationR2": 475.13384424413454,
+        "propagationR3": 1668.787013498333
+      },
+      "_rawScore": 1101.0355587739166
     },
     {
       "path": "/login",
@@ -548,10 +782,19 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 3.5,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/lokasi-kantor",
@@ -567,10 +810,19 @@
       "contextualOutboundCount": 6,
       "crossClusterOutboundCount": 5,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 28,
+      "authorityScore": 14,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 10,
+        "hardPenalty": 0,
+        "weightedInbound": 19.704,
+        "propagationR1": 158.78314719999997,
+        "propagationR2": 571.269990835458,
+        "propagationR3": 1984.8362797926263
+      },
+      "_rawScore": 1309.9955818652072
     },
     {
       "path": "/",
@@ -586,15 +838,22 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 5,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 5.5,
+      "authorityScore": 0,
       "status": "red",
       "warnings": [
         "Orphan Page",
         "Indexable but 0 Inbound Links"
       ],
-      "recommendations": [
-        "🎯 Request inbound link from /harga-virtual-office"
-      ]
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": -1,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": -1
     },
     {
       "path": "/ruang-meeting",
@@ -610,17 +869,26 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 4,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 10,
+      "authorityScore": 3,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 5,
+        "hardPenalty": -3,
+        "weightedInbound": 3.672,
+        "propagationR1": 26.746848000000007,
+        "propagationR2": 143.27998882559996,
+        "propagationR3": 444.5046066567971
+      },
+      "_rawScore": 292.7639943269181
     },
     {
       "path": "/sewa-kantor/bintaro",
       "title": "Private Office Bintaro: Konsep, Fasilitas & Standar Layanan",
-      "pageType": "weapon",
+      "pageType": "hub",
       "cluster": "sewa-kantor",
       "isIndexable": true,
       "inSitemap": true,
@@ -631,12 +899,22 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 17.5,
+      "authorityScore": 36,
       "status": "green",
       "warnings": [],
       "recommendations": [
-        "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Boost Weak Weapon)",
+        "🔗 Link to /sewa-kantor/kantor-siap-pakai-bintaro (Boost Weak Weapon)"
+      ],
+      "calculationDetails": {
+        "baseScore": 8,
+        "hardPenalty": -10,
+        "weightedInbound": 24.192,
+        "propagationR1": 299.47161600000004,
+        "propagationR2": 1331.0422935396573,
+        "propagationR3": 5180.5049764280175
+      },
+      "_rawScore": 3377.4242346782116
     },
     {
       "path": "/sewa-kantor/harga",
@@ -652,17 +930,26 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 15.5,
+      "authorityScore": 13,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 20.16,
+        "propagationR1": 148.76736,
+        "propagationR2": 515.314977013638,
+        "propagationR3": 1788.9964709536564
+      },
+      "_rawScore": 1190.9277061198766
     },
     {
       "path": "/sewa-kantor/jakarta-selatan",
       "title": "Sewa Kantor Jakarta Selatan: Struktur Layanan & Fasilitas",
-      "pageType": "weapon",
+      "pageType": "hub",
       "cluster": "sewa-kantor",
       "isIndexable": true,
       "inSitemap": true,
@@ -673,14 +960,22 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 20.5,
-      "status": "yellow",
-      "warnings": [
-        "First money link not < 300 words"
-      ],
+      "authorityScore": 15,
+      "status": "green",
+      "warnings": [],
       "recommendations": [
-        "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Boost Weak Weapon)",
+        "🔗 Link to /kantor-dekat-bintaro-jaya (Boost Weak Weapon)"
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 19.5,
+        "propagationR1": 145.8984,
+        "propagationR2": 551.7636825340952,
+        "propagationR3": 2153.0928155011698
+      },
+      "_rawScore": 1427.2603300757603
     },
     {
       "path": "/sewa-kantor/kantor-siap-pakai-bintaro",
@@ -696,7 +991,7 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 7.5,
+      "authorityScore": 9,
       "status": "red",
       "warnings": [
         "Weapon page outbound < 3"
@@ -705,7 +1000,16 @@
         "🔗 Link to /kantor-dekat-tol-veteran (Strong Sibling)",
         "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Weak Sibling)",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 3,
+        "hardPenalty": -8,
+        "weightedInbound": 12.96,
+        "propagationR1": 103.76736,
+        "propagationR2": 368.21422501363804,
+        "propagationR3": 1325.320798577062
+      },
+      "_rawScore": 862.9385190750904
     },
     {
       "path": "/sewa-kantor/murah-jakarta-selatan",
@@ -721,7 +1025,7 @@
       "contextualOutboundCount": 3,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 2.5,
+      "authorityScore": 0,
       "status": "red",
       "warnings": [
         "Orphan Page",
@@ -730,7 +1034,16 @@
       "recommendations": [
         "🎯 Request inbound link from /sewa-kantor",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": -4,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": -4
     },
     {
       "path": "/sewa-kantor",
@@ -746,17 +1059,26 @@
       "contextualOutboundCount": 8,
       "crossClusterOutboundCount": 7,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 109,
+      "authorityScore": 100,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Boost Weak Weapon)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 21,
+        "hardPenalty": 0,
+        "weightedInbound": 162.64799999999997,
+        "propagationR1": 905.6240048732599,
+        "propagationR2": 3985.103106733018,
+        "propagationR3": 14452.011835003055
+      },
+      "_rawScore": 9496.131692751987
     },
     {
       "path": "/sewa-kantor/jakarta-selatan",
       "title": "Sewa Kantor Jakarta Selatan: Pertimbangan yang Sering Diabaikan",
-      "pageType": "weapon",
+      "pageType": "hub",
       "cluster": "sewa-kantor",
       "isIndexable": true,
       "inSitemap": true,
@@ -767,12 +1089,22 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 20.5,
+      "authorityScore": 15,
       "status": "green",
       "warnings": [],
       "recommendations": [
-        "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+        "🔗 Link to /sewa-kantor/murah-jakarta-selatan (Boost Weak Weapon)",
+        "🔗 Link to /kantor-dekat-bintaro-jaya (Boost Weak Weapon)"
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 19.5,
+        "propagationR1": 145.8984,
+        "propagationR2": 551.7636825340952,
+        "propagationR3": 2153.0928155011698
+      },
+      "_rawScore": 1427.2603300757603
     },
     {
       "path": "/signup",
@@ -788,10 +1120,19 @@
       "contextualOutboundCount": 1,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 3.5,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     },
     {
       "path": "/tentang-kami",
@@ -807,12 +1148,21 @@
       "contextualOutboundCount": 5,
       "crossClusterOutboundCount": 6,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 25.5,
+      "authorityScore": 11,
       "status": "red",
       "warnings": [
         "Missing breadcrumb"
       ],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 5,
+        "hardPenalty": -3,
+        "weightedInbound": 21.384,
+        "propagationR1": 130.1278603428571,
+        "propagationR2": 469.00648739210055,
+        "propagationR3": 1549.4120490214032
+      },
+      "_rawScore": 1019.8098318639121
     },
     {
       "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
@@ -828,7 +1178,7 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 14,
+      "authorityScore": 11,
       "status": "red",
       "warnings": [
         "Orphan Page"
@@ -836,12 +1186,21 @@
       "recommendations": [
         "🎯 Request inbound link from /virtual-office",
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 6,
+        "hardPenalty": 0,
+        "weightedInbound": 19.584,
+        "propagationR1": 155.780352,
+        "propagationR2": 501.48313181257146,
+        "propagationR3": 1532.8039391957664
+      },
+      "_rawScore": 1012.1145604772482
     },
     {
       "path": "/virtual-office/jakarta-selatan",
       "title": "Virtual Office Jakarta Selatan: Kesesuaian Regulasi NIB & PKP",
-      "pageType": "weapon",
+      "pageType": "hub",
       "cluster": "virtual-office",
       "isIndexable": true,
       "inSitemap": true,
@@ -852,12 +1211,22 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 23,
+      "authorityScore": 17,
       "status": "green",
       "warnings": [],
       "recommendations": [
-        "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+        "🔗 Link to /harga-virtual-office-jakarta-selatan (Boost Weak Weapon)",
+        "🔗 Link to /virtual-office-bintaro (Boost Weak Weapon)"
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 28.14,
+        "propagationR1": 224.90159999999992,
+        "propagationR2": 764.9470941714285,
+        "propagationR3": 2501.744405728406
+      },
+      "_rawScore": 1658.2038637234639
     },
     {
       "path": "/virtual-office",
@@ -871,12 +1240,21 @@
       "inboundCount": 33,
       "outboundCount": 12,
       "contextualOutboundCount": 6,
-      "crossClusterOutboundCount": 8,
+      "crossClusterOutboundCount": 5,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 90,
+      "authorityScore": 59,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 21,
+        "hardPenalty": 0,
+        "weightedInbound": 145.88399999999993,
+        "propagationR1": 736.478284014652,
+        "propagationR2": 2787.84934580818,
+        "propagationR3": 8485.200507435091
+      },
+      "_rawScore": 5609.322329832809
     },
     {
       "path": "/virtual-office-bintaro",
@@ -890,19 +1268,28 @@
       "inboundCount": 1,
       "outboundCount": 8,
       "contextualOutboundCount": 5,
-      "crossClusterOutboundCount": 1,
+      "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 14.5,
+      "authorityScore": 7,
       "status": "green",
       "warnings": [],
       "recommendations": [
         "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 5.760000000000001,
+        "propagationR1": 80.10431999999997,
+        "propagationR2": 274.87338461257144,
+        "propagationR3": 914.9011558921522
+      },
+      "_rawScore": 615.565751329899
     },
     {
       "path": "/virtual-office/jakarta-selatan",
       "title": "Virtual Office Jakarta Selatan: Fungsi & Implikasi Legalitas",
-      "pageType": "weapon",
+      "pageType": "hub",
       "cluster": "virtual-office",
       "isIndexable": true,
       "inSitemap": true,
@@ -913,12 +1300,22 @@
       "contextualOutboundCount": 4,
       "crossClusterOutboundCount": 1,
       "firstMoneyLinkUnder300": true,
-      "authorityScore": 23,
+      "authorityScore": 17,
       "status": "green",
       "warnings": [],
       "recommendations": [
-        "🛡️ Link to /tentang-kami (Trust Signal)"
-      ]
+        "🔗 Link to /harga-virtual-office-jakarta-selatan (Boost Weak Weapon)",
+        "🔗 Link to /virtual-office-bintaro (Boost Weak Weapon)"
+      ],
+      "calculationDetails": {
+        "baseScore": 18,
+        "hardPenalty": 0,
+        "weightedInbound": 28.14,
+        "propagationR1": 224.90159999999992,
+        "propagationR2": 764.9470941714285,
+        "propagationR3": 2501.744405728406
+      },
+      "_rawScore": 1658.2038637234639
     },
     {
       "path": "/web-audit",
@@ -934,10 +1331,19 @@
       "contextualOutboundCount": 0,
       "crossClusterOutboundCount": 0,
       "firstMoneyLinkUnder300": false,
-      "authorityScore": 1,
+      "authorityScore": 0,
       "status": "green",
       "warnings": [],
-      "recommendations": []
+      "recommendations": [],
+      "calculationDetails": {
+        "baseScore": 0,
+        "hardPenalty": 0,
+        "weightedInbound": 0,
+        "propagationR1": 0,
+        "propagationR2": 0,
+        "propagationR3": 0
+      },
+      "_rawScore": 0
     }
   ],
   "edges": [
@@ -1081,7 +1487,7 @@
       "to": "/virtual-office",
       "anchorText": "Cek Paket & Harga Terbaru →",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": true,
       "positionBucket": "late"
     },
@@ -1090,7 +1496,7 @@
       "to": "/virtual-office",
       "anchorText": "virtual office Bintaro Business Centre",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": true,
       "positionBucket": "late"
     },
@@ -1135,7 +1541,7 @@
       "to": "/virtual-office",
       "anchorText": "BBC menawarkan Virtual Office Jakarta Selatan",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": true,
       "positionBucket": "late"
     },
@@ -1153,7 +1559,7 @@
       "to": "/virtual-office/alamat-bisnis-jakarta-selatan",
       "anchorText": "Fungsi alamat bisnis Jakarta Selatan",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": false,
       "positionBucket": "late"
     },
@@ -2296,7 +2702,7 @@
       "to": "/harga-virtual-office",
       "anchorText": "rincian harga virtual office Jakarta Selatan",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": false,
       "positionBucket": "late"
     },
@@ -2341,7 +2747,7 @@
       "to": "/harga-virtual-office-jakarta-selatan",
       "anchorText": "Harga VO Jakarta Selatan",
       "linkType": "related",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": false,
       "positionBucket": "late"
     },
@@ -2359,7 +2765,7 @@
       "to": "/harga-virtual-office",
       "anchorText": "Risiko Harga Murah",
       "linkType": "related",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": false,
       "positionBucket": "late"
     },
@@ -2467,7 +2873,7 @@
       "to": "/harga-virtual-office-jakarta-selatan",
       "anchorText": "Harga Virtual Office Jakarta Selatan",
       "linkType": "contextual",
-      "isCrossCluster": true,
+      "isCrossCluster": false,
       "isToMoneyPage": false,
       "positionBucket": "late"
     },

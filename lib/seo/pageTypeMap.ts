@@ -195,7 +195,16 @@ export const PAGE_TYPE_MAP: Record<string, PageConfig> = {
     '/forgot-password': { type: 'utility', entity: 'Forgot Password' },
     '/auth/reset-password': { type: 'utility', entity: 'Reset Password' },
     '/internal-links': { type: 'utility', entity: 'Internal Links' },
-    '/web-audit': { type: 'utility', entity: 'Web Audit' }
+    '/web-audit': { type: 'utility', entity: 'Web Audit' },
+    // SEO CONTROL CENTER (Localhost-only, noindex)
+    '/seo-control-center': { type: 'utility', entity: 'SEO Control Center' },
+    '/seo-control-center/entity-audit': { type: 'utility', entity: 'Entity & Angle Audit' },
+    '/seo-control-center/answer-extraction': { type: 'utility', entity: 'Answer Extraction Audit' },
+    '/seo-control-center/trust-scanner': { type: 'utility', entity: 'Trust Signal Scanner' },
+    '/seo-control-center/authority-analyzer': { type: 'utility', entity: 'Authority Injection Analyzer' },
+    '/seo-control-center/crawl-audit': { type: 'utility', entity: 'Crawl & Indexability Audit' },
+    '/seo-control-center/intent-map': { type: 'utility', entity: 'Intent Coverage Map' },
+    '/seo-control-center/llm-scanner': { type: 'utility', entity: 'LLM Presence Scanner' }
 };
 
 export const getPageType = (pathname: string): PageType => {

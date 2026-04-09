@@ -1,279 +1,241 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useMemo } from "react";
-import dynamic from "next/dynamic";
-import { AlertTriangle, AlertCircle, RefreshCw, Zap, Copy } from "lucide-react";
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { 
+  Network, ArrowLeft, Info, Filter, ZoomIn, ZoomOut, 
+  Maximize, Activity, ShieldCheck, Database, Zap 
+} from 'lucide-react';
+import dynamic from 'next/dynamic';
 
-const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
-  ssr: false,
-});
+// Dynamic import for react-force-graph-2d
+const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false });
 
-export default function LinkGraphClient() {
-  const [data, setData] = useState<{ nodes: any[]; edges: any[] } | null>(null);
-  const [filterCluster, setFilterCluster] = useState("all");
-  const [filterType, setFilterType] = useState("all");
-  const [filterStatus, setFilterStatus] = useState("all");
+interface Node { id: string; name: string; val: number; type: string; color: string }
+interface LinkData { source: string; target: string; color: string }
+interface Props { graphData: { nodes: Node[]; links: LinkData[] } }
 
-  useEffect(() => {
-    fetch("/link-graph-data.json")
-      .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.error("Error loading graph data", err));
-  }, []);
+const TYPE_COLORS: Record<string, string> = {
+  money: '#a855f7', // Violet
+  hub: '#3b82f6',   // Blue
+  weapon: '#f43f5e', // Rose
+  support: '#10b981', // Emerald
+  utility: '#64748b', // Slate
+};
 
-  const getNodeColor = (type: string) => {
-    switch (type) {
-      case "money": return "#FFD700"; // gold
-      case "weapon": return "#000080"; // navy
-      case "hub": return "#607D8B"; // blue-gray
-      case "support": return "#708090"; // slate
-      case "homepage": return "#4CAF50"; // green
-      default: return "#E57373"; // light red
-    }
-  };
-
-  const getEdgeColor = (type: string) => {
-    return type === "contextual" ? "rgba(0,0,0,0.4)" : "rgba(200,200,200,0.3)";
-  };
+export default function LinkGraphClient({ graphData }: Props) {
+  const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+  const [filterType, setFilterType] = useState('all');
+  const graphRef = useRef<any>(null);
 
   const filteredData = useMemo(() => {
-    if (!data) return { nodes: [], links: [] };
+    if (filterType === 'all') return graphData;
+    const filteredNodes = graphData.nodes.filter(n => n.type === filterType);
+    const nodeIds = new Set(filteredNodes.map(n => n.id));
+    const filteredLinks = graphData.links.filter(l => 
+      nodeIds.has(l.source as string) || nodeIds.has(l.target as string)
+    );
+    return { nodes: filteredNodes, links: filteredLinks };
+  }, [graphData, filterType]);
 
-    let fNodes = data.nodes.filter(n => n.pageType !== 'utility'); // hide utility by default
-    if (filterCluster !== "all") fNodes = fNodes.filter(n => n.cluster === filterCluster);
-    if (filterType !== "all") fNodes = fNodes.filter(n => n.pageType === filterType);
-    if (filterStatus !== "all") fNodes = fNodes.filter(n => n.status === filterStatus);
-
-    const fNodeIds = new Set(fNodes.map(n => n.path));
-    const fLinks = data.edges.filter(e => fNodeIds.has(e.from) && fNodeIds.has(e.to));
-
-    return {
-      nodes: fNodes.map(n => ({ id: n.path, ...n, val: Math.max(3, n.authorityScore * 0.5), color: getNodeColor(n.pageType) })),
-      links: fLinks.map(e => ({ source: e.from, target: e.to, color: getEdgeColor(e.linkType) }))
-    };
-  }, [data, filterCluster, filterType, filterStatus]);
-
-  const copyDataToClipboard = () => {
-    if (!filteredData) return;
-    
-    const text = filteredData.nodes.map((n: any) => {
-      return `---
-Path: ${n.id}
-Type: ${n.pageType}
-Cluster: ${n.cluster}
-Inbound Links: ${n.inboundCount}
-Outbound Links: ${n.outboundCount}
-Contextual Outbound: ${n.contextualOutboundCount}
-Authority Score: ${n.authorityScore}
-Status: ${n.status}
-Warnings: ${(n.warnings && n.warnings.length > 0) ? n.warnings.join(', ') : 'None'}
-Recommendations: ${(n.recommendations && n.recommendations.length > 0) ? n.recommendations.join(', ') : 'None'}`
-    }).join('\n\n');
-
-    navigator.clipboard.writeText(text);
-    alert(`Copied link graph data for ${filteredData.nodes.length} pages to clipboard!`);
-  };
-
-  if (!data) return <div className="p-10 flex text-gray-500 animate-pulse items-center">Loading graph data from JSON...</div>;
-
-  const totalIndexable = data.nodes.filter((n) => n.isIndexable).length;
-  const orphanCount = data.nodes.filter((n) => n.orphanRisk).length;
-  const sortedNodes = [...data.nodes].sort((a, b) => b.authorityScore - a.authorityScore);
-  const strongest = sortedNodes.slice(0, 3);
-  const weakest = sortedNodes.slice(-3);
-
-  const criticalWarnings = filteredData.nodes.filter(n => n.status === 'red');
-  const standardWarnings = filteredData.nodes.filter(n => n.status === 'yellow');
+  const stats = useMemo(() => ({
+    nodes: graphData.nodes.length,
+    links: graphData.links.length,
+    money: graphData.nodes.filter(n => n.type === 'money').length,
+    hubs: graphData.nodes.filter(n => n.type === 'hub').length,
+  }), [graphData]);
 
   return (
-    <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-8">
-      <div className="flex justify-between items-center bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">BBC Link Graph Tool</h1>
-            <span className="bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs px-2 py-1 rounded-full font-bold shadow-sm flex items-center gap-1">
-              <Zap size={12} fill="currentColor" /> SEO ENGINE
-            </span>
-          </div>
-          <p className="text-gray-500 text-sm mt-1">Authority flow structure, auditing, and auto-recommendations</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-4 py-2 rounded-md hover:bg-emerald-100 transition"
-            onClick={copyDataToClipboard}
-          >
-            <Copy size={16} /> Copy Text Data
-          </button>
-          <button 
-            className="flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-md hover:bg-blue-100 transition" 
-            onClick={() => window.location.reload()}
-          >
-            <RefreshCw size={16} /> Reload Data
-          </button>
-        </div>
-      </div>
-
-      {/* Section 1: Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Indexable Pages" value={totalIndexable.toString()} />
-        <StatCard title="Total Internal Links" value={data.edges.length.toString()} />
-        <StatCard title="Orphan Risk Pages" value={orphanCount.toString()} isRed={orphanCount > 0} />
-        <StatCard title="Weakest Pages" value={weakest.length.toString()} />
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Section 2 & 3: Graph Filter & Visualization */}
-        <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col h-[700px]">
-          <div className="p-4 border-b flex flex-wrap gap-4 items-center bg-gray-50">
-            <span className="font-semibold text-sm">Filters:</span>
-            <select className="text-sm border rounded p-1 bg-white" value={filterCluster} onChange={(e) => setFilterCluster(e.target.value)}>
-              <option value="all">All Clusters</option>
-              <option value="sewa-kantor">Sewa Kantor</option>
-              <option value="virtual-office">Virtual Office</option>
-              <option value="legal">Legal</option>
-              <option value="trust">Trust / Support</option>
-            </select>
-            <select className="text-sm border rounded p-1 bg-white" value={filterType} onChange={(e) => setFilterType(e.target.value)}>
-              <option value="all">All Page Types</option>
-              <option value="money">Money Pages</option>
-              <option value="weapon">Weapon Pages</option>
-              <option value="hub">Hub Pages</option>
-              <option value="support">Support Pages</option>
-            </select>
-            <select className="text-sm border rounded p-1 bg-white" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
-              <option value="all">All Status</option>
-              <option value="red">Red (Critical)</option>
-              <option value="yellow">Yellow (Warning)</option>
-              <option value="green">Green (Healthy)</option>
-            </select>
-            <div className="ml-auto text-xs text-gray-500 font-mono">
-                {filteredData.nodes.length} nodes | {filteredData.links.length} edges
+    <div className="min-h-screen bg-slate-950 text-white font-sans overflow-hidden flex flex-col">
+      {/* Header */}
+      <header className="border-b border-slate-800 bg-slate-900 px-8 py-5 flex items-center justify-between shrink-0 z-20">
+        <div className="flex items-center gap-4">
+          <Link href="/seo-control-center" className="bg-slate-800 p-2.5 rounded-xl hover:bg-slate-700 transition-all border border-slate-700">
+            <ArrowLeft size={18} className="text-slate-400" />
+          </Link>
+          <div>
+            <div className="flex items-center gap-3">
+              <h1 className="text-xl font-black text-white tracking-tight uppercase">INTERNAL LINK GRAPH</h1>
+              <span className="text-[10px] font-black bg-blue-500/15 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full uppercase tracking-widest">Interactive map</span>
             </div>
           </div>
-          <div className="flex-1 w-full bg-[#f8f9fa] relative border-b">
-            <ForceGraph2D
-              graphData={filteredData}
-              nodeLabel={(node: any) => `${node.id}\nScore: ${node.authorityScore}\nType: ${node.pageType}`}
-              nodeColor="color"
-              linkColor="color"
-              nodeVal="val"
-              linkDirectionalParticles={1}
-              linkDirectionalParticleSpeed={0.005}
-              width={900} 
-              height={640} 
-            />
-          </div>
         </div>
-
-        {/* Section 5: Warnings Panel + Recommendations */}
-        <div className="lg:col-span-1 bg-white rounded-lg shadow-sm border border-gray-200 flex flex-col h-[700px]">
-          <div className="p-4 border-b bg-gray-50">
-            <h2 className="font-bold text-gray-800 flex items-center gap-2">
-              Warnings & Actionable Tactics
-            </h2>
-          </div>
-          <div className="p-4 overflow-y-auto flex-1 space-y-4">
-            {criticalWarnings.map((n, i) => (
-              <div key={i} className="bg-red-50 border border-red-100 p-3 rounded-md text-sm">
-                <div className="flex items-center gap-2 text-red-700 font-semibold mb-1 truncate">
-                  <AlertCircle size={16} className="shrink-0" /> <span className="truncate">{n.path}</span>
-                </div>
-                <ul className="list-disc pl-5 text-red-600 text-xs mt-1 space-y-1">
-                  {n.warnings.filter((w: string) => ['Orphan Page', 'Indexable but 0 Inbound Links', 'Weapon page outbound < 3', 'Money page outbound < 5', 'Missing in sitemap', 'Missing breadcrumb'].includes(w)).map((w: string, wi: number) => <li key={wi}>{w}</li>)}
-                </ul>
-                
-                {n.recommendations?.length > 0 && (
-                  <div className="mt-3 border-t border-red-200/50 pt-2">
-                    <span className="text-[10px] font-bold text-red-800 uppercase tracking-widest bg-red-100 px-1 py-0.5 rounded">Auto Strategy</span>
-                    <ul className="list-none text-emerald-700 text-xs mt-1.5 space-y-1 font-medium">
-                      {n.recommendations.map((r: string, ri: number) => <li key={ri}>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
-              </div>
+        <div className="flex items-center gap-6">
+          <div className="flex gap-1 bg-slate-800/50 p-1 rounded-xl border border-slate-800">
+            {['all', 'money', 'hub', 'weapon', 'support'].map(t => (
+              <button key={t} onClick={() => setFilterType(t)}
+                className={`px-3 py-1.5 rounded-lg text-[9px] font-black uppercase transition-all ${filterType === t ? 'bg-slate-700 text-white shadow-lg' : 'text-slate-500 hover:text-slate-400'}`}>
+                {t}
+              </button>
             ))}
-            {standardWarnings.map((n, i) => (
-              <div key={i} className="bg-yellow-50 border border-yellow-100 p-3 rounded-md text-sm">
-                <div className="flex items-center gap-2 text-yellow-700 font-semibold mb-1 truncate">
-                  <AlertTriangle size={16} className="shrink-0" /> <span className="truncate">{n.path}</span>
-                </div>
-                <ul className="list-disc pl-5 text-yellow-600 text-xs mt-1 space-y-1">
-                  {n.warnings.filter((w: string) => !['Orphan Page', 'Indexable but 0 Inbound Links', 'Weapon page outbound < 3', 'Money page outbound < 5', 'Missing in sitemap', 'Missing breadcrumb'].includes(w)).map((w: string, wi: number) => <li key={wi}>{w}</li>)}
-                </ul>
-
-                {n.recommendations?.length > 0 && (
-                  <div className="mt-3 border-t border-yellow-200/50 pt-2">
-                    <span className="text-[10px] font-bold text-yellow-800 uppercase tracking-widest bg-yellow-100 px-1 py-0.5 rounded">Auto Strategy</span>
-                    <ul className="list-none text-emerald-700 text-xs mt-1.5 space-y-1 font-medium">
-                      {n.recommendations.map((r: string, ri: number) => <li key={ri}>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
-            {criticalWarnings.length === 0 && standardWarnings.length === 0 && (
-              <div className="text-gray-500 text-center py-10">All nodes look healthy in this view!</div>
-            )}
+          </div>
+          <div className="flex items-center gap-2 text-slate-500 text-[10px] font-black uppercase tracking-widest border-l border-slate-800 pl-6">
+            <Database size={12} className="text-blue-500" /> {stats.nodes} Nodes / {stats.links} Edges
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Section 4: Table View */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-        <div className="p-4 border-b bg-gray-50 flex items-center justify-between">
-          <h2 className="font-bold text-gray-800">Node Data & Action Plan</h2>
-          <span className="text-xs text-gray-500 text-right">Sorted by Authority Score</span>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
-            <thead className="bg-gray-100 text-gray-600 border-b">
-              <tr>
-                <th className="py-3 px-4">Path</th>
-                <th className="py-3 px-4">Type</th>
-                <th className="py-3 px-4">Cluster</th>
-                <th className="py-3 px-4">In / Out</th>
-                <th className="py-3 px-4">Auth</th>
-                <th className="py-3 px-4">Status</th>
-                <th className="py-3 px-4 w-[350px]">Recommendations</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {filteredData.nodes.sort((a,b)=>b.authorityScore - a.authorityScore).map((n: any, i) => (
-                <tr key={i} className="hover:bg-gray-50 transition">
-                  <td className="py-3 px-4 font-mono text-xs text-blue-600 max-w-[180px] break-all" title={n.id}>{n.id}</td>
-                  <td className="py-3 px-4">
-                    <span className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">{n.pageType}</span>
-                  </td>
-                  <td className="py-3 px-4 text-xs">{n.cluster}</td>
-                  <td className="py-3 px-4 font-mono text-xs">{n.inboundCount} / {n.outboundCount}</td>
-                  <td className="py-3 px-4 font-semibold text-center">{n.authorityScore}</td>
-                  <td className="py-3 px-4">
-                    <span className={`w-3 h-3 rounded-full inline-block ${n.status === 'red' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]' : n.status === 'yellow' ? 'bg-yellow-400' : 'bg-green-500'}`} title={n.status}></span>
-                  </td>
-                  <td className="py-3 px-4">
-                    {n.recommendations && n.recommendations.length > 0 ? (
-                      <ul className="text-[11px] text-emerald-700 space-y-1 font-medium">
-                        {n.recommendations.map((r: string, ri: number) => <li key={ri}>{r}</li>)}
-                      </ul>
-                    ) : (
-                      <span className="text-gray-400 text-xs italic">-</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-}
+      <div className="flex-1 relative flex overflow-hidden">
+        {/* Left Side: Stats/Legend */}
+        <aside className="w-80 border-r border-slate-800 bg-slate-900/50 p-6 space-y-8 z-10 hidden xl:block overflow-y-auto">
+          <div>
+            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-mono">
+              <Activity size={12} className="text-rose-500" /> Authority Scale
+            </div>
+            <div className="space-y-4">
+               {Object.entries(TYPE_COLORS).map(([type, color]) => {
+                  const count = graphData.nodes.filter(n => n.type === type).length;
+                  if (count === 0) return null;
+                  return (
+                    <div key={type} className="flex flex-col gap-1">
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
+                          <span className="text-[11px] font-black uppercase text-slate-300 tracking-wider font-mono">{type} Cluster</span>
+                        </div>
+                        <span className="text-[10px] font-bold text-slate-500 font-mono">{count} nodes</span>
+                      </div>
+                      <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                         <div className="h-full rounded-full transition-all duration-500" style={{ width: `${(count / stats.nodes) * 100}%`, backgroundColor: color }} />
+                      </div>
+                    </div>
+                  )
+               })}
+            </div>
+          </div>
 
-function StatCard({ title, value, isRed = false }: { title: string, value: string, isRed?: boolean }) {
-  return (
-    <div className={`p-5 rounded-lg border flex flex-col justify-center ${isRed ? 'bg-red-50 border-red-200 shadow-[0_4px_12px_rgba(239,68,68,0.1)]' : 'bg-white border-gray-200 shadow-sm'}`}>
-      <div className="text-gray-500 text-sm font-medium">{title}</div>
-      <div className={`text-4xl font-extrabold mt-2 ${isRed ? 'text-red-600' : 'text-gray-900'}`}>{value}</div>
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
+             <div className="flex items-center gap-3">
+                <Info size={16} className="text-blue-400" />
+                <h3 className="text-xs font-black text-white uppercase tracking-widest leading-none">Force Atlas 2D</h3>
+             </div>
+             <p className="text-[10px] text-slate-500 font-medium leading-relaxed italic">
+                Node size (val) merepresentasikan <strong className="text-slate-400">weighted internal authority</strong>. Semakin sering di-link, semakin besar ukurannya dalam graf ini.
+             </p>
+             <div className="flex flex-col gap-2 pt-2">
+                <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
+                   <div className="w-4 h-[1px] bg-slate-700" /> Drag to move graph
+                </div>
+                <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
+                   <div className="w-4 h-[1px] bg-slate-700" /> Scroll to zoom
+                </div>
+                <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
+                   <div className="w-4 h-[1px] bg-slate-700" /> Hover node for details
+                </div>
+             </div>
+          </div>
+        </aside>
+
+        {/* Center: The Graph */}
+        <main className="flex-1 bg-slate-950 relative">
+          <ForceGraph2D
+            ref={graphRef}
+            graphData={filteredData}
+            nodeLabel="name"
+            nodeRelSize={6}
+            nodeVal={(node: any) => node.val}
+            nodeColor={(node: any) => TYPE_COLORS[node.type] || '#cbd5e1'}
+            linkColor={() => '#1e293b'}
+            linkWidth={1}
+            linkDirectionalArrowLength={2}
+            linkDirectionalArrowRelPos={1}
+            backgroundColor="#020617"
+            onNodeClick={(node: any) => setSelectedNode(node as Node)}
+            onBackgroundClick={() => setSelectedNode(null)}
+            cooldownTicks={100}
+            nodeCanvasObject={(node: any, ctx, globalScale) => {
+              const label = node.name;
+              const fontSize = 12 / globalScale;
+              ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
+              const textWidth = ctx.measureText(label).width;
+              const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2) as [number, number];
+
+              ctx.fillStyle = TYPE_COLORS[node.type] || '#cbd5e1';
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI, false);
+              ctx.fill();
+
+              // Only show labels when zoomed in
+              if (globalScale > 2 || node.val > 10) {
+                ctx.fillStyle = 'rgba(2, 6, 23, 0.8)';
+                ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2 - 10, ...bckgDimensions);
+
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = '#f8fafc';
+                ctx.fillText(label, node.x, node.y - 10);
+              }
+            }}
+          />
+          
+          {/* Legend for Mobile */}
+          <div className="absolute bottom-6 left-6 block xl:hidden z-20 space-y-1">
+             {Object.entries(TYPE_COLORS).map(([type, color]) => (
+                <div key={type} className="flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
+                   <span className="text-[9px] font-black uppercase text-slate-500">{type}</span>
+                </div>
+             ))}
+          </div>
+        </main>
+
+        {/* Right Sidebar: Details */}
+        <aside className="w-96 border-l border-slate-800 bg-slate-900/50 p-8 z-10 h-full overflow-y-auto">
+          {selectedNode ? (
+            <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-300">
+               <div>
+                  <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2 font-mono">Selected Identity</div>
+                  <h2 className="text-2xl font-black text-white leading-tight tracking-tight break-all uppercase" style={{ color: TYPE_COLORS[selectedNode.type] }}>
+                    {selectedNode.name}
+                  </h2>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                     <span className="text-[9px] font-black bg-slate-800 text-slate-300 border border-slate-700 px-2 py-0.5 rounded tracking-widest uppercase">
+                        {selectedNode.type}
+                     </span>
+                     <span className="text-[9px] font-black bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-0.5 rounded tracking-widest uppercase">
+                        Intensity: {selectedNode.val.toFixed(1)}
+                     </span>
+                  </div>
+               </div>
+
+               <div className="space-y-4">
+                  <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest font-mono">Structural Role</div>
+                  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden group">
+                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none" />
+                     <div className="relative z-10">
+                        <div className="text-xs text-slate-400 font-medium leading-relaxed">
+                           {selectedNode.type === 'money' ? 'Halaman utama konversi (Money Page). Membutuhkan authority tinggi dari weapon/hub pages untuk ranking.' : 
+                            selectedNode.type === 'weapon' ? 'Halaman pendukung spesifik (Weapon Page). Bertugas menyerap traffic long-tail dan menyalurkan authority ke Money page.' :
+                            selectedNode.type === 'hub' ? 'Halaman distribusi navigasi (Hub Page). Mempermudah crawl bots memetakan struktur situs.' :
+                            'Halaman pendukung kepercayaan (Trust/Support Page).'}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <Link href={selectedNode.id} className="flex items-center justify-center gap-3 w-full py-5 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white rounded-3xl text-[11px] font-black transition-all border border-slate-700 shadow-2xl group uppercase tracking-widest">
+                  Investigate Path <Maximize size={14} className="group-hover:scale-110 transition-transform" />
+               </Link>
+
+               <div className="pt-8 border-t border-slate-800">
+                  <div className="flex items-center gap-2 mb-4">
+                     <ShieldCheck size={14} className="text-emerald-400" />
+                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest font-mono">Authority Pass</span>
+                  </div>
+                  {/* List connections locally? No, we use weighted scores as represented in val */}
+                  <div className="text-[10px] text-slate-600 font-medium italic">
+                     * Visualisasi node val di atas mencakup akumulasi 3-layer weighted authority propagation.
+                  </div>
+               </div>
+            </div>
+          ) : (
+            <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
+               <Network size={48} className="text-slate-700 mb-6" />
+               <div className="text-xs font-black text-slate-600 uppercase tracking-[3px]">Select a node<br/>on the graph</div>
+            </div>
+          )}
+        </aside>
+      </div>
     </div>
   );
 }
