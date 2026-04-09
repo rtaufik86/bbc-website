@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/ui/button'
 import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
 import { getHeroImage, getSectionImage } from '@/lib/seo/visualMapping'
+import { injectInternalLinks } from '@/lib/seo/linkInjectionEngine'
 
 // --- BBC V3 UNIVERSAL CONTENT MODEL (WITH VISUAL ENGINE v1) ---
 
@@ -135,7 +136,7 @@ export default function WeaponPageTemplate({
                             </h1>
                             
                             <div className="prose prose-lg text-slate-600 max-w-xl mb-12">
-                                <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: intro }} />
+                                <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: injectInternalLinks(intro, { entity, location, pageType: 'weapon' }) }} />
                             </div>
 
                             {internalLinks?.intro && (
@@ -204,9 +205,10 @@ export default function WeaponPageTemplate({
                                  <div className="flex-1 prose prose-slate prose-lg max-w-none text-slate-600">
                                     {section.rawHtml ? (
                                         <div className="space-y-6 [&_a]:text-accent [&_a]:font-bold [&_a]:underline" 
-                                             dangerouslySetInnerHTML={{ __html: section.rawHtml }} />
+                                             dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.rawHtml || '', { entity, location, pageType: 'weapon' }) }} />
                                     ) : (
-                                        <p className="leading-relaxed whitespace-pre-line">{section.content}</p>
+                                        <p className="leading-relaxed whitespace-pre-line"
+                                           dangerouslySetInnerHTML={{ __html: injectInternalLinks(section.content || '', { entity, location, pageType: 'weapon' }) }} />
                                     )}
                                 </div>
 

@@ -1,66 +1,83 @@
 /**
  * BBC ANCHOR GOVERNANCE v1
- * Menjaga konsistensi antara Anchor Text dan Target Destination
+ * ANCHOR & INTERNAL LINK ENFORCEMENT ENGINE
  */
 
-export type AnchorType = 'location' | 'service' | 'brand';
+export type AnchorType =
+  | "location"
+  | "service"
+  | "service_location"
+  | "brand"
+  | "generic"
+  | "descriptive";
 
 interface LinkRule {
-    pattern: RegExp;
-    validDestinations: string[];
-    recommendedTarget: string;
-    type: AnchorType;
+    rule: string;
+    condition: string;
+    severity: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW";
+    action: "REWRITE" | "INJECT" | "REMOVE" | "OPTIMIZE";
+    owner: "Claude" | "GPT" | "Dev";
 }
 
-const GOVERNANCE_RULES: LinkRule[] = [
-    {
-        pattern: /Jakarta Selatan|Jaksel/i,
-        validDestinations: ['/virtual-office/jakarta-selatan', '/virtual-office-jakarta-selatan', '/pendirian-pt-jakarta-selatan'],
-        recommendedTarget: '/virtual-office/alamat-bisnis-jakarta-selatan', // Dalam konteks ini
-        type: 'location'
-    },
-    {
-        pattern: /Virtual Office|Sewa Alamat|Kantor Virtual/i,
-        validDestinations: ['/virtual-office'],
-        recommendedTarget: '/virtual-office',
-        type: 'service'
-    },
-    {
-        pattern: /Sewa Kantor|Private Office|Serviced Office/i,
-        validDestinations: ['/sewa-kantor'],
-        recommendedTarget: '/sewa-kantor',
-        type: 'service'
-    }
-];
+/**
+ * RULE GROUP A — ANCHOR TYPE CLASSIFICATION
+ */
+export function getAnchorType(text: string): AnchorType {
+    const lowerText = text.toLowerCase();
+    
+    const isLocation = lowerText.includes("jakarta") || lowerText.includes("bintaro") || lowerText.includes("selatan") || lowerText.includes("tangerang");
+    const isService = lowerText.includes("virtual office") || lowerText.includes("sewa kantor") || lowerText.includes("pendirian pt") || lowerText.includes("legalitas");
+    const isBrand = lowerText.includes("bbc") || lowerText.includes("bintaro business centre");
+    const isGeneric = lowerText.includes("klik di sini") || lowerText.includes("baca selengkapnya") || lowerText.includes("ini") || lowerText.includes("ke sini");
+
+    if (isService && isLocation) return "service_location";
+    if (isLocation) return "location";
+    if (isService) return "service";
+    if (isBrand) return "brand";
+    if (isGeneric) return "generic";
+    
+    return "descriptive";
+}
 
 /**
- * Memvalidasi apakah sebuah link melanggar aturan tata kelola
+ * RULE GROUP B & D — ANCHOR -> DESTINATION VALIDATION
  */
-export function validateAnchorLink(anchor: string, href: string): { valid: boolean; error?: string } {
-    const rule = GOVERNANCE_RULES.find(r => r.pattern.test(anchor));
-    
-    if (!rule) return { valid: true }; // No specific rule for this anchor
+export function validateAnchorIntent(anchor: string, href: string, targetPageType?: string): { valid: boolean; rule?: string; error?: string } {
+    const type = getAnchorType(anchor);
+    const lowerHref = href.toLowerCase();
 
-    const isMatch = rule.validDestinations.some(dest => href.includes(dest));
-    
-    if (!isMatch) {
-        return {
-            valid: false,
-            error: `ANCHOR MISMATCH: Keyword "${anchor}" (Type: ${rule.type}) tidak boleh diarahkan ke "${href}". Harus diarahkan ke salah satu dari: ${rule.validDestinations.join(', ')}`
-        };
+    // RULE B1 & D1 — LOCATION MUST POINT TO GEO (NOT SERVICE)
+    if (type === "location") {
+        const isGeoPage = lowerHref.includes("jakarta") || lowerHref.includes("bintaro") || lowerHref.includes("veteran") || lowerHref.includes("-jaksel");
+        const isServiceHub = lowerHref === "/virtual-office" || lowerHref === "/sewa-kantor";
+        
+        if (isServiceHub) {
+            return {
+                valid: false,
+                rule: "anchor_mismatch_location_to_service",
+                error: `CRITICAL: Anchor "${anchor}" (Type: location) diarahkan ke Service Hub "${href}". Target harus Geo Page.`
+            };
+        }
+        if (!isGeoPage) {
+            return {
+                valid: false,
+                rule: "location_anchor_must_point_to_geo",
+                error: `HIGH: Anchor "${anchor}" (Type: location) diarahkan ke "${href}" yang bukan Geo Page.`
+            };
+        }
+    }
+
+    // RULE B2 — SERVICE MUST POINT TO SERVICE PAGE
+    if (type === "service") {
+        const isServicePage = lowerHref.includes("virtual-office") || lowerHref.includes("sewa-kantor") || lowerHref.includes("pt") || lowerHref.includes("cv") || lowerHref.includes("legal");
+        if (!isServicePage) {
+            return {
+                valid: false,
+                rule: "service_anchor_must_point_to_service_page",
+                error: `HIGH: Anchor "${anchor}" (Type: service) diarahkan ke non-service page "${href}".`
+            };
+        }
     }
 
     return { valid: true };
-}
-
-/**
- * Filter otomatis untuk memastikan link yang di-inject manual tetap aman
- */
-export function safeLink(anchor: string, href: string): string {
-    const validation = validateAnchorLink(anchor, href);
-    if (!validation.valid) {
-        console.warn(`[GOVERNANCE] ${validation.error}. Falling back to clean text.`);
-        return anchor; // Kembalikan teks tanpa link demi keamanan SEO
-    }
-    return `<a href="${href}">${anchor}</a>`;
 }

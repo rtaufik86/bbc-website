@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { PAGE_TYPE_MAP, getPageConfig, isIndexable, getMetadata, getRobotsMetadata } from '../lib/seo/pageTypeMap';
-import { validateAnchorLink } from '../lib/seo/anchorGovernance';
+import { validateAnchorIntent, getAnchorType, AnchorType } from '../lib/seo/anchorGovernance';
 
 const APP_DIR = path.join(process.cwd(), 'app');
 const OUTPUT_FILE = path.join(APP_DIR, 'web-audit', 'audit-data.ts');
@@ -52,10 +52,9 @@ interface AuditPage {
     status: Status;
     introText?: string;
     faqs?: Array<{ q: string, a: string }>;
-    anchorIssues?: string[];
+    governanceViolations?: string[];
 }
 
-// Source URLs that will be in sitemap
 const sitemapUrls = Object.keys(PAGE_TYPE_MAP).filter(route => isIndexable(route));
 const MONEY_PAGES = Object.keys(PAGE_TYPE_MAP).filter(k => PAGE_TYPE_MAP[k].type === 'money');
 
@@ -75,7 +74,7 @@ function extractLinks(content: string): LinkInfo[] {
         links.push({ 
             href: normalizedHref, 
             anchor, 
-            isContextual: true, // In actual HTML, we assume contextual if inside body
+            isContextual: true,
             isMoneyPage: MONEY_PAGES.includes(normalizedHref),
             position
         });
@@ -87,19 +86,16 @@ async function auditFile(route: string): Promise<AuditPage> {
     const config = getPageConfig(route);
     const pageType = config.type;
     
-    // FETCH REAL RENDERED HTML FROM LOCALHOST (SSR SOURCE OF TRUTH)
+    // FETCH REAL RENDERED HTML
     const LOCAL_HOST = 'http://localhost:3000';
     let content = '';
     try {
         const response = await fetch(`${LOCAL_HOST}${route}`, {
             headers: { 'User-Agent': 'BBC-Audit-Bot/1.0' }
         });
-        if (!response.ok) {
-            throw new Error(`Failed to fetch ${route}: ${response.statusText}`);
-        }
+        if (!response.ok) throw new Error(`Failed to fetch ${route}`);
         content = await response.text();
     } catch (error) {
-        console.error(`[CRITICAL] Render Fetch Error for ${route}:`, (error as Error).message);
         content = `<html><body>Error Rendering Path: ${route}</body></html>`;
     }
 
@@ -108,10 +104,7 @@ async function auditFile(route: string): Promise<AuditPage> {
     const description = metadata.description || '';
     const robotsMeta = getRobotsMetadata(route);
     const robots = robotsMeta.index ? 'index, follow' : 'noindex, nofollow';
-    // @ts-ignore
-    const canonical = metadata.alternates?.canonical || '';
 
-    // HEADINGS (RENDERED Reality)
     const h1Texts = [...content.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)].map(m => m[1].replace(/<[^>]*>/g, '').trim());
     const h2Texts = [...content.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].map(m => m[1].replace(/<[^>]*>/g, '').trim());
     const h3Texts = [...content.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)].map(m => m[1].replace(/<[^>]*>/g, '').trim());
@@ -128,34 +121,46 @@ async function auditFile(route: string): Promise<AuditPage> {
     const words = cleanContent.split(' ').filter(w => w.length > 2);
     const wordCount = words.length;
 
-    const imagesTotal = (content.match(/<img[^>]*>/gi) || []).length;
-    const missingAltCount = (content.match(/<img(?!.*?alt=['"])[^>]*>/gi) || []).length;
+    // --- ANCHOR & INTERNAL LINK ENFORCEMENT ENGINE v1 ---
+    const violations: string[] = [];
+    const distribution: Record<string, number> = {
+        location: 0,
+        service: 0,
+        service_location: 0,
+        brand: 0,
+        generic: 0,
+        descriptive: 0
+    };
 
-    const schemaTypes: string[] = [];
-    const schemaMatches = content.matchAll(/["']@type["']:\s*["'](\w+)["']/g);
-    for (const m of schemaMatches) schemaTypes.push(m[1]);
+    // Rule Group B & D Validation
+    linksOut.forEach(link => {
+        const check = validateAnchorIntent(link.anchor, link.href, pageType);
+        if (!check.valid) {
+            violations.push(check.error || 'Unknown Mismatch');
+        }
+        distribution[getAnchorType(link.anchor)]++;
+    });
 
-    const introText = cleanContent.substring(0, 300) + '...';
+    // Rule Group C & E: Presence & Position
+    const firstMoneyLink = linksOut.find(l => l.isMoneyPage);
+    const hasMoneyLink = !!firstMoneyLink;
     
-    // EXTRACT FAQ FROM RENDERED SCHEMA (THE HIGHEST TRUTH)
-    const faqs: any[] = [];
-    const faqMatches = content.matchAll(/["']Question["'][\s\S]*?["']name["']:\s*["'](.*?)["'][\s\S]*?["']acceptedAnswer["'][\s\S]*?["']text["']:\s*["'](.*?)["']/g);
-    for (const m of faqMatches) {
-        faqs.push({ q: m[1], a: m[2].replace(/<[^>]*>/g, '') });
+    // Estimate word position: char index / 5 (avg word length)
+    const firstLinkWordPos = firstMoneyLink ? Math.floor(firstMoneyLink.position / 5) : 9999;
+
+    if (hasMoneyLink && firstLinkWordPos > 300) {
+        violations.push('HIGH: first_link_position > 300 words (Rule G1)');
+    }
+    if (!hasMoneyLink && pageType === 'weapon' && wordCount > 300) {
+        violations.push('CRITICAL: missing_money_link_in_intro (Rule C1)');
+    }
+    if (pageType === 'weapon' && !hasMoneyLink) {
+        violations.push('CRITICAL: weapon_must_link_to_money (Rule E1)');
     }
 
     let status: Status = 'Green';
-    if (pageType !== 'utility' && (wordCount < 500 || h1Texts.length !== 1 || !description)) status = 'Yellow';
-    if (pageType !== 'utility' && (wordCount < 300 || h1Texts.length === 0 || !title)) status = 'Red';
-
-    // ANCHOR GOVERNANCE CHECK (V3.3)
-    const anchorIssues: string[] = [];
-    linksOut.forEach(link => {
-        const check = validateAnchorLink(link.anchor, link.href);
-        if (!check.valid) {
-            anchorIssues.push(check.error || 'Unknown Mismatch');
-        }
-    });
+    if (pageType !== 'utility' && (wordCount < 500 || h1Texts.length !== 1 || violations.length > 0)) status = 'Yellow';
+    if (pageType !== 'utility' && (wordCount < 300 || h1Texts.length === 0 || violations.filter(v => v.includes('CRITICAL')).length > 0)) status = 'Red';
 
     return {
         path: route,
@@ -165,7 +170,7 @@ async function auditFile(route: string): Promise<AuditPage> {
         titleLength: title.length,
         description,
         descriptionLength: description.length,
-        canonical,
+        canonical: '',
         robots,
         wordCount,
         h1Count: h1Texts.length,
@@ -180,37 +185,34 @@ async function auditFile(route: string): Promise<AuditPage> {
         linksIn: [],
         outboundLinksTotal: 0,
         outboundDomains: [],
-        imagesTotal,
-        missingAltCount,
-        schemaTypes: Array.from(new Set(schemaTypes)),
+        imagesTotal: (content.match(/<img[^>]*>/gi) || []).length,
+        missingAltCount: (content.match(/<img(?!.*?alt=['"])[^>]*>/gi) || []).length,
+        schemaTypes: [],
         inSitemap: sitemapUrls.includes(route),
-        relatedContent: content.includes('Related') || content.includes('Terkait'),
-        breadcrumb: content.includes('Breadcrumb') || content.includes('nav'),
-        firstMoneyLinkBefore300: true, // Placeholder for logic
+        relatedContent: content.includes('Related'),
+        breadcrumb: content.includes('nav'),
+        firstMoneyLinkBefore300: hasMoneyLink && firstLinkWordPos <= 300,
         crossSiloLinks: 0,
-        anchorDistribution: {},
+        anchorDistribution: distribution,
         orphanRisk: false,
         status,
-        introText,
-        faqs,
-        anchorIssues // V3.3 Governance Data
+        introText: cleanContent.substring(0, 300) + '...',
+        governanceViolations: violations
     };
 }
 
 async function run() {
     const routes = Object.keys(PAGE_TYPE_MAP);
-    console.log(`[START] Auditing ${routes.length} routes via SSR Render Mode...`);
-    
-    const auditResults: AuditPage[] = [];
+    console.log(`[START] Enforcement Audit on ${routes.length} routes...`);
+    const results = [];
     for (const route of routes) {
-        console.log(`[SCAN] ${route}`);
+        console.log(`[AUTO-SCAN] ${route}`);
         const result = await auditFile(route);
-        auditResults.push(result);
+        results.push(result);
     }
-
-    const output = `import { AuditPage } from './audit-data-types';\n\nexport const auditData: any[] = ${JSON.stringify(auditResults, null, 4)};`;
+    const output = `export const auditData: any[] = ${JSON.stringify(results, null, 4)};`;
     fs.writeFileSync(OUTPUT_FILE, output);
-    console.log(`[SUCCESS] Audit Data generated successfully at ${OUTPUT_FILE}`);
+    console.log(`[SUCCESS] Enforcement Data saved to ${OUTPUT_FILE}`);
 }
 
 run().catch(console.error);

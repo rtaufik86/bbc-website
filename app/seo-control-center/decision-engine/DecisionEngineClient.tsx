@@ -63,6 +63,8 @@ interface Decision {
   }
   introText?: string
   faqs?: Array<{ q: string, a: string }>
+  governanceViolations?: string[]
+  anchorDistribution?: Record<string, number>
 }
 
 interface AuditPage {
@@ -77,6 +79,8 @@ interface AuditPage {
   h3Texts?: string[];
   introText?: string;
   faqs?: Array<{ q: string, a: string }>;
+  governanceViolations?: string[];
+  anchorDistribution?: Record<string, number>;
 }
 
 interface Props {
@@ -324,7 +328,9 @@ export default function DecisionEngineClient({ auditData }: Props) {
           overall: overallVal
         },
         introText: p.introText,
-        faqs: p.faqs
+        faqs: p.faqs,
+        governanceViolations: p.governanceViolations,
+        anchorDistribution: p.anchorDistribution
       }
     })
   }, [auditData])
