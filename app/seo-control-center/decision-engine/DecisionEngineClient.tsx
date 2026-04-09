@@ -148,6 +148,8 @@ export default function DecisionEngineClient({ auditData }: Props) {
   const [pageTypeFilter, setPageTypeFilter] = useState<string | 'ALL'>('ALL')
   const [selectedUrls, setSelectedUrls] = useState<Set<string>>(new Set()) // Actually tracks UIDs now
   const [selectedDecision, setSelectedDecision] = useState<Decision | null>(null)
+  const [verifying, setVerifying] = useState<string | null>(null)
+  const [verifyResults, setVerifyResults] = useState<Record<string, any>>({})
 
   const decisions: Decision[] = useMemo(() => {
     return auditData.map((p, index) => {
@@ -356,6 +358,20 @@ export default function DecisionEngineClient({ auditData }: Props) {
     if (next.has(uid)) next.delete(uid)
     else next.add(uid)
     setSelectedUrls(next)
+  }
+
+  const handleVerifyDeploy = async (url: string) => {
+    setVerifying(url)
+    try {
+      const res = await fetch(`/api/seo/verify-deploy?url=${url}`)
+      const data = await res.json()
+      setVerifyResults(prev => ({ ...prev, [url]: data }))
+    } catch (err) {
+      console.error('Verify failed', err)
+      setVerifyResults(prev => ({ ...prev, [url]: { status: 'ERROR', error: 'Service Unavailable' } }))
+    } finally {
+      setVerifying(null)
+    }
   }
 
   const handleCopyData = () => {
@@ -884,6 +900,83 @@ export default function DecisionEngineClient({ auditData }: Props) {
                   <div className="bg-slate-950 p-3 rounded-2xl border border-slate-800">
                      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Gap</div>
                      <div className="text-lg font-black text-rose-500 tabular-nums">{selectedDecision.authority.gap}%</div>
+                  </div>
+               </div>
+
+               {/* VERIFICATION PANEL */}
+                <div className="p-5 rounded-3xl bg-slate-950 border border-slate-800 shadow-xl overflow-hidden relative group">
+                  <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Bot size={48} className="text-blue-500" />
+                  </div>
+                  <div className="relative">
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <h3 className="text-[10px] font-black text-white flex items-center gap-2 uppercase tracking-widest">
+                          <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                          Consistency Engine v1.0
+                        </h3>
+                        <div className="text-[9px] text-slate-500 font-bold uppercase tracking-tighter mt-0.5">Production Verification Layer</div>
+                      </div>
+                      <button 
+                        onClick={() => handleVerifyDeploy(selectedDecision.url)}
+                        disabled={verifying === selectedDecision.url}
+                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg shadow-blue-500/10 flex items-center gap-2 disabled:opacity-50"
+                      >
+                        {verifying === selectedDecision.url ? <div className="w-2.5 h-2.5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Zap className="w-2.5 h-2.5" />}
+                        {verifyResults[selectedDecision.url] ? 'RE-CHECK' : 'VERIFY LIVE'}
+                      </button>
+                    </div>
+
+                    {verifyResults[selectedDecision.url] ? (
+                      <div className={`p-4 rounded-2xl border ${
+                        verifyResults[selectedDecision.url].status === 'MATCH' 
+                          ? 'bg-emerald-500/5 border-emerald-500/20' 
+                          : 'bg-rose-500/5 border-rose-500/20'
+                      }`}>
+                        <div className="flex justify-between items-center mb-3">
+                          <div className="flex items-center gap-2">
+                             <div className={`w-2 h-2 rounded-full ${verifyResults[selectedDecision.url].status === 'MATCH' ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500'}`} />
+                             <span className={`text-[10px] font-black uppercase tracking-widest ${verifyResults[selectedDecision.url].status === 'MATCH' ? 'text-emerald-400' : 'text-rose-400'}`}>
+                               {verifyResults[selectedDecision.url].status}
+                             </span>
+                          </div>
+                          <span className="text-[9px] text-slate-500 font-mono font-bold">{verifyResults[selectedDecision.url].timestamp?.split('T')[1].split('.')[0]}</span>
+                        </div>
+
+                        {verifyResults[selectedDecision.url].status === 'MISMATCH' && (
+                          <div className="grid grid-cols-1 gap-2">
+                            {Object.entries(verifyResults[selectedDecision.url].diff || {}).map(([key, val]: [string, any]) => (
+                              <div key={key} className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-[10px]">
+                                 <div className="text-slate-600 font-black uppercase text-[8px] mb-1.5 tracking-widest">{key.replace('_', ' ')}</div>
+                                 <div className="flex justify-between gap-4">
+                                   <div className="text-slate-400">DEV: <span className="text-white font-mono">{val.local}</span></div>
+                                   <div className="text-slate-400">LIVE: <span className="text-rose-400 font-bold font-mono">{val.live}</span></div>
+                                 </div>
+                              </div>
+                            ))}
+                            <div className="mt-2 text-[9px] text-rose-500/80 font-bold bg-rose-500/5 p-2 rounded-lg border border-rose-500/10 italic">
+                               ⚠️ BLOCK: Production mismatch detected. Verification failed.
+                            </div>
+                          </div>
+                        )}
+
+                        {verifyResults[selectedDecision.url].status === 'MATCH' && (
+                          <div className="text-[10px] text-emerald-500/70 font-black uppercase tracking-wide leading-relaxed">
+                            ✅ CONSISTENCY GUARANTEED: PROD matches DEV snapshot. Safe for execution.
+                          </div>
+                        )}
+                        
+                        {verifyResults[selectedDecision.url].status === 'ERROR' && (
+                          <div className="text-[10px] text-rose-400 font-bold italic">
+                            Error: {verifyResults[selectedDecision.url].error}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="text-center py-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
+                        WAITING FOR LIVE COMPARISON...
+                      </div>
+                    )}
                   </div>
                </div>
 

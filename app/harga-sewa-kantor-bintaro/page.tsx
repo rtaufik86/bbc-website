@@ -1,152 +1,118 @@
-import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const title = 'Harga Sewa Kantor Bintaro: Struktur Biaya dan Faktor Penentu'
-const description = 'Struktur biaya dan variabel yang membentuk harga sewa kantor di Bintaro dan Jakarta Selatan. Panduan evaluasi sebelum membandingkan penawaran antar gedung.'
-
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro' },
-    title,
-    description,
-    openGraph: {
-        type: 'article',
-        title,
-        description,
-        url: 'https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro',
-        siteName: 'Bintaro Business Centre',
-        images: [{ url: '/images/sewa-kantor/ruangan-kantor-minimalis.jpg' }]
-    }
-}
-
-export default function Page() {
-    const schemaObject = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebPage",
-                "@id": "https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro/#webpage",
-                "url": "https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro",
-                "name": title,
-                "description": description,
-                "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
-            },
-            {
-                "@type": "Article",
-                "@id": "https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro/#article",
-                "headline": title,
-                "description": description,
-                "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
-                "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
-            }
-        ]
-    }
-
+export default function HargaSewaKantorBintaroPage() {
     return (
         <WeaponPageTemplate
-            title={title}
-            description={description}
+            title="Harga Sewa Kantor Bintaro: Struktur Biaya & Faktor Penentu"
+            description="Informasi transparan mengenai harga sewa kantor di Bintaro, struktur biaya per bulan, dan perbandingan antara kantor konvensional vs serviced office."
             canonicalUrl="https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro"
-            schemaObject={schemaObject}
             hero={{
-                badge1: 'Panduan Harga',
-                badge2: 'Bintaro & Jaksel',
-                h1: 'Harga Sewa Kantor di Bintaro: Struktur Biaya dan Faktor Penentu',
-                subheading: 'Banyak calon penyewa kantor di Bintaro dan sekitar Jakarta Selatan memulai pencarian dengan satu pertanyaan: berapa harganya? <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre menyediakan sewa kantor siap pakai</a> dengan struktur harga all-in untuk referensi nyata.',
-                ctaLabel: 'Pelajari Struktur Biaya',
-                ctaHref: '#problem',
-                image: '/images/sewa-kantor/ruangan-kantor-minimalis.jpg'
+                badge1: "Sewa Kantor",
+                badge2: "Bintaro",
+                h1: "Harga Sewa Kantor Bintaro: Struktur Biaya & Faktor Penentu",
+                subheading: "Mencari harga sewa kantor di Bintaro tanpa memahami apa yang masuk dalam angka tersebut adalah cara tercepat untuk salah membandingkan di <a href='/sewa-kantor'>layanan sewa kantor Bintaro Business Center</a>.",
+                ctaLabel: "Cek Price List",
+                ctaHref: "https://wa.me/6281210002131",
+                image: "/bintaro_office_interior_hero_1775704295338.png"
             }}
             problem={{
-                title: 'Faktor yang Menentukan Harga Sewa Kantor',
+                title: "Memahami Apa yang Anda Bayar",
                 paragraphs: [
-                    'Harga sewa kantor di kawasan Bintaro dan Jakarta Selatan dipengaruhi oleh beberapa variabel utama yang saling terkait. Memahami strukturnya lebih penting daripada sekadar membandingkan angka di permukaan.',
-                    '<strong>Lokasi dan aksesibilitas</strong> menjadi faktor pertama. Kantor yang berada dekat pintu tol, stasiun, atau koridor bisnis utama cenderung memiliki harga lebih tinggi. Kawasan Pesanggrahan di Jakarta Selatan memiliki posisi strategis dengan akses langsung ke JORR W2S melalui <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">Pintu Tol Veteran</a>.',
-                    '<strong>Tipe ruang</strong> menentukan struktur biaya secara signifikan. Serviced office yang sudah dilengkapi furnitur, internet, dan resepsionis memiliki komponen harga berbeda dibanding ruang kosong. Selain itu, <strong>kapasitas dan ukuran ruang</strong> berbanding lurus dengan harga, namun tidak selalu linear.'
+                    "Dua kantor dengan harga yang sama bisa memberikan pengalaman yang sangat berbeda — tergantung apa yang tercakup dan apa yang tidak. Di Bintaro Business Center, kami beroperasi dengan model all-inclusive: satu angka, satu tagihan.",
+                    "Sebelum memutuskan, penting untuk memahami bagaimana struktur biaya sewa kantor terbentuk — agar Anda bisa membuat perbandingan yang akurat dan keputusan yang paling efisien bagi cash flow perusahaan."
                 ]
             }}
             education={{
-                title: 'Rentang Harga Kantor di Bintaro dan Perbandingannya',
+                title: "Komponen Biaya Sewa Kantor Modern",
                 items: [
                     {
-                        title: 'Rentang Umum Serviced Office',
-                        content: 'Serviced office di gedung perkantoran profesional kawasan Bintaro dan sekitar Jakarta Selatan umumnya berada di kisaran Rp 3–8 juta per bulan untuk ruang kecil hingga menengah, sudah termasuk fasilitas dasar. Angka bisa lebih rendah jika fasilitas terbatas, atau lebih tinggi di kawasan premium.'
+                        title: "Sewa Ruang & Service Charge",
+                        content: "Biaya dasar adalah hak penggunaan ruang. Namun, Anda juga harus memperhitungkan service charge untuk kebersihan area umum, keamanan, dan manajemen properti. Di serviced office, angka ini biasanya sudah digabung."
                     },
                     {
-                        title: 'Perbandingan: Bintaro vs Lokasi Lain',
-                        content: 'Bintaro dan kawasan sekitarnya menawarkan alternatif menarik dibanding kawasan bisnis premium seperti Sudirman atau Kuningan. Perbedaan harganya bisa signifikan, sementara aksesibilitas lewat tol tetap terjaga.'
+                        title: "Utilitas (Listrik, Air, Internet)",
+                        content: "Inilah komponen yang paling sering menjadi sumber kejutan biaya. Kantor konvensional menagih berdasarkan konsumsi aktual, sementara model all-inclusive menghilangkan variabel ini dari pengeluaran bulanan Anda."
                     },
                     {
-                        title: 'Status Yurisdiksi DKI Jakarta',
-                        content: 'Yang perlu diperhatikan: tidak semua kawasan yang secara geografis berdekatan dengan Bintaro berada dalam yurisdiksi DKI Jakarta. <a href="/kantor-dekat-bintaro-jaya" class="text-accent hover:underline">Kantor dekat Bintaro Jaya di sisi Pesanggrahan</a> tetap masuk Jakarta Selatan, relevan untuk urusan perizinan.'
+                        title: "Fasilitas & Layanan Resepsionis",
+                        content: "Apakah harga tersebut sudah termasuk penanganan tamu, surat-menyurat, dan akses internet berkecepatan tinggi? Verifikasi fasilitas yang tercakup sebelum menyetujui kontrak."
                     }
                 ]
             }}
             authority={{
-                title: 'Cara Membaca Penawaran Sewa Kantor dengan Benar',
-                highlight: 'Saat menerima penawaran sewa kantor, evaluasi total cost of occupancy — bukan hanya harga sewa, tapi semua biaya yang muncul selama periode kontrak.',
-                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg',
+                title: "Efisiensi Total Cost of Occupancy",
+                highlight: "Untuk bisnis yang menghitung total cost — bukan hanya angka sewa — serviced office sering kali lebih efisien secara keseluruhan.",
+                image: "/bintaro_office_interior_hero_1775704295338.png",
                 items: [
-                    { icon: 'CheckSquare', text: 'Pastikan apa saja yang termasuk dalam harga — furnitur, internet, utilitas, dan fasilitas gedung.' },
-                    { icon: 'FileText', text: 'Periksa struktur kontrak — durasi minimum, opsi perpanjangan, dan klausul terminasi dini.' },
-                    { icon: 'Calculator', text: 'Perhitungkan komponen biaya tambahan: Utilitas, service charge, deposit, dan fasilitas berbayar.' },
-                    { icon: 'Users', text: 'Biaya tersembunyi seperti waktu setup dan relokasi juga merupakan beban operasional.' }
+                    { icon: "Calculator", text: "Transparansi biaya tanpa hidden fees" },
+                    { icon: "CheckCircle2", text: "Model all-inclusive: Listrik, Internet, & Maintenance" },
+                    { icon: "TrendingUp", text: "Lebih hemat hingga 30% dibanding setup kantor mandiri" }
                 ]
             }}
             value={{
-                title: 'Komponen Biaya Tambahan yang Perlu Dikonfirmasi',
+                title: "Mengapa Bintaro Sektor 7?",
                 items: [
-                    { title: 'Utilitas & Maintenance', desc: 'Listrik, air, AC, dan kebersihan. Pastikan apakah sudah termasuk dalam paket atau ditagih terpisah.', icon: 'Zap' },
-                    { title: 'Deposit & Administrasi', desc: 'Deposit setara 1–3 bulan sewa dan kemungkinan biaya setup di awal kontrak.', icon: 'CreditCard' },
-                    { title: 'Layanan Pendukung', desc: 'Resepsionis, keamanan, akses ruang meeting, atau parkir tambahan jika melebihi kuota.', icon: 'Building2' },
-                    { title: 'Biaya Tak Langsung', desc: 'Waktu setup, biaya relokasi jika gedung tidak fleksibel, atau administrasi perubahan domisili.', icon: 'AlertTriangle' }
+                    { title: "Akses Strategis", desc: "Akses tol langsung memudahkan mobilitas tim dan kunjungan klien.", icon: "MapPin" },
+                    { title: "Ekosistem Bisnis", desc: "Berada di pusat komersial Bintaro dengan fasilitas pendukung lengkap.", icon: "Building2" },
+                    { title: "Lingkungan Modern", desc: "Suasana kerja profesional yang meningkatkan produktivitas tim.", icon: "Zap" },
+                    { title: "Parkir Terjamin", desc: "Kapasitas parkir luas yang seringkali sudah termasuk dalam paket sewa.", icon: "Truck" }
                 ]
             }}
             options={{
-                title: 'Struktur Harga Berdasarkan Kapasitas Ruang',
-                intro: 'Proyeksi pertumbuhan tim 12 bulan ke depan membantu memilih ukuran yang tepat.',
+                title: "Konvensional vs Serviced Office",
+                intro: "Pilih model yang paling sesuai dengan kebutuhan jangka panjang bisnis Anda.",
                 option1: {
-                    title: 'Ruang Efisien (1-3 Orang)',
-                    desc: 'Optimal secara harga per orang, sangat cocok untuk startup, founder, atau konsultan.',
-                    suitableForTitle: 'Kelebihan:',
-                    suitableForDesc: 'Biaya awal rendah dan efisiensi ruang maksimal operasional harian.',
-                    bullets: ['Harga paling terjangkau', 'Setup instan', 'Fasilitas all-in']
+                    title: "Serviced Office",
+                    desc: "Kemas semua kebutuhan operasional dalam satu harga tetap setiap bulan.",
+                    suitableForTitle: "Ideal Untuk",
+                    suitableForDesc: "Startup, UKM, dan tim yang ingin fokus ke bisnis tanpa pusing urusan operasional kantor.",
+                    bullets: ["Setup instan (Plug & Play)", "Budget bulanan terukur", "Kontrak fleksibel", "Gratis Meeting Room"]
                 },
                 option2: {
-                    title: 'Ruang Menengah (4-8 Orang)',
-                    desc: 'Fleksibilitas lebih tinggi dengan kapasitas yang memberikan ruang untuk ekspansi tim.',
-                    suitableForTitle: 'Kelebihan:',
-                    suitableForDesc: 'Ideal untuk fase scaling di mana penambahan anggota tim sering terjadi.',
-                    bullets: ['Biaya per kepala efisien', 'Luas ruang memadai', 'Skalabilitas kontrak']
+                    title: "Kantor Konvensional",
+                    desc: "Sewa ruang kosong yang memberikan kebebasan kustomisasi penuh sesuai brand.",
+                    suitableForTitle: "Ideal Untuk",
+                    suitableForDesc: "Perusahaan besar dengan tim di atas 20 orang dan kebutuhan renovasi khusus.",
+                    bullets: ["Kustomisasi layout penuh", "Identitas brand lebih kuat", "Kontrak jangka panjang", "Akses 24/7 mandiri"]
                 }
             }}
             internalLinks={{
-                title: 'Langkah Selanjutnya untuk Pemilihan Kantor Anda',
+                title: "Bandingkan Paket Sewa",
                 card1: {
-                    title: 'Sewa Kantor Jakarta Selatan',
-                    desc: 'Lihat daftar harga sewa kantor siap pakai BBC beserta fasilitas yang termasuk.',
-                    ctaLabel: 'Cek Daftar Harga',
-                    href: '/sewa-kantor'
+                    title: "Pilihan Ruang Kantor",
+                    desc: "Lihat berbagai pilihan ukuran ruang kantor siap pakai di Bintaro Sektor 7.",
+                    ctaLabel: "Lihat Ruang",
+                    href: "/sewa-kantor"
                 },
                 card2: {
-                    title: 'Kantor Dekat Tol Veteran',
-                    desc: 'Pelajari efisiensi operasional berkantor di dekat akses JORR W2S.',
-                    ctaLabel: 'Lihat Detail Akses',
-                    href: '/kantor-dekat-tol-veteran'
+                    title: "Virtual Office",
+                    desc: "Hanya butuh alamat tanpa ruang kerja fisik? Virtual office adalah solusinya.",
+                    ctaLabel: "Lihat Paket",
+                    href: "/virtual-office"
                 }
             }}
-            relatedArticles={{
-                title: 'ARTIKEL TERKAIT',
-                links: [
-                    { title: 'Sewa Kantor Bintaro: Konsep & Fasilitas', href: '/sewa-kantor/bintaro' },
-                    { title: 'Cara Menilai Harga Sewa Kantor di Bintaro', href: '/sewa-kantor/harga' },
-                    { title: 'Kantor Dekat Bintaro Jaya: Akses Jakarta Selatan yang Strategis', href: '/kantor-dekat-bintaro-jaya' }
+            faq={{
+                title: "Pertanyaan Seputar Harga Sewa",
+                items: [
+                    {
+                        q: "Berapa kisaran harga sewa kantor di Bintaro?",
+                        a: "Untuk serviced office all-inclusive di kawasan Bintaro, kisaran harga umumnya dimulai dari Rp 2–3 juta per bulan untuk ruang kecil, hingga Rp 6–8 juta untuk ruang yang lebih besar dengan fasilitas lengkap. Harga ini sudah mencakup furniture, internet, resepsionis, dan utilitas."
+                    },
+                    {
+                        q: "Apa saja biaya tambahan yang perlu diperhitungkan?",
+                        a: "Pada model serviced office all-inclusive, biaya tambahan yang umum hanyalah penggunaan meeting room di luar quota paket Anda. Tidak ada tagihan listrik, air, atau service charge tambahan secara terpisah."
+                    },
+                    {
+                        q: "Apakah serviced office lebih mahal dari kantor konvensional?",
+                        a: "Secara angka sewa dasar, konvensional tampak lebih murah. Namun jika dihitung total biaya termasuk setup, renovasi, utilitas, dan biaya operasional lainnya, serviced office sering kali lebih efisien untuk tim di bawah 10 orang."
+                    }
                 ]
             }}
             bottomCTA={{
-                title: 'Temukan Ruang Kantor Sesuai Budget Anda',
-                subtitle: 'Tim kami siap membantu Anda menganalisis kebutuhan ruang dan total proyeksi biaya operasional.',
-                primaryCTA: { label: 'Konsultasi Kebutuhan Ruang', href: 'https://wa.me/628128888069' },
-                secondaryCTA: { label: 'Lihat Katalog Ruang', href: '/sewa-kantor' }
+                title: "Dapatkan Penawaran Sewa Terbaik Hari Ini",
+                subtitle: "Satu harga untuk semua kebutuhan kantor Anda. Tanpa biaya tersembunyi.",
+                primaryCTA: { label: "WhatsApp Untuk Info Harga", href: "https://wa.me/6281210002131" },
+                secondaryCTA: { label: "Tinjau Lokasi", href: "/sewa-kantor" }
             }}
         />
     )
