@@ -49,6 +49,8 @@ interface AuditPage {
     anchorDistribution: Record<string, number>;
     orphanRisk: boolean;
     status: Status;
+    introText?: string;
+    faqs?: Array<{ q: string, a: string }>;
 }
 
 // Source URLs that will be in sitemap
@@ -132,6 +134,8 @@ function auditFile(filePath: string, relativePath: string): AuditPage {
     const h1Texts: string[] = [];
     const h2Texts: string[] = [];
     const h3Texts: string[] = [];
+    let extractedFaqs: Array<{ q: string, a: string }> | undefined = undefined;
+    let extractedIntro: string | undefined = undefined;
 
     // Literal tags (Fallback/Global)
     const h1Matches = [...content.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)].map(m => m[1].replace(/<[^>]*>/g, '').trim());
@@ -157,13 +161,30 @@ function auditFile(filePath: string, relativePath: string): AuditPage {
     // If template props are used instead of literal tags:
     if (content.includes('WeaponPageTemplate')) {
         const getPropValue = (prop: string) => {
-            const regex = new RegExp(`${prop}:\\s*['"](.*?)['"]`, 'i');
+            const regex = new RegExp(`${prop}:\\s*[{\\s]*['"\`]([\\s\\S]*?)['"\`]`, 'i');
             const match = content.match(regex);
             return match ? match[1] : null;
         };
 
+        const getFaqItems = () => {
+            const faqItems: Array<{ q: string, a: string }> = [];
+            const faqRegex = /\{[\s]*q:[\s]*['"\`](.*?)['"\`],[\s]*a:[\s]*['"\`](.*?)['"\`][\s]*\}/gs;
+            let match;
+            while ((match = faqRegex.exec(content)) !== null) {
+                faqItems.push({ q: match[1], a: match[2] });
+            }
+            return faqItems;
+        };
+
+        const extraData: { introText?: string, faqs?: any[] } = {};
+        
         const h1Prop = getPropValue('h1');
         if (h1Prop) h1Texts.push(h1Prop);
+        
+        const introProp = getPropValue('subheading') || getPropValue('intro');
+        if (introProp) extractedIntro = introProp.replace(/<[^>]*>?/gm, '');
+
+        extractedFaqs = getFaqItems();
 
         ['problem', 'education', 'authority', 'value', 'options', 'faq', 'bottomCTA', 'internalLinks'].forEach(section => {
              // Support both object property (section: {) and component prop (section={{)
@@ -279,7 +300,9 @@ function auditFile(filePath: string, relativePath: string): AuditPage {
         crossSiloLinks,
         anchorDistribution,
         orphanRisk: false,
-        status
+        status,
+        introText: extractedIntro,
+        faqs: extractedFaqs
     };
 }
 
@@ -299,7 +322,9 @@ function getAllPages(dir: string, fileList: string[] = []): string[] {
 const allPageFiles = getAllPages(APP_DIR);
 const auditResults: AuditPage[] = allPageFiles.map(f => {
     const relativePath = path.relative(process.cwd(), f).replace(/\\/g, '/');
-    return auditFile(f, relativePath);
+    const pageAudit = auditFile(f, relativePath);
+    console.log(`Audited: ${pageAudit.path}`);
+    return pageAudit;
 });
 
 auditResults.forEach(page => {

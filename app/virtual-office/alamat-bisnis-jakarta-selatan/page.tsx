@@ -1,188 +1,123 @@
-import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 
-const title = 'Alamat Bisnis Jakarta Selatan: Implikasi Administratif dan Legalitas'
-const description = 'Pilih yurisdiksi alamat bisnis yang tepat di Jakarta Selatan. Temukan kaitan erat NIB, NPWP, dan KPP dengan lokasi domisili awal perusahaan Anda.'
-
-export const metadata: Metadata = {
-    alternates: { canonical: 'https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan' },
-    title,
-    description,
-    openGraph: {
-        type: 'article',
-        title,
-        description,
-        url: 'https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan',
-        siteName: 'Bintaro Business Centre',
-        images: [{ url: '/images/sewa-kantor/ruangan-kantor-utama.jpg' }]
-    }
-}
-
-export default function Page() {
-    const schemaObject = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebPage",
-                "@id": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan/#webpage",
-                "url": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan",
-                "name": title,
-                "description": description,
-                "isPartOf": { "@id": "https://www.bintarobusinesscentre.com/#website" }
-            },
-            {
-                "@type": "Article",
-                "@id": "https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan/#article",
-                "headline": title,
-                "description": description,
-                "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
-                "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "Apakah semua virtual office di Jakarta Selatan bisa digunakan untuk PKP?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Tidak. Penggunaan virtual office untuk Pengusaha Kena Pajak (PKP) rata-rata hanya dimungkinkan bagi entitas klasifikasi KBLI jasa. KBLI non-jasa (distributor/agen) secara spesifik memerlukan sewa kantor fisik tertutup minimal satu tahun kontrak resmi."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Apa yang terjadi jika alamat domisili tidak konsisten antar dokumen?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Inkonsistensi titik koordinat alamat rentan menyebabkan penolakan otomatis pengajuan perizinan OSS atau komplikasi tajam saat proses audit verifikasi surat pajak tertulis KPP."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Apakah alamat DKI berarti pasti biaya besar?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Tidak. Skema peminjaman domisili atau layanan terpusat virtual membuat biaya infrastruktur fisik disubsidi bersama, asalkan berbadan penyedia yang sah legal."
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-
+export default function AlamatBisnisJakartaSelatanPage() {
     return (
         <WeaponPageTemplate
-            title={title}
-            description={description}
+            title="Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas"
+            description="Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda."
             canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan"
-            schemaObject={schemaObject}
             hero={{
-                badge1: 'Legal Foundation',
-                badge2: 'Domisili Resmi',
-                h1: 'Alamat Bisnis Jakarta Selatan: Implikasi Administratif & Batas Legalitas KPP',
-                subheading: 'Alamat bisnis di kartu nama Anda bukanlah fiksi tanpa bukti otentik. Pemilihan titik ini menentukan yurisdiksi otoritas penerbit NIB dan pajak. <a href="/virtual-office" class="text-accent font-bold hover:underline">Virtual office Bintaro Business Centre menyediakan domisili di Pesanggrahan, Jakarta Selatan</a> untuk memastikan bahwa setiap akta perizinan KBLI Anda bernaung murni di bawah otoritas sistem administrasi DKI Jakarta raya yang kuat.',
-                ctaLabel: 'Apa Pentingnya Domisili?',
-                ctaHref: '#problem',
-                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg'
+                badge1: "Legalitas Bisnis",
+                badge2: "Jakarta Selatan",
+                h1: "Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas",
+                subheading: "Alamat bisnis dalam virtual office adalah alamat resmi yang digunakan perusahaan untuk kebutuhan administratif dan legal, seperti pengurusan NPWP, NIB, dan domisili usaha yang sah secara hukum di <a href='/virtual-office'>Jakarta Selatan</a>.",
+                ctaLabel: "Konsultasi Legalitas",
+                ctaHref: "https://wa.me/6281210002131",
+                image: "/virtual_office_concept_hero_1775704318054.png"
             }}
             problem={{
-                title: 'Jangkar Perizinan Usaha dan Kaitan Instansi Pemerintah',
+                title: "Apa Itu Alamat Bisnis dalam Virtual Office?",
                 paragraphs: [
-                    'Identitas perusahaan dalam kancah nasional selalu dipetakan menggunakan titik geografis lokasi usahanya. NIB (Nomor Induk Berusaha), TDP, dan berbagai izin komersial diterbitkan oleh dinas kawasan terkait yang membawahi teritorial letak kedudukan gedung itu berdiri.',
-                    'Sebagai contoh riil, perusahaan yang memilih domisili perbatasan di Bintaro Selatan (wilayah Banten) akan diatur oleh aparatur Tangerang Selatan. Namun, jika Anda mencantumkan titik domisili di koridor Pesanggrahan—maka Anda berurusan eksklusif dengan DPMPTSP dan KPP Pratama wilayah administratif Jakarta Selatan. Proses mutasi pajak jika di kemudian hari berpindah yurisdiksi sungguh tidak sederhana dan berpeluang membuang sumber daya waktu hingga dua bulan operasi beku.',
-                    'Selain itu, ketidakselarasan sekecil apapun antara akta notaris Kemenkumham dengan alamat kontrak fisik yang dilampirkan akan langsung ditolak mesin validasi OSS.'
+                    "Alamat bisnis adalah alamat resmi yang mewakili keberadaan legal sebuah perusahaan. Dalam struktur virtual office, alamat ini disediakan oleh penyedia layanan dan dapat digunakan oleh klien sebagai alamat domisili perusahaan mereka tanpa harus menempati ruang fisik secara penuh.",
+                    "Di Indonesia, alamat bisnis yang valid diperlukan untuk pengurusan Nomor Induk Berusaha (NIB) melalui OSS, pendaftaran NPWP badan usaha, pembuatan akta pendirian PT, serta pendaftaran sebagai Pengusaha Kena Pajak (PKP). Tanpa alamat bisnis yang jelas dan terverifikasi, proses ini tidak dapat diselesaikan secara legal.",
+                    "Penting untuk dipahami bahwa alamat bisnis berbeda dari alamat rumah. Penggunaan alamat rumah sebagai domisili perusahaan membawa risiko regulasi zonasi yang membatasi aktivitas komersial di area residensial."
                 ]
             }}
             education={{
-                title: 'Implikasi NIB, OSS dan Aturan Pembatasan PKP',
+                title: "Peran Alamat Bisnis dalam Legalitas Perusahaan",
                 items: [
                     {
-                        title: 'NIB Diikat Kontrak Tersertifikasi',
-                        content: 'Penerbitan surat izin harus lolos audit lokasi riil. OSS tak lagi bisa dibodohi domisili fiktif tanpa adanya perjanjian penggunaan virtual office sah berkesinambungan.'
+                        title: "Domisili Perusahaan",
+                        content: "Dalam akta pendirian PT, alamat domisili tercantum secara eksplisit dan menjadi identitas legal yang didaftarkan ke Kemenkumham. Alamat ini menentukan yurisdiksi administrasi perusahaan Anda."
                     },
                     {
-                        title: 'KBLI Jasa vs Non-Jasa Sebagai Pengusaha Kena Pajak',
-                        content: 'Virtual office sering diagungkan seolah kunci segala pajak. Faktanya, menurut ketentuan nasional, status domisili virtual ini untuk pengajuan PKP amat ketat: "Hanya dimungkinkan bagi KBLI kategori JASA".'
+                        title: "Pendaftaran NIB via OSS",
+                        content: "Sistem OSS mengharuskan alamat usaha yang sesuai dengan wilayah administratif yang relevan. Alamat di Jakarta Selatan memastikan perusahaan Anda masuk ke dalam wilayah administratif DKI Jakarta yang strategis."
                     },
                     {
-                        title: 'Klausul Fisik untuk Distribusi Barang Murni',
-                        content: 'Sebaliknya, jika KBLI merujuk pada konstruksi besar atau Perdagangan Barang Distributor (Non-Jasa), pengusaha dimandatkan menghadirkan ruang fisik tertutup yang mengikat. Hal ini didukung oleh opsi upgrade ke tingkat atas seperti yang diulas <a href="/virtual-office-jakarta-selatan" class="text-accent hover:underline">dinamika virtual office Jakarta Selatan khusus NIB</a> di jaringan komersial kami.'
+                        title: "Yurisdiksi NPWP Badan Usaha",
+                        content: "Kantor Pelayanan Pajak (KPP) ditentukan berdasarkan alamat domisili. Perusahaan yang terdaftar di Jakarta Selatan akan memiliki akses ke yurisdiksi perpajakan ibu kota yang berbeda dengan wilayah di luar DKI."
                     }
                 ]
             }}
             authority={{
-                title: 'Perbedaan Aktual Virtual Office & Sewa Ruang Tertutup',
-                highlight: 'Berdasarkan hukum komersial, keduanya sama sah dari struktur validitas lokasi, perbedaannya hanya "Batas Kewenangan Jenis KBLI".',
-                image: '/images/foto-gedung-bbc.jpg',
+                title: "Apakah Alamat Virtual Office Sah Secara Hukum?",
+                highlight: "Secara umum, alamat virtual office dapat digunakan untuk keperluan legal perusahaan selama penyedia memiliki dokumen IMB/PBG dan bukti operasional gedung yang valid.",
+                image: "/jakarta_selatan_office_hero_1775704269536.png",
                 items: [
-                    { icon: 'Award', text: 'Skema domisili Virtual dilarang berstatus izin manufaktur raksasa dan pergudangan tanpa bukti lampiran luasan meter persegi lahan nyata gudang terdaftar instansi.' },
-                    { icon: 'ShieldCheck', text: 'Domisili tanpa ruang penuh sangat luwes dipakai software developer, konsultan PR/akuntansi, dan agency pemasaran tanpa benturan audit dari DPMPTSP.' },
-                    { icon: 'TrendingUp', text: 'Ruko fisik memiliki fleksibilitas izin luas mencakup segmen non-jasa, tetapi biayanya ratusan juta lebih perih ketimbang mensiasati tarif alamat.' },
-                    { icon: 'Users', text: 'Ekspedisi pos akan selalu menemukan letak alamat komersial yang stabil terkurasi pada lobi gedung perkantoran prestis, bukan blok pos security perumahan tertutup.' }
+                    { icon: "ShieldCheck", text: "Sah untuk pendirian PT dan pengurusan NIB sesuai regulasi" },
+                    { icon: "CheckSquare", text: "Dimungkinkan untuk pendaftaran PKP bagi KBLI Jasa (IT, Marketing, Konsultan)" },
+                    { icon: "Building2", text: "Bintaro Business Centre menyediakan dokumen pendukung lengkap sejak 2007" }
                 ]
             }}
             value={{
-                title: 'Kesalahan Terbesar Penempatan Domisili Tahap Perdana',
+                title: "Perbedaan Jakarta Selatan vs Luar DKI",
                 items: [
-                    { title: 'Salah Nama Kecamatan', desc: 'Identifikasi \'Bintaro\' sering mengecoh karena teriris 2 propinsi. Memastikan garis lintang DKI terproteksi valid adalah asuransi pengurusan pajak mutlak.', icon: 'MapPin' },
-                    { title: 'Operator Tidak Sah', desc: 'Pemilih ruko ilegal tidak punya peruntukan SK domisili penyedia ruang. Alamat mereka bisa di-_blacklist_ pemerintah daerah kelak.', icon: 'AlertTriangle' },
-                    { title: 'KBLI Terlarang', desc: 'Mencoba nekat daftar agen bea cukai pelabuhan dengan sewa VO murah akan berujung surat balasan tolak validasi DPMPTSP KPP secara permanen.', icon: 'CheckSquare' },
-                    { title: 'Klaim Tidak Relevan', desc: 'Pemakaian alamat tidak profesional seperti \'rumah kost\' langsung menandakan kapasitas peredaran uang kecil di mata partner kreditor bank besar.', icon: 'TrendingUp' }
+                    { title: "Status Administratif", desc: "Jakarta Selatan adalah bagian resmi DKI Jakarta dengan implikasi perizinan yang berbeda dari wilayah penyangga.", icon: "Target" },
+                    { title: "Yurisdiksi Pajak", desc: "Penanganan oleh KPP di wilayah Jakarta memberikan prestise dan kepastian administratif.", icon: "Briefcase" },
+                    { title: "Persepsi Bisnis", desc: "Alamat Jaksel sering diasosiasikan dengan ekosistem bisnis elit ibu kota oleh mitra dan klien.", icon: "Award" },
+                    { title: "Domisili Kontrak", desc: "Alamat di DKI diperlukan untuk memenuhi standar tertentu dalam kontrak pemerintah atau korporat.", icon: "ShieldCheck" }
                 ]
             }}
             options={{
-                title: 'Skala Proteksi Alamat Wilayah Selatan',
-                intro: 'Kondisikan skala bisnis dengan model legalitas yang tepat investasi.',
+                title: "Kapan Alamat Virtual Office Tidak Cukup?",
+                intro: "Ada situasi di mana perusahaan perlu mempertimbangkan transisi ke ruang kantor fisik.",
                 option1: {
-                    title: 'Paket Domisili Inti',
-                    desc: 'Akses SK Domisili Gedung yang langsung dapat disetor pada Notaris kepercayaan perusahaan untuk membangkitkan akta NIB baru tanpa delay birokrasi ekstra.',
-                    suitableForTitle: 'Cocok Untuk Kebutuhan',
-                    suitableForDesc: 'Lembaga Non-Profit Yayasan, Programmer Agensi Tunggal, atau Konsultansi Bisnis (KBLI Jasa).',
-                    bullets: ['Terdaftar Valid Pemda', 'Resepsionis Surat-menyurat']
+                    title: "Kebutuhan Inspeksi Fisik",
+                    desc: "Untuk jenis usaha non-jasa atau perdagangan yang mensyaratkan inspeksi lapangan dari instansi perizinan.",
+                    suitableForTitle: "Status",
+                    suitableForDesc: "Wajib Kantor Fisik",
+                    bullets: ["Verifikasi domisili fisik nyata", "Penyimpanan stok barang", "Syarat PKP non-jasa", "Inspeksi KPP/Bea Cukai"]
                 },
                 option2: {
-                    title: 'Paket Fisik Ruang (Upgrade)',
-                    desc: 'Kontrak penyediaan dimensi ruang tertutup untuk migrasi PKP ke tingkat yang mengeksekusi perdagangan retail skala besar.',
-                    suitableForTitle: 'Cocok Untuk',
-                    suitableForDesc: 'Importir otomotif, pedagang alat berat subkontraktor dan ekspedisi distribusi (Non-Jasa).',
-                    bullets: ['Mendukung Surat Survey Instansi Pajak', 'Ruang Tamu Representatif Khusus']
+                    title: "Operasional Tim Harian",
+                    desc: "Jika volume operasional membutuhkan ruang kerja permanen bagi tim untuk kolaborasi tatap muka.",
+                    suitableForTitle: "Status",
+                    suitableForDesc: "Opsi Serviced Office",
+                    bullets: ["Transisi mudah dalam satu gedung", "Fasilitas lengkap siap pakai", "Tanpa ganti alamat domisili", "Kontrak fleksibel sesuai skala"]
                 }
             }}
             internalLinks={{
-                title: 'Gali Penunjang Validitas Operasional',
+                title: "Mulai Bisnis Anda dengan Tepat",
                 card1: {
-                    title: 'Pusat Tarif Fasilitas Resmi',
-                    desc: 'Dapatkan angka pembanding tarif terukur untuk memperkirakan biaya operasional dan pemeliharaan representasional lini depan.',
-                    ctaLabel: 'Referensi Harga',
-                    href: '/harga-virtual-office-jakarta-selatan'
+                    title: "Paket Virtual Office",
+                    desc: "Dapatkan alamat bisnis Jakarta Selatan resmi untuk legalitas PT dan NIB Anda.",
+                    ctaLabel: "Lihat Paket",
+                    href: "/virtual-office"
                 },
                 card2: {
-                    title: 'Kantor Strategis Tol W2S',
-                    desc: 'Lompat dari domisili legal ke kehadiran operasional mobil logistik prima melalui kawasan konektivitas ganda unggulan Jakarta.',
-                    ctaLabel: 'Tinjau Area',
-                    href: '/kantor-dekat-tol-veteran'
+                    title: "Sewa Kantor Fisik",
+                    desc: "Butuh ruang operasional di Jakarta Selatan? Lihat unit kantor siap pakai kami.",
+                    ctaLabel: "Lihat Ruang",
+                    href: "/sewa-kantor"
                 }
             }}
-            relatedArticles={{
-                title: 'ARTIKEL TERKAIT SEPUTAR HUKUM',
-                links: [
-                    { title: 'Status Regulasi Virtual Office Jakarta', href: '/virtual-office/jakarta-selatan' },
-                    { title: 'Definisi Area Bintaro Selatan', href: '/virtual-office-bintaro' }
-                ]
-            }}
             faq={{
-                title: 'FAQ Integritas Legalitas Pendaftaran NPWP/PKP',
+                title: "FAQ: Alamat Bisnis Virtual Office Jakarta Selatan",
                 items: [
-                    { q: 'Apakah ada perbedaan biaya perizinan negara jika saya memakai Virtual Office dibanding ruko?', a: 'Tidak ada diferensiasi "tarif mesin perizinan negara" antara pengguna ruko sewaan luas maupun layanan domisili VO. Namun VO jelas memotong miliaran rupiah komitmen biaya sewa per tahun pertama sebelum laba tercapai.' },
-                    { q: 'Bagaimana jika notaris meminta IMB gedung?', a: 'Penyedia domisili yang absah selalu dilengkapi bundel legalitas salinan IMB resmi peruntukan niaga serta PBB ter-update, yang akan diberikan sebagai prasyarat bagi Anda meneruskan pengajuan akta notaris Kemenkumham.' },
-                    { q: 'Apakah Bintaro Business Centre memfasilitasi pendirian PT sekaligus?', a: 'Ya, Anda dapat berkoordinasi langsung dengan tim fasilitator kami yang terhubung akrab bersama jaringan notaris domisili Jakarta Selatan agar penyelarasan birokrasi berjalan utuh tanpa pihak ketiga yang lepas tangan.' }
+                    {
+                        q: "Apakah virtual office bisa untuk domisili PT di Jakarta Selatan?",
+                        a: "Bisa, selama penyedia memiliki dokumen legalitas gedung lengkap. Bintaro Business Centre telah melayani 1.871+ klien dengan dokumen pendukung yang diverifikasi notaris."
+                    },
+                    {
+                        q: "Apakah alamat virtual office bisa untuk NPWP badan usaha?",
+                        a: "Bisa. NPWP akan terdaftar di KPP sesuai wilayah domisili (Jakarta Selatan), memberikan kepastian yurisdiksi pajak."
+                    },
+                    {
+                        q: "Apakah bisa digunakan untuk PKP?",
+                        a: "Bergantung pada KBLI. KBLI Jasa dimungkinkan menggunakan virtual office untuk PKP, sementara KBLI Perdagangan biasanya memerlukan kantor fisik."
+                    },
+                    {
+                        q: "Kapan sebaiknya beralih ke kantor fisik?",
+                        a: "Saat tim butuh ruang kerja tetap atau regulasi bisnis Anda mensyaratkan verifikasi lokasi fisik untuk audit klien/pemerintah."
+                    }
                 ]
             }}
             bottomCTA={{
-                title: 'Integritas Alamat Merupakan Pantulan Perusahaan Anda',
-                subtitle: 'Keputusan lokasi legal tidak bisa ditarik tanpa proses pencabutan dokumen besar-besaran. Jangan bertaruh di atas fondasi yang lemah secara yurisdiksi kota dan retensi dukungan. Mulai pembicaraan strategis seputar perizinan DKI bersama kami.',
-                primaryCTA: { label: 'Konsultasi Perizinan PT/CV Sekarang', href: 'https://wa.me/628128888069' },
-                secondaryCTA: { label: 'Lihat Detail Tarif Domisili', href: '/harga-virtual-office-jakarta-selatan' }
+                title: "Tentukan Alamat Bisnis Anda Hari Ini",
+                subtitle: "Gunakan domisili Jakarta Selatan yang sah secara hukum di Bintaro Business Centre.",
+                primaryCTA: { label: "Hubungi Kami via WhatsApp", href: "https://wa.me/6281210002131" },
+                secondaryCTA: { label: "Pelajari Paket VO", href: "/virtual-office" }
             }}
         />
     )
