@@ -9,8 +9,9 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
+import { getHeroImage, getSectionImage } from '@/lib/seo/visualMapping'
 
-// --- BBC V3 UNIVERSAL CONTENT MODEL (WITH VISUAL LAYER v3.1) ---
+// --- BBC V3 UNIVERSAL CONTENT MODEL (WITH VISUAL ENGINE v1) ---
 
 export interface Section {
     id: string
@@ -21,9 +22,8 @@ export interface Section {
     visual?: {
         type: "card" | "list" | "image" | "none"
         items?: { title: string; desc?: string; icon?: string }[]
-        image?: string
+        image?: string // Still optional for manual override
         alt?: string
-        position?: "side" | "top" | "bottom"
     }
 }
 
@@ -33,12 +33,9 @@ export interface WeaponPageTemplateProps {
     canonicalUrl: string
     h1: string
     intro: string
-    hero?: {
-        image: string
-        alt?: string
-        badge1?: string
-        badge2?: string
-    }
+    entity: string    // NEW: for Visual Engine
+    location: string  // NEW: for Visual Engine
+    heroBadges?: { b1: string; b2: string }
     sections: Section[]
     faq?: {
         title: string
@@ -66,7 +63,9 @@ export default function WeaponPageTemplate({
     canonicalUrl,
     h1,
     intro,
-    hero,
+    entity,
+    location,
+    heroBadges,
     sections,
     faq,
     closing,
@@ -74,6 +73,9 @@ export default function WeaponPageTemplate({
     breadcrumb = true
 }: WeaponPageTemplateProps) {
     
+    // VISUAL ENGINE: Deterministic Hero Image
+    const autoHeroImage = getHeroImage(entity, location);
+
     const schema = {
         "@context": "https://schema.org",
         "@graph": [
@@ -90,7 +92,7 @@ export default function WeaponPageTemplate({
                 "@id": `${canonicalUrl}/#article`,
                 "headline": title,
                 "description": description,
-                "image": "https://www.bintarobusinesscentre.com" + (hero?.image || "/images/hero-default.png"),
+                "image": "https://www.bintarobusinesscentre.com" + autoHeroImage,
                 "author": { "@type": "Organization", "name": "Bintaro Business Centre" },
                 "publisher": { "@type": "Organization", "name": "Bintaro Business Centre" }
             },
@@ -105,13 +107,11 @@ export default function WeaponPageTemplate({
         ]
     }
 
-    const fallbackHeroImage = "/virtual_office_concept_hero_1775704318054.png"
-
     return (
         <main className="bg-white text-slate-900 font-sans selection:bg-accent selection:text-white pb-20">
             <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-            {/* 1. HERO SECTION (v3.1 - Restoration) */}
+            {/* 1. HERO SECTION (v3.1 + Visual Engine) */}
             <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 bg-slate-50 overflow-hidden border-b border-slate-100">
                 <div className="container mx-auto px-6 max-w-7xl relative z-20">
                     {breadcrumb && (
@@ -124,10 +124,10 @@ export default function WeaponPageTemplate({
                         <div className="order-2 lg:order-1">
                             <div className="flex items-center gap-2 mb-8">
                                 <span className="bg-bbc-gold-100 text-bbc-gold-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-bbc-gold-200">
-                                    {hero?.badge1 || "Official Domisili"}
+                                    {heroBadges?.b1 || "Verified Office"}
                                 </span>
                                 <span className="bg-bbc-blue-100 text-bbc-blue-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-bbc-blue-200">
-                                    {hero?.badge2 || "Jakarta Selatan"}
+                                    {heroBadges?.b2 || location.replace('-', ' ')}
                                 </span>
                             </div>
                             <h1 className="text-4xl lg:text-6xl font-bold text-primary leading-tight mb-8 font-heading">
@@ -154,8 +154,8 @@ export default function WeaponPageTemplate({
                             <div className="absolute inset-0 bg-bbc-gold-500/10 -rotate-3 rounded-2xl" />
                             <div className="absolute inset-0 bg-slate-200 rounded-2xl overflow-hidden shadow-2xl rotate-2">
                                 <Image 
-                                    src={hero?.image || fallbackHeroImage} 
-                                    alt={hero?.alt || title}
+                                    src={autoHeroImage} 
+                                    alt={title}
                                     fill
                                     className="object-cover"
                                     priority
@@ -168,8 +168,8 @@ export default function WeaponPageTemplate({
                                         <ShieldCheck className="text-white w-6 h-6" />
                                     </div>
                                     <div>
-                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verified Status</div>
-                                        <div className="text-sm font-bold text-primary italic">Zonasi Perkantoran Jakarta</div>
+                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verified Identity</div>
+                                        <div className="text-sm font-bold text-primary italic capitalize">{entity.replace('-', ' ')} Service</div>
                                     </div>
                                 </div>
                             </div>
@@ -183,84 +183,71 @@ export default function WeaponPageTemplate({
                 </div>
             </section>
 
-            {/* 2. DYNAMIC SECTIONS (With Optional Visual Layer) */}
-            {sections.map((section, idx) => (
-                <section 
-                    key={section.id} 
-                    className={`py-20 lg:py-28 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100/50`}
-                >
-                    <div className="container mx-auto px-6 max-w-4xl">
-                        <div className="flex items-center gap-4 mb-10">
-                            <div className="h-px bg-bbc-gold-500 w-12" />
-                            <h2 className="text-3xl lg:text-4xl font-bold font-heading text-primary">{section.h2}</h2>
-                        </div>
+            {/* 2. DYNAMIC SECTIONS */}
+            {sections.map((section, idx) => {
+                // VISUAL ENGINE: Auto-resolve Section Image
+                const autoSectionImage = getSectionImage(section.id);
+                const hasImage = section.visual?.type === 'image' || section.id === 'authority';
 
-                        <div className="flex flex-col lg:flex-row gap-12 items-start">
-                             <div className="flex-1 prose prose-slate prose-lg max-w-none text-slate-600">
-                                {section.rawHtml ? (
-                                    <div className="space-y-6 [&_a]:text-accent [&_a]:font-bold [&_a]:underline" 
-                                         dangerouslySetInnerHTML={{ __html: section.rawHtml }} />
-                                ) : (
-                                    <p className="leading-relaxed whitespace-pre-line">{section.content}</p>
+                return (
+                    <section 
+                        key={section.id} 
+                        className={`py-20 lg:py-28 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100/50`}
+                    >
+                        <div className="container mx-auto px-6 max-w-4xl">
+                            <div className="flex items-center gap-4 mb-10">
+                                <div className="h-px bg-bbc-gold-500 w-12" />
+                                <h2 className="text-3xl lg:text-4xl font-bold font-heading text-primary">{section.h2}</h2>
+                            </div>
+
+                            <div className="flex flex-col lg:flex-row gap-12 items-start">
+                                 <div className="flex-1 prose prose-slate prose-lg max-w-none text-slate-600">
+                                    {section.rawHtml ? (
+                                        <div className="space-y-6 [&_a]:text-accent [&_a]:font-bold [&_a]:underline" 
+                                             dangerouslySetInnerHTML={{ __html: section.rawHtml }} />
+                                    ) : (
+                                        <p className="leading-relaxed whitespace-pre-line">{section.content}</p>
+                                    )}
+                                </div>
+
+                                {/* Visual Engine: Section Image Rendering */}
+                                {hasImage && (
+                                    <div className="lg:w-[320px] shrink-0">
+                                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg border-4 border-white grayscale-[0.5] hover:grayscale-0 transition-all duration-700">
+                                            <Image 
+                                                src={autoSectionImage} 
+                                                alt={section.h2}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                    </div>
                                 )}
                             </div>
 
-                            {/* Section Image Support (Explicit Visual v3.1) */}
-                            {section.visual?.image && (
-                                <div className="lg:w-[350px] shrink-0">
-                                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg border-4 border-white">
-                                        <Image 
-                                            src={section.visual.image} 
-                                            alt={section.visual.alt || section.h2}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
+                            {/* Card Visual Layer */}
+                            {section.visual && section.visual.type === 'card' && (
+                                <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {section.visual.items?.map((item, i) => {
+                                        const Icon = iconMap[item.icon || ''] || CheckCircle2
+                                        return (
+                                            <div key={i} className="bg-white p-6 border border-slate-100 shadow-sm flex flex-col gap-4 items-start hover:border-bbc-gold-500 transition-all">
+                                                <div className="w-10 h-10 bg-bbc-gold-50 rounded flex items-center justify-center shrink-0">
+                                                    <Icon className="text-bbc-gold-600 w-5 h-5" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
+                                                    {item.desc && <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             )}
                         </div>
-
-                        {/* Card Visual Components Layer */}
-                        {section.visual && section.visual.type === 'card' && (
-                            <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {section.visual.items?.map((item, i) => {
-                                    const Icon = iconMap[item.icon || ''] || CheckCircle2
-                                    return (
-                                        <div key={i} className="bg-white p-6 border border-slate-100 shadow-sm flex flex-col gap-4 items-start relative group hover:border-bbc-gold-500 transition-all">
-                                            <div className="w-10 h-10 bg-bbc-gold-50 rounded flex items-center justify-center shrink-0">
-                                                <Icon className="text-bbc-gold-600 w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                                                {item.desc && <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>}
-                                            </div>
-                                            <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <div className="w-1 h-1 bg-bbc-gold-500" />
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
-                        
-                        {/* Mid Link Slot */}
-                        {idx === Math.floor(sections.length / 2) && internalLinks?.mid && (
-                            <div className="mt-16 p-8 bg-slate-900 text-white rounded-[2rem] relative overflow-hidden">
-                                <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
-                                    <div className="max-w-md">
-                                        <h3 className="text-2xl font-bold mb-2">Butuh Domisili Resmi Jakarta Selatan?</h3>
-                                        <p className="text-slate-400 text-sm italic">"Pastikan legalitas Anda aman sebelum melakukan komitmen besar."</p>
-                                    </div>
-                                    <Button asChild className="bg-accent hover:bg-bbc-gold-600 text-white rounded-none px-10 h-14 font-black uppercase tracking-widest shrink-0">
-                                        <Link href={internalLinks.mid.href}>{internalLinks.mid.label}</Link>
-                                    </Button>
-                                </div>
-                                <div className="absolute -bottom-10 -right-10 text-white/[0.03] w-64 h-64 border-[30px] border-white rounded-full" />
-                            </div>
-                        )}
-                    </div>
-                </section>
-            ))}
+                    </section>
+                );
+            })}
 
             {/* 3. FAQ SECTION */}
             {faq && (
@@ -269,7 +256,6 @@ export default function WeaponPageTemplate({
                         <div className="flex flex-col md:flex-row gap-12">
                             <div className="md:w-1/3">
                                 <h2 className="text-3xl font-bold font-heading text-primary leading-tight sticky top-32">{faq.title}</h2>
-                                <p className="mt-4 text-slate-500 text-sm leading-relaxed italic">Informasi faktual mengenai registrasi alamat dan legalitas zonasi.</p>
                             </div>
                             <div className="md:w-2/3 space-y-4">
                                 {faq.items.map((item, i) => (
@@ -300,19 +286,13 @@ export default function WeaponPageTemplate({
                     
                     <div className="bg-primary p-12 lg:p-20 rounded-[4rem] relative overflow-hidden shadow-2xl">
                         <div className="relative z-10 text-white max-w-3xl mx-auto text-center">
-                            <h2 className="text-4xl lg:text-5xl font-bold mb-8">Siap Mengamankan Domisili Anda?</h2>
-                            <p className="text-bbc-gold-200 mb-12 text-lg italic font-light">"Jangan tunda legalitas karena birokrasi, biarkan kami yang mengurus alamat Anda."</p>
-                            <div className="flex flex-col sm:flex-row justify-center gap-6">
-                                <Button asChild className="bg-accent hover:bg-bbc-gold-600 text-white px-12 py-8 text-sm font-black uppercase tracking-widest rounded-none shadow-xl shadow-accent/20">
-                                    <Link href={internalLinks?.closing?.href || 'https://wa.me/6281210002131'}>
-                                        {internalLinks?.closing?.label || 'Daftar Sekarang'}
-                                    </Link>
-                                </Button>
-                             </div>
+                            <h2 className="text-4xl lg:text-5xl font-bold mb-8">Siap Mengatur Domisili?</h2>
+                            <Button asChild className="bg-accent hover:bg-bbc-gold-600 text-white px-12 py-8 text-sm font-black uppercase tracking-widest rounded-none shadow-xl shadow-accent/20">
+                                <Link href={internalLinks?.closing?.href || 'https://wa.me/6281210002131'}>
+                                    {internalLinks?.closing?.label || 'Daftar Sekarang'}
+                                </Link>
+                            </Button>
                         </div>
-                        {/* Background Decoration */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
                     </div>
                 </div>
             </section>
