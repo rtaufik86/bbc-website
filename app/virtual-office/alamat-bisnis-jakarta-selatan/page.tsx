@@ -7,7 +7,7 @@ export default function AlamatBisnisJakartaSelatanPage() {
             description="Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda."
             canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan"
             h1="Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas"
-            intro="Alamat bisnis dalam virtual office adalah alamat resmi yang digunakan perusahaan untuk kebutuhan administratif dan legal, seperti pengurusan NPWP, NIB, dan domisili usaha yang sah secara hukum di <a href='/virtual-office'>Jakarta Selatan</a>."
+            intro="Alamat bisnis dalam virtual office adalah alamat resmi yang digunakan perusahaan untuk kebutuhan administratif dan legal, seperti pengurusan NPWP, NIB, dan domisili usaha yang sah secara hukum di Jakarta Selatan."
             
             // VISUAL ENGINE DATA (v1)
             entity="virtual-office"

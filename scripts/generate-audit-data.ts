@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { PAGE_TYPE_MAP, getPageConfig, isIndexable, getMetadata, getRobotsMetadata } from '../lib/seo/pageTypeMap';
+import { validateAnchorLink } from '../lib/seo/anchorGovernance';
 
 const APP_DIR = path.join(process.cwd(), 'app');
 const OUTPUT_FILE = path.join(APP_DIR, 'web-audit', 'audit-data.ts');
@@ -51,6 +52,7 @@ interface AuditPage {
     status: Status;
     introText?: string;
     faqs?: Array<{ q: string, a: string }>;
+    anchorIssues?: string[];
 }
 
 // Source URLs that will be in sitemap
@@ -146,6 +148,15 @@ async function auditFile(route: string): Promise<AuditPage> {
     if (pageType !== 'utility' && (wordCount < 500 || h1Texts.length !== 1 || !description)) status = 'Yellow';
     if (pageType !== 'utility' && (wordCount < 300 || h1Texts.length === 0 || !title)) status = 'Red';
 
+    // ANCHOR GOVERNANCE CHECK (V3.3)
+    const anchorIssues: string[] = [];
+    linksOut.forEach(link => {
+        const check = validateAnchorLink(link.anchor, link.href);
+        if (!check.valid) {
+            anchorIssues.push(check.error || 'Unknown Mismatch');
+        }
+    });
+
     return {
         path: route,
         pageType,
@@ -181,7 +192,8 @@ async function auditFile(route: string): Promise<AuditPage> {
         orphanRisk: false,
         status,
         introText,
-        faqs
+        faqs,
+        anchorIssues // V3.3 Governance Data
     };
 }
 
