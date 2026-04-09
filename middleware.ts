@@ -54,22 +54,44 @@ export async function middleware(request: NextRequest) {
         }
     )
 
-    // SEO Redirects & 410 Gone Handling
-    const path = request.nextUrl.pathname
+    // SEO Redirects & 410 Gone Handling (MASTER CLEANUP MAP)
+    const url = request.nextUrl
+    const path = url.pathname
+    const searchParams = url.searchParams
     const canonicalBase = 'https://www.bintarobusinesscentre.com'
 
-    // 1. Permanent Redirects (301) for legacy WordPress patterns
-    const redirectPatterns = ['/category', '/tag', '/page']
-    if (redirectPatterns.some(p => path === p || path.startsWith(p + '/'))) {
-        return NextResponse.redirect(new URL('/', canonicalBase), 301)
+    // 1. Parameter & Extension Cleanup (410 GONE)
+    const hasJunkParams = searchParams.has('amp') || 
+                         searchParams.has('replytocom') || 
+                         Array.from(searchParams.keys()).some(k => k.startsWith('utm_'))
+    
+    if (hasJunkParams || path.endsWith('.html')) {
+        return new NextResponse(null, { status: 410, statusText: 'Gone' })
     }
 
-    // 2. 410 Gone for removed/unsupported endpoints
-    const gonePatterns = ['/wp-json', '/lp']
-    const isGudangPattern = path === '/sewa-gudang-bulanan' || path === '/sewa-gudang-bulanan/'
-    
-    if (gonePatterns.some(p => path === p || path.startsWith(p + '/')) || isGudangPattern) {
-        // Preserved exceptions (landing pages that should still redirect)
+    // 2. Global 410 Patterns (Legacy Footprints)
+    const blockedPrefixes = [
+        '/wp-',          // Core WordPress
+        '/xmlrpc.php',   // Pingback junk
+        '/feed',         // Legacy RSS
+        '/thrive_',      // Builder junk
+        '/lp/',          // Legacy landing pages (non-redirected)
+        '/nggallery',    // NextGEN Gallery
+        '/gallery/',     // Gallery subpaths
+        '/client',       // Client portals
+        '/author',       // Author archives
+        '/category',     // Category archives
+        '/tag',          // Tag archives
+        '/page',         // Legacy pagination
+        '/event',        // Junk events
+        '/available-room',
+        '/pengertian-perseroan-terbatas',
+        '/tips-pintar-memilih-sewa-kantor'
+    ]
+
+    // Check for exact matches or prefix matches
+    if (blockedPrefixes.some(p => path === p || path.startsWith(p + '/'))) {
+        // Preserved exceptions for business-critical landing pages
         const isPreserved = path === '/lp/jasa-sewa-kantor' || path === '/lp/jasa-sewa-kantor/'
         
         if (!isPreserved) {
