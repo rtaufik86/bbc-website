@@ -5,7 +5,7 @@ import {
     Check, MapPin, Award, Briefcase, Plus, Building2, ShieldCheck, 
     ArrowRight, TrendingUp, Clock, Users, Search, Calculator, 
     UserCheck, CheckSquare, FileText, Target, Zap, ShieldAlert,
-    HelpCircle, ChevronDown, Image as ImageIcon
+    HelpCircle, ChevronDown, CheckCircle2, Image as ImageIcon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
@@ -112,7 +112,7 @@ export default function WeaponPageTemplate({
             <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
             {/* 1. HERO SECTION (v3.1 + Visual Engine) */}
-            <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 bg-slate-50 overflow-hidden border-b border-slate-100">
+            <section className="relative pt-20 pb-16 lg:pt-24 lg:pb-24 bg-slate-50 overflow-hidden border-b border-slate-100">
                 <div className="container mx-auto px-6 max-w-7xl relative z-20">
                     {breadcrumb && (
                         <div className="mb-8">
@@ -192,7 +192,7 @@ export default function WeaponPageTemplate({
                 return (
                     <section 
                         key={section.id} 
-                        className={`py-20 lg:py-28 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100/50`}
+                        className={`py-12 lg:py-16 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100/50`}
                     >
                         <div className="container mx-auto px-6 max-w-4xl">
                             <div className="flex items-center gap-4 mb-10">
@@ -251,7 +251,7 @@ export default function WeaponPageTemplate({
 
             {/* 3. FAQ SECTION */}
             {faq && (
-                <section className="py-24 bg-white">
+                <section className="py-16 lg:py-20 bg-white">
                     <div className="container mx-auto px-6 max-w-4xl relative z-10">
                         <div className="flex flex-col md:flex-row gap-12">
                             <div className="md:w-1/3">
@@ -276,15 +276,15 @@ export default function WeaponPageTemplate({
             )}
 
             {/* 4. CLOSING & FOOTER CTA */}
-            <section className="py-24 bg-slate-50">
+            <section className="py-16 lg:py-20 bg-slate-50">
                 <div className="container mx-auto px-6 max-w-5xl text-center">
                     {closing && (
-                        <div className="prose prose-lg mx-auto mb-20 text-slate-600 font-medium max-w-2xl border-l-4 border-bbc-gold-500 pl-8 text-left italic">
+                        <div className="prose prose-lg mx-auto mb-12 text-slate-600 font-medium max-w-2xl border-l-4 border-bbc-gold-500 pl-8 text-left italic">
                             <p>{closing}</p>
                         </div>
                     )}
                     
-                    <div className="bg-primary p-12 lg:p-20 rounded-[4rem] relative overflow-hidden shadow-2xl">
+                    <div className="bg-primary p-10 lg:p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
                         <div className="relative z-10 text-white max-w-3xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold mb-8">Siap Mengatur Domisili?</h2>
                             <Button asChild className="bg-accent hover:bg-bbc-gold-600 text-white px-12 py-8 text-sm font-black uppercase tracking-widest rounded-none shadow-xl shadow-accent/20">
