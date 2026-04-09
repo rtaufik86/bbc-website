@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import InternalLinksClient from './InternalLinksClient'
-import { linksData } from './links-data'
+import { auditData } from '../web-audit/audit-data'
 
 export const metadata: Metadata = {
   title: 'Internal Link Inventory | BBC Audit',
@@ -14,5 +14,16 @@ export default function InternalLinksPage() {
     notFound()
   }
 
-  return <InternalLinksClient linksData={linksData} />
+  // Transform auditData to PageLinks if necessary, but according to current check they match
+  const pageLinks = auditData.map(page => ({
+    path: page.path,
+    pageType: page.pageType,
+    title: page.title,
+    indexability: page.indexability,
+    linksOut: page.linksOut,
+    linksIn: page.linksIn,
+    status: page.status
+  }));
+
+  return <InternalLinksClient linksData={pageLinks} />
 }
