@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { PAGE_TYPE_MAP, getPageConfig, isIndexable, getMetadata, getRobotsMetadata } from '../lib/seo/pageTypeMap';
 import { validateAnchorIntent, getAnchorType, AnchorType } from '../lib/seo/anchorGovernance';
+import { analyzeSemantics } from '../lib/seo/semanticGraph';
 
 const APP_DIR = path.join(process.cwd(), 'app');
 const OUTPUT_FILE = path.join(APP_DIR, 'web-audit', 'audit-data.ts');
@@ -53,6 +54,12 @@ interface AuditPage {
     introText?: string;
     faqs?: Array<{ q: string, a: string }>;
     governanceViolations?: string[];
+    semanticGraph?: {
+        primaryEntity: string;
+        entities: string[];
+        relationships: string[];
+        coverage: number;
+    };
 }
 
 const sitemapUrls = Object.keys(PAGE_TYPE_MAP).filter(route => isIndexable(route));
@@ -162,6 +169,9 @@ async function auditFile(route: string): Promise<AuditPage> {
     if (pageType !== 'utility' && (wordCount < 500 || h1Texts.length !== 1 || violations.length > 0)) status = 'Yellow';
     if (pageType !== 'utility' && (wordCount < 300 || h1Texts.length === 0 || violations.filter(v => v.includes('CRITICAL')).length > 0)) status = 'Red';
 
+    // Semantic Intent Discovery (v1)
+    const semanticAnalysis = analyzeSemantics(cleanContent);
+
     return {
         path: route,
         pageType,
@@ -197,7 +207,13 @@ async function auditFile(route: string): Promise<AuditPage> {
         orphanRisk: false,
         status,
         introText: cleanContent.substring(0, 300) + '...',
-        governanceViolations: violations
+        governanceViolations: violations,
+        semanticGraph: {
+            primaryEntity: semanticAnalysis.primaryEntity,
+            entities: semanticAnalysis.entities,
+            relationships: semanticAnalysis.relationships,
+            coverage: semanticAnalysis.semanticCoverage
+        }
     };
 }
 

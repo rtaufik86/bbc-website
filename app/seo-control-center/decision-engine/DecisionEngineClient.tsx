@@ -65,6 +65,12 @@ interface Decision {
   faqs?: Array<{ q: string, a: string }>
   governanceViolations?: string[]
   anchorDistribution?: Record<string, number>
+  semanticGraph?: {
+    primaryEntity: string
+    entities: string[]
+    relationships: string[]
+    coverage: number
+  }
 }
 
 interface AuditPage {
@@ -81,6 +87,12 @@ interface AuditPage {
   faqs?: Array<{ q: string, a: string }>;
   governanceViolations?: string[];
   anchorDistribution?: Record<string, number>;
+  semanticGraph?: {
+    primaryEntity: string;
+    entities: string[];
+    relationships: string[];
+    coverage: number;
+  };
 }
 
 interface Props {
@@ -330,7 +342,8 @@ export default function DecisionEngineClient({ auditData }: Props) {
         introText: p.introText,
         faqs: p.faqs,
         governanceViolations: p.governanceViolations,
-        anchorDistribution: p.anchorDistribution
+        anchorDistribution: p.anchorDistribution,
+        semanticGraph: p.semanticGraph
       }
     })
   }, [auditData])

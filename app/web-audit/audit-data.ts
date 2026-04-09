@@ -404,7 +404,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "CRITICAL: Anchor \"serviced office Bintaro Business Centre\" (Type: location) diarahkan ke Service Hub \"/sewa-kantor\". Target harus Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/sewa-kantor",
@@ -924,7 +935,18 @@ export const auditData: any[] = [
         "introText": "Sewa Kantor Jakarta Selatan Siap Pakai | 72 Unit Operasional | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Chat WhatsApp Sekarang Konsultasi via WhatsApp Berdiri Sejak 2007 Sewa Kantor Siap Pakai di Bintaro Business Centre – Langsun...",
         "governanceViolations": [
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/virtual-office",
@@ -1418,7 +1440,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Konsultasi Virtual Office\" (Type: service) diarahkan ke non-service page \"/https://wa.me/6281311778036?text=Hallo%2C%20saya%20ingin%20informasi%20paket%20virtual%20office%20BBC.\".",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Virtual Office",
+            "entities": [
+                "Virtual Office",
+                "Jakarta Selatan"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/legal/pendirian-pt-jakarta-selatan",
@@ -1880,7 +1913,22 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Info Sewa Kantor\" (Type: service) diarahkan ke non-service page \"/https://wa.me/6281311778036?text=Hallo%2C%20saya%20ingin%20informasi%20mengenai%20sewa%20kantor%20di%20BBC.\".",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office",
+                "Status PKP",
+                "Legalitas PT"
+            ],
+            "relationships": [
+                "virtual-office --(supports)--> legalitas-pt",
+                "virtual-office --(located_in)--> jakarta-selatan",
+                "virtual-office --(enables)--> pkp"
+            ],
+            "coverage": 66.66666666666666
+        }
     },
     {
         "path": "/harga-sewa-kantor-bintaro",
@@ -1926,7 +1974,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /harga-sewa-kantor-bintaro...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/harga-virtual-office",
@@ -1972,7 +2026,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /harga-virtual-office...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/harga-virtual-office-jakarta-selatan",
@@ -2018,7 +2078,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /harga-virtual-office-jakarta-selatan...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/sewa-kantor/harga",
@@ -2064,7 +2130,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /sewa-kantor/harga...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/virtual-office/jakarta-selatan",
@@ -2110,7 +2182,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /virtual-office/jakarta-selatan...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/virtual-office/alamat-bisnis-jakarta-selatan",
@@ -2433,7 +2511,20 @@ export const auditData: any[] = [
         "introText": "Bintaro Business Center | Sewa Kantor &amp; Virtual Office Jakarta Selatan Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Home Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi &amp; Legalitas Legalitas Bisnis DKI Jakarta Alamat Bisnis Virtual Office Jakar...",
         "governanceViolations": [
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office",
+                "Domisili Bisnis"
+            ],
+            "relationships": [
+                "virtual-office --(provides)--> domisili-bisnis",
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 50
+        }
     },
     {
         "path": "/virtual-office-bintaro",
@@ -2479,7 +2570,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /virtual-office-bintaro...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/sewa-kantor/jakarta-selatan",
@@ -2525,7 +2622,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /sewa-kantor/jakarta-selatan...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/sewa-kantor/bintaro",
@@ -2571,7 +2674,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /sewa-kantor/bintaro...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/sewa-kantor/kantor-siap-pakai-bintaro",
@@ -2617,7 +2726,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /sewa-kantor/kantor-siap-pakai-bintaro...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/sewa-kantor/murah-jakarta-selatan",
@@ -2663,7 +2778,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /sewa-kantor/murah-jakarta-selatan...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/kantor-dekat-bintaro-jaya",
@@ -2709,7 +2830,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /kantor-dekat-bintaro-jaya...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/kantor-dekat-tol-veteran",
@@ -2755,7 +2882,13 @@ export const auditData: any[] = [
         "introText": "Error Rendering Path: /kantor-dekat-tol-veteran...",
         "governanceViolations": [
             "CRITICAL: weapon_must_link_to_money (Rule E1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Unknown",
+            "entities": [],
+            "relationships": [],
+            "coverage": 0
+        }
     },
     {
         "path": "/legal",
@@ -3143,7 +3276,18 @@ export const auditData: any[] = [
             "CRITICAL: Anchor \"alamat bisnis resmi Jakarta Selatan\" (Type: location) diarahkan ke Service Hub \"/virtual-office\". Target harus Geo Page.",
             "CRITICAL: Anchor \"alamat bisnis resmi Jakarta Selatan\" (Type: location) diarahkan ke Service Hub \"/virtual-office\". Target harus Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/legal/cek-kbli",
@@ -3416,7 +3560,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Cek KBLI Usaha Jakarta Selatan | Panduan Klasifikasi Bisnis | BBC | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/legal/pkp-perdagangan",
@@ -3704,7 +3859,20 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Panduan PKP KBLI Selain Jasa (Perdagangan) | Jakarta Selatan | BBC | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office",
+                "Status PKP"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan",
+                "virtual-office --(enables)--> pkp"
+            ],
+            "coverage": 50
+        }
     },
     {
         "path": "/tentang-kami",
@@ -4029,7 +4197,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Bintaro Business Centre: Infrastruktur Bisnis Terpercaya Jakarta Selatan | BBC | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/lokasi-kantor",
@@ -4344,7 +4523,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Lokasi Bintaro Business Centre: Jakarta Selatan | Akses Strategis | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/kontak",
@@ -4628,7 +4818,18 @@ export const auditData: any[] = [
         "introText": "Hubungi Bintaro Business Centre | Layanan Kantor &amp; Legalitas Jakarta Selatan | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Hubungi Kami Kami Siap Membantu Bisnis Anda Tim kami siap memberikan solusi terbaik untuk kebutuhan kanto...",
         "governanceViolations": [
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/klien-dan-testimoni",
@@ -4953,7 +5154,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Klien &amp; Testimoni BBC | 1.800+ Perusahaan Telah Bergabung | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/fasilitas-kantor",
@@ -5270,7 +5482,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Fasilitas Bintaro Business Centre | Infrastruktur Kantor Lengkap Jakarta Selatan | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/ruang-meeting",
@@ -5593,7 +5816,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Sewa Ruang Meeting Jakarta Selatan | Bintaro Business Centre | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/legalitas-dan-perizinan-bbc",
@@ -5902,7 +6136,18 @@ export const auditData: any[] = [
         "introText": "Legalitas &amp; Perizinan BBC | Transparansi Infrastruktur Bisnis | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Compliance &amp; Legitimacy Legalitas &amp; Perizinan BBC: Fondasi Kepercayaan Anda Dalam memilih mitra infrastruktur bi...",
         "governanceViolations": [
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/admin",
@@ -6171,7 +6416,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Login - BBC Admin | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/login",
@@ -6440,7 +6696,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Login - BBC Admin | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/signup",
@@ -6702,7 +6969,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Sign Up - BBC Admin | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/forgot-password",
@@ -6964,7 +7242,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Forgot Password - BBC Admin | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/auth/reset-password",
@@ -7217,7 +7506,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Set New Password - BBC Admin | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/internal-links",
@@ -7473,11 +7773,22 @@ export const auditData: any[] = [
         },
         "orphanRisk": false,
         "status": "Green",
-        "introText": "Internal Link Inventory | BBC Audit | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu INTERNAL LINK EXPLORER Connection Analyzer Cross-linking matrix and anchor text mapping Link Map Size 1101 Connections / 1101 Contextual all money wea...",
+        "introText": "Internal Link Inventory | BBC Audit | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu INTERNAL LINK EXPLORER Connection Analyzer Cross-linking matrix and anchor text mapping Link Map Size 1106 Connections / 1106 Contextual all money wea...",
         "governanceViolations": [
             "HIGH: Anchor \"Internal Link Inventory | BBC Audit | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/web-audit",
@@ -7562,154 +7873,154 @@ export const auditData: any[] = [
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 68260
+                "position": 68247
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 68694
+                "position": 68681
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 69332
+                "position": 69319
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 69480
+                "position": 69467
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 69634
+                "position": 69621
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 69992
+                "position": 69979
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 70140
+                "position": 70127
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 70304
+                "position": 70291
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 70458
+                "position": 70445
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 70818
+                "position": 70805
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 70939
+                "position": 70926
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 71062
+                "position": 71049
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 71191
+                "position": 71178
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 71340
+                "position": 71327
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 71477
+                "position": 71464
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 72346
+                "position": 72333
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 72855
+                "position": 72842
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 73404
+                "position": 73391
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 74403
+                "position": 74390
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 74480
+                "position": 74467
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 74560
+                "position": 74547
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 74667
+                "position": 74654
             }
         ],
         "linksIn": [],
@@ -7733,11 +8044,22 @@ export const auditData: any[] = [
         },
         "orphanRisk": false,
         "status": "Green",
-        "introText": "Web Audit Dashboard | BBC Internal | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu FULL WEB AUDIT ORIGINAL ENGINE Comprehensive technical inventory &amp; quality scoring. COPY TEXT EXPORT CSV 42 Total Pages 21 Healthy 6 Needs Opti 15 ...",
+        "introText": "Web Audit Dashboard | BBC Internal | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu FULL WEB AUDIT ORIGINAL ENGINE Comprehensive technical inventory &amp; quality scoring. COPY TEXT EXPORT CSV 42 Total Pages 15 Healthy 10 Needs Opti 17...",
         "governanceViolations": [
             "HIGH: Anchor \"Web Audit Dashboard | BBC Internal | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center",
@@ -7749,7 +8071,7 @@ export const auditData: any[] = [
         "descriptionLength": 41,
         "canonical": "",
         "robots": "noindex, nofollow",
-        "wordCount": 515,
+        "wordCount": 516,
         "h1Count": 1,
         "h1Texts": [
             "SEO CONTROL CENTER"
@@ -7816,248 +8138,248 @@ export const auditData: any[] = [
             },
             {
                 "href": "/seo-control-center/decision-engine",
-                "anchor": "Decision EngineAutomated task distribution and prioritization engine (v1.0).15 tasks pending",
+                "anchor": "Decision EngineAutomated task distribution and prioritization engine (v1.0).17 tasks pending",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 16121
+                "position": 16116
             },
             {
                 "href": "/seo-control-center/entity-audit",
                 "anchor": "Entity &amp; Angle AuditDeteksi overlap intent, mismatch angle, dan validasi behavior per page type.27 pages audited",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 17592
+                "position": 17587
             },
             {
                 "href": "/seo-control-center/intent-map",
                 "anchor": "Intent Coverage MapMatrix intent → page coverage. Temukan gap yang belum punya halaman.79 queries mapped",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 19041
+                "position": 19036
             },
             {
                 "href": "/seo-control-center/authority-analyzer",
-                "anchor": "Authority Injection AnalyzerAnalisis weighted authority flow dan temukan peluang injeksi link internal.1101 internal links mapped",
+                "anchor": "Authority Injection AnalyzerAnalisis weighted authority flow dan temukan peluang injeksi link internal.1106 internal links mapped",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 20714
+                "position": 20709
             },
             {
                 "href": "/seo-control-center/answer-extraction",
                 "anchor": "Answer Extraction AuditUkur apakah halaman ditulis dalam format yang mudah diambil oleh LLM.0 pages with FAQ",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 23362
+                "position": 23357
             },
             {
                 "href": "/seo-control-center/llm-scanner",
                 "anchor": "LLM Presence ScannerSimulasi citation readiness untuk ChatGPT/Gemini/Perplexity queries.79 queries in bank",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 24904
+                "position": 24899
             },
             {
                 "href": "/seo-control-center/trust-scanner",
-                "anchor": "Trust Signal ScannerCek konsistensi trust signal (2007, Jakarta Selatan, address) di seluruh halaman.30 pages with org schema",
+                "anchor": "Trust Signal ScannerCek konsistensi trust signal (2007, Jakarta Selatan, address) di seluruh halaman.0 pages with org schema",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 27433
+                "position": 27446
             },
             {
                 "href": "/seo-control-center/crawl-audit",
                 "anchor": "Crawl &amp; Indexability AuditFlag canonical mismatch, sitemap issues, orphan pages, dan robots errors.0 orphan risk pages",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 30025
+                "position": 30037
             },
             {
                 "href": "/web-audit",
                 "anchor": "Full Web AuditOriginal technical audit view with complete page-by-page scoring.42 pages scanned",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 31534
+                "position": 31546
             },
             {
                 "href": "/internal-link-graph",
-                "anchor": "Internal Link GraphInteractive D3 force-directed graph to visualize your site architecture.1101 total links",
+                "anchor": "Internal Link GraphInteractive D3 force-directed graph to visualize your site architecture.1106 total links",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 33995
+                "position": 34007
             },
             {
                 "href": "/internal-links",
                 "anchor": "Internal Link ExplorerExploration tool for inbound/outbound links per path.0 inbound connections",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 35594
+                "position": 35606
             },
             {
                 "href": "/seo-control-center/decision-engine",
                 "anchor": "View All",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 44001
+                "position": 44013
             },
             {
                 "href": "/seo-control-center/decision-engine",
                 "anchor": "GO TO EXECUTION ENGINE",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 46948
+                "position": 46942
             },
             {
                 "href": "/",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 48867
+                "position": 48861
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 49301
+                "position": 49295
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 49939
+                "position": 49933
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 50087
+                "position": 50081
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 50241
+                "position": 50235
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 50599
+                "position": 50593
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 50747
+                "position": 50741
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 50911
+                "position": 50905
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51065
+                "position": 51059
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51425
+                "position": 51419
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51546
+                "position": 51540
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51669
+                "position": 51663
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51798
+                "position": 51792
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 51947
+                "position": 51941
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 52084
+                "position": 52078
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 52953
+                "position": 52947
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 53462
+                "position": 53456
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 54011
+                "position": 54005
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 55010
+                "position": 55004
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 55087
+                "position": 55081
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 55167
+                "position": 55161
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 55274
+                "position": 55268
             }
         ],
         "linksIn": [],
@@ -8081,12 +8403,23 @@ export const auditData: any[] = [
         },
         "orphanRisk": false,
         "status": "Green",
-        "introText": "SEO Control Center | BBC Internal | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu SEO CONTROL CENTER LOCALHOST ONLY BBC SEO + AEO Operating System — Architecture-driven decision engine 0 % 1 . STRUCTURAL 0 % 2 . CONTENT 100 % 3 . TRUS...",
+        "introText": "SEO Control Center | BBC Internal | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu SEO CONTROL CENTER LOCALHOST ONLY BBC SEO + AEO Operating System — Architecture-driven decision engine 0 % 1 . STRUCTURAL 0 % 2 . CONTENT 0 % 3 . TRUST ...",
         "governanceViolations": [
             "HIGH: Anchor \"SEO Control Center | BBC Internal | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
-            "HIGH: Anchor \"Trust Signal ScannerCek konsistensi trust signal (2007, Jakarta Selatan, address) di seluruh halaman.30 pages with org schema\" (Type: location) diarahkan ke \"/seo-control-center/trust-scanner\" yang bukan Geo Page.",
+            "HIGH: Anchor \"Trust Signal ScannerCek konsistensi trust signal (2007, Jakarta Selatan, address) di seluruh halaman.0 pages with org schema\" (Type: location) diarahkan ke \"/seo-control-center/trust-scanner\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/entity-audit",
@@ -8346,7 +8679,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Entity &amp; Angle Audit | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/answer-extraction",
@@ -8431,154 +8775,154 @@ export const auditData: any[] = [
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 79163
+                "position": 79387
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 79597
+                "position": 79821
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80235
+                "position": 80459
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80383
+                "position": 80607
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80537
+                "position": 80761
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 80895
+                "position": 81119
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81043
+                "position": 81267
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81207
+                "position": 81431
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81361
+                "position": 81585
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81721
+                "position": 81945
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81842
+                "position": 82066
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81965
+                "position": 82189
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82094
+                "position": 82318
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82243
+                "position": 82467
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82380
+                "position": 82604
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 83249
+                "position": 83473
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 83758
+                "position": 83982
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 84307
+                "position": 84531
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85306
+                "position": 85530
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85383
+                "position": 85607
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85463
+                "position": 85687
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85570
+                "position": 85794
             }
         ],
         "linksIn": [],
@@ -8602,11 +8946,22 @@ export const auditData: any[] = [
         },
         "orphanRisk": false,
         "status": "Green",
-        "introText": "Answer Extraction Audit | BBC SEO Control Center | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Answer Extraction Audit Paket A Ukur seberapa siap halaman diambil jawabannya oleh LLM. Answer Extraction Score (0–100). 48 Avg Score 12 ...",
+        "introText": "Answer Extraction Audit | BBC SEO Control Center | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu Answer Extraction Audit Paket A Ukur seberapa siap halaman diambil jawabannya oleh LLM. Answer Extraction Score (0–100). 39 Avg Score 14 ...",
         "governanceViolations": [
             "HIGH: Anchor \"Answer Extraction Audit | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/trust-scanner",
@@ -8618,7 +8973,7 @@ export const auditData: any[] = [
         "descriptionLength": 41,
         "canonical": "",
         "robots": "noindex, nofollow",
-        "wordCount": 211,
+        "wordCount": 206,
         "h1Count": 1,
         "h1Texts": [
             "Trust Signal Scanner"
@@ -8691,154 +9046,154 @@ export const auditData: any[] = [
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 79445
+                "position": 79650
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 79879
+                "position": 80084
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80517
+                "position": 80722
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80665
+                "position": 80870
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 80819
+                "position": 81024
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81177
+                "position": 81382
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81325
+                "position": 81530
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81489
+                "position": 81694
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 81643
+                "position": 81848
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82003
+                "position": 82208
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82124
+                "position": 82329
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82247
+                "position": 82452
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82376
+                "position": 82581
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82525
+                "position": 82730
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 82662
+                "position": 82867
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 83531
+                "position": 83736
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 84040
+                "position": 84245
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 84589
+                "position": 84794
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85588
+                "position": 85793
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85665
+                "position": 85870
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85745
+                "position": 85950
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 85852
+                "position": 86057
             }
         ],
         "linksIn": [],
@@ -8866,7 +9221,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Trust Signal Scanner | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/authority-analyzer",
@@ -9126,7 +9492,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Authority Injection Analyzer | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/crawl-audit",
@@ -9211,154 +9588,154 @@ export const auditData: any[] = [
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 106331
+                "position": 106649
             },
             {
                 "href": "/https://maps.google.com/?q=Jl.+RC.+Veteran+No.+1-i+Pesanggrahan+Jakarta+Selatan+12330",
                 "anchor": "Alamat Resmi:Jl. RC. Veteran Raya No.1i, BintaroJakarta Selatan 12330, Indonesia",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 106765
+                "position": 107083
             },
             {
                 "href": "/sewa-kantor",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 107403
+                "position": 107721
             },
             {
                 "href": "/virtual-office",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 107551
+                "position": 107869
             },
             {
                 "href": "/legal/pendirian-pt-jakarta-selatan",
                 "anchor": "Pendirian PT Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": true,
-                "position": 107705
+                "position": 108023
             },
             {
                 "href": "/sewa-kantor/bintaro",
                 "anchor": "Sewa Kantor Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 108063
+                "position": 108381
             },
             {
                 "href": "/sewa-kantor/jakarta-selatan",
                 "anchor": "Sewa Kantor Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 108211
+                "position": 108529
             },
             {
                 "href": "/virtual-office-bintaro",
                 "anchor": "Virtual Office Bintaro",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 108375
+                "position": 108693
             },
             {
                 "href": "/virtual-office-jakarta-selatan",
                 "anchor": "Virtual Office Jakarta Selatan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 108529
+                "position": 108847
             },
             {
                 "href": "/tentang-kami",
                 "anchor": "Tentang Kami",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 108889
+                "position": 109207
             },
             {
                 "href": "/lokasi-kantor",
                 "anchor": "Lokasi Kantor",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 109010
+                "position": 109328
             },
             {
                 "href": "/fasilitas-kantor",
                 "anchor": "Fasilitas Gedung",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 109133
+                "position": 109451
             },
             {
                 "href": "/legalitas-dan-perizinan-bbc",
                 "anchor": "Legalitas &amp; Perizinan",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 109262
+                "position": 109580
             },
             {
                 "href": "/klien-dan-testimoni",
                 "anchor": "Klien &amp; Testimoni",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 109411
+                "position": 109729
             },
             {
                 "href": "/legal/cek-kbli",
                 "anchor": "Panduan KBLI &amp; Legalitas",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 109548
+                "position": 109866
             },
             {
                 "href": "/tel:+62217362639",
                 "anchor": "(021) 7362639",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 110417
+                "position": 110735
             },
             {
                 "href": "/mailto:info@bintarobusinesscentre.com",
                 "anchor": "info@bbc.id",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 110926
+                "position": 111244
             },
             {
                 "href": "/https://wa.me/628128888069",
                 "anchor": "Konsultasi Sekarang",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 111475
+                "position": 111793
             },
             {
                 "href": "/sitemap.xml",
                 "anchor": "Sitemap",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 112474
+                "position": 112792
             },
             {
                 "href": "/privacy",
                 "anchor": "Privacy Policy",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 112551
+                "position": 112869
             },
             {
                 "href": "/terms",
                 "anchor": "Terms of Service",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 112631
+                "position": 112949
             },
             {
                 "href": "/https://wa.me/6281311778036",
                 "anchor": "[IMAGE/ICON]",
                 "isContextual": true,
                 "isMoneyPage": false,
-                "position": 112738
+                "position": 113056
             }
         ],
         "linksIn": [],
@@ -9386,7 +9763,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Crawl &amp; Indexability Audit | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/intent-map",
@@ -9725,7 +10113,18 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"Intent Coverage Map | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     },
     {
         "path": "/seo-control-center/llm-scanner",
@@ -9989,6 +10388,17 @@ export const auditData: any[] = [
         "governanceViolations": [
             "HIGH: Anchor \"LLM Presence Scanner | BBC SEO Control Center | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page.",
             "HIGH: first_link_position > 300 words (Rule G1)"
-        ]
+        ],
+        "semanticGraph": {
+            "primaryEntity": "Jakarta Selatan",
+            "entities": [
+                "Jakarta Selatan",
+                "Virtual Office"
+            ],
+            "relationships": [
+                "virtual-office --(located_in)--> jakarta-selatan"
+            ],
+            "coverage": 33.33333333333333
+        }
     }
 ];
