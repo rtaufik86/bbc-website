@@ -51,12 +51,20 @@ export default function AlamatBisnisJakartaSelatanPage() {
                 ]
             }}
             value={{
-                title: "Perbedaan Jakarta Selatan vs Luar DKI",
+                title: "Mengapa Memilih Jakarta Selatan?",
                 items: [
                     { title: "Status Administratif", desc: "Jakarta Selatan adalah bagian resmi DKI Jakarta dengan implikasi perizinan yang berbeda dari wilayah penyangga.", icon: "Target" },
                     { title: "Yurisdiksi Pajak", desc: "Penanganan oleh KPP di wilayah Jakarta memberikan prestise dan kepastian administratif.", icon: "Briefcase" },
                     { title: "Persepsi Bisnis", desc: "Alamat Jaksel sering diasosiasikan dengan ekosistem bisnis elit ibu kota oleh mitra dan klien.", icon: "Award" },
                     { title: "Domisili Kontrak", desc: "Alamat di DKI diperlukan untuk memenuhi standar tertentu dalam kontrak pemerintah atau korporat.", icon: "ShieldCheck" }
+                ]
+            }}
+            extraNarrative={{
+                title: "Perbedaan Alamat Bisnis di Jakarta Selatan vs Luar DKI",
+                paragraphs: [
+                    "Bagi perusahaan yang berencana beroperasi di Jakarta atau menargetkan pasar ibu kota, pemilihan wilayah administratif untuk domisili bisnis bukan keputusan yang sepele. Jakarta Selatan adalah bagian dari DKI Jakarta — provinsi dengan status khusus — sementara kawasan seperti Bintaro Jaya yang secara geografis berdekatan namun berada di Tangerang Selatan masuk ke wilayah Banten.",
+                    "Perbedaan ini berdampak pada: yurisdiksi KPP untuk urusan perpajakan, instansi Dinas Penanaman Modal dan PTSP yang menangani perizinan, serta persepsi klien dan mitra bisnis yang sering mengasosiasikan alamat Jakarta Selatan dengan ekosistem bisnis ibu kota. Bagi perusahaan yang memerlukan domisili di DKI Jakarta — misalnya untuk keperluan tertentu dalam kontrak pemerintah atau persyaratan mitra — alamat di Jakarta Selatan memberikan status administratif yang tidak dapat disubstitusi oleh alamat di wilayah penyangga.",
+                    "Lokasi Bintaro Business Centre berada di Jl. RC Veteran No. 1-i, Pesanggrahan, Jakarta Selatan — secara administratif masuk wilayah DKI Jakarta, bukan Tangerang Selatan. Ini perbedaan yang relevan untuk proses perizinan dan pendaftaran pajak."
                 ]
             }}
             options={{

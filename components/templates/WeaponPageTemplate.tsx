@@ -136,6 +136,10 @@ interface WeaponPageTemplateProps {
         primaryCTA: { label: string; href: string }
         secondaryCTA: { label: string; href: string }
     }
+    extraNarrative?: {
+        title: string
+        paragraphs: string[]
+    }
     schemaObject?: any
     breadcrumb?: boolean
 }
@@ -189,6 +193,7 @@ export default function WeaponPageTemplate({
     relatedArticles,
     faq,
     bottomCTA,
+    extraNarrative,
     schemaObject,
     breadcrumb = true
 }: WeaponPageTemplateProps) {
@@ -401,6 +406,21 @@ export default function WeaponPageTemplate({
                     </div>
                 </div>
             </section>
+
+            {/* NEW: EXTRA NARRATIVE SECTION (V2.5) */}
+            {extraNarrative && (
+                <section className="py-20 bg-white border-y border-slate-100">
+                    <div className="container mx-auto px-6 max-w-4xl">
+                        <h2 className="text-3xl font-bold font-heading mb-8 text-primary">{extraNarrative.title}</h2>
+                        <div className="space-y-6">
+                            {extraNarrative.paragraphs.map((p, idx) => (
+                                <p key={idx} className="text-lg text-slate-600 leading-relaxed" 
+                                   dangerouslySetInnerHTML={{ __html: p }} />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* 7. INTERNAL LINK BRIDGE */}
             <section className="py-24 bg-white border-y border-slate-100">
