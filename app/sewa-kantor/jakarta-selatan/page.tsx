@@ -72,119 +72,126 @@ export default function Page() {
 
     return (
         <WeaponPageTemplate
+            url="/sewa-kantor/jakarta-selatan"
             title={title}
             description={description}
             canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/jakarta-selatan"
             schemaObject={schemaObject}
-            hero={{
-                badge1: 'Geographic Authority',
-                badge2: 'Business Relevance',
-                h1: 'Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis',
-                subheading: 'Jakarta Selatan adalah salah satu wilayah administratif DKI Jakarta yang paling aktif sebagai pusat operasional bisnis di luar kawasan CBD inti. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre menyediakan sewa kantor siap pakai di Pesanggrahan, Jakarta Selatan</a> yang berada sepenuhnya dalam yurisdiksi administratif DKI Jakarta dengan akses langsung ke JORR W2S.',
-                ctaLabel: 'Lihat Legalitas Kawasan',
-                ctaHref: '#problem',
-                image: '/images/sewa-kantor/ruangan-kantor-utama.jpg'
-            }}
-            problem={{
-                title: 'Mengapa Jakarta Selatan Menjadi Pusat Bisnis Strategis',
-                paragraphs: [
-                    'Jakarta Selatan menawarkan keseimbangan antara aksesibilitas, ekosistem bisnis, dan status administratif yang tidak dimiliki oleh semua kawasan di sekitar Jakarta. Berbeda dengan kawasan penyangga seperti Tangerang Selatan atau Depok yang secara geografis berdekatan, Jakarta Selatan berada sepenuhnya dalam yurisdiksi DKI Jakarta — yang memiliki implikasi langsung pada proses perizinan usaha.',
-                    'Perusahaan yang memilih domisili di Jakarta Selatan mendapatkan alamat administratif DKI yang memudahkan pengurusan NIB, NPWP perusahaan, dan berbagai izin operasional lainnya. Ini menjadi pertimbangan penting terutama bagi perusahaan baru yang sedang membangun struktur legal usahanya.',
-                    'Lokasi kantor berpengaruh langsung pada jam operasional — jarak ke klien utama dan konektivitas. Kawasan seperti Pesanggrahan menawarkan posisi menguntungkan: cukup dekat ke pusat untuk akses mitra bisnis, namun jauh dari kepadatan CBD ekstrem.'
-                ]
-            }}
-            education={{
-                title: 'Konektivitas dan Mobilitas Tim Harian',
-                items: [
-                    {
-                        title: 'Terkoneksi Jaringan Jalan Tol Utama',
-                        content: 'Pilihan strategis untuk operasional sangat dipengaruhi oleh kelancaran logistik udara dan luar kota. Sebuah <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">kantor dekat Tol Veteran</a> secara instan mendapat akses JORR W2S untuk menghubungkan lini kendaraan suplai.'
-                    },
-                    {
-                        title: 'Mobilitas Lintas Wilayah Jakarta-Banten',
-                        content: 'Bagi perusahaan di sektor distribusi laut, otomotif perakitan, konstruksi perumahan, atau layanan jasa terstruktur — memosisikan diri di persimpangan ini memudahkan rekrutmen staff pinggir kota.'
-                    },
-                    {
-                        title: 'Lingkungan Profesional Menunjang Image',
-                        content: 'Sebuah kantor di yurisdiksi unggulan menumbuhkan impresi bonafide saat pendaftaran tender korporasi besar atau pengajuan proyek BUMN.'
-                    }
-                ]
-            }}
-            authority={{
-                title: 'Jenis Ruang Kerja yang Tersedia di Jakarta Selatan',
-                highlight: 'Jakarta Selatan menawarkan beragam pilihan ruang kantor yang dapat disesuaikan dengan fase pertumbuhan dan investasi awal perusahaan.',
-                image: '/images/foto-gedung-bbc.jpg',
-                items: [
-                    { icon: 'Building2', text: 'Serviced Office — ruang fully furnished dengan layanan utilitas dan resepsionis terpusat.' },
-                    { icon: 'Layers', text: 'Kantor Konvensional — ruang kosong mentah untuk konfigurasi lay-out arsitektur perusahan Anda secara mandiri.' },
-                    { icon: 'MapPin', text: 'Virtual Office — alamat domisili absah legal yang dirancang untuk pendirian izin NIB PT dari rumah.' },
-                    { icon: 'CheckSquare', text: 'Fleksibilitas skalabilitas memungkinkan upgrade dari alamat virtual menjadi kantor kompartemen tertata.' }
-                ]
-            }}
-            value={{
-                title: 'Variabel Kunci Memilih Alamat di Jakarta Selatan',
-                items: [
-                    { title: 'Yurisdiksi Spesifik', desc: 'Pemilihan alamat mutlak harus di koridor DKI, bukan wilayah pinggiran Tangerang Selatan yang memblokir NPWP pendaftaran ganda.', icon: 'Map' },
-                    { title: 'Akses Klien', desc: 'Lokasi yang memangkas biaya transportasi logis untuk kunjungan tim pemasaran dari pusat perkantoran Sudirman.', icon: 'Target' },
-                    { title: 'Fleksibilitas Kontrak', desc: 'Sewa ruang modern menyediakan klausul fleksibel guna akomodasi pertumbuhan skala SDM di semester depan.', icon: 'ShieldCheck' },
-                    { title: 'Infrastruktur', desc: 'Dikelilingi perbankan, vendor penunjang surat-menyurat, serta fasilitas ritel dan F&B untuk kesejahteraan produktivitas tim.', icon: 'Zap' }
-                ]
-            }}
-            options={{
-                title: 'Kategori Solusi Ruang Kerja di Bintaro Business Centre',
-                intro: 'Fleksibilitas model usaha yang disesuaikan arus kas.',
-                option1: {
-                    title: 'Service Office Eksklusif',
-                    desc: 'Unit terisolasi, AC, dan furnitur privat bagi tim yang siap tempur tanpa ribet instalasi harian.',
-                    suitableForTitle: 'Cocok Untuk',
-                    suitableForDesc: 'Vendor logistik, trader alat berat, distributor berskala yang perlu kantor cabang sentral.',
-                    bullets: ['Verifikasi Legalitas Cepat', 'Resepsionis Profesional']
+            h1="Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis"
+            intro='Jakarta Selatan adalah salah satu wilayah administratif DKI Jakarta yang paling aktif sebagai pusat operasional bisnis di luar kawasan CBD inti. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre menyediakan sewa kantor siap pakai di Pesanggrahan, Jakarta Selatan</a> yang berada sepenuhnya dalam yurisdiksi administratif DKI Jakarta dengan akses langsung ke JORR W2S.'
+            entity="sewa-kantor"
+            location="jakarta-selatan"
+            heroBadges={{ b1: "Geographic Authority", b2: "Business Relevance" }}
+            sections={[
+                {
+                    id: "problem",
+                    h2: "Mengapa Jakarta Selatan Menjadi Pusat Bisnis Strategis",
+                    rawHtml: `
+                        <p>Jakarta Selatan menawarkan keseimbangan antara aksesibilitas, ekosistem bisnis, dan status administratif yang tidak dimiliki oleh semua kawasan di sekitar Jakarta. Berbeda dengan kawasan penyangga seperti Tangerang Selatan atau Depok yang secara geografis berdekatan, Jakarta Selatan berada sepenuhnya dalam yurisdiksi DKI Jakarta â€” yang memiliki implikasi langsung pada proses perizinan usaha.</p>
+                        <p>Perusahaan yang memilih domisili di Jakarta Selatan mendapatkan alamat administratif DKI yang memudahkan pengurusan NIB, NPWP perusahaan, dan berbagai izin operasional lainnya. Ini menjadi pertimbangan penting terutama bagi perusahaan baru yang sedang membangun struktur legal usahanya.</p>
+                        <p>Lokasi kantor berpengaruh langsung pada jam operasional â€” jarak ke klien utama dan konektivitas. Kawasan seperti Pesanggrahan menawarkan posisi menguntungkan: cukup dekat ke pusat untuk akses mitra bisnis, namun jauh dari kepadatan CBD ekstrem.</p>
+                    `
                 },
-                option2: {
-                    title: 'Virtual Office Premium',
-                    desc: 'Domisili bonafide untuk legalitas operasional akta pendirian, menekan pengeluaran infrastruktur hingga 80%.',
-                    suitableForTitle: 'Cocok Untuk',
-                    suitableForDesc: 'Startup software, studio kreatif, firma hukum dan penyedia lini jasa (KBLI Jasa).',
-                    bullets: ['Notifikasi Mail Handling', 'Akses Ruang Eksekutif Meeting']
+                {
+                    id: "education",
+                    h2: "Konektivitas dan Mobilitas Tim Harian",
+                    rawHtml: `
+                        <h3>Terkoneksi Jaringan Jalan Tol Utama</h3>
+                        <p>Pilihan strategis untuk operasional sangat dipengaruhi oleh kelancaran logistik udara dan luar kota. Sebuah <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">kantor dekat Tol Veteran</a> secara instan mendapat akses JORR W2S untuk menghubungkan lini kendaraan suplai.</p>
+
+                        <h3>Mobilitas Lintas Wilayah Jakarta-Banten</h3>
+                        <p>Bagi perusahaan di sektor distribusi laut, otomotif perakitan, konstruksi perumahan, atau layanan jasa terstruktur â€” memosisikan diri di persimpangan ini memudahkan rekrutmen staff pinggir kota.</p>
+
+                        <h3>Lingkungan Profesional Menunjang Image</h3>
+                        <p>Sebuah kantor di yurisdiksi unggulan menumbuhkan impresi bonafide saat pendaftaran tender korporasi besar atau pengajuan proyek BUMN.</p>
+                    `
+                },
+                {
+                    id: "authority",
+                    h2: "Jenis Ruang Kerja yang Tersedia di Jakarta Selatan",
+                    rawHtml: `
+                        <p>Jakarta Selatan menawarkan beragam pilihan ruang kantor yang dapat disesuaikan dengan fase pertumbuhan dan investasi awal perusahaan.</p>
+                    `,
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Serviced Office â€” ruang fully furnished dengan layanan utilitas dan resepsionis terpusat.", icon: "Building2" },
+                            { title: "Kantor Konvensional â€” ruang kosong mentah untuk konfigurasi lay-out arsitektur perusahan Anda secara mandiri.", icon: "Layers" },
+                            { title: "Virtual Office â€” alamat domisili absah legal yang dirancang untuk pendirian izin NIB PT dari rumah.", icon: "MapPin" },
+                            { title: "Fleksibilitas skalabilitas memungkinkan upgrade dari alamat virtual menjadi kantor kompartemen tertata.", icon: "CheckSquare" }
+                        ]
+                    }
+                },
+                {
+                    id: "value",
+                    h2: "Variabel Kunci Memilih Alamat di Jakarta Selatan",
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Yurisdiksi Spesifik", desc: "Pemilihan alamat mutlak harus di koridor DKI, bukan wilayah pinggiran Tangerang Selatan yang memblokir NPWP pendaftaran ganda.", icon: "Map" },
+                            { title: "Akses Klien", desc: "Lokasi yang memangkas biaya transportasi logis untuk kunjungan tim pemasaran dari pusat perkantoran Sudirman.", icon: "Target" },
+                            { title: "Fleksibilitas Kontrak", desc: "Sewa ruang modern menyediakan klausul fleksibel guna akomodasi pertumbuhan skala SDM di semester depan.", icon: "ShieldCheck" },
+                            { title: "Infrastruktur", desc: "Dikelilingi perbankan, vendor penunjang surat-menyurat, serta fasilitas ritel dan F&B untuk kesejahteraan produktivitas tim.", icon: "Zap" }
+                        ]
+                    }
+                },
+                {
+                    id: "options",
+                    h2: "Kategori Solusi Ruang Kerja di Bintaro Business Centre",
+                    rawHtml: `
+                        <p>Fleksibilitas model usaha yang disesuaikan arus kas.</p>
+
+                        <h3>Service Office Eksklusif</h3>
+                        <p>Unit terisolasi, AC, dan furnitur privat bagi tim yang siap tempur tanpa ribet instalasi harian.</p>
+                        <p><strong>Cocok Untuk</strong><br/>Vendor logistik, trader alat berat, distributor berskala yang perlu kantor cabang sentral.</p>
+                        <ul>
+                            <li>Verifikasi Legalitas Cepat</li>
+                            <li>Resepsionis Profesional</li>
+                        </ul>
+
+                        <h3>Virtual Office Premium</h3>
+                        <p>Domisili bonafide untuk legalitas operasional akta pendirian, menekan pengeluaran infrastruktur hingga 80%.</p>
+                        <p><strong>Cocok Untuk</strong><br/>Startup software, studio kreatif, firma hukum dan penyedia lini jasa (KBLI Jasa).</p>
+                        <ul>
+                            <li>Notifikasi Mail Handling</li>
+                            <li>Akses Ruang Eksekutif Meeting</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "related",
+                    h2: "ARTIKEL TERKAIT KONEKTIVITAS KAMI",
+                    rawHtml: `
+                        <ul>
+                            <li><a href="/sewa-kantor/bintaro">Sewa Kantor dengan Ruang Minimalis Bintaro</a></li>
+                            <li><a href="/kantor-dekat-tol-veteran">Kantor Dekat Tol Veteran JORR</a></li>
+                            <li><a href="/sewa-kantor/murah-jakarta-selatan">Sewa Kantor Murah di Jakarta Selatan</a></li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "cta",
+                    h2: "Selesai Berkelana, Waktunya Mengambil Resolusi Operasional",
+                    rawHtml: `
+                        <p>Keputusan lokasi kantor sebaiknya didasarkan pada pola pergerakan logistik modern dan proteksi yurisdiksi. Dapatkan efisiensi dan fasilitas kelas wahid.</p>
+                        <p><a href="https://wa.me/628128888069">Tanya Tim Konsultan Eksekutif</a> | <a href="/harga-sewa-kantor-bintaro">Lihat Daftar Tarif Sewa</a></p>
+                    `
                 }
+            ]}
+            faq={{
+                title: "Pertanyaan Seputar Legalitas Domisili Bisnis Wilayah Selatan",
+                items: [
+                    { q: "Apakah kawasan Pesanggrahan termasuk ke dalam Jakarta Selatan?", a: "Ya, Pesanggrahan dan sebagian jalan RC Veteran berada penuh pada yurisdiksi Jakarta Selatan, menjadikannya kunci pembuka status kewilayahan DKI." },
+                    { q: "Berapa jarak dari kantor ini untuk mencapai bandara Soekarno-Hatta?", a: "Melalui koridor Pintu Tol Veteran (JORR W2S Utara), Anda hanya butuh sekitar 20-30 menit dalam kondisi lalu lintas wajar menuju bandara antar-nusa." },
+                    { q: "Apakah Bintaro Business Centre menangani proses pendirian perusahaan dari nol?", a: "Ya, Anda berhak menikmati fasilitas pengurusan inkubasi PT/CV hingga tuntas sebagai wujud support relasional layanan kami." }
+                ]
             }}
             internalLinks={{
-                title: 'Pahami Struktur Biaya Ruangan Anda Sebelum Menyewa',
-                card1: {
-                    title: 'Estimasi Biaya Bintaro',
-                    desc: 'Ketahui seluk beluk pembagian angka di balik tagihan per bulan dalam evaluasi mandiri operasional kami.',
-                    ctaLabel: 'Cek Harga',
-                    href: '/harga-sewa-kantor-bintaro'
-                },
-                card2: {
-                    title: 'Pilihan Layanan Siap Pakai',
-                    desc: 'Gali metode kerja berfasilitas utuh tanpa disibukkan pusing administrasi dan perawatan struktur.',
-                    ctaLabel: 'Jelajahi Solusi',
-                    href: '/sewa-kantor/kantor-siap-pakai-bintaro'
-                }
-            }}
-            relatedArticles={{
-                title: 'ARTIKEL TERKAIT KONEKTIVITAS KAMI',
-                links: [
-                    { title: 'Sewa Kantor dengan Ruang Minimalis Bintaro', href: '/sewa-kantor/bintaro' },
-                    { title: 'Kantor Dekat Tol Veteran JORR', href: '/kantor-dekat-tol-veteran' },
-                    { title: 'Sewa Kantor Murah di Jakarta Selatan', href: '/sewa-kantor/murah-jakarta-selatan' }
-                ]
-            }}
-            faq={{
-                title: 'Pertanyaan Seputar Legalitas Domisili Bisnis Wilayah Selatan',
-                items: [
-                    { q: 'Apakah kawasan Pesanggrahan termasuk ke dalam Jakarta Selatan?', a: 'Ya, Pesanggrahan dan sebagian jalan RC Veteran berada penuh pada yurisdiksi Jakarta Selatan, menjadikannya kunci pembuka status kewilayahan DKI.' },
-                    { q: 'Berapa jarak dari kantor ini untuk mencapai bandara Soekarno-Hatta?', a: 'Melalui koridor Pintu Tol Veteran (JORR W2S Utara), Anda hanya butuh sekitar 20-30 menit dalam kondisi lalu lintas wajar menuju bandara antar-nusa.' },
-                    { q: 'Apakah Bintaro Business Centre menangani proses pendirian perusahaan dari nol?', a: 'Ya, Anda berhak menikmati fasilitas pengurusan inkubasi PT/CV hingga tuntas sebagai wujud support relasional layanan kami.' }
-                ]
-            }}
-            bottomCTA={{
-                title: 'Selesai Berkelana, Waktunya Mengambil Resolusi Operasional',
-                subtitle: 'Keputusan lokasi kantor sebaiknya didasarkan pada pola pergerakan logistik modern dan proteksi yurisdiksi. Dapatkan efisiensi dan fasilitas kelas wahid.',
-                primaryCTA: { label: 'Tanya Tim Konsultan Eksekutif', href: 'https://wa.me/628128888069' },
-                secondaryCTA: { label: 'Lihat Daftar Tarif Sewa', href: '/harga-sewa-kantor-bintaro' }
+                intro: { label: "Cek Harga", href: "/harga-sewa-kantor-bintaro" },
+                mid: { label: "Jelajahi Solusi", href: "/sewa-kantor/kantor-siap-pakai-bintaro" },
+                closing: { label: "Tanya Tim Konsultan Eksekutif", href: "https://wa.me/628128888069" }
             }}
         />
     )
 }
+

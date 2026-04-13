@@ -262,7 +262,7 @@ const nodes: LinkGraphNode[] = [];
 const edges: LinkGraphEdge[] = [];
 
 auditData.forEach(page => {
-    page.linksOut.forEach(link => {
+    page.linksOut.forEach((link: { href: string; anchor?: string; isContextual?: boolean; isMoneyPage?: boolean; position: number }) => {
         const toPath = link.href.split('#')[0].split('?')[0]; 
         
         edges.push({

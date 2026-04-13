@@ -3,91 +3,113 @@ import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 export default function HargaSewaKantorBintaroPage() {
     return (
         <WeaponPageTemplate
+            url="/harga-sewa-kantor-bintaro"
             title="Harga Sewa Kantor Bintaro: Struktur Biaya & Faktor Penentu"
             description="Informasi transparan mengenai harga sewa kantor di Bintaro, struktur biaya per bulan, dan perbandingan antara kantor konvensional vs serviced office."
             canonicalUrl="https://www.bintarobusinesscentre.com/harga-sewa-kantor-bintaro"
-            hero={{
-                badge1: "Sewa Kantor",
-                badge2: "Bintaro",
-                h1: "Harga Sewa Kantor Bintaro: Struktur Biaya & Faktor Penentu",
-                subheading: "Mencari harga sewa kantor di Bintaro tanpa memahami apa yang masuk dalam angka tersebut adalah cara tercepat untuk salah membandingkan di <a href='/sewa-kantor'>layanan sewa kantor Bintaro Business Center</a>.",
-                ctaLabel: "Cek Price List",
-                ctaHref: "https://wa.me/6281210002131",
-                image: "/bintaro_office_interior_hero_1775704295338.png"
-            }}
-            problem={{
-                title: "Memahami Apa yang Anda Bayar",
-                paragraphs: [
-                    "Dua kantor dengan harga yang sama bisa memberikan pengalaman yang sangat berbeda — tergantung apa yang tercakup dan apa yang tidak. Di Bintaro Business Center, kami beroperasi dengan model all-inclusive: satu angka, satu tagihan.",
-                    "Sebelum memutuskan, penting untuk memahami bagaimana struktur biaya sewa kantor terbentuk — agar Anda bisa membuat perbandingan yang akurat dan keputusan yang paling efisien bagi cash flow perusahaan."
-                ]
-            }}
-            education={{
-                title: "Komponen Biaya Sewa Kantor Modern",
-                items: [
-                    {
-                        title: "Sewa Ruang & Service Charge",
-                        content: "Biaya dasar adalah hak penggunaan ruang. Namun, Anda juga harus memperhitungkan service charge untuk kebersihan area umum, keamanan, dan manajemen properti. Di serviced office, angka ini biasanya sudah digabung."
-                    },
-                    {
-                        title: "Utilitas (Listrik, Air, Internet)",
-                        content: "Inilah komponen yang paling sering menjadi sumber kejutan biaya. Kantor konvensional menagih berdasarkan konsumsi aktual, sementara model all-inclusive menghilangkan variabel ini dari pengeluaran bulanan Anda."
-                    },
-                    {
-                        title: "Fasilitas & Layanan Resepsionis",
-                        content: "Apakah harga tersebut sudah termasuk penanganan tamu, surat-menyurat, dan akses internet berkecepatan tinggi? Verifikasi fasilitas yang tercakup sebelum menyetujui kontrak."
-                    }
-                ]
-            }}
-            authority={{
-                title: "Efisiensi Total Cost of Occupancy",
-                highlight: "Untuk bisnis yang menghitung total cost — bukan hanya angka sewa — serviced office sering kali lebih efisien secara keseluruhan.",
-                image: "/bintaro_office_interior_hero_1775704295338.png",
-                items: [
-                    { icon: "Calculator", text: "Transparansi biaya tanpa hidden fees" },
-                    { icon: "CheckCircle2", text: "Model all-inclusive: Listrik, Internet, & Maintenance" },
-                    { icon: "TrendingUp", text: "Lebih hemat hingga 30% dibanding setup kantor mandiri" }
-                ]
-            }}
-            value={{
-                title: "Mengapa Bintaro Sektor 7?",
-                items: [
-                    { title: "Akses Strategis", desc: "Akses tol langsung memudahkan mobilitas tim dan kunjungan klien.", icon: "MapPin" },
-                    { title: "Ekosistem Bisnis", desc: "Berada di pusat komersial Bintaro dengan fasilitas pendukung lengkap.", icon: "Building2" },
-                    { title: "Lingkungan Modern", desc: "Suasana kerja profesional yang meningkatkan produktivitas tim.", icon: "Zap" },
-                    { title: "Parkir Terjamin", desc: "Kapasitas parkir luas yang seringkali sudah termasuk dalam paket sewa.", icon: "Truck" }
-                ]
-            }}
-            options={{
-                title: "Konvensional vs Serviced Office",
-                intro: "Pilih model yang paling sesuai dengan kebutuhan jangka panjang bisnis Anda.",
-                option1: {
-                    title: "Serviced Office",
-                    desc: "Kemas semua kebutuhan operasional dalam satu harga tetap setiap bulan.",
-                    suitableForTitle: "Ideal Untuk",
-                    suitableForDesc: "Startup, UKM, dan tim yang ingin fokus ke bisnis tanpa pusing urusan operasional kantor.",
-                    bullets: ["Setup instan (Plug & Play)", "Budget bulanan terukur", "Kontrak fleksibel", "Gratis Meeting Room"]
+            h1="Harga Sewa Kantor Bintaro: Struktur Biaya & Faktor Penentu"
+            intro="Mencari harga sewa kantor di Bintaro tanpa memahami apa yang masuk dalam angka tersebut adalah cara tercepat untuk salah membandingkan di <a href='/sewa-kantor'>layanan sewa kantor Bintaro Business Center</a>."
+            entity="sewa-kantor"
+            location="bintaro"
+            heroBadges={{ b1: "Sewa Kantor", b2: "Bintaro" }}
+            sections={[
+                {
+                    id: "problem",
+                    h2: "Memahami Apa yang Anda Bayar",
+                    rawHtml: `
+                        <p>Dua kantor dengan harga yang sama bisa memberikan pengalaman yang sangat berbeda â€” tergantung apa yang tercakup dan apa yang tidak. Di Bintaro Business Center, kami beroperasi dengan model all-inclusive: satu angka, satu tagihan.</p>
+                        <p>Sebelum memutuskan, penting untuk memahami bagaimana struktur biaya sewa kantor terbentuk â€” agar Anda bisa membuat perbandingan yang akurat dan keputusan yang paling efisien bagi cash flow perusahaan.</p>
+                    `
                 },
-                option2: {
-                    title: "Kantor Konvensional",
-                    desc: "Sewa ruang kosong yang memberikan kebebasan kustomisasi penuh sesuai brand.",
-                    suitableForTitle: "Ideal Untuk",
-                    suitableForDesc: "Perusahaan besar dengan tim di atas 20 orang dan kebutuhan renovasi khusus.",
-                    bullets: ["Kustomisasi layout penuh", "Identitas brand lebih kuat", "Kontrak jangka panjang", "Akses 24/7 mandiri"]
+                {
+                    id: "education",
+                    h2: "Komponen Biaya Sewa Kantor Modern",
+                    rawHtml: `
+                        <h3>Sewa Ruang &amp; Service Charge</h3>
+                        <p>Biaya dasar adalah hak penggunaan ruang. Namun, Anda juga harus memperhitungkan service charge untuk kebersihan area umum, keamanan, dan manajemen properti. Di serviced office, angka ini biasanya sudah digabung.</p>
+
+                        <h3>Utilitas (Listrik, Air, Internet)</h3>
+                        <p>Inilah komponen yang paling sering menjadi sumber kejutan biaya. Kantor konvensional menagih berdasarkan konsumsi aktual, sementara model all-inclusive menghilangkan variabel ini dari pengeluaran bulanan Anda.</p>
+
+                        <h3>Fasilitas &amp; Layanan Resepsionis</h3>
+                        <p>Apakah harga tersebut sudah termasuk penanganan tamu, surat-menyurat, dan akses internet berkecepatan tinggi? Verifikasi fasilitas yang tercakup sebelum menyetujui kontrak.</p>
+                    `
+                },
+                {
+                    id: "authority",
+                    h2: "Efisiensi Total Cost of Occupancy",
+                    rawHtml: `
+                        <p>Untuk bisnis yang menghitung total cost â€” bukan hanya angka sewa â€” serviced office sering kali lebih efisien secara keseluruhan.</p>
+                    `,
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Transparansi biaya tanpa hidden fees", icon: "Calculator" },
+                            { title: "Model all-inclusive: Listrik, Internet, &amp; Maintenance", icon: "CheckCircle2" },
+                            { title: "Lebih hemat hingga 30% dibanding setup kantor mandiri", icon: "TrendingUp" }
+                        ]
+                    }
+                },
+                {
+                    id: "value",
+                    h2: "Mengapa Bintaro Sektor 7?",
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Akses Strategis", desc: "Akses tol langsung memudahkan mobilitas tim dan kunjungan klien.", icon: "MapPin" },
+                            { title: "Ekosistem Bisnis", desc: "Berada di pusat komersial Bintaro dengan fasilitas pendukung lengkap.", icon: "Building2" },
+                            { title: "Lingkungan Modern", desc: "Suasana kerja profesional yang meningkatkan produktivitas tim.", icon: "Zap" },
+                            { title: "Parkir Terjamin", desc: "Kapasitas parkir luas yang seringkali sudah termasuk dalam paket sewa.", icon: "Truck" }
+                        ]
+                    }
+                },
+                {
+                    id: "options",
+                    h2: "Konvensional vs Serviced Office",
+                    rawHtml: `
+                        <p>Pilih model yang paling sesuai dengan kebutuhan jangka panjang bisnis Anda.</p>
+
+                        <h3>Serviced Office</h3>
+                        <p>Kemas semua kebutuhan operasional dalam satu harga tetap setiap bulan.</p>
+                        <p><strong>Ideal Untuk</strong><br/>Startup, UKM, dan tim yang ingin fokus ke bisnis tanpa pusing urusan operasional kantor.</p>
+                        <ul>
+                            <li>Setup instan (Plug &amp; Play)</li>
+                            <li>Budget bulanan terukur</li>
+                            <li>Kontrak fleksibel</li>
+                            <li>Gratis Meeting Room</li>
+                        </ul>
+
+                        <h3>Kantor Konvensional</h3>
+                        <p>Sewa ruang kosong yang memberikan kebebasan kustomisasi penuh sesuai brand.</p>
+                        <p><strong>Ideal Untuk</strong><br/>Perusahaan besar dengan tim di atas 20 orang dan kebutuhan renovasi khusus.</p>
+                        <ul>
+                            <li>Kustomisasi layout penuh</li>
+                            <li>Identitas brand lebih kuat</li>
+                            <li>Kontrak jangka panjang</li>
+                            <li>Akses 24/7 mandiri</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "cta",
+                    h2: "Dapatkan Penawaran Sewa Terbaik Hari Ini",
+                    rawHtml: `
+                        <p>Satu harga untuk semua kebutuhan kantor Anda. Tanpa biaya tersembunyi.</p>
+                        <p><a href="https://wa.me/6281210002131">WhatsApp Untuk Info Harga</a> | <a href="/sewa-kantor">Tinjau Lokasi</a></p>
+                    `
                 }
-            }}
+            ]}
             internalLinks={{
-                title: "Bandingkan Paket Sewa",
-                card1: {
-                    title: "Pilihan Ruang Kantor",
-                    desc: "Lihat berbagai pilihan ukuran ruang kantor siap pakai di Bintaro Sektor 7.",
-                    ctaLabel: "Lihat Ruang",
+                intro: {
+                    label: "Bandingkan Paket Sewa",
+                    href: "/sewa-kantor/bintaro"
+                },
+                mid: {
+                    label: "Lihat Pilihan Ruang Kantor",
                     href: "/sewa-kantor"
                 },
-                card2: {
-                    title: "Virtual Office",
-                    desc: "Hanya butuh alamat tanpa ruang kerja fisik? Virtual office adalah solusinya.",
-                    ctaLabel: "Lihat Paket",
+                closing: {
+                    label: "Lihat Paket Virtual Office",
                     href: "/virtual-office"
                 }
             }}
@@ -96,7 +118,7 @@ export default function HargaSewaKantorBintaroPage() {
                 items: [
                     {
                         q: "Berapa kisaran harga sewa kantor di Bintaro?",
-                        a: "Untuk serviced office all-inclusive di kawasan Bintaro, kisaran harga umumnya dimulai dari Rp 2–3 juta per bulan untuk ruang kecil, hingga Rp 6–8 juta untuk ruang yang lebih besar dengan fasilitas lengkap. Harga ini sudah mencakup furniture, internet, resepsionis, dan utilitas."
+                        a: "Untuk serviced office all-inclusive di kawasan Bintaro, kisaran harga umumnya dimulai dari Rp 2â€“3 juta per bulan untuk ruang kecil, hingga Rp 6â€“8 juta untuk ruang yang lebih besar dengan fasilitas lengkap. Harga ini sudah mencakup furniture, internet, resepsionis, dan utilitas."
                     },
                     {
                         q: "Apa saja biaya tambahan yang perlu diperhitungkan?",
@@ -108,12 +130,7 @@ export default function HargaSewaKantorBintaroPage() {
                     }
                 ]
             }}
-            bottomCTA={{
-                title: "Dapatkan Penawaran Sewa Terbaik Hari Ini",
-                subtitle: "Satu harga untuk semua kebutuhan kantor Anda. Tanpa biaya tersembunyi.",
-                primaryCTA: { label: "WhatsApp Untuk Info Harga", href: "https://wa.me/6281210002131" },
-                secondaryCTA: { label: "Tinjau Lokasi", href: "/sewa-kantor" }
-            }}
         />
     )
 }
+

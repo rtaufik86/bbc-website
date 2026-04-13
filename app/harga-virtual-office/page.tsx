@@ -3,94 +3,102 @@ import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
 export default function HargaVirtualOfficePage() {
     return (
         <WeaponPageTemplate
+            url="/harga-virtual-office"
             title="Harga Virtual Office: Faktor Penentu & Struktur Biaya"
             description="Informasi transparan mengenai harga virtual office di Jakarta Selatan, rincian layanan per paket, dan kapan virtual office menjadi pilihan paling efisien."
             canonicalUrl="https://www.bintarobusinesscentre.com/harga-virtual-office"
-            hero={{
-                badge1: "Virtual Office",
-                badge2: "Struktur Harga",
-                h1: "Harga Virtual Office: Faktor Penentu & Struktur Biaya",
-                subheading: "Virtual office bukan produk yang satu ukuran cocok untuk semua. Harganya mencerminkan perbedaan nyata dalam layanan yang Anda terima di <a href='/virtual-office'>virtual office Bintaro Business Center</a>.",
-                ctaLabel: "Pilih Paket Anda",
-                ctaHref: "https://wa.me/6281210002131",
-                image: "/virtual_office_concept_hero_1775704318054.png"
-            }}
-            problem={{
-                title: "Memilih Berdasarkan Kebutuhan, Bukan Sekadar Harga",
-                paragraphs: [
-                    "Memahami apa yang membentuk harga virtual office membantu Anda memilih paket yang benar-benar sesuai kebutuhan, bukan paket yang paling murah atau paling mahal.",
-                    "Harganya bervariasi karena mencakup kombinasi layanan yang berbeda — dari keperluan alamat bisnis dasar hingga representasi bisnis penuh dengan akses meeting room dan penanganan telepon."
-                ]
-            }}
-            education={{
-                title: "Komponen yang Membentuk Paket Virtual Office",
-                items: [
-                    {
-                        title: "Alamat Bisnis & Domisili Gedung",
-                        content: "Layanan inti: hak penggunaan alamat resmi untuk keperluan legal (PT/CV) dan dokumen operasional. Pastikan penyedia memberikan surat domisili gedung yang sah."
-                    },
-                    {
-                        title: "Penanganan Surat & Notifikasi",
-                        content: "Layanan pengelolaan surat masuk dengan notifikasi real-time (WhatsApp/Email). Penyedia profesional memastikan tidak ada dokumen legal penting yang terlewat."
-                    },
-                    {
-                        title: "Akses Meeting Room & Telepon",
-                        content: "Paket menengah ke atas biasanya menyertakan quota meeting room. Untuk perusahaan yang ingin representasi penuh, layanan penjawab telepon atas nama perusahaan sangat krusial."
+            h1="Harga Virtual Office: Faktor Penentu & Struktur Biaya"
+            intro="Virtual office bukan produk yang satu ukuran cocok untuk semua. Harganya mencerminkan perbedaan nyata dalam layanan yang Anda terima di <a href='/virtual-office'>virtual office Bintaro Business Center</a>."
+            entity="virtual-office"
+            location="jakarta-selatan"
+            heroBadges={{ b1: "Virtual Office", b2: "Struktur Harga" }}
+            sections={[
+                {
+                    id: "problem",
+                    h2: "Memilih Berdasarkan Kebutuhan, Bukan Sekadar Harga",
+                    rawHtml: `
+                        <p>Memahami apa yang membentuk harga virtual office membantu Anda memilih paket yang benar-benar sesuai kebutuhan, bukan paket yang paling murah atau paling mahal.</p>
+                        <p>Harganya bervariasi karena mencakup kombinasi layanan yang berbeda â€” dari keperluan alamat bisnis dasar hingga representasi bisnis penuh dengan akses meeting room dan penanganan telepon.</p>
+                    `
+                },
+                {
+                    id: "education",
+                    h2: "Komponen yang Membentuk Paket Virtual Office",
+                    rawHtml: `
+                        <h3>Alamat Bisnis &amp; Domisili Gedung</h3>
+                        <p>Layanan inti: hak penggunaan alamat resmi untuk keperluan legal (PT/CV) dan dokumen operasional. Pastikan penyedia memberikan surat domisili gedung yang sah.</p>
+
+                        <h3>Penanganan Surat &amp; Notifikasi</h3>
+                        <p>Layanan pengelolaan surat masuk dengan notifikasi real-time (WhatsApp/Email). Penyedia profesional memastikan tidak ada dokumen legal penting yang terlewat.</p>
+
+                        <h3>Akses Meeting Room &amp; Telepon</h3>
+                        <p>Paket menengah ke atas biasanya menyertakan quota meeting room. Untuk perusahaan yang ingin representasi penuh, layanan penjawab telepon atas nama perusahaan sangat krusial.</p>
+                    `
+                },
+                {
+                    id: "authority",
+                    h2: "Faktor Lokasi Administratif",
+                    rawHtml: `
+                        <p>Wilayah administratif (Jakarta Selatan vs Tangerang Selatan) memiliki implikasi nyata untuk keperluan PKP dan domisili perusahaan.</p>
+                    `,
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Alamat prestisius di wilayah Jakarta Selatan", icon: "MapPin" },
+                            { title: "Proses PKP dimungkinkan untuk KBLI Jasa", icon: "ShieldCheck" },
+                            { title: "Tiga paket fleksibel: BA, CP, dan FCP", icon: "Menu" }
+                        ]
                     }
-                ]
-            }}
-            authority={{
-                title: "Faktor Lokasi Administratif",
-                highlight: "Wilayah administratif (Jakarta Selatan vs Tangerang Selatan) memiliki implikasi nyata untuk keperluan PKP dan domisili perusahaan.",
-                image: "/virtual_office_concept_hero_1775704318054.png",
-                items: [
-                    { icon: "MapPin", text: "Alamat prestisius di wilayah Jakarta Selatan" },
-                    { icon: "ShieldCheck", text: "Proses PKP dimungkinkan untuk KBLI Jasa" },
-                    { icon: "Menu", text: "Tiga paket fleksibel: BA, CP, dan FCP" }
-                ]
-            }}
-            value={{
-                title: "Kapan Virtual Office Menjadi Efisien?",
-                items: [
-                    { title: "Sangat Hemat", desc: "Mulai dari Rp 250rb/bulan, jauh lebih hemat dari sewa kantor fisik.", icon: "CreditCard" },
-                    { title: "Setup Legalitas", desc: "Pondasi legal yang sah untuk pendirian PT dengan biaya overhead minimal.", icon: "FileText" },
-                    { title: "Tim Remote", desc: "Sempurna untuk bisnis jasa yang timnya bekerja dari mana saja.", icon: "Users" },
-                    { title: "Prestige Lokasi", desc: "Meningkatkan trust klien dengan alamat di kawasan bisnis strategis.", icon: "Award" }
-                ]
-            }}
-            options={{
-                title: "Bandingkan Paket Virtual Office",
-                intro: "Di Bintaro Business Centre, kami menyediakan tiga pilihan paket utama.",
-                option1: {
-                    title: "Paket BA (Basic Address)",
-                    desc: "Hanya butuh alamat tanpa interaksi fisik yang sering.",
-                    suitableForTitle: "Cocok Untuk",
-                    suitableForDesc: "Freelancer, Startup early-stage, dan bisnis digital.",
-                    bullets: ["Alamat Bisnis Jakarta Selatan", "Notifikasi Surat via WA", "Harga: Rp 250.000 / bln", "Domisili Gedung Lengkap"]
                 },
-                option2: {
-                    title: "Paket FCP (Full Representation)",
-                    desc: "Representasi bisnis penuh termasuk penanganan telepon.",
-                    suitableForTitle: "Cocok Untuk",
-                    suitableForDesc: "Perusahaan mapan yang ingin tampil profesional di alamat premium.",
-                    bullets: ["Semua fitur Paket BA + CP", "Penjawab Telepon Khusus", "Harga: Rp 916.667 / bln", "Branding Nama Perusahaan"]
-                }
-            }}
-            internalLinks={{
-                title: "Mulai Optimasi Biaya Anda",
-                card1: {
-                    title: "Detail Paket Virtual Office",
-                    desc: "Pelajari rincian setiap fitur dan layanan dalam paket virtual office kami.",
-                    ctaLabel: "Lihat Detail",
-                    href: "/virtual-office"
+                {
+                    id: "value",
+                    h2: "Kapan Virtual Office Menjadi Efisien?",
+                    visual: {
+                        type: "card",
+                        items: [
+                            { title: "Sangat Hemat", desc: "Mulai dari Rp 250rb/bulan, jauh lebih hemat dari sewa kantor fisik.", icon: "CreditCard" },
+                            { title: "Setup Legalitas", desc: "Pondasi legal yang sah untuk pendirian PT dengan biaya overhead minimal.", icon: "FileText" },
+                            { title: "Tim Remote", desc: "Sempurna untuk bisnis jasa yang timnya bekerja dari mana saja.", icon: "Users" },
+                            { title: "Prestige Lokasi", desc: "Meningkatkan trust klien dengan alamat di kawasan bisnis strategis.", icon: "Award" }
+                        ]
+                    }
                 },
-                card2: {
-                    title: "Daftar Lokasi Kantor",
-                    desc: "Cari tahu lebih lanjut tentang lokasi fisik kami di Jakarta Selatan & Bintaro.",
-                    ctaLabel: "Lihat Lokasi",
-                    href: "/virtual-office/jakarta-selatan"
+                {
+                    id: "options",
+                    h2: "Bandingkan Paket Virtual Office",
+                    rawHtml: `
+                        <p>Di Bintaro Business Centre, kami menyediakan tiga pilihan paket utama.</p>
+
+                        <h3>Paket BA (Basic Address)</h3>
+                        <p>Hanya butuh alamat tanpa interaksi fisik yang sering.</p>
+                        <p><strong>Cocok Untuk</strong><br/>Freelancer, Startup early-stage, dan bisnis digital.</p>
+                        <ul>
+                            <li>Alamat Bisnis Jakarta Selatan</li>
+                            <li>Notifikasi Surat via WA</li>
+                            <li>Harga: Rp 250.000 / bln</li>
+                            <li>Domisili Gedung Lengkap</li>
+                        </ul>
+
+                        <h3>Paket FCP (Full Representation)</h3>
+                        <p>Representasi bisnis penuh termasuk penanganan telepon.</p>
+                        <p><strong>Cocok Untuk</strong><br/>Perusahaan mapan yang ingin tampil profesional di alamat premium.</p>
+                        <ul>
+                            <li>Semua fitur Paket BA + CP</li>
+                            <li>Penjawab Telepon Khusus</li>
+                            <li>Harga: Rp 916.667 / bln</li>
+                            <li>Branding Nama Perusahaan</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "cta",
+                    h2: "Amankan Alamat Bisnis Anda Sekarang",
+                    rawHtml: `
+                        <p>Solusi alamat bisnis legal dan prestisius dengan harga paling kompetitif.</p>
+                        <p><a href="https://wa.me/6281210002131">Pilih Paket via WhatsApp</a> | <a href="/virtual-office">Bandingkan Paket</a></p>
+                    `
                 }
-            }}
+            ]}
             faq={{
                 title: "Pertanyaan Seputar Harga VO",
                 items: [
@@ -108,12 +116,12 @@ export default function HargaVirtualOfficePage() {
                     }
                 ]
             }}
-            bottomCTA={{
-                title: "Amankan Alamat Bisnis Anda Sekarang",
-                subtitle: "Solusi alamat bisnis legal dan prestisius dengan harga paling kompetitif.",
-                primaryCTA: { label: "Pilih Paket via WhatsApp", href: "https://wa.me/6281210002131" },
-                secondaryCTA: { label: "Bandingkan Paket", href: "/virtual-office" }
+            internalLinks={{
+                intro: { label: "Lihat Detail", href: "/virtual-office" },
+                mid: { label: "Lihat Lokasi", href: "/virtual-office/jakarta-selatan" },
+                closing: { label: "Pilih Paket via WhatsApp", href: "https://wa.me/6281210002131" }
             }}
         />
     )
 }
+
