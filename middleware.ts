@@ -57,10 +57,10 @@ export async function middleware(request: NextRequest) {
     // SEO Redirects & 410 Gone Handling (MASTER CLEANUP MAP)
     const url = request.nextUrl
     const path = url.pathname
+    const normalizedPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path
 
-    // FIX: permanent redirect normalization (301, not default 308).
-    if (path === '/meeting-room') {
-        return NextResponse.redirect(new URL('/ruang-meeting', request.url), 301)
+    if (url.search && path !== '/') {
+        return NextResponse.redirect(new URL(path, request.url), 301)
     }
 
     // ALLOWLIST: guard against false positives for core canonical routes.
@@ -72,7 +72,7 @@ export async function middleware(request: NextRequest) {
         /^\/ruang-meeting(?:\/|$)/,
     ]
 
-    if (!allowList.some(r => r.test(path))) {
+    if (!allowList.some(r => r.test(normalizedPath))) {
         // KILL ENGINE (P0): legacy WP + archives + landing + feeds + duplicates.
         const isBlogKillActive =
             process.env.SEO_KILL_BLOG === '1' ||
@@ -110,10 +110,12 @@ export async function middleware(request: NextRequest) {
             /^\/promo(?:\/|$)/,
             /^\/campaign(?:\/|$)/,
             /^\/landing(?:\/|$)/,
+            /^\/amp(?:\/|$)/,
+            /^\/bookingroom(?:\/|$)/,
 
             // GROUP D — FEED / RSS
-            /(?:^|\/)comments\/feed\/?$/,
-            /(?:^|\/)feed\/?$/,
+            /(?:^|\/)comments\/feed(?:\/|$)/,
+            /(?:^|\/)feed(?:\/|$)/,
         ]
 
         // GROUP E — DUPLICATE PATH (selective 301 if mapped, else 410)
@@ -124,19 +126,31 @@ export async function middleware(request: NextRequest) {
             '/index.php/': '/',
         }
 
-        if (path in canonicalRedirects) {
-            return NextResponse.redirect(new URL(canonicalRedirects[path], request.url), 301)
+        if (normalizedPath in canonicalRedirects) {
+            return NextResponse.redirect(
+                new URL(canonicalRedirects[normalizedPath], request.url),
+                301
+            )
         }
 
         if (
-            killPatterns.some(r => r.test(path)) ||
-            /^\/index\.php(?:\/|$)/.test(path) ||
-            /^\/home(?:\/|$)/.test(path) ||
-            (isBlogKillActive && /^\/blog(?:\/|$)/.test(path)) ||
-            path.endsWith('.html')
+            killPatterns.some(r => r.test(normalizedPath)) ||
+            /^\/index\.php(?:\/|$)/.test(normalizedPath) ||
+            /^\/home(?:\/|$)/.test(normalizedPath) ||
+            (isBlogKillActive && /^\/blog(?:\/|$)/.test(normalizedPath)) ||
+            normalizedPath.endsWith('.html')
         ) {
             return kill()
         }
+    }
+
+    if (normalizedPath !== path) {
+        return NextResponse.redirect(new URL(normalizedPath, request.url), 301)
+    }
+
+    // FIX: permanent redirect normalization (301, not default 308).
+    if (normalizedPath === '/meeting-room') {
+        return NextResponse.redirect(new URL('/ruang-meeting', request.url), 301)
     }
 
     // Refresh session if expired
@@ -146,19 +160,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: [
-        /*
-         * Match all request paths except:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         * - public files (public folder)
-         */
-        '/wp-json/:path*',
-        '/wp-content/:path*',
-        '/wp-includes/:path*',
-        '/wp-include/:path*',
-        '/attachment/:path*',
-        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-    ],
+    matcher: ['/((?!_next|favicon.ico).*)'],
 }

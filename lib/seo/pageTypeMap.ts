@@ -223,7 +223,7 @@ export const getPageConfig = (pathname: string): PageConfig => {
     if (normalizedPath.startsWith('/auth/')) return { type: 'utility', entity: 'Auth' };
     
     // Default fallback
-    return { type: 'support', entity: 'BBC' };
+    return { type: 'utility', entity: 'BBC' };
 };
 
 export const isIndexable = (pathname: string): boolean => {
