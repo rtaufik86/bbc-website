@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp']
   },
   trailingSlash: false,
+  skipTrailingSlashRedirect: true,
   async redirects() {
     const canonicalBase = 'https://www.bintarobusinesscentre.com';
     
@@ -22,11 +23,9 @@ const nextConfig: NextConfig = {
       // 1. Core Service & Product Legacy (Direct to Final Canonical URL)
       { source: '/service-office', destination: `${canonicalBase}/sewa-kantor`, permanent: true },
       { source: '/sewa-gudang-bulanan', destination: `${canonicalBase}/sewa-kantor`, permanent: true },
-      { source: '/meeting-room', destination: `${canonicalBase}/sewa-kantor/ruang-meeting`, permanent: true },
       { source: '/jasa-sewa-virtual-office-di-bintaro-jakarta-selatan', destination: `${canonicalBase}/virtual-office`, permanent: true },
       { source: '/jasa-pembuatan-pt', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
       { source: '/jasa-legalitas', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },
-      { source: '/lp/jasa-sewa-kantor', destination: `${canonicalBase}/sewa-kantor`, permanent: true },
 
       // 2. Business & Legal Service Pages
       { source: '/business-services', destination: `${canonicalBase}/legal/pendirian-pt-jakarta-selatan`, permanent: true },

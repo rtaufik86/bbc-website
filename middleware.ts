@@ -57,45 +57,85 @@ export async function middleware(request: NextRequest) {
     // SEO Redirects & 410 Gone Handling (MASTER CLEANUP MAP)
     const url = request.nextUrl
     const path = url.pathname
-    const searchParams = url.searchParams
-    const canonicalBase = 'https://www.bintarobusinesscentre.com'
 
-    // 1. Parameter & Extension Cleanup (410 GONE)
-    const hasJunkParams = searchParams.has('amp') || 
-                         searchParams.has('replytocom') || 
-                         Array.from(searchParams.keys()).some(k => k.startsWith('utm_'))
-    
-    if (hasJunkParams || path.endsWith('.html')) {
-        return new NextResponse(null, { status: 410, statusText: 'Gone' })
+    // FIX: permanent redirect normalization (301, not default 308).
+    if (path === '/meeting-room') {
+        return NextResponse.redirect(new URL('/ruang-meeting', request.url), 301)
     }
 
-    // 2. Global 410 Patterns (Legacy Footprints)
-    const blockedPrefixes = [
-        '/wp-',          // Core WordPress
-        '/xmlrpc.php',   // Pingback junk
-        '/feed',         // Legacy RSS
-        '/thrive_',      // Builder junk
-        '/lp/',          // Legacy landing pages (non-redirected)
-        '/nggallery',    // NextGEN Gallery
-        '/gallery/',     // Gallery subpaths
-        '/client',       // Client portals
-        '/author',       // Author archives
-        '/category',     // Category archives
-        '/tag',          // Tag archives
-        '/page',         // Legacy pagination
-        '/event',        // Junk events
-        '/available-room',
-        '/pengertian-perseroan-terbatas',
-        '/tips-pintar-memilih-sewa-kantor'
+    // ALLOWLIST: guard against false positives for core canonical routes.
+    const allowList: RegExp[] = [
+        /^\/$/,
+        /^\/sewa-kantor(?:\/|$)/,
+        /^\/virtual-office(?:\/|$)/,
+        /^\/legal(?:\/|$)/,
+        /^\/ruang-meeting(?:\/|$)/,
     ]
 
-    // Check for exact matches or prefix matches
-    if (blockedPrefixes.some(p => path === p || path.startsWith(p + '/'))) {
-        // Preserved exceptions for business-critical landing pages
-        const isPreserved = path === '/lp/jasa-sewa-kantor' || path === '/lp/jasa-sewa-kantor/'
-        
-        if (!isPreserved) {
-            return new NextResponse(null, { status: 410, statusText: 'Gone' })
+    if (!allowList.some(r => r.test(path))) {
+        // KILL ENGINE (P0): legacy WP + archives + landing + feeds + duplicates.
+        const isBlogKillActive =
+            process.env.SEO_KILL_BLOG === '1' ||
+            process.env.SEO_KILL_BLOG === 'true' ||
+            process.env.SEO_KILL_BLOG === 'TRUE'
+
+        const kill = () =>
+            new NextResponse('Gone', {
+                status: 410,
+                statusText: 'Gone',
+                headers: {
+                    'X-Robots-Tag': 'noindex',
+                },
+            })
+
+        const killPatterns: RegExp[] = [
+            // GROUP A — CORE WORDPRESS SYSTEM
+            /^\/wp-admin(?:\/|$)/,
+            /^\/wp-login\.php(?:\/|$)/,
+            /^\/wp-json(?:\/|$)/,
+            /^\/xmlrpc\.php(?:\/|$)/,
+            /^\/wp-content(?:\/|$)/,
+            /^\/wp-includes(?:\/|$)/,
+
+            // GROUP B — TAXONOMY & ARCHIVE
+            /^\/category(?:\/|$)/,
+            /^\/tag(?:\/|$)/,
+            /^\/author(?:\/|$)/,
+            /^\/date(?:\/|$)/,
+            /^\/page(?:\/|$)/,
+            /^\/attachment(?:\/|$)/,
+
+            // GROUP C — LEGACY LANDING
+            /^\/lp(?:\/|$)/,
+            /^\/promo(?:\/|$)/,
+            /^\/campaign(?:\/|$)/,
+            /^\/landing(?:\/|$)/,
+
+            // GROUP D — FEED / RSS
+            /(?:^|\/)comments\/feed\/?$/,
+            /(?:^|\/)feed\/?$/,
+        ]
+
+        // GROUP E — DUPLICATE PATH (selective 301 if mapped, else 410)
+        const canonicalRedirects: Record<string, string> = {
+            '/home': '/',
+            '/home/': '/',
+            '/index.php': '/',
+            '/index.php/': '/',
+        }
+
+        if (path in canonicalRedirects) {
+            return NextResponse.redirect(new URL(canonicalRedirects[path], request.url), 301)
+        }
+
+        if (
+            killPatterns.some(r => r.test(path)) ||
+            /^\/index\.php(?:\/|$)/.test(path) ||
+            /^\/home(?:\/|$)/.test(path) ||
+            (isBlogKillActive && /^\/blog(?:\/|$)/.test(path)) ||
+            path.endsWith('.html')
+        ) {
+            return kill()
         }
     }
 
@@ -114,6 +154,11 @@ export const config = {
          * - favicon.ico (favicon file)
          * - public files (public folder)
          */
+        '/wp-json/:path*',
+        '/wp-content/:path*',
+        '/wp-includes/:path*',
+        '/wp-include/:path*',
+        '/attachment/:path*',
         '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
     ],
 }
