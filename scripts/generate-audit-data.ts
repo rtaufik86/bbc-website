@@ -131,7 +131,10 @@ function countWordsBeforeLink(mainHtml: string, position: number): number {
 
 async function auditFile(route: string): Promise<AuditPage> {
     const config = getPageConfig(route);
-    const pageType = config.type;
+    // Homepage override: "/" is registered as `money` in PAGE_TYPE_MAP for
+    // metadata purposes, but for audit semantics it must be classified as
+    // `homepage` so it doesn't trigger money-page-only P0 link-injection logic.
+    const pageType = route === '/' ? 'homepage' : config.type;
     
     // FETCH REAL RENDERED HTML
     const LOCAL_HOST = 'http://localhost:3000';
