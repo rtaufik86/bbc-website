@@ -130,6 +130,19 @@ function detectSilo(path: string): string | null {
   return null
 }
 
+// Last-resort entity-key inference when resolveEntityKey() can't match an
+// alias and the decision carries no entity label. The 3 keys here mirror the
+// BBC_ENTITIES registry used by score / prompt; keep in sync if entities are
+// renamed there.
+function inferEntityKeyFromPath(path?: string | null): string | null {
+  if (!path) return null
+  const normalized = path.toLowerCase()
+  if (normalized.includes('virtual-office'))                              return 'virtual-office'
+  if (normalized.includes('sewa-kantor'))                                 return 'sewa-kantor'
+  if (normalized.includes('pendirian-pt') || normalized.includes('legal')) return 'pendirian-pt'
+  return null
+}
+
 // ── ACTION BUILDER ────────────────────────────────────────────────────────────
 // Derives a minimal action list from detected issues + intelligence priority.
 // Actions are then run through optimizeActions → sequenceActions so the UI
@@ -761,6 +774,7 @@ export default function ControlCenterClient({ auditData }: Props) {
     decision: { path: string; pageType: string; title?: string; entity?: string },
     action:   { type?: string } | null,
   ) => {
+    console.warn('[rewrite] handler called', decision?.path, action?.type)
     if (!decision?.path) return null
 
     const key = `${decision.path}:${action?.type ?? 'REWRITE'}`
@@ -773,15 +787,54 @@ export default function ControlCenterClient({ auditData }: Props) {
     })
 
     // v0.7-entity-mapping — resolve human-readable label to a stable
-    // BBC_ENTITIES key when possible. Fall back to the raw decision.entity
-    // string if the resolver returns null (per spec: never guess via path).
-    const resolvedEntityKey = resolveEntityKey(decision.entity)
-    const entityKeyToSend   = resolvedEntityKey ?? decision.entity ?? null
+    // BBC_ENTITIES key when possible.
+    //
+    // v0.8.2 — manual rewrite from PageExecutionDetail does not carry
+    // decision.entity, so we widen the resolution input through an ordered
+    // fallback (entity → primaryEntity → primary_entity → title → path).
+    // If alias-based resolveEntityKey still fails, inferEntityKeyFromPath
+    // catches the common BBC silos via path substring match.
+    const dx = decision as {
+      path?:           string
+      entity?:         string
+      primaryEntity?:  string
+      primary_entity?: string
+      title?:          string
+    }
+    const entityInput =
+      dx.entity ??
+      dx.primaryEntity ??
+      dx.primary_entity ??
+      dx.title ??
+      dx.path ??
+      null
+
+    const resolvedEntityKey =
+      resolveEntityKey(entityInput) ??
+      inferEntityKeyFromPath(decision.path)
+
+    const entityKeyToSend = resolvedEntityKey ?? decision.entity ?? null
+
+    // v0.46 — page type is captured from whatever the decision shape carries.
+    // Order: explicit pageType (CoreDecision contract) → snake_case page_type
+    // (legacy / alternate shape) → generic `type` field. Never inferred from
+    // URL — if none provided, route persists null.
+    const dt = decision as {
+      pageType?:  string | null
+      page_type?: string | null
+      type?:      string | null
+    }
+    const pageType =
+      dt.pageType ??
+      dt.page_type ??
+      dt.type ??
+      null
 
     let body: { ok: boolean; draftId?: string; error?: string | null } = {
       ok: false, error: 'fetch_failed',
     }
     try {
+      console.warn('[rewrite] posting generate route')
       const res = await fetch('/api/rewrite/generate', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -789,6 +842,7 @@ export default function ControlCenterClient({ auditData }: Props) {
           pagePath:   decision.path,
           entityKey:  entityKeyToSend,
           actionType: action?.type ?? null,
+          pageType,
           prompt,
         }),
       })
@@ -1052,6 +1106,8 @@ export default function ControlCenterClient({ auditData }: Props) {
       <PageExecutionDetail
         decision={selectedDecision as DetailDecision | null}
         onClose={() => setSelectedDecision(null)}
+        onGenerateRewriteDraft={handleGenerateRewriteDraft}
+        generatingRewriteKey={generatingRewriteKey}
       />
     </div>
   )

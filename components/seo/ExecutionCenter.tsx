@@ -484,10 +484,18 @@ export default function ExecutionCenter({
                   )}
                   <button
                     onClick={() => setReviewingDraft(d)}
-                    className="shrink-0 flex items-center gap-1 text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500 text-purple-300 hover:text-white border border-purple-500/30 hover:border-purple-400 transition-colors"
+                    className={`shrink-0 flex items-center gap-1 text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-lg border transition-colors ${
+                      d.status === 'approved'
+                        ? 'bg-emerald-500/10 hover:bg-emerald-500 text-emerald-300 hover:text-white border-emerald-500/30 hover:border-emerald-400'
+                        : 'bg-purple-500/10 hover:bg-purple-500 text-purple-300 hover:text-white border-purple-500/30 hover:border-purple-400'
+                    }`}
                   >
                     <FileText size={9} />
-                    Review Draft
+                    {d.status === 'approved'
+                      ? 'Copy for GPT Review'
+                      : d.status === 'rejected'
+                      ? 'View Rejected Draft'
+                      : 'Review Draft'}
                   </button>
                 </li>
               )

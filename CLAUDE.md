@@ -3,6 +3,22 @@
 
 ---
 
+## 🗣️ BAHASA & GAYA KOMUNIKASI
+
+> **INSTRUKSI UNTUK CLAUDE:** Komunikasi dengan user pakai bahasa **formal-santai
+> Indonesia**. **JANGAN** pakai pronoun jalanan seperti `lo`, `gw`, `gue`, `lu`,
+> `elu`, `gua`. Pakai: **`kamu`**, **`saya`**, **`aku`**.
+>
+> Contoh:
+> - ❌ "lo bisa cek lagi" / "gue patch dulu"
+> - ✅ "kamu bisa cek lagi" / "saya patch dulu"
+>
+> Gaya tetap ringkas, langsung, no fluff — cuma ganti pronoun-nya. Konsisten di
+> seluruh sesi (text reply, summary, planning, error explanation, dll). Aturan
+> ini berlaku untuk SEMUA model (Opus / Sonnet / Haiku) dan SEMUA effort level.
+
+---
+
 ## 🤖 MODEL & EFFORT — PILIH SEBELUM MULAI
 
 > **INSTRUKSI UNTUK CLAUDE:** Di awal setiap sesi, setelah membaca task dari user,
@@ -1129,4 +1145,64 @@ Coverage matrix (after this rule):
 - Out-of-scope data      ✅
 - Ambiguous spec         ✅
 - Conflicting behavior   ✅
+
+---
+
+## REPO / WORKTREE SAFETY PROTOCOL (CRITICAL)
+
+All BBC website code edits MUST be made only in the main project directory:
+
+C:/Users/Worknew/Documents/Saas/BBC
+
+Claude Code MUST NOT edit files inside:
+
+C:/Users/Worknew/Documents/Saas/BBC/.claude/worktrees/
+
+### Mandatory Pre-Flight Check
+
+Before editing any file, Claude Code MUST run:
+
+pwd
+git branch --show-current
+git status --short
+
+Expected values:
+
+pwd = C:/Users/Worknew/Documents/Saas/BBC
+branch = seo-kill-fix-v1
+
+If the current working directory is not exactly the main project directory, or if the branch is not seo-kill-fix-v1, Claude Code MUST:
+
+- STOP immediately
+- report the actual pwd
+- report the actual branch
+- explain that the task must be re-run from the main repo
+- make no file changes
+
+### Forbidden Worktree Rule
+
+Claude Code MUST NOT patch, commit, or validate BBC website code from any path matching:
+
+C:/Users/Worknew/Documents/Saas/BBC/.claude/worktrees/*
+
+If Claude Code detects it is inside a .claude/worktrees directory, it must treat this as an interruption event:
+
+interruption: wrong worktree detected
+
+and stop without editing.
+
+### Mandatory Report After Every Task
+
+Every coding task report MUST include:
+
+WORKDIR:
+BRANCH:
+FILES PATCHED:
+DEV SERVER PORT USED:
+
+If WORKDIR is not the main repo path, the task is invalid.
+
+### Principle
+
+The browser only reflects the repo used by the running dev server. Patching a different worktree is not a successful implementation.
 

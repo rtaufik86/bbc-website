@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowLeft, Zap, ExternalLink, CheckCircle2, XCircle, Database } from 'lucide-react'
+import { ArrowLeft, Zap, ExternalLink, CheckCircle2, XCircle, Database, FileText } from 'lucide-react'
 import type { AllSignals } from '../../lib/seo/signals'
 import type { IntelligenceOutput } from '../../lib/seo/intelligence'
 import EntityPanel       from './EntityPanel'
@@ -48,6 +48,13 @@ export interface Decision {
 interface Props {
   decision: Decision | null
   onClose:  () => void
+  /** Optional manual rewrite trigger — wired by ControlCenterClient. When
+   *  absent, the Generate Rewrite Draft button is hidden. Loose typing keeps
+   *  this component decoupled from the concrete handler signature. Mirrors
+   *  ExecutionCenter's prop shape so both surfaces can share the same handler. */
+  onGenerateRewriteDraft?: (decision: any, action: any) => Promise<unknown> | unknown
+  /** When this matches `${path}:REWRITE`, the button shows a spinner state. */
+  generatingRewriteKey?: string | null
 }
 
 const CONFIDENCE_STYLE: Record<string, string> = {
@@ -78,7 +85,12 @@ function TechRow({ label, pass, value }: { label: string; pass: boolean; value: 
   )
 }
 
-export default function PageExecutionDetail({ decision: d, onClose }: Props) {
+export default function PageExecutionDetail({
+  decision: d,
+  onClose,
+  onGenerateRewriteDraft,
+  generatingRewriteKey,
+}: Props) {
   if (!d) return null
 
   const confidence = d.intelligence.confidence
@@ -182,6 +194,48 @@ export default function PageExecutionDetail({ decision: d, onClose }: Props) {
           </div>
           <LLMReadinessPanel signals={d.signals} pageType={d.pageType} />
         </section>
+
+        {/* ── D2. MANUAL REWRITE TRIGGER ──
+            Operator-initiated production rewrite draft. Independent from
+            row-level Generate Draft (which only shows when first action is
+            REWRITE). Hidden when handler not wired. */}
+        {onGenerateRewriteDraft && (() => {
+          const stableKey    = `${d.path}:REWRITE`
+          const isGenerating = generatingRewriteKey === stableKey
+          return (
+            <section>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-1 h-4 bg-purple-500 rounded-full" />
+                <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Manual Rewrite</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  if (isGenerating) return
+                  console.warn('[rewrite] detail button clicked', d.path)
+                  void onGenerateRewriteDraft(d, {
+                    type:     'REWRITE',
+                    priority: (d as { priority?: string }).priority ?? 'P1',
+                    reason:   'manual_rewrite_draft',
+                  })
+                }}
+                disabled={isGenerating}
+                className={`w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[10px] font-black uppercase tracking-widest border transition-colors ${
+                  isGenerating
+                    ? 'bg-purple-500/5 text-purple-300/60 border-purple-500/10 cursor-wait'
+                    : 'bg-purple-500/10 hover:bg-purple-500 text-purple-300 hover:text-white border-purple-500/30 hover:border-purple-400'
+                }`}
+                title="Call /api/rewrite/generate to produce a production rewrite draft for this page"
+              >
+                <FileText size={12} />
+                {isGenerating ? 'Generating…' : 'Generate Rewrite Draft'}
+              </button>
+              <p className="mt-2 text-[9px] text-slate-500 italic leading-snug">
+                Creates a pending_review draft via Anthropic Sonnet 4.6. No filesystem write, no auto-apply.
+              </p>
+            </section>
+          )
+        })()}
 
         {/* ── E. TECH SUMMARY ── */}
         <section>

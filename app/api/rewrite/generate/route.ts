@@ -37,6 +37,9 @@ interface RequestBody {
   pagePath:    string
   entityKey?:  string | null
   actionType?: string | null
+  // v0.46 — passed through from client, persisted alongside draft for the
+  // Copy for GPT review template. Route does not infer page type.
+  pageType?:   string | null
   prompt:      string
 }
 
@@ -117,6 +120,7 @@ export async function POST(req: Request) {
     pagePath,
     entityKey:    resolvedEntityKey,
     actionType:   body.actionType ?? null,
+    pageType:     body.pageType ?? null,
     prompt,
     draftContent: result.draftContent,
     status:       result.ok ? 'pending_review' : 'failed',
@@ -137,6 +141,7 @@ export async function POST(req: Request) {
         .from('seo_rewrite_drafts')
         .insert({
           page_path:              pagePath,
+          page_type:              body.pageType ?? null,
           entity_key:             resolvedEntityKey,
           action_type:            body.actionType ?? null,
           prompt,

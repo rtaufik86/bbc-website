@@ -11,12 +11,16 @@
 // stop-propagation). Approve/Reject buttons hide when status is already
 // terminal ('approved' / 'rejected').
 
-import React from 'react'
-import { X, Check, Ban, FileText } from 'lucide-react'
+import React, { useState } from 'react'
+import { X, Check, Ban, FileText, Copy } from 'lucide-react'
 
 interface DraftLike {
   id?:                      string
   page_path?:               string
+  /** snake_case from DB (canonical) — populated by /api/rewrite/generate v0.46+. */
+  page_type?:               string | null
+  /** camelCase fallback for callers that mirror decision shape. */
+  pageType?:                string | null
   entity_key?:              string | null
   action_type?:             string | null
   status?:                  string
@@ -55,6 +59,10 @@ export default function RewriteDraftViewer({
   onApprove,
   onReject,
 }: Props) {
+  // Hook MUST sit above the early return — rules-of-hooks: same call order
+  // every render regardless of modal visibility.
+  const [copied, setCopied] = useState(false)
+
   if (!open || !draft) return null
 
   const status      = (draft.status ?? 'pending_review') as string
@@ -63,6 +71,33 @@ export default function RewriteDraftViewer({
   const content     = draft.draft_content && draft.draft_content.trim().length > 0
     ? draft.draft_content
     : null
+
+  const handleCopy = async () => {
+    if (!content) return
+    // GPT review template: structured payload an operator can paste directly
+    // into a side-channel review prompt (ChatGPT / Claude.ai / etc.) for a
+    // second-pair-of-eyes pass before approval.
+    const pagePathDisplay =
+      draft.page_path ? draft.page_path.replace(/^\//, '') : ''
+    const pageTypeDisplay = draft.page_type ?? draft.pageType ?? 'UNKNOWN'
+    const entityScoreDisplay =
+      draft.entity_score === null || draft.entity_score === undefined
+        ? 'N/A'
+        : String(draft.entity_score)
+    const template =
+      `PAGE:\n${pagePathDisplay}\n\n` +
+      `PAGE TYPE:\n${pageTypeDisplay}\n\n` +
+      `ENTITY SCORE:\n${entityScoreDisplay}\n\n` +
+      `DRAFT:\n${content}`
+    try {
+      await navigator.clipboard.writeText(template)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1500)
+    } catch {
+      // Clipboard API may be blocked in non-secure contexts (rare on
+      // localhost). Silent failure — operator can fall back to manual select.
+    }
+  }
 
   return (
     <div
@@ -187,6 +222,26 @@ export default function RewriteDraftViewer({
             className="px-4 py-2 text-[9px] font-black uppercase tracking-widest rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
           >
             Close
+          </button>
+          <button
+            type="button"
+            onClick={handleCopy}
+            disabled={!content}
+            title={content ? 'Copy draft content to clipboard' : 'No content to copy'}
+            className={`flex items-center gap-1.5 px-4 py-2 text-[9px] font-black uppercase tracking-widest rounded-xl border transition-colors ${
+              !content
+                ? 'bg-slate-800 text-slate-600 border-slate-700 cursor-not-allowed'
+                : copied
+                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                : 'bg-blue-500/10 hover:bg-blue-500 text-blue-300 hover:text-white border-blue-500/30 hover:border-blue-400'
+            }`}
+          >
+            {copied ? <Check size={10} /> : <Copy size={10} />}
+            {copied
+              ? 'Copied!'
+              : status === 'approved'
+              ? 'Copy for GPT'
+              : 'Copy'}
           </button>
           {!isTerminal && (
             <>

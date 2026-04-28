@@ -17,6 +17,9 @@ export interface SaveRewriteDraftInput {
   pagePath:               string
   entityKey?:             string | null
   actionType?:            string | null
+  // v0.46 — decision.pageType captured client-side; null for callers that
+  // don't carry page-type context (e.g. ad-hoc curl).
+  pageType?:              string | null
   prompt:                 string
   draftContent?:          string | null
   status?:                RewriteDraftStatus
@@ -30,6 +33,7 @@ export interface SaveRewriteDraftInput {
 export interface RewriteDraftRow {
   id:                      string
   page_path:               string
+  page_type:               string | null
   entity_key:              string | null
   action_type:             string | null
   prompt:                  string
@@ -54,6 +58,7 @@ export async function saveRewriteDraft(
     const supabase = createClient()
     const payload = {
       page_path:              input.pagePath,
+      page_type:              input.pageType    ?? null,
       entity_key:             input.entityKey   ?? null,
       action_type:            input.actionType  ?? null,
       prompt:                 input.prompt,
