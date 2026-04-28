@@ -49,7 +49,7 @@ export default function Page() {
             canonicalUrl="https://www.bintarobusinesscentre.com/harga-virtual-office-jakarta-selatan"
             schemaObject={schemaObject}
             h1="Virtual Office Jakarta Selatan: Breakdown Biaya & Perbandingan"
-            intro='Harga virtual office di Jakarta Selatan bervariasi tergantung lokasi gedung, kelengkapan fasilitas, durasi kontrak, dan layanan tambahan yang disertakan. Memahami komponen pembentuk harga adalah langkah pertama sebelum membandingkan pilihan &mdash; termasuk <a href="/virtual-office-jakarta-selatan" class="text-accent font-bold hover:underline">layanan virtual office BBC</a> yang berlokasi di kawasan Bintaro, Pesanggrahan, Jakarta Selatan.'
+            intro='Harga virtual office di Jakarta Selatan bervariasi tergantung lokasi gedung, kelengkapan fasilitas, durasi kontrak, dan layanan tambahan yang disertakan. Memahami komponen pembentuk harga adalah langkah pertama sebelum membandingkan pilihan <a href="/virtual-office" class="text-accent hover:underline">virtual office</a> yang tersedia &mdash; termasuk <a href="/virtual-office-jakarta-selatan" class="text-accent font-bold hover:underline">layanan virtual office Jakarta Selatan</a> dari BBC yang berlokasi di kawasan Bintaro, Jakarta Selatan.'
             entity="virtual-office"
             location="jakarta-selatan"
             heroBadges={{ b1: "Panduan Harga", b2: "Virtual Office" }}

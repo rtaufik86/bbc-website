@@ -89,6 +89,46 @@ function extractLinks(content: string): LinkInfo[] {
     return links;
 }
 
+// Isolates body content so link-position rules don't drown in <head>,
+// JSON-LD, scripts, and header/nav. Falls back gracefully if no <main>/
+// <article> wrapper is found.
+function extractMainContent(html: string): string {
+    if (!html) return html;
+    const mainMatch = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
+    if (mainMatch && mainMatch[1]) return mainMatch[1];
+    const articleMatch = html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i);
+    if (articleMatch && articleMatch[1]) return articleMatch[1];
+    const headerClose = html.match(/<\/header\s*>/i);
+    if (headerClose && typeof headerClose.index === 'number') {
+        return html.slice(headerClose.index + headerClose[0].length);
+    }
+    return html;
+}
+
+// Header logo <a href="/"> is nav chrome, not a contextual intro link;
+// excluded from the G1 first-money-link search so it can't trivially
+// satisfy or fail the rule on its own.
+function isNavLogoLink(link: LinkInfo): boolean {
+    if (link.href !== '/') return false;
+    const a = (link.anchor || '').trim().toLowerCase();
+    return a === '' || a === 'home' || a === '[image/icon]' || a === 'logo' || a === 'beranda';
+}
+
+// Replaces the old `position / 5` heuristic — strips tags from mainHtml up
+// to `position` and counts visible words instead of comparing a full-HTML
+// char index to a body-word threshold.
+function countWordsBeforeLink(mainHtml: string, position: number): number {
+    if (!mainHtml || position <= 0) return 0;
+    const visible = mainHtml.slice(0, position)
+        .replace(/<script[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    if (!visible) return 0;
+    return visible.split(/\s+/).filter(w => w.length > 0).length;
+}
+
 async function auditFile(route: string): Promise<AuditPage> {
     const config = getPageConfig(route);
     const pageType = config.type;
@@ -151,11 +191,22 @@ async function auditFile(route: string): Promise<AuditPage> {
     // Rule Group C & E: Presence & Position
     const firstMoneyLink = linksOut.find(l => l.isMoneyPage);
     const hasMoneyLink = !!firstMoneyLink;
-    
-    // Estimate word position: char index / 5 (avg word length)
-    const firstLinkWordPos = firstMoneyLink ? Math.floor(firstMoneyLink.position / 5) : 9999;
 
-    if (hasMoneyLink && firstLinkWordPos > 300) {
+    // G1 (early money link) is computed against MAIN CONTENT only — head,
+    // schema dump, scripts, header/nav are stripped first so the threshold
+    // reflects body word position rather than full-HTML char offset. Nav
+    // logo links are also excluded so the header `<a href="/">` can't
+    // satisfy a "contextual intro link" rule.
+    const mainContent  = extractMainContent(content);
+    const mainLinks    = extractLinks(mainContent);
+    const firstMoneyLinkInMain = mainLinks.find(
+        l => l.isMoneyPage && !isNavLogoLink(l)
+    );
+    const firstLinkWordPosInMain = firstMoneyLinkInMain
+        ? countWordsBeforeLink(mainContent, firstMoneyLinkInMain.position)
+        : 9999;
+
+    if (firstMoneyLinkInMain && firstLinkWordPosInMain > 300) {
         violations.push('HIGH: first_link_position > 300 words (Rule G1)');
     }
     if (!hasMoneyLink && pageType === 'weapon' && wordCount > 300) {
@@ -201,7 +252,7 @@ async function auditFile(route: string): Promise<AuditPage> {
         inSitemap: sitemapUrls.includes(route),
         relatedContent: content.includes('Related'),
         breadcrumb: content.includes('nav'),
-        firstMoneyLinkBefore300: hasMoneyLink && firstLinkWordPos <= 300,
+        firstMoneyLinkBefore300: !!firstMoneyLinkInMain && firstLinkWordPosInMain <= 300,
         crossSiloLinks: 0,
         anchorDistribution: distribution,
         orphanRisk: false,
