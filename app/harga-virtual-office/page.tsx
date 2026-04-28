@@ -58,7 +58,7 @@ export default function HargaVirtualOfficePage() {
                     id: "authority",
                     h2: "Faktor Lokasi Administratif",
                     rawHtml: `
-                        <p>Wilayah administratif (Jakarta Selatan vs Tangerang Selatan) memiliki implikasi nyata untuk keperluan PKP dan domisili perusahaan.</p>
+                        <p>Wilayah administratif (Jakarta Selatan vs Tangerang Selatan) memiliki implikasi nyata untuk keperluan PKP dan domisili perusahaan. Untuk konteks tarif dan paket spesifik di wilayah DKI, lihat <a href="/harga-virtual-office-jakarta-selatan" class="text-accent hover:underline">breakdown harga virtual office Jakarta Selatan</a>.</p>
                     `,
                     visual: {
                         type: "card",
