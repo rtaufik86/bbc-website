@@ -35,11 +35,11 @@ export const ENTITY_GRAPH: Record<string, PageEntity> = {
 
     "/virtual-office/jakarta-selatan": {
         url: "/virtual-office/jakarta-selatan",
-        pageType: "hub",
+        pageType: "weapon",
         primaryEntity: "virtual office jakarta selatan",
         secondaryEntities: ["alamat bisnis", "domisili usaha"],
         location: "jakarta selatan",
-        intent: "navigational",
+        intent: "informational",
         relationships: {
             parent: "/virtual-office",
             children: [

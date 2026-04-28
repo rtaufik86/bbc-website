@@ -2,11 +2,24 @@
 
 import React, { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { 
-  ArrowLeft, Zap, ShieldCheck, Bot, Cpu, AlertCircle, 
+import {
+  ArrowLeft, Zap, ShieldCheck, Bot, Cpu, AlertCircle,
   CheckCircle2, Clock, PlayCircle, Filter, Search,
   Terminal, ChevronRight, BarChart3, Target, Copy, Trash2, ExternalLink, FileText
 } from 'lucide-react'
+// Signal Engine v1: centralized SEO signals (FAQ, H1, link, trust, schema,
+// entity, AEO). Attached alongside existing Decision fields. Legacy scoring
+// and action logic below remain authoritative for this phase.
+import { computeAllSignals, toSignalInput } from '../../../lib/seo/signals'
+import type { AllSignals } from '../../../lib/seo/signals'
+// Intelligence Layer v1: impact scoring, priority derivation, opportunity
+// detection, and action optimization derived from Signal Engine outputs.
+import {
+  computeIntelligence,
+  optimizeActions,
+  sequenceActions,
+} from '../../../lib/seo/intelligence'
+import type { IntelligenceOutput } from '../../../lib/seo/intelligence'
 
 // --- TYPES ---
 
@@ -32,6 +45,9 @@ interface Action {
     target_links?: string[]
     anchors?: { type: string; text: string }[]
   }
+  // Intelligence Layer: execution sequencer tags added by sequenceActions()
+  executionOrder?: number
+  executionStep?:  number
 }
 
 interface Decision {
@@ -71,6 +87,12 @@ interface Decision {
     relationships: string[]
     coverage: number
   }
+  // Signal Engine v1 snapshot. Optional during Phase 1 rollout so that
+  // older call-sites that construct Decision objects by hand still compile.
+  signals?: AllSignals
+  // Intelligence Layer v1: impact band, derived priority, opportunities,
+  // and confidence score computed from Signal Engine outputs.
+  intelligence?: IntelligenceOutput
 }
 
 interface AuditPage {
@@ -80,6 +102,7 @@ interface AuditPage {
   linksIn: { from: string; anchor: string }[];
   linksOut: { href: string; anchor: string; isContextual: boolean; isMoneyPage: boolean }[];
   status: string; description: string;
+  expectedFAQ?: boolean;
   h1Texts?: string[];
   h2Texts?: string[];
   h3Texts?: string[];
@@ -166,6 +189,8 @@ export default function DecisionEngineClient({ auditData }: Props) {
   const [selectedDecision, setSelectedDecision] = useState<Decision | null>(null)
   const [verifying, setVerifying] = useState<string | null>(null)
   const [verifyResults, setVerifyResults] = useState<Record<string, any>>({})
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, Status>>({})
+  const [copiedPrompt, setCopiedPrompt] = useState(false)
 
   const decisions: Decision[] = useMemo(() => {
     return auditData.map((p, index) => {
@@ -173,11 +198,28 @@ export default function DecisionEngineClient({ auditData }: Props) {
       const actions: Action[] = []
       const uid = `${p.path}-${index}`
 
+      // --- SIGNAL ENGINE v1 (shared, read-only) ---
+      // Computed alongside the legacy decision pipeline. Downstream UI /
+      // Phase 2 logic should prefer these centralized signals over
+      // re-deriving FAQ / H1 / trust / link primitives locally.
+      const signals = computeAllSignals(toSignalInput(p))
+
       // --- 2.2 SILO DETECTION ---
-      const currentSilo: keyof typeof SILO_MAP = 
-        p.path.includes('virtual-office') ? 'virtual-office' :
-        (p.path.includes('sewa-kantor') || p.path.includes('kantor')) ? 'sewa-kantor' : 'legal'
-      const siloData = SILO_MAP[currentSilo]
+      // Use path-boundary-aware checks so that paths like "/lokasi-kantor"
+      // do NOT accidentally get classified into the "sewa-kantor" silo.
+      // Match only explicit silo prefixes / segment boundaries.
+      const currentSilo: keyof typeof SILO_MAP | null =
+        p.path.includes('/virtual-office') ? 'virtual-office' :
+        p.path.includes('/sewa-kantor') ? 'sewa-kantor' :
+        (p.path.includes('/legal') ||
+         p.path.startsWith('/pt-') ||
+         p.path.startsWith('/cv-') ||
+         p.path === '/pt' ||
+         p.path === '/cv' ||
+         p.path.includes('/pendirian-pt') ||
+         p.path.includes('/pendirian-cv')) ? 'legal' :
+        null  // support/trust/utility pages have no silo
+      const siloData = currentSilo ? SILO_MAP[currentSilo] : null
 
       // --- 2.2 SIGNALS ---
       const strength = Math.min(100, (p.linksIn.length / 12) * 100)
@@ -193,11 +235,25 @@ export default function DecisionEngineClient({ auditData }: Props) {
       // --- 2.2 CORE ISSUE DETECTION (TRANSPARENT LAYER) ---
       if (isDuplicate) issues.push('angle_overlap')
       if (p.wordCount < 800) issues.push('thin_content')
-      if (!p.schemaTypes.includes('FAQPage') && p.pageType === 'weapon') issues.push('no_faq')
+      // Only flag missing FAQ if the registry explicitly expects it (expectedFAQ !== false).
+      // Signal Engine is now the single source for FAQ presence.
+      if (!signals.faq.hasFAQ && p.pageType === 'weapon' && p.expectedFAQ !== false) issues.push('no_faq')
       if (strength < targetThreshold) issues.push('authority_gap')
       if (p.linksIn.length === 0) issues.push('orphan_risk')
       if (p.h1Count === 0) issues.push('no_h1')
-      if (p.pageType === 'weapon' && !p.linksOut.some(l => l.isMoneyPage)) issues.push('missing_money_link')
+      // Signal Engine link signal: no need to re-iterate linksOut manually.
+      if (p.pageType === 'weapon' && signals.link.moneyLinks === 0) issues.push('missing_money_link')
+
+      // --- INTELLIGENCE LAYER v1 ---
+      // Must run AFTER all issue detection so priorityEngine receives the
+      // complete issues array. Impact and priority are derived from signals
+      // + issues; opportunities + confidence from signals alone.
+      const intelligence = computeIntelligence(signals, {
+        pageType:     p.pageType,
+        issues,
+        authorityGap: Math.round(gap),
+        rawPage:      p,
+      })
 
       // --- 2.2 ACTION MAPPING (BALANCED LAYER) ---
 
@@ -220,12 +276,12 @@ export default function DecisionEngineClient({ auditData }: Props) {
          if (overlapPage?.pageType === 'hub') strategy = 'REPOSITION_ANGLE'
          
          actions.push({
-           type: 'REWRITE', priority: 'P0', owner: 'Claude',
+           type: 'REWRITE', priority: intelligence.priority.value, owner: 'Claude',
            instruction: {
              details: `Contextual intent conflict with ${overlapWith}`,
              strategy,
              overlap_with: overlapWith,
-             new_angle: currentSilo === 'virtual-office' ? 'Behavioral UX & Legal Address focus' : 'Operational Efficiency & Bintaro Proximity',
+             new_angle: currentSilo === 'virtual-office' ? 'Behavioral UX & Legal Address focus' : currentSilo === 'sewa-kantor' ? 'Operational Efficiency & Bintaro Proximity' : 'Page Differentiation & Angle Clarity',
              wordCount: 1500,
              targets: ['Add Direct Answer', 'Differentiate Intro']
            }
@@ -235,7 +291,7 @@ export default function DecisionEngineClient({ auditData }: Props) {
       // C. CONTENT QUALITY (REWRITE)
       if (issues.includes('thin_content') || issues.includes('no_faq')) {
         actions.push({
-          type: 'REWRITE', priority: 'P1', owner: 'Claude',
+          type: 'REWRITE', priority: intelligence.priority.value, owner: 'Claude',
           instruction: {
             details: `AEO Quality Fix: ${issues.filter(i => ['thin_content', 'no_faq'].includes(i)).join(', ')}`,
             targets: [
@@ -250,14 +306,14 @@ export default function DecisionEngineClient({ auditData }: Props) {
       }
 
       // D. LINK INJECTION (INJECT)
-      if (issues.includes('authority_gap') || issues.includes('orphan_risk') || issues.includes('missing_money_link')) {
+      if ((issues.includes('authority_gap') || issues.includes('orphan_risk') || issues.includes('missing_money_link')) && siloData) {
         const primaryAnchor = siloData.anchors.find(a => a.type === 'service_location')?.text || 'Global Target'
         
         // Remove self-linking bug
         const targetLinks = [siloData.targetMoney, siloData.hub, ...siloData.siblings].filter(link => link !== p.path)
         
         actions.push({
-          type: 'INJECT', priority: 'P0', owner: 'GPT + Dev',
+          type: 'INJECT', priority: intelligence.priority.value, owner: 'GPT + Dev',
           instruction: {
             details: `Silo Authority Sync (${currentSilo})`,
             reason: issues.filter(i => ['authority_gap', 'orphan_risk', 'missing_money_link'].includes(i)).join(', '),
@@ -279,10 +335,10 @@ export default function DecisionEngineClient({ auditData }: Props) {
         })
       }
 
-      // F. PRIORITY OVERRIDE
-      actions.forEach(a => {
-        if (strength < 20 && indexStatus !== 'indexed') a.priority = 'P0'
-      })
+      // F. PRIORITY OVERRIDE — removed.
+      // Intelligence Layer's priorityEngine handles the "critical authority +
+      // not indexed → P0" rule via impact.band === 'critical', so the manual
+      // forEach override is no longer needed and has been replaced.
 
       // --- 2.4 STRATEGY FIELD ---
       const strategies: string[] = []
@@ -305,8 +361,8 @@ export default function DecisionEngineClient({ auditData }: Props) {
       if (p.linksOut.length < 3) linkingVal = 'FAIL'
       else if (!(p as any).firstMoneyLinkBefore300) linkingVal = 'WARNING'
 
-      // AEO Check
-      if (p.pageType === 'weapon' && !p.schemaTypes.includes('FAQPage')) aeoVal = 'FAIL'
+      // AEO Check: uses Signal Engine FAQ signal (single source of truth).
+      if (p.pageType === 'weapon' && !signals.faq.hasFAQ) aeoVal = 'FAIL'
 
       // Overall
       let overallVal: 'PASS' | 'WARNING' | 'FAIL' = 'PASS'
@@ -321,7 +377,9 @@ export default function DecisionEngineClient({ auditData }: Props) {
         url: p.path,
         type: p.pageType,
         issues: Array.from(new Set(issues)),
-        actions: actions.sort((a, b) => a.priority.localeCompare(b.priority)),
+        // Intelligence Layer: deduplicate + cap at 3 actions, then sort into
+        // canonical execution order (KILL → FIX → INJECT → REWRITE).
+        actions: sequenceActions(optimizeActions(actions)),
         status: (issues.length > 0) ? 'NEEDS_ACTION' : 'COMPLETED',
         wordCount: p.wordCount,
         lastUpdated: '2026-04-09',
@@ -343,7 +401,9 @@ export default function DecisionEngineClient({ auditData }: Props) {
         faqs: p.faqs,
         governanceViolations: p.governanceViolations,
         anchorDistribution: p.anchorDistribution,
-        semanticGraph: p.semanticGraph
+        semanticGraph: p.semanticGraph,
+        signals,
+        intelligence,
       }
     })
   }, [auditData])
@@ -382,7 +442,7 @@ export default function DecisionEngineClient({ auditData }: Props) {
   const handleVerifyDeploy = async (url: string) => {
     setVerifying(url)
     try {
-      const res = await fetch(`/api/seo/verify-deploy?url=${url}`)
+      const res = await fetch(`/api/seo/verify-deploy?url=${encodeURIComponent(url)}`)
       const data = await res.json()
       setVerifyResults(prev => ({ ...prev, [url]: data }))
     } catch (err) {
@@ -391,6 +451,47 @@ export default function DecisionEngineClient({ auditData }: Props) {
     } finally {
       setVerifying(null)
     }
+  }
+
+  const handleCopyExecutionPrompt = (d: Decision) => {
+    const sorted = [...d.actions].sort((a, b) => {
+      const priorityOrder: Record<string, number> = { P0: 0, P1: 1, P2: 2, P3: 3 }
+      const typeOrder: Record<ActionType, number> = { FIX: 0, KILL: 1, INJECT: 2, REWRITE: 3 }
+      const priorityDelta = (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9)
+      if (priorityDelta !== 0) return priorityDelta
+      return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9)
+    })
+    const lines: string[] = [
+      `# BBC SEO Execution Prompt`,
+      `## Page: ${d.url}  |  Type: ${d.type}  |  Issues: ${d.issues.join(', ')}`,
+      `## Authority: ${d.authority.score}/${d.authority.target} (gap ${d.authority.gap})`,
+      ``
+    ]
+    sorted.forEach(a => {
+      lines.push(`### [${a.type} | ${a.priority}] -- FOR ${a.owner}`)
+      if (a.instruction?.details) lines.push(`**Task:** ${a.instruction.details}`)
+      if (a.instruction?.strategy) lines.push(`**Strategy:** ${a.instruction.strategy}`)
+      if (a.instruction?.wordCount) lines.push(`**Word Count Target:** ${a.instruction.wordCount}`)
+      if (a.instruction?.targets?.length) {
+        lines.push(`**Targets:**`)
+        a.instruction.targets.forEach(t => lines.push(`  - ${t}`))
+      }
+      if (a.instruction?.links?.length) {
+        lines.push(`**Link Injections:**`)
+        a.instruction.links.forEach(l => lines.push(`  - [${l.placement}] ${l.from} -> ${l.to} | anchor: "${l.anchor}"`))
+      }
+      lines.push(``)
+    })
+    lines.push(`---`)
+    lines.push(`Generated by BBC SEO Control Center | ${new Date().toLocaleDateString()}`)
+    navigator.clipboard.writeText(lines.join('\n'))
+    setCopiedPrompt(true)
+    setTimeout(() => setCopiedPrompt(false), 2500)
+  }
+
+  const handlePushToInProgress = (d: Decision) => {
+    setStatusOverrides(prev => ({ ...prev, [d.uid]: 'IN_PROGRESS' }))
+    setSelectedDecision(prev => prev ? { ...prev, status: 'IN_PROGRESS' } : prev)
   }
 
   const handleCopyData = () => {
@@ -827,10 +928,11 @@ export default function DecisionEngineClient({ auditData }: Props) {
                              </td>
                              <td className="px-6 py-4">
                                 {(() => {
-                                   const UI = STATUS_UI[d.status]
+                                   const effectiveStatus = statusOverrides[d.uid] ?? d.status
+                                   const UI = STATUS_UI[effectiveStatus]
                                    return (
                                       <div className={`flex items-center gap-2 text-[8px] font-black px-2.5 py-1 rounded-full border uppercase tracking-widest w-fit ${UI.class}`}>
-                                         <UI.icon size={10} /> {d.status.replace('_', ' ')}
+                                         <UI.icon size={10} /> {effectiveStatus.replace('_', ' ')}
                                       </div>
                                    )
                                 })()}
@@ -1063,19 +1165,23 @@ export default function DecisionEngineClient({ auditData }: Props) {
                                        <div className="space-y-2">
                                           <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Target Link Registry:</div>
                                           <div className="grid grid-cols-1 gap-2">
-                                             {action.instruction.target_links.map((link: string) => (
+                                             {action.instruction.target_links.map((link: string) => {
+                                                const BASE = process.env.NEXT_PUBLIC_APP_URL || 'https://www.bintarobusinesscentre.com'
+                                                const href = link.startsWith('http') ? link : `${BASE}${link}`
+                                                return (
                                                 <div key={link} className="flex items-center gap-1 group/link">
                                                    <span className="text-[9px] font-mono text-slate-400 bg-slate-900 border border-slate-800 px-2 py-1 rounded truncate flex-1">{link}</span>
-                                                   <a 
-                                                      href={link} 
-                                                      target="_blank" 
+                                                   <a
+                                                      href={href}
+                                                      target="_blank"
                                                       rel="noopener noreferrer"
                                                       className="p-1.5 bg-slate-900 border border-slate-800 rounded hover:bg-slate-800 text-slate-500 hover:text-white transition-colors"
                                                    >
                                                       <ExternalLink size={10} />
                                                    </a>
                                                 </div>
-                                             ))}
+                                                )
+                                             })}
                                           </div>
                                        </div>
                                        
@@ -1125,8 +1231,12 @@ export default function DecisionEngineClient({ auditData }: Props) {
                               </>
                            )}
                            
-                           <button className="w-full py-3 bg-slate-900 hover:bg-rose-500 text-slate-500 hover:text-white border border-slate-800 hover:border-rose-400 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-2 group">
-                              <Terminal size={14} className="group-hover:text-white" /> Copy Executon Prompt
+                           <button
+                              onClick={() => handleCopyExecutionPrompt(selectedDecision)}
+                              className="w-full py-3 bg-slate-900 hover:bg-rose-500 text-slate-500 hover:text-white border border-slate-800 hover:border-rose-400 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-2 group"
+                           >
+                              <Terminal size={14} className="group-hover:text-white" />
+                              {copiedPrompt ? '✓ Copied!' : 'Copy Execution Prompt'}
                            </button>
                         </div>
                      </div>
@@ -1135,8 +1245,14 @@ export default function DecisionEngineClient({ auditData }: Props) {
             </div>
 
             <div className="p-6 bg-slate-900/80 border-t border-slate-800 backdrop-blur-md">
-               <button className="w-full py-4 bg-gradient-to-r from-rose-500 to-orange-600 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-rose-500/20 hover:scale-[1.02] transition-all">
-                  Validate & Push to In-Progress
+               <button
+                  onClick={() => handlePushToInProgress(selectedDecision)}
+                  disabled={selectedDecision.status === 'IN_PROGRESS' || selectedDecision.status === 'COMPLETED'}
+                  className="w-full py-4 bg-gradient-to-r from-rose-500 to-orange-600 disabled:from-slate-700 disabled:to-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-rose-500/20 hover:scale-[1.02] disabled:hover:scale-100 transition-all"
+               >
+                  {selectedDecision.status === 'IN_PROGRESS' ? '✓ In Progress' :
+                   selectedDecision.status === 'COMPLETED' ? '✓ Completed' :
+                   'Validate & Push to In-Progress'}
                </button>
             </div>
          </div>

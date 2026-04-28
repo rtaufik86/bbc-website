@@ -30,12 +30,19 @@ interface InjectionRule {
     priority: string;
 }
 
+function escapeRegex(s: string): string {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
 /**
  * Memproses teks pasif dan menyuntikkan link secara otomatis berdasarkan BBC Entity Graph
  */
 export function injectInternalLinks(html: string, url: string): string {
     const pageConfig = ENTITY_GRAPH[url];
-    if (!pageConfig) return html; // No graph config, return raw
+    // NOTE: Link injection only operates on URLs registered in ENTITY_GRAPH.
+    // Pages not in the graph (e.g. blog posts, utility pages) are returned as-is.
+    // Expand ENTITY_GRAPH in lib/seo/entityGraph.ts to add coverage.
+    if (!pageConfig) return html;
 
     let processedHtml = html;
     let injectionCount = 0;
@@ -51,7 +58,7 @@ export function injectInternalLinks(html: string, url: string): string {
             if (targetConfig) {
                 rules.push({
                     target: targetUrl,
-                    keywords: [new RegExp(targetConfig.primaryEntity, 'i')],
+                    keywords: [new RegExp(escapeRegex(targetConfig.primaryEntity), 'i')],
                     anchor: targetConfig.primaryEntity.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
                     priority: 'high'
                 });
@@ -66,7 +73,7 @@ export function injectInternalLinks(html: string, url: string): string {
             if (targetConfig) {
                 rules.push({
                     target: targetUrl,
-                    keywords: [new RegExp(targetConfig.primaryEntity, 'i')],
+                    keywords: [new RegExp(escapeRegex(targetConfig.primaryEntity), 'i')],
                     anchor: targetConfig.primaryEntity,
                     priority: 'medium'
                 });
@@ -78,30 +85,57 @@ export function injectInternalLinks(html: string, url: string): string {
         if (injectionCount >= 3) break; // SAFETY RULE 1: MAX 3 LINKS
         if (!rule.target || injectedTargets.has(rule.target)) continue; // SAFETY RULE 2: NO DUPLICATE TARGET
 
-        // Mencari keyword pertama yang belum ada di dalam tag HTML lain (untuk menghindari nested links)
-        for (const pattern of rule.keywords) {
-            const match = processedHtml.match(pattern);
-            if (match && match.index !== undefined) {
-                // Sederhana: ganti kemunculan pertama keyword dengan link bertipe SEO
-                const start = match.index;
-                const end = start + match[0].length;
-                
-                // Cek apakah posisi ini berada di dalam tag <a> yang sudah ada
-                const beforeMatch = processedHtml.substring(0, start);
-                if (beforeMatch.lastIndexOf('<a') > beforeMatch.lastIndexOf('</a')) {
-                    continue; // Skip jika sudah di dalam link
-                }
+        // Find the first match that is NOT inside any HTML tag or inside an
+        // existing <a>...</a>. Instead of a blind replace, we iterate all
+        // occurrences with a stateful regex so we can skip unsafe positions.
+        for (const basePattern of rule.keywords) {
+            // Ensure global flag so we can walk through every candidate position
+            const pattern = basePattern.global
+                ? basePattern
+                : new RegExp(basePattern.source, basePattern.flags + 'g');
 
+            let safeStart = -1;
+            let safeLen = 0;
+            let m: RegExpExecArray | null;
+
+            while ((m = pattern.exec(processedHtml)) !== null) {
+                if (m.index === undefined) break;
+                const start = m.index;
+                const len = m[0].length;
+                if (len === 0) { pattern.lastIndex++; continue; }
+
+                // SAFETY: match text itself must not straddle tag boundaries.
+                if (m[0].includes('<') || m[0].includes('>')) continue;
+
+                const before = processedHtml.substring(0, start);
+
+                // SAFETY: inside ANY open HTML tag (attribute value, tag name,
+                // self-closing marker, comment, etc.). If the last `<` was not
+                // closed by a `>` before this position, we are inside markup.
+                const lastOpen = before.lastIndexOf('<');
+                const lastClose = before.lastIndexOf('>');
+                if (lastOpen > lastClose) continue;
+
+                // SAFETY: inside an existing anchor element.
+                const lastAOpen = before.lastIndexOf('<a');
+                const lastAClose = before.lastIndexOf('</a');
+                if (lastAOpen > lastAClose) continue;
+
+                safeStart = start;
+                safeLen = len;
+                break;
+            }
+
+            if (safeStart >= 0) {
+                const end = safeStart + safeLen;
                 const linkTag = `<a href="${rule.target}" class="text-primary font-bold hover:underline">${rule.anchor}</a>`;
-                
-                processedHtml = 
-                    processedHtml.substring(0, start) + 
-                    linkTag + 
+                processedHtml =
+                    processedHtml.substring(0, safeStart) +
+                    linkTag +
                     processedHtml.substring(end);
-                
                 injectedTargets.add(rule.target);
                 injectionCount++;
-                break; // Rule terpenuhi, lanjut ke rule berikutnya
+                break; // rule satisfied, move on
             }
         }
     }

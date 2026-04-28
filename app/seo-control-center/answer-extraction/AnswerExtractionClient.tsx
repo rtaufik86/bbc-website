@@ -3,6 +3,11 @@
 import React, { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Copy, Zap, CheckCircle2, XCircle, AlertTriangle, Globe } from 'lucide-react'
+// Signal Engine v1: computed alongside the existing computeAnswerScore().
+// Serves as additional reference (signals.faq + signals.aeo) without
+// replacing the authoritative page-centric score from this phase.
+import { computeAllSignals, toSignalInput } from '../../../lib/seo/signals'
+import type { AllSignals } from '../../../lib/seo/signals'
 
 interface AuditPage {
   path: string; pageType: string; title: string; description: string; wordCount: number;
@@ -10,6 +15,7 @@ interface AuditPage {
   schemaTypes: string[]; inSitemap: boolean; indexability: string; orphanRisk: boolean;
   linksIn: { from: string }[]; breadcrumb: boolean; status: string; canonical: string;
   firstMoneyLinkBefore300: boolean;
+  firstParagraph?: string;
 }
 interface RegistryEntry {
   url: string; pageType: string; expectedFAQ: boolean; expectedSchema: string[];
@@ -19,7 +25,9 @@ interface Props { auditData: AuditPage[]; registryEntries: RegistryEntry[] }
 
 const SUMMARY_PATTERNS = ['ringkasan', 'kesimpulan', 'jawaban cepat', 'inti', 'singkatnya', 'poin penting']
 
-function computeAnswerScore(page: AuditPage, reg: RegistryEntry): {
+// signals is now a required 3rd param so the function reads FAQ / H1 / schema
+// from the Signal Engine instead of deriving them from raw page fields.
+function computeAnswerScore(page: AuditPage, reg: RegistryEntry, signals: AllSignals): {
   score: number; breakdown: Record<string, number>; checks: Record<string, boolean>; recommendations: string[]
 } {
   let score = 0
@@ -27,23 +35,29 @@ function computeAnswerScore(page: AuditPage, reg: RegistryEntry): {
   const checks: Record<string, boolean> = {}
   const recommendations: string[] = []
 
-  // 25pt: Direct answer block (wordCount >= min & rich H2 structure)
-  const hasDirectAnswer = page.wordCount >= reg.expectedContentLength.min && page.h2Count >= 2
+  // 25pt: Direct answer block
+  // Primary signal: H2 matches a known summary/answer pattern (ringkasan, kesimpulan, etc.)
+  // Fallback: intro paragraph >= 30 words when firstParagraph data is available
+  const introWords = page.firstParagraph ? page.firstParagraph.trim().split(/\s+/).filter(Boolean).length : 0
+  const hasSummaryH2 = page.h2Texts.some(h => SUMMARY_PATTERNS.some(p => h.toLowerCase().includes(p)))
+  const hasDirectAnswer = page.wordCount >= reg.expectedContentLength.min &&
+    page.h2Count >= 2 &&
+    (hasSummaryH2 || introWords >= 30)
   breakdown['Direct Answer Block'] = hasDirectAnswer ? 25 : page.wordCount >= reg.expectedContentLength.min * 0.7 ? 12 : 0
   checks['Direct Answer Block'] = hasDirectAnswer
   score += breakdown['Direct Answer Block']
-  if (!hasDirectAnswer) recommendations.push(`Tambah konten direct answer (min ${reg.expectedContentLength.min} kata, min 2 H2)`)
+  if (!hasDirectAnswer) recommendations.push(`Tambah answer block nyata: H2 ringkasan/kesimpulan atau intro ≥ 30 kata (min ${reg.expectedContentLength.min} kata total)`)
 
-  // 20pt: FAQ exactness
-  const hasFAQ = page.schemaTypes.includes('FAQPage')
+  // 20pt: FAQ exactness (Signal Engine canonical source — no local derivation)
+  const hasFAQ = signals.faq.hasFAQ
   const hasFAQH2 = page.h2Texts.some(h => h.toLowerCase().includes('faq') || h.toLowerCase().includes('pertanyaan'))
   breakdown['FAQ Exactness'] = hasFAQ ? 20 : hasFAQH2 ? 10 : 0
   checks['FAQ Schema'] = hasFAQ
   score += breakdown['FAQ Exactness']
   if (!hasFAQ && reg.expectedFAQ) recommendations.push('Tambah FAQ schema markup (FAQPage)')
 
-  // 15pt: Entity clarity (H1 present and single)
-  const h1Good = page.h1Count === 1 && page.h1Texts.length > 0
+  // 15pt: Entity clarity (Signal Engine H1 signal: exactly 1 H1 present)
+  const h1Good = signals.h1.count === 1 && signals.h1.hasH1
   breakdown['Entity Clarity (H1)'] = h1Good ? 15 : page.h1Count > 0 ? 7 : 0
   checks['Single H1'] = h1Good
   score += breakdown['Entity Clarity (H1)']
@@ -57,9 +71,9 @@ function computeAnswerScore(page: AuditPage, reg: RegistryEntry): {
   score += breakdown['Trust Signals']
   if (trustFound < 2) recommendations.push(`Tambah trust signals di title/description (${reg.trustSignals.slice(0,3).join(', ')}...)`)
 
-  // 10pt: Schema coverage
-  const hasSchema = page.schemaTypes.length > 0
-  const matchesExpected = reg.expectedSchema.some(s => page.schemaTypes.includes(s))
+  // 10pt: Schema coverage (Signal Engine schema signal)
+  const hasSchema = signals.schema.hasSchema
+  const matchesExpected = reg.expectedSchema.some(s => signals.schema.types.includes(s))
   breakdown['Schema Coverage'] = matchesExpected ? 10 : hasSchema ? 5 : 0
   checks['Has Schema'] = hasSchema
   score += breakdown['Schema Coverage']
@@ -89,13 +103,25 @@ export default function AnswerExtractionClient({ auditData, registryEntries }: P
   const pages = useMemo(() => auditData
     .filter(p => p.indexability === 'index')
     .map(page => {
-      const reg = registryEntries.find(r => r.url === page.path)
-      if (!reg) return null
-      const result = computeAnswerScore(page, reg)
-      return { page, reg, ...result }
+      const reg = registryEntries.find(r => r.url === page.path) || {
+        url: page.path,
+        pageType: page.pageType,
+        expectedFAQ: false,
+        expectedSchema: [],
+        trustSignals: [],
+        expectedBehavior: 'unregistered',
+        expectedContentLength: { min: 300, max: 2000 }
+      }
+      // Signal Engine v1: compute BEFORE computeAnswerScore so the function
+      // reads FAQ, H1, and schema from the shared engine (not raw page fields).
+      const signals = computeAllSignals(toSignalInput(page))
+      const result = computeAnswerScore(page, reg, signals)
+      const recommendations = registryEntries.some(r => r.url === page.path)
+        ? result.recommendations
+        : ['Daftarkan halaman ini ke structural registry', ...result.recommendations]
+      return { page, reg, ...result, recommendations, signals }
     })
-    .filter(Boolean)
-    .sort((a, b) => a!.score - b!.score) as NonNullable<ReturnType<typeof computeAnswerScore> & { page: AuditPage; reg: RegistryEntry }>[], [auditData, registryEntries])
+    .sort((a, b) => a.score - b.score) as (ReturnType<typeof computeAnswerScore> & { page: AuditPage; reg: RegistryEntry; signals: AllSignals })[], [auditData, registryEntries])
 
   const filtered = pages.filter(p => p.score >= filterMin)
   const selectedItem = filtered.find(i => i.page.path === selected)

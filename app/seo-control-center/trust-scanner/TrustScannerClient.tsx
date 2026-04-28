@@ -3,11 +3,19 @@
 import React, { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, ShieldCheck, ShieldAlert, Copy, CheckCircle2, XCircle, Globe, Search, AlertCircle, AlertTriangle } from 'lucide-react'
+// Signal Engine v1: shared baseline trust computation used across all
+// tools (Decision Engine, Answer Extraction, LLM Scanner, Control Center).
+// The Trust Scanner keeps its richer cluster-specific logic (computeTrustScore)
+// as the authoritative view for THIS page; the shared `trust` signal is
+// attached alongside as the cross-tool canonical reference.
+import { computeAllSignals, toSignalInput, computeTrustSignal } from '../../../lib/seo/signals'
+import type { AllSignals, TrustSignal as SharedTrustSignal } from '../../../lib/seo/signals'
 
 interface AuditPage {
   path: string; pageType: string; title: string; description: string;
   schemaTypes: string[]; indexability: string; linksOut: { href: string }[];
   linksIn: { from: string }[]; status: string;
+  h1Texts?: string[]; h2Texts?: string[]; h3Texts?: string[]; firstParagraph?: string;
 }
 interface RegistryEntry {
   url: string; pageType: string; cluster: string; entity: string;
@@ -49,26 +57,44 @@ function computeTrustScore(page: AuditPage, reg: RegistryEntry, allLinksOut: str
   score: number; checks: { label: string; passed: boolean; weight: number }[];
   clusterChecks: { label: string; passed: boolean }[]; missing: string[]
 } {
-  const meta = (page.title + ' ' + page.description).toLowerCase()
+  const trustText = [
+    page.title,
+    page.description,
+    page.h1Texts?.join(' ') || '',
+    page.h2Texts?.join(' ') || '',
+    page.h3Texts?.join(' ') || '',
+    page.firstParagraph || ''
+  ].join(' ').toLowerCase()
   const checks = GLOBAL_TRUST_SIGNALS.map(sig => {
     let passed = false
     if (sig.schemaCheck) {
       passed = sig.schemaCheck(page.schemaTypes)
     } else {
-      passed = sig.patterns.some(p => meta.includes(p.toLowerCase()))
+        passed = sig.patterns.some(p => trustText.includes(p.toLowerCase()))
     }
     return { label: sig.label, passed, weight: sig.weight }
   })
 
-  const score = checks.reduce((s, c) => s + (c.passed ? c.weight : 0), 0)
-
   const clusterPatterns = CLUSTER_CHECKS[reg.cluster] || []
   const clusterChecks = clusterPatterns.map(cp => ({
     label: cp.label,
-    passed: meta.includes(cp.pattern.toLowerCase())
+    passed: trustText.includes(cp.pattern.toLowerCase())
   }))
 
-  const missing = checks.filter(c => !c.passed).map(c => c.label)
+  // Global checks contribute 80% of score when cluster checks exist, 100% otherwise
+  const globalScore = checks.reduce((s, c) => s + (c.passed ? c.weight : 0), 0)
+  const clusterPassed = clusterChecks.filter(c => c.passed).length
+  const clusterScore = clusterChecks.length > 0
+    ? Math.round((clusterPassed / clusterChecks.length) * 20)
+    : 0
+  const score = clusterChecks.length > 0
+    ? Math.round(globalScore * 0.8) + clusterScore
+    : globalScore
+
+  const missing = [
+    ...checks.filter(c => !c.passed).map(c => c.label),
+    ...clusterChecks.filter(c => !c.passed).map(c => c.label),
+  ]
 
   return { score: Math.min(100, score), checks, clusterChecks, missing }
 }
@@ -91,10 +117,16 @@ export default function TrustScannerClient({ auditData, registryEntries }: Props
         const reg = registryEntries.find(r => r.url === page.path)
         if (!reg) return null
         const result = computeTrustScore(page, reg, allLinksOut)
-        return { page, reg, ...result }
+        // Signal Engine v1: cross-tool canonical trust baseline + full
+        // signal bundle. Exposed alongside the richer cluster-specific
+        // `result` above; not substituted for it in this phase.
+        const signalInput = toSignalInput(page)
+        const sharedTrust: SharedTrustSignal = computeTrustSignal(signalInput)
+        const signals: AllSignals = computeAllSignals(signalInput)
+        return { page, reg, ...result, sharedTrust, signals }
       })
       .filter(Boolean)
-      .sort((a, b) => a!.score - b!.score) as NonNullable<ReturnType<typeof computeTrustScore> & { page: AuditPage; reg: RegistryEntry }>[]
+      .sort((a, b) => a!.score - b!.score) as NonNullable<ReturnType<typeof computeTrustScore> & { page: AuditPage; reg: RegistryEntry; sharedTrust: SharedTrustSignal; signals: AllSignals }>[]
   }, [auditData, registryEntries])
 
   const clusters = ['all', ...Array.from(new Set(pages.map(p => p.reg.cluster)))]
@@ -103,11 +135,13 @@ export default function TrustScannerClient({ auditData, registryEntries }: Props
   const avgScore = Math.round(pages.reduce((s, p) => s + p.score, 0) / (pages.length || 1))
 
   const exportCSV = () => {
+    const clusterLabels = Array.from(new Set(filtered.flatMap(i => i.clusterChecks.map(c => c.label))))
     const rows = [
-      ['Path', 'Cluster', 'Score', 'Brand', 'Location', 'OrgSchema', 'History', 'SocialProof', 'Missing'].join(','),
+      ['Path', 'Cluster', 'Score', 'Brand', 'Location', 'OrgSchema', 'History', 'SocialProof', ...clusterLabels, 'Missing'].join(','),
       ...filtered.map(i => [
         i.page.path, i.reg.cluster, i.score,
         ...i.checks.map(c => c.passed ? 'Yes' : 'No'),
+        ...clusterLabels.map(label => i.clusterChecks.find(c => c.label === label)?.passed ? 'Yes' : 'No'),
         `"${i.missing.join('; ')}"`
       ].join(','))
     ]
@@ -116,11 +150,13 @@ export default function TrustScannerClient({ auditData, registryEntries }: Props
   }
 
   const copyData = () => {
+    const clusterLabels = Array.from(new Set(filtered.flatMap(i => i.clusterChecks.map(c => c.label))))
     const rows = [
-      ['Path', 'Cluster', 'Score', 'Brand', 'Location', 'OrgSchema', 'History', 'SocialProof', 'Missing'].join('\t'),
+      ['Path', 'Cluster', 'Score', 'Brand', 'Location', 'OrgSchema', 'History', 'SocialProof', ...clusterLabels, 'Missing'].join('\t'),
       ...filtered.map(i => [
         i.page.path, i.reg.cluster, i.score,
         ...i.checks.map(c => c.passed ? 'Yes' : 'No'),
+        ...clusterLabels.map(label => i.clusterChecks.find(c => c.label === label)?.passed ? 'Yes' : 'No'),
         i.missing.join('; ')
       ].join('\t'))
     ]

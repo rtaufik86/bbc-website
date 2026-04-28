@@ -10,12 +10,29 @@ export interface MetaInput {
 /**
  * MONEY PAGE GENERATOR
  * Objective: Conversion
+ * Cluster-aware: legal / virtual-office / generic
  */
 function generateMoneyMeta(input: MetaInput) {
     const { entity, location } = input;
-    const title = `${entity} ${location} Siap Pakai | Survey Hari Ini`;
-    const description = `${entity} di ${location} dengan fasilitas lengkap dan alamat resmi. Siap digunakan tanpa setup. Konsultasi dan survey tersedia hari ini.`;
-    
+    const entityLower = entity.toLowerCase();
+
+    let title: string;
+    let description: string;
+
+    if (/\b(pt|cv|pendirian|legal|notaris)\b/.test(entityLower)) {
+        // Legal cluster
+        title = `${entity} ${location} | Proses Resmi & Legal`;
+        description = `${entity} di ${location} dengan proses resmi, cepat, dan sesuai regulasi. Dibantu notaris berpengalaman. Konsultasi gratis tersedia hari ini.`;
+    } else if (/\b(virtual|alamat|domisili)\b/.test(entityLower)) {
+        // Virtual office / address cluster
+        title = `${entity} ${location} Resmi DKI | Alamat Bisnis Legal`;
+        description = `${entity} di ${location} dengan alamat bisnis resmi terdaftar DKI Jakarta. Cocok untuk NPWP, NIB, dan domisili usaha. Siap digunakan hari ini.`;
+    } else {
+        // Generic conversion fallback
+        title = `${entity} ${location} Siap Pakai | Survey Hari Ini`;
+        description = `${entity} di ${location} dengan fasilitas lengkap dan alamat resmi. Siap digunakan tanpa setup. Konsultasi dan survey tersedia hari ini.`;
+    }
+
     validateMeta('money', title, description);
     return { title, description };
 }
@@ -144,10 +161,13 @@ export function getMetaByPath(path: string) {
     }
 
     // FALLBACK: Template-based Generation
+    const location = path.includes('bintaro') ? 'Bintaro' :
+                     path.includes('tangerang') ? 'Tangerang Selatan' :
+                     'Jakarta Selatan'
     return generateMeta({
         type: config.type,
         entity: config.entity || "BBC",
-        location: "Jakarta Selatan",
+        location,
         modifier: getModifierFromPath(path)
     });
 }

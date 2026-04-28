@@ -1,11 +1,11 @@
 export type StructuredDataProps =
-    | { type: 'LocalBusiness'; name: string; description: string; image: string; telephone: string; address: any }
-    | { type: 'Product'; name: string; description: string; image: string; price: number; availability: string }
+    | { type: 'LocalBusiness'; name: string; description: string; image: string; telephone: string; address?: any; geo?: { latitude: number; longitude: number }; pageUrl?: string }
+    | { type: 'Product'; name: string; description: string; image: string; price: number; availability: string; pageUrl?: string }
     | { type: 'FAQ'; faqs: { question: string; answer: string }[] }
     | { type: 'Breadcrumb'; items: { name: string; item: string }[] }
 
 export function generateStructuredData(data: StructuredDataProps) {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://bbcbintaro.com'
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.bintarobusinesscentre.com'
 
     if (data.type === 'LocalBusiness') {
         return {
@@ -15,18 +15,18 @@ export function generateStructuredData(data: StructuredDataProps) {
             description: data.description,
             image: data.image,
             telephone: data.telephone,
-            address: {
+            address: data.address ?? {
                 '@type': 'PostalAddress',
-                streetAddress: 'Jl. Bintaro Utama 3A, Pondok Karya',
-                addressLocality: 'Pondok Aren',
-                addressRegion: 'Tangerang Selatan',
-                postalCode: '15220',
+                streetAddress: 'Jl. RC Veteran No. 1-i, Pesanggrahan',
+                addressLocality: 'Pesanggrahan',
+                addressRegion: 'Jakarta Selatan',
+                postalCode: '12270',
                 addressCountry: 'ID'
             },
             geo: {
                 '@type': 'GeoCoordinates',
-                latitude: -6.2, // Approx
-                longitude: 106.7 // Approx
+                latitude: data.geo?.latitude ?? -6.2745,   // Jl. RC Veteran, Pesanggrahan
+                longitude: data.geo?.longitude ?? 106.7736
             },
             openingHoursSpecification: [
                 {
@@ -42,7 +42,7 @@ export function generateStructuredData(data: StructuredDataProps) {
                     closes: '13:00'
                 }
             ],
-            url: baseUrl
+            url: data.pageUrl ?? baseUrl
         }
     }
 
@@ -57,8 +57,10 @@ export function generateStructuredData(data: StructuredDataProps) {
                 '@type': 'Offer',
                 priceCurrency: 'IDR',
                 price: data.price,
-                availability: 'https://schema.org/InStock',
-                url: baseUrl
+                availability: data.availability
+                    ? (data.availability.startsWith('https://') ? data.availability : `https://schema.org/${data.availability}`)
+                    : 'https://schema.org/InStock',
+                url: data.pageUrl ?? baseUrl
             }
         }
     }

@@ -15,13 +15,13 @@ export function createMetadata({
     path,
     noIndex = false
 }: CreateMetadataProps): Metadata {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://bbcbintaro.com'
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.bintarobusinesscentre.com'
     const url = `${baseUrl}${path}`
 
     return {
         title: {
             default: title,
-            template: `%s | BBC Bintaro`
+            template: `%s | Bintaro Business Centre`
         },
         description,
         metadataBase: new URL(baseUrl),
@@ -32,7 +32,7 @@ export function createMetadata({
             title,
             description,
             url,
-            siteName: 'Bintaro Business Center',
+            siteName: 'Bintaro Business Centre',
             images: [
                 {
                     url: image,

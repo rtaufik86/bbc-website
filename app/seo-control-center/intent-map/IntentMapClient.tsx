@@ -27,13 +27,31 @@ function getCoverageStatus(query: string, pagesInCluster: { page: AuditPage, reg
   // Find candidates
   const candidates = pagesInCluster.map(p => {
     let score = 0
-    const content = (p.page.title + ' ' + p.page.h1Texts.join(' ') + ' ' + p.page.h2Texts.join(' ')).toLowerCase()
-    
+    // Include h3Texts for broader semantic coverage
+    const content = (
+      p.page.title + ' ' +
+      p.page.h1Texts.join(' ') + ' ' +
+      p.page.h2Texts.join(' ') + ' ' +
+      p.page.h3Texts.join(' ')
+    ).toLowerCase()
+
     if (p.page.path.toLowerCase().includes(q.replace(/\s+/g, '-'))) score += 40
     if (p.page.title.toLowerCase().includes(q)) score += 30
     if (p.page.h1Texts.some(h => h.toLowerCase().includes(q))) score += 20
     if (p.page.h2Texts.some(h => h.toLowerCase().includes(q))) score += 10
-    
+
+    // Partial word-overlap fallback: handles reordered phrasing and semantic variants.
+    // Scores proportionally based on how many significant words (>=4 chars) are present.
+    if (score === 0) {
+      const words = q.split(/\s+/).filter(w => w.length >= 4)
+      if (words.length > 0) {
+        const matchCount = words.filter(w => content.includes(w)).length
+        const ratio = matchCount / words.length
+        if (ratio >= 0.75) score += 15   // >=75% words: strong near-miss
+        else if (ratio >= 0.5) score += 8 // >=50% words: partial match
+      }
+    }
+
     return { path: p.page.path, score }
   }).filter(c => c.score > 0).sort((a, b) => b.score - a.score)
 
@@ -53,7 +71,7 @@ export default function IntentMapClient({ auditData, registryEntries, queryBankB
     
     Object.entries(queryBankByCluster).forEach(([cluster, queries]) => {
       const pagesInCluster = auditData
-        .map(p => ({ page: p, reg: registryEntries.find(r => r.url === p.path)! }))
+        .map(p => ({ page: p, reg: registryEntries.find(r => r.url === p.path) }))
         .filter(p => p.reg && p.reg.cluster === cluster)
 
       queries.forEach(query => {

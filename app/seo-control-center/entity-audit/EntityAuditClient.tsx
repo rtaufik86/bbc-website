@@ -63,7 +63,8 @@ function computeV2Audit(page: AuditPage, reg: RegistryEntry, allAudits: {page: A
 
   let actualIntent: IntentLabel = 'informational'
   if (activeType === 'homepage') actualIntent = 'distribution'
-  else if (activeType === 'support' || trustSignals) actualIntent = 'trust'
+  else if (activeType === 'support') actualIntent = signals.length >= 2 || transacWords ? 'transactional' : trustSignals ? 'trust' : 'informational'
+  else if (trustSignals) actualIntent = 'trust'
   else if (activeType === 'hub') actualIntent = 'navigational'
   else if (signals.length >= 2 || transacWords) actualIntent = 'transactional'
   
@@ -91,9 +92,10 @@ function computeV2Audit(page: AuditPage, reg: RegistryEntry, allAudits: {page: A
         if (target.page.path === '/') mult *= 0.5 // Final Homepage Polish
 
         const final = Math.round(Math.min(95, sim * mult))
-        if (final > overlapScore) { 
+        if (final > overlapScore) {
            overlapScore = final; overlapWith = target.page.path; isHomepageOverlap = (target.page.path === '/');
-           if (sharedH2.length > 0) overlapReasons.push('Heading Map Overlap'); 
+           overlapReasons.length = 0  // reset — reasons must match the new winner only
+           if (sharedH2.length > 0) overlapReasons.push('Heading Map Overlap');
            if (sharedH3.length > 0) overlapReasons.push('FAQ Pattern Overlap');
            if (sim > 25) overlapReasons.push('Shared Entity Keywords');
            if (page.firstParagraph && target.page.firstParagraph && page.firstParagraph.substring(0, 40) === target.page.firstParagraph.substring(0, 40)) { overlapReasons.push('Shared Intro Sentence'); }

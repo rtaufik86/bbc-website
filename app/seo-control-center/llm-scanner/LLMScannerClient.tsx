@@ -3,11 +3,17 @@
 import React, { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Bot, Zap, CheckCircle2, AlertTriangle, Search, Info, Globe, ShieldCheck } from 'lucide-react'
+// Signal Engine v1: shared signals attached for AEO / entity / trust
+// reference. Existing computeReadyScore() below remains authoritative for
+// the per-query citation readiness score.
+import { computeAllSignals, toSignalInput } from '../../../lib/seo/signals'
+import type { AllSignals } from '../../../lib/seo/signals'
 
 interface AuditPage {
   path: string; pageType: string; title: string; description: string; wordCount: number;
   h1Texts: string[]; h2Texts: string[]; h3Texts: string[];
   schemaTypes: string[]; linksIn: { from: string }[]; inSitemap: boolean; status: string;
+  indexability?: string;
 }
 interface RegistryEntry {
   url: string; cluster: string; queryBank: string[]; entity: string; trustSignals: string[];
@@ -18,29 +24,37 @@ interface Props {
   queryBankByCluster: Record<string, string[]>;
 }
 
-function computeReadyScore(query: string, page: AuditPage, reg: RegistryEntry): { 
-  score: number; breakdown: Record<string, number>; missing: string[] 
+// signals added as 4th param: FAQ + schema now read from Signal Engine.
+function computeReadyScore(
+  query: string, page: AuditPage, reg: RegistryEntry, signals: AllSignals
+): {
+  score: number; breakdown: Record<string, number>; missing: string[]
 } {
   const q = query.toLowerCase()
-  const content = (page.title + ' ' + page.h1Texts.join(' ') + ' ' + page.h2Texts.join(' ')).toLowerCase()
+  const content = (page.title + ' ' + page.h1Texts.join(' ') + ' ' + page.h2Texts.join(' ') + ' ' + page.h3Texts.join(' ')).toLowerCase()
+  const queryTerms = q.split(/\s+/).filter(Boolean).filter(term => term.length > 2)
+  const directMatch = queryTerms.some(term => content.includes(term))
   let score = 0
   const breakdown: Record<string, number> = {}
   const missing: string[] = []
 
   // 25pt: Direct answer block (wordCount > 400 + keyword match)
-  const contentOk = page.wordCount >= 400 && content.includes(q.split(' ')[0])
+  const contentOk = page.wordCount >= 400 && directMatch
   breakdown['Direct Content Match'] = contentOk ? 25 : 10
   score += breakdown['Direct Content Match']
   if (!contentOk) missing.push('Halaman terlalu pendek atau keyword utama tidak ada')
 
-  // 20pt: FAQ presence (schema + exact match)
-  const hasFAQ = page.schemaTypes.includes('FAQPage')
+  // 20pt: FAQ presence (Signal Engine canonical source)
+  const hasFAQ = signals.faq.hasFAQ
   breakdown['FAQ Schema Presence'] = hasFAQ ? 20 : 0
   score += breakdown['FAQ Schema Presence']
   if (!hasFAQ) missing.push('Missing FAQPage schema markup')
 
   // 15pt: Entity Clarity (H1 match)
-  const h1Match = page.h1Texts.some(h => h.toLowerCase().includes(q.split(' ')[0]))
+  const h1Match = page.h1Texts.some(h => {
+    const normalized = h.toLowerCase()
+    return queryTerms.some(term => normalized.includes(term))
+  })
   breakdown['Entity/H1 Clarity'] = h1Match ? 15 : 5
   score += breakdown['Entity/H1 Clarity']
   if (!h1Match) missing.push('Keyword utama tidak ada di H1')
@@ -52,8 +66,8 @@ function computeReadyScore(query: string, page: AuditPage, reg: RegistryEntry): 
   score += breakdown['Verifiability (Trust)']
   if (!hasTrust) missing.push('Missing trust signals in metadata (location, brand, certs)')
 
-  // 10pt: Schema coverage
-  const hasOrg = page.schemaTypes.some(s => ['Organization', 'LocalBusiness'].includes(s))
+  // 10pt: Schema coverage (Signal Engine schema signal — no raw schemaTypes access)
+  const hasOrg = signals.schema.types.some(s => ['Organization', 'LocalBusiness'].includes(s))
   breakdown['Entity Graph Schema'] = hasOrg ? 10 : 0
   score += breakdown['Entity Graph Schema']
   if (!hasOrg) missing.push('Missing Organization/LocalBusiness schema')
@@ -87,7 +101,7 @@ export default function LLMScannerClient({ auditData, registryEntries, queryBank
       // Find best candidate
       const clusterPages = auditData.filter(p => {
         const r = registryEntries.find(reg => reg.url === p.path)
-        return r && r.cluster === cluster
+        return r && r.cluster === cluster && p.indexability !== 'noindex'
       })
 
       const q = query.toLowerCase()
@@ -99,13 +113,17 @@ export default function LLMScannerClient({ auditData, registryEntries, queryBank
         return { page: p, matchScore }
       }).sort((a,b) => b.matchScore - a.matchScore)
 
-      const best = candidates[0]?.page
+      const topCandidate = candidates[0]
+      const best = topCandidate?.matchScore > 0 ? topCandidate.page : undefined
       const regMatch = best ? registryEntries.find(r => r.url === best.path) : null
 
-      if (!best || !regMatch) return { query, cluster, score: 0, missing: ['No candidate page found'], bestPage: null }
-      
-      const { score, missing, breakdown } = computeReadyScore(query, best, regMatch)
-      return { query, cluster, score, missing, breakdown, bestPage: best.path }
+      if (!best || !regMatch) return { query, cluster, score: 0, missing: ['No candidate page found'], bestPage: null, signals: undefined as AllSignals | undefined }
+
+      // Signal Engine v1: compute BEFORE computeReadyScore so FAQ + schema
+      // signals come from the shared engine (not re-derived from raw schemaTypes).
+      const signals = computeAllSignals(toSignalInput(best))
+      const { score, missing, breakdown } = computeReadyScore(query, best, regMatch, signals)
+      return { query, cluster, score, missing, breakdown, bestPage: best.path, signals }
     }).sort((a,b) => a.score - b.score)
   }, [allQueries, auditData, registryEntries])
 

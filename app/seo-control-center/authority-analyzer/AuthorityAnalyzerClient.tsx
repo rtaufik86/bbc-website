@@ -24,7 +24,7 @@ function getLinkWeight(link: LinkInfo): number {
 }
 // Position weight
 function getPositionWeight(pos?: number): number {
-  if (!pos) return 1.0
+  if (pos === undefined) return 1.0
   if (pos < 300) return 1.3
   if (pos < 1000) return 1.0
   return 0.8
@@ -75,12 +75,17 @@ function computeAuthorityData(pages: AuditPage[]) {
     scores[page.path] = Math.max(0, score)
   })
 
-  // Normalize 0-100
-  const vals = Object.values(scores).filter(v => v > 0)
-  const max = Math.max(...vals, 1), min = Math.min(...vals, 0)
+  // Normalize 0-100 against actual score spread
+  const vals = Object.values(scores)
+  const max = vals.length > 0 ? Math.max(...vals) : 1
+  const min = vals.length > 0 ? Math.min(...vals) : 0
+  const range = max - min
   const normalized: Record<string, number> = {}
   Object.entries(scores).forEach(([k, v]) => {
-    normalized[k] = max === min ? 0 : Math.round(((v - min) / (max - min)) * 100)
+    // Uniform cluster: preserve that all pages share the same strength (report 50)
+    normalized[k] = range === 0
+      ? (v > 0 ? 50 : 0)
+      : Math.round(((v - min) / range) * 100)
   })
 
   return { scores: normalized, inboundMap }
@@ -118,8 +123,17 @@ export default function AuthorityAnalyzerClient({ auditData, registryEntries }: 
 
         // Find good injection candidates: high-score pages in same cluster that don't already link here
         const existingFrom = new Set(inbound.map(i => i.from))
+        // Only recommend injection sources that are themselves indexable.
+        // Linking FROM a noindex/canonicalized page will not pass authority
+        // and would pollute the action list with non-actionable suggestions.
         const injectionCandidates = auditData
-          .filter(p => getCluster(p.path) === cluster && p.path !== page.path && !existingFrom.has(p.path) && p.pageType !== 'utility')
+          .filter(p =>
+            getCluster(p.path) === cluster &&
+            p.path !== page.path &&
+            !existingFrom.has(p.path) &&
+            p.pageType !== 'utility' &&
+            p.indexability === 'index'
+          )
           .map(p => ({ path: p.path, score: scores[p.path] ?? 0, type: p.pageType }))
           .sort((a, b) => b.score - a.score)
           .slice(0, 3)
