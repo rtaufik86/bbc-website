@@ -32,8 +32,7 @@ const silos: SiloGroup[] = [
         links: [
             { title: "Virtual Office Jakarta Selatan", href: "/virtual-office/jakarta-selatan" },
             { title: "Virtual Office Bintaro", href: "/virtual-office-bintaro" },
-            { title: "Alamat Bisnis Jakarta Selatan", href: "/virtual-office/alamat-bisnis-jakarta-selatan" },
-            { title: "Legalitas & Domisili Resmi", href: "/legal" }
+            { title: "Alamat Bisnis Jakarta Selatan", href: "/virtual-office/alamat-bisnis-jakarta-selatan" }
         ]
     }
 ]
@@ -73,7 +72,7 @@ export default function SiloNavigation() {
                 
                 <div className="mt-12 text-center">
                     <Link 
-                        href="/sewa-kantor" 
+                        href="/virtual-office/jakarta-selatan" 
                         className="inline-flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-[0.3em] hover:text-accent transition-colors group"
                     >
                         Lihat Semua Layanan <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -214,7 +214,19 @@ export default function VirtualOfficePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
+            <p>
+                Jika Anda butuh konteks domisili, baca <a href="/virtual-office/alamat-bisnis-jakarta-selatan">fungsi alamat bisnis di Jakarta Selatan</a> untuk kebutuhan administratif.
+            </p>
             <VirtualOfficeClient />
+            <p>
+                Untuk kebutuhan pendirian badan usaha, lihat <a href="/legal/pendirian-pt-jakarta-selatan">layanan pendirian PT Jakarta Selatan</a> yang relevan dengan dokumen legal.
+            </p>
+            <p>
+                Banyak bisnis memulai dari domisili untuk administrasi, lalu menambah kebutuhan operasional seiring waktu.
+            </p>
+            <p>
+                Kenali latar belakang penyedia melalui halaman <a href="/tentang-kami">tentang kami</a> sebelum menentukan paket.
+            </p>
         </>
     )
 }

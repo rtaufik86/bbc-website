@@ -49,7 +49,7 @@ export default function Page() {
             canonicalUrl="https://www.bintarobusinesscentre.com/kantor-dekat-tol-veteran"
             schemaObject={schemaObject}
             h1="Kantor Dekat Tol Veteran: Akses Strategis Lintas Jakarta Selatan"
-            intro='Mobilitas tinggi berarti perbedaan efisiensi antar jarak pintu tol sangat krusial. <a href="/sewa-kantor" class="text-accent font-bold hover:underline">Bintaro Business Centre berlokasi ~1,3 km dari Pintu Tol Veteran</a> dengan akses instan fasilitas kantor siap pakai Pesanggrahan, Jakarta Selatan.'
+            intro='Mobilitas tinggi berarti perbedaan efisiensi antar jarak pintu tol sangat krusial. Bagi yang mencari <a href="/sewa-kantor" class="text-accent font-bold hover:underline">kantor dekat Tol Veteran</a>, Bintaro Business Centre berlokasi ~1,3 km dari Pintu Tol Veteran dengan akses instan fasilitas kantor siap pakai Pesanggrahan, Jakarta Selatan.'
             entity="sewa-kantor"
             location="jakarta-selatan"
             heroBadges={{ b1: "Akses Logistik", b2: "JORR W2S" }}
@@ -68,7 +68,7 @@ export default function Page() {
                     h2: "Konektivitas Segitiga Emas: JORR W2S Tol Veteran",
                     rawHtml: `
                         <h3>Arah Selatan-Barat (Tangerang Raya)</h3>
-                        <p>Pintu Tol Veteran bermuara ke arah Pondok Aren, Serpong, dan BSD. Ini sangat relevan bagi perusahaan yang beroperasi pada klaster perumahan di Tangerang Selatan atau kompleks industri padat di barat.</p>
+                        <p>Pintu Tol Veteran bermuara ke arah Pondok Aren, Serpong, dan BSD. Ini sangat relevan bagi perusahaan yang beroperasi pada klaster perumahan di Tangerang Selatan atau kompleks industri padat di barat, sekaligus menempatkan operasional pada lokasi strategis di Bintaro.</p>
 
                         <h3>Arah Utara (Soekarno-Hatta &amp; Kebon Jeruk)</h3>
                         <p>Lewat sambungan JORR W2S Utara tembus langsung ke pintu tol Kebon Jeruk, Cengkareng, dan bandara komersial internasional Soekarno-Hatta. Sangat penting bagi ekspor-impor (pengiriman barang udara) dan C-suite yang melanglang buana antar-pulau tiap bulan.</p>
@@ -99,7 +99,7 @@ export default function Page() {
                     visual: {
                         type: "card",
                         items: [
-                            { title: "Tepat Waktu", desc: "Kemudahan kalkulasi mobilitas tanpa kejebak lampu merah meminimalisir keterlambatan absensi WFO secara signifikan", icon: "Clock" },
+                            { title: "Tepat Waktu", desc: "Kemudahan kalkulasi mobilitas tanpa kejebak lampu merah meminimalisir keterlambatan absensi WFO secara signifikan. Banyak tim memilih kantor siap pakai dengan akses mudah agar ritme operasional tetap stabil.", icon: "Clock" },
                             { title: "Persepsi VIP Klien", desc: "Klien akan menilai positif bila alamat perseroan Anda dekat <a href=\"/sewa-kantor/bintaro\" class=\"text-accent hover:underline\">sewa kantor Bintaro dengan fasilitas resepsionis tingkat A+</a> yang begitu mudah di-Gojek", icon: "CheckCircle" },
                             { title: "Jangkau Perbatasan", desc: "Tumbuh melampaui limit area selatan", icon: "Globe" },
                             { title: "Siklus Operasional Normal", desc: "Di jam terlarang malam (jam truk), suplai di jalan arteri raya ini masih terbuka leluasa untuk pengiriman instan barang garmen / material", icon: "ShieldAlert" }
@@ -135,7 +135,6 @@ export default function Page() {
                     rawHtml: `
                         <ul>
                             <li><a href="/kantor-dekat-bintaro-jaya">Kantor Dekat Bintaro Jaya</a></li>
-                            <li><a href="/sewa-kantor/bintaro">Sewa Kantor Bintaro: Konsep &amp; Fasilitas</a></li>
                         </ul>
                     `
                 },
@@ -144,7 +143,7 @@ export default function Page() {
                     h2: "Maksimalkan Akselerasi Bisnis Armada Anda",
                     rawHtml: `
                         <p>Ambil alih jam produktif Anda. Akses 10 menit ke jalan toll bebas hambatan sangat bernilai ketimbang kemacetan dalam kota metropolitan.</p>
-                        <p><a href="https://wa.me/628128888069">Survei Unit Hari Ini</a> | <a href="/sewa-kantor">Tinjauan Sewa Jaksel</a></p>
+                        <p><a href="https://wa.me/628128888069">Survei Unit Hari Ini</a></p>
                     `
                 }
             ]}
@@ -163,4 +162,3 @@ export default function Page() {
         />
     )
 }
-

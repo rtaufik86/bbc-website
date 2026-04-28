@@ -78,6 +78,7 @@ export default function WeaponPageTemplate({
     
     // VISUAL ENGINE: Deterministic Hero Image
     const autoHeroImage = getHeroImage(entity, location);
+    const midLink = internalLinks?.mid
 
     const schema = {
         "@context": "https://schema.org",
@@ -247,6 +248,19 @@ export default function WeaponPageTemplate({
                                         )
                                     })}
                                 </div>
+                            )}
+
+                            {/* Mid-page internal CTA (after 2nd section) */}
+                            {idx === 1 && midLink && (
+                                <p className="mt-10 text-base text-slate-600">
+                                    <Link
+                                        href={midLink.href}
+                                        className="inline-flex items-center gap-2 text-accent font-bold underline"
+                                    >
+                                        {midLink.label}
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </p>
                             )}
                         </div>
                     </section>

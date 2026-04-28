@@ -4,8 +4,8 @@ export default function ArticleHeader({ title, date }: { title: string, date: st
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">{title}</h1>
             <div className="flex items-center text-sm text-slate-500 gap-4">
                 <time dateTime={date}>{new Date(date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-                <span>•</span>
-                <span>Bintaro Business Center</span>
+                <span>{'\u2022'}</span>
+                <span>Bintaro Business Centre</span>
             </div>
         </header>
     )

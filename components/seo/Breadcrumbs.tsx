@@ -48,16 +48,16 @@ export default function SEOBreadcrumbs({ items }: { items: BreadcrumbItemProps[]
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     {items.map((item, index) => (
-                        <div key={index} className="flex items-center gap-2">
-                            <BreadcrumbItem>
+                        <>
+                            <BreadcrumbItem key={item.label}>
                                 {item.href ? (
                                     <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
                                 ) : (
                                     <BreadcrumbPage>{item.label}</BreadcrumbPage>
                                 )}
                             </BreadcrumbItem>
-                            {index < items.length - 1 && <BreadcrumbSeparator />}
-                        </div>
+                            {index < items.length - 1 && <BreadcrumbSeparator key={`sep-${index}`} />}
+                        </>
                     ))}
                 </BreadcrumbList>
             </Breadcrumb>

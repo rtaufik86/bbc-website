@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-export type AnchorType = 'brand-service' | 'service-location' | 'generic' | 'descriptive'
+export type AnchorType = 'brand_service' | 'service_location' | 'generic' | 'descriptive'
 export type LinkPosition = 'intro' | 'mid-content' | 'cta' | 'related'
 
 interface InternalLinkProps {

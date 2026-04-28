@@ -136,7 +136,7 @@ export default function Page() {
                         <ul>
                             <li><a href="/sewa-kantor/harga">Cara Menilai Harga Sewa Bintaro</a></li>
                             <li><a href="/sewa-kantor/jakarta-selatan">Sewa Kantor Jakarta Selatan Eksklusif</a></li>
-                            <li><a href="/alamat-bisnis-jakarta-selatan">Alamat Bisnis Sah Jakarta Selatan</a></li>
+                            <li><a href="/virtual-office/alamat-bisnis-jakarta-selatan">Alamat Bisnis Sah Jakarta Selatan</a></li>
                         </ul>
                     `
                 },
@@ -164,4 +164,3 @@ export default function Page() {
         />
     )
 }
-

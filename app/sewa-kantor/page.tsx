@@ -171,7 +171,19 @@ export default function SewaKantorPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
+            <p>
+                Lihat <a href="/lokasi-kantor">lokasi kantor</a> untuk memastikan akses dan kecocokan area sebelum memilih unit.
+            </p>
             <SewaKantorClient />
+            <p>
+                Detail <a href="/fasilitas-kantor">fasilitas kantor</a> membantu Anda menilai kesiapan operasional (internet, resepsionis, utilitas, dan ruang pendukung).
+            </p>
+            <p>
+                Banyak tim memilih unit berdasarkan ritme kerja harian dan kebutuhan verifikasi instansi.
+            </p>
+            <p>
+                Untuk konteks area, baca juga <a href="/sewa-kantor/jakarta-selatan">panduan sewa kantor Jakarta Selatan</a> terkait yurisdiksi dan mobilitas tim.
+            </p>
         </>
     )
 }

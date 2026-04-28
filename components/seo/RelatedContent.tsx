@@ -26,6 +26,7 @@ export default function RelatedContent({
     layout = "grid"
 }: RelatedContentProps) {
     if (!articles || articles.length === 0) return null
+    const limitedArticles = articles.slice(0, 3)
 
     if (layout === 'list') {
         return (
@@ -34,7 +35,7 @@ export default function RelatedContent({
                     {title}
                 </h3>
                 <div className="space-y-4">
-                    {articles.map((article, index) => (
+                    {limitedArticles.map((article, index) => (
                         <Link
                             key={index}
                             href={article.href}
@@ -64,7 +65,7 @@ export default function RelatedContent({
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {articles.map((article, index) => (
+                {limitedArticles.map((article, index) => (
                     <Link
                         key={index}
                         href={article.href}

@@ -54,7 +54,7 @@ export default function Page() {
                         "name": "Apakah ada biaya yang wajib dibayar di muka selain sewa bulan pertama?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Biasanya ada jaminan perlindungan aset berupa deposit (1â€“3 bulan sewa) atau biaya pendaftaran integrasi sistem yang tercatat di pembukuan."
+                        "text": "Biasanya ada jaminan perlindungan aset berupa deposit (1–3 bulan sewa) atau biaya pendaftaran integrasi sistem yang tercatat di pembukuan."
                         }
                     },
                     {
@@ -78,7 +78,7 @@ export default function Page() {
             canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/murah-jakarta-selatan"
             schemaObject={schemaObject}
             h1="Sewa Kantor Murah Jakarta Selatan: Kalkulasi Keselarasan Nilai Jangka Panjang"
-            intro='Ketika meninjau ruang komersial, istilah "murah" bagai pisau bermata dua. Jebakan pengeluaran tak terlihat seperti pemeliharaan utilitas merusak hitungan margin laba. Prinsip transparansi anggaran menyeluruh diadopsi pada model <a href="/sewa-kantor" class="text-accent font-bold hover:underline">sewa kantor di Bintaro Business Centre (BBC)</a>, guna menjamin pengusaha tidak disandera fluktuasi biaya tersembunyi di ibukota.'
+            intro='Ketika meninjau ruang komersial, istilah "murah" bagai pisau bermata dua. Jebakan pengeluaran tak terlihat seperti pemeliharaan utilitas merusak hitungan margin laba. Prinsip transparansi anggaran menyeluruh diadopsi pada model <a href="/sewa-kantor" class="text-accent font-bold hover:underline">sewa kantor Jakarta Selatan</a> di Bintaro Business Centre (BBC), guna menjamin pengusaha tidak disandera fluktuasi biaya tersembunyi di ibukota.'
             entity="sewa-kantor"
             location="jakarta-selatan"
             heroBadges={{ b1: "Evaluasi Biaya", b2: "Smart Business" }}
@@ -87,7 +87,7 @@ export default function Page() {
                     id: "problem",
                     h2: "Mengkritisi Angka Total Cost of Occupancy (TCO)",
                     rawHtml: `
-                        <p>Di koridor padat seperti Jakarta Selatanâ€”pesona angka nominasi yang super rendah sungguh menggoda para pelaku startup. Ruang ruko ditawarkan senilai rendah terdengar menguntungkan saat dicerna mentah, namun apa yang terjadi bila tagihan tak dikontrol? Sambungan bandwidth pasang kelak lambat, kipas angin tak menyejukkan lobi, dan tagihan listrik meloncat melampaui tarif sewa.</p>
+                        <p>Di koridor padat seperti Jakarta Selatan—pesona angka nominasi yang super rendah sungguh menggoda para pelaku startup. Ruang ruko ditawarkan senilai rendah terdengar menguntungkan saat dicerna mentah, namun apa yang terjadi bila tagihan tak dikontrol? Sambungan bandwidth pasang kelak lambat, kipas angin tak menyejukkan lobi, dan tagihan listrik meloncat melampaui tarif sewa.</p>
                         <p>Kita menyebutnya sebagai Total Cost of Occupancy (TCO). Ini adalah jumlah kolektif gabungan sewa awal ditambah variabel kebersihan, air komersial, asuransi, perbaikan struktur ringan tak berkesudahan, dan retensi kebersihan luar kawasan. Apabila diproyeksi menyeluruh per 18 bulan, tawaran terendah tersebut justru lebih tinggi daripada paket sewa profesional yang dijamin anti-bocor.</p>
                         <p>Dibiarkan berlarut, ketidakmampuan menebak pengeluaran logistik akhir akan mengganggu arus tunai perusahaan vital Anda. Anda harus cerdas membedah apakah komponen nilai (Value) yang diserahkan sudah terakumulasi sempurna dalam negosiasi biaya pertama.</p>
                     `
@@ -130,7 +130,7 @@ export default function Page() {
                         items: [
                             { title: "Inventarisasi Realistis", desc: "Berapa luas luang kaki dan ventilasi AC standar mutlak demi menopang 6 pegawai laptop berat berdurasi 9 jam per hari?", icon: "CheckSquare" },
                             { title: "Status Garansi Yurisdiksi", desc: "Sertifikat domisili kecamatan legal mana yang terpampang sebagai dasar argumen KPP Pajak, NPWP?", icon: "Briefcase" },
-                            { title: "Evaluasi Retensi Resepsionis", desc: "Uang cuti, BPJS Ketenagakerjaan akan membengkak jika harus mendatangkan staf khusus penerima telepon.", icon: "Users" },
+                            { title: "Evaluasi Retensi Resepsionis", desc: "Uang cuti, BPJS Ketenagakerjaan akan membengkak jika harus mendatangkan staf khusus penerima telepon. Pada praktiknya, <a href=\"/sewa-kantor\" class=\"text-accent hover:underline\">paket kantor all-inclusive</a> sering lebih aman untuk menjaga struktur biaya.", icon: "Users" },
                             { title: "Skema Terminasi Fleksibel", desc: "Memastikan keluarnya agensi kelak diwarnai perjanjian perdata bisnis adil tanpa memotong seluruh deposit.", icon: "AlertTriangle" }
                         ]
                     }
@@ -142,7 +142,7 @@ export default function Page() {
                         <p>Pendekatan jujur BBC dalam mengakui struktur sewa.</p>
 
                         <h3>Service Office Stabil</h3>
-                        <p>Unit terisolir tanpa gangguan sirkulasi tak dikenal. Arus tagihan listik/kebersihan telah ditutup mati pihak manajemen gedung sebagai operator.</p>
+                        <p>Unit terisolir tanpa gangguan sirkulasi tak dikenal. Arus tagihan listik/kebersihan telah ditutup mati pihak manajemen gedung sebagai operator. Banyak tim memilih <a href="/sewa-kantor/bintaro" class="text-accent hover:underline">kantor siap pakai di Bintaro</a> agar implementasi operasional tidak terseret biaya tak terlihat.</p>
                         <p><strong>Cocok Untuk</strong><br/>Startup pengadaan tender, manufaktur cabang kecil, dan badan riset independen.</p>
                         <ul>
                             <li>Biaya Bebas Volatilitas</li>
@@ -163,8 +163,6 @@ export default function Page() {
                     h2: "ARTIKEL TERKAIT SEKTOR NILAI",
                     rawHtml: `
                         <ul>
-                            <li><a href="/sewa-kantor/kantor-siap-pakai-bintaro">Mencapai Fleksibilitas Kantor Siap Pakai</a></li>
-                            <li><a href="/sewa-kantor/jakarta-selatan">Mengapa Peta Operasional Domisili Signifikan</a></li>
                         </ul>
                     `
                 },
@@ -173,7 +171,7 @@ export default function Page() {
                     h2: "Pilih Fondasi Bisnis, Bukan Cuma Label Harga Tanpa Kepastian",
                     rawHtml: `
                         <p>Angka terendah hari ini belum tentu berarti penghematan di bulan-bulan depan. Hindari pemborosan tersembunyi dengan memahami struktur TCO (Total Cost of Occupancy) bersama spesialis ruang kami.</p>
-                        <p><a href="https://wa.me/628128888069">Lihat Kalkulasi Paket Bebas Bocor</a> | <a href="/sewa-kantor/harga">Intip Inventaris Harga</a></p>
+                        <p><a href="https://wa.me/628128888069">Lihat Kalkulasi Paket Bebas Bocor</a> | Intip Inventaris Harga</p>
                     `
                 }
             ]}
@@ -193,4 +191,3 @@ export default function Page() {
         />
     )
 }
-

@@ -49,7 +49,7 @@ export default function Page() {
             canonicalUrl="https://www.bintarobusinesscentre.com/harga-virtual-office-jakarta-selatan"
             schemaObject={schemaObject}
             h1="Harga Virtual Office Jakarta Selatan: Struktur Biaya dan Perbandingan"
-            intro='Virtual office menjadi pilihan relevan bagi yang butuh domisili. Ada banyak opsi di pasaran. <a href="/virtual-office" class="text-accent font-bold hover:underline">BBC menawarkan Virtual Office Jakarta Selatan</a> dengan alamat domisili resmi DKI dan layanan yang terskala.'
+            intro='Virtual office menjadi pilihan relevan bagi yang butuh domisili. Ada banyak opsi di pasaran. BBC menawarkan <a href="/virtual-office" class="text-accent font-bold hover:underline">virtual office Jakarta Selatan</a> dengan alamat domisili resmi DKI dan layanan yang terskala.'
             entity="virtual-office"
             location="jakarta-selatan"
             heroBadges={{ b1: "Panduan Harga", b2: "Virtual Office" }}
@@ -58,7 +58,7 @@ export default function Page() {
                     id: "problem",
                     h2: "Rentang Harga Virtual Office di Jakarta Selatan",
                     rawHtml: `
-                        <p>Harga virtual office di Jakarta Selatan bervariasi cukup signifikan tergantung penyedia, lokasi gedung, dan cakupan layanan. Secara umum, paket dasar berada di kisaran Rp 300.000â€“600.000 per bulan, sementara paket dengan layanan lebih lengkap bisa mencapai Rp 1â€“2 juta per bulan atau lebih.</p>
+                        <p>Harga virtual office di Jakarta Selatan bervariasi cukup signifikan tergantung penyedia, lokasi gedung, dan cakupan layanan. Secara umum, paket dasar berada di kisaran Rp 300.000–600.000 per bulan, sementara paket dengan layanan lebih lengkap bisa mencapai Rp 1–2 juta per bulan atau lebih.</p>
                         <p>Namun, perbandingan langsung antar penyedia tanpa memperhatikan apa yang termasuk dalam harga bisa menyesatkan. Dua paket dengan harga sama bisa memiliki cakupan layanan yang sangat berbeda. <a href="/harga-virtual-office" class="text-accent hover:underline">Harga virtual office dan faktor penentu nilainya</a> lebih dari sekadar perbandingan cost mentah.</p>
                         <p>Banyak perusahaan mendaftar tanpa mengetahui legalitas penyedia. Jika gedung tidak memiliki izin usaha valid, alamat tersebut tidak dapat digunakan untuk keperluan perizinan resmi.</p>
                     `
@@ -71,7 +71,7 @@ export default function Page() {
                         <p>Alamat di Jakarta Selatan (DKI Jakarta) memiliki nilai lebih tinggi untuk keperluan perizinan dibanding alamat di wilayah perbatasan atau Tangerang Selatan. Ini menyangkut validitas NIB, NPWP, dan pengajuan PKP bagi KBLI jasa.</p>
 
                         <h3>Cakupan Layanan Paket</h3>
-                        <p>Mail handling, penerimaan kurir, akses resepsionis, dan penggunaan ruang meeting memiliki nilai berbeda tergantung kebutuhan. <a href="/alamat-bisnis-jakarta-selatan" class="text-accent hover:underline">Fungsi alamat bisnis Jakarta Selatan</a> harus dipahami agar kapasitas VO sesuai kebutuhan Anda.</p>
+                        <p>Mail handling, penerimaan kurir, akses resepsionis, dan penggunaan ruang meeting memiliki nilai berbeda tergantung kebutuhan. Fungsi alamat bisnis Jakarta Selatan harus dipahami agar kapasitas VO sesuai kebutuhan Anda.</p>
 
                         <h3>Status dan Reputasi Penyedia</h3>
                         <p>Banyak pengelola VO yang bersifat perantara. Penyedia dengan legalitas gedung mandiri dan perizinan zonasi komersial murni bisa mendaftarkan NIB dan PKP klien jauh lebih mulus.</p>
@@ -81,12 +81,12 @@ export default function Page() {
                     id: "authority",
                     h2: "Perbedaan Paket Virtual Office: Memahami Kebutuhan Anda",
                     rawHtml: `
-                        <p>Untuk bisnis di Bintaro, virtual office Bintaro dengan alamat Jakarta Selatan menjadi alternatif yang ideal.</p>
+                        <p>Untuk bisnis di Bintaro, paket virtual office di Bintaro Business Center dengan alamat Jakarta Selatan menjadi alternatif yang ideal.</p>
                     `,
                     visual: {
                         type: "card",
                         items: [
-                            { title: "Paket dasar: alamat bisnis dan mail handling â€” untuk yang tingkat korespondensinya rendah.", icon: "Mail" },
+                            { title: "Paket dasar: alamat bisnis dan mail handling — untuk yang tingkat korespondensinya rendah.", icon: "Mail" },
                             { title: "Paket menengah: resepsionis untuk telepon/tamu dan kuota meeting hours per bulan.", icon: "PhoneCall" },
                             { title: "Paket lengkap: fitur maksimal dan bisa untuk domisili lebih dari 1 entitas perusahaan.", icon: "Briefcase" },
                             { title: "Validitas legalitas domisili merupakan fitur utama yang tidak bisa diganggu gugat.", icon: "ShieldCheck" }
@@ -102,7 +102,7 @@ export default function Page() {
                             { title: "Pendirian PT/CV", desc: "Valid untuk didaftarkan pada akta, OSS/NIB, tanpa risiko red flag di masa depan.", icon: "Award" },
                             { title: "Pengurusan NPWP", desc: "Perpajakan tunduk pada yurisdiksi KPP DKI Jakarta yang lebih terprediksi administrasinya.", icon: "FileText" },
                             { title: "Pengajuan PKP", desc: "Sangat memungkinkan bagi perusahaan jasa (KBLI) dengan prosedur dan survey KPP transparan.", icon: "ShieldCheck" },
-                            { title: "Citra Profesional", desc: "Kepercayaan klien meningkat bila alamat yang tercantum bukan kawasan perumahan.", icon: "Users" }
+                            { title: "Citra Profesional", desc: "Kepercayaan klien meningkat bila menggunakan <a href=\"/virtual-office/alamat-bisnis-jakarta-selatan\" class=\"text-accent hover:underline\">alamat bisnis profesional di Jakarta Selatan</a>, bukan kawasan perumahan.", icon: "Users" }
                         ]
                     }
                 },
@@ -136,7 +136,6 @@ export default function Page() {
                     rawHtml: `
                         <ul>
                             <li><a href="/virtual-office-bintaro">Virtual Office Bintaro: Konsep &amp; Fasilitas</a></li>
-                            <li><a href="/harga-virtual-office">Harga Virtual Office: Struktur &amp; Penentu</a></li>
                         </ul>
                     `
                 },
@@ -145,7 +144,7 @@ export default function Page() {
                     h2: "Hubungi Tim Legal Kami",
                     rawHtml: `
                         <p>Dapatkan domisili resmi Jakarta Selatan mulai hari ini untuk kelancaran bisnis dan pajak.</p>
-                        <p><a href="https://wa.me/628128888069">Tanya Layanan via WA</a> | <a href="/virtual-office">Lihat Harga VO</a></p>
+                        <p><a href="https://wa.me/628128888069">Tanya Layanan via WA</a> | lihat detail paket virtual office</p>
                     `
                 }
             ]}
@@ -165,4 +164,3 @@ export default function Page() {
         />
     )
 }
-

@@ -1,14 +1,33 @@
+import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+
+const title = 'Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas'
+const description = 'Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda.'
+const canonicalUrl = 'https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan'
+
+export const metadata: Metadata = {
+    title,
+    description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+        type: 'article',
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: 'Bintaro Business Centre',
+        images: [{ url: '/images/foto-gedung-bbc.jpg' }]
+    }
+}
 
 export default function AlamatBisnisJakartaSelatanPage() {
     return (
         <WeaponPageTemplate
             url="/virtual-office/alamat-bisnis-jakarta-selatan"
-            title="Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas"
-            description="Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda."
-            canonicalUrl="https://www.bintarobusinesscentre.com/virtual-office/alamat-bisnis-jakarta-selatan"
-            h1="Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas"
-            intro="Alamat bisnis dalam virtual office adalah alamat resmi yang digunakan perusahaan untuk kebutuhan administratif dan legal, seperti pengurusan NPWP, NIB, dan domisili usaha yang sah secara hukum di Jakarta Selatan."
+            title={title}
+            description={description}
+            canonicalUrl={canonicalUrl}
+            h1={title}
+            intro='Alamat bisnis dalam virtual office adalah alamat resmi yang digunakan perusahaan untuk kebutuhan administratif dan legal, seperti pengurusan NPWP, NIB, dan domisili usaha yang sah secara hukum di Jakarta Selatan. Jika Anda sedang membandingkan opsi, pahami dulu <a href="/virtual-office" class="text-accent font-bold hover:underline">alamat bisnis Jakarta Selatan</a> sebagai titik awal.'
             
             // VISUAL ENGINE DATA (v1)
             entity="virtual-office"
@@ -22,6 +41,7 @@ export default function AlamatBisnisJakartaSelatanPage() {
                     rawHtml: `
                         <p>Alamat bisnis adalah alamat resmi yang mewakili keberadaan legal sebuah perusahaan. Dalam struktur virtual office, alamat ini disediakan oleh penyedia layanan dan dapat digunakan oleh klien sebagai alamat domisili perusahaan mereka tanpa harus menempati ruang fisik secara penuh.</p>
                         <p>Di Indonesia, alamat bisnis yang valid diperlukan untuk pengurusan Nomor Induk Berusaha (NIB) melalui OSS, pendaftaran NPWP badan usaha, pembuatan akta pendirian PT, serta pendaftaran sebagai Pengusaha Kena Pajak (PKP).</p>
+                        <p>Untuk proses legalitas yang lebih terstruktur, rujuk <a href="/legal/pendirian-pt-jakarta-selatan" class="text-accent hover:underline">pendirian PT di Jakarta Selatan</a> agar urutan dokumen dan yurisdiksi berjalan rapi.</p>
                     `
                 },
                 {
@@ -55,7 +75,7 @@ export default function AlamatBisnisJakartaSelatanPage() {
                     id: "perbandingan",
                     h2: "Perbedaan Alamat Bisnis di Jakarta Selatan vs Luar DKI",
                     rawHtml: `
-                        <p>Bagi perusahaan yang berencana beroperasi di Jakarta atau menargetkan pasar ibu kota, pemilihan wilayah administratif untuk domisili bisnis bukan keputusan yang sepele. Jakarta Selatan adalah bagian dari DKI Jakarta — provinsi dengan status khusus.</p>
+                        <p>Bagi perusahaan yang berencana beroperasi di Jakarta atau menargetkan pasar ibu kota, pemilihan wilayah administratif untuk domisili bisnis bukan keputusan yang sepele. Jakarta Selatan adalah bagian dari DKI Jakarta — provinsi dengan status khusus. Di tahap awal, <a href="/virtual-office" class="text-accent hover:underline">solusi virtual office untuk domisili perusahaan</a> sering dipakai untuk menyederhanakan administrasi.</p>
                         <p>Perbedaan ini berdampak pada: yurisdiksi Kantor Pelayanan Pajak (KPP) untuk urusan perpajakan, instansi Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu (DPMPTSP) yang menangani perizinan, serta persepsi klien dan mitra bisnis.</p>
                     `
                 },

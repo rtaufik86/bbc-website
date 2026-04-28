@@ -1,13 +1,32 @@
+import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+
+const title = 'Harga Virtual Office: Faktor Penentu & Struktur Biaya'
+const description = 'Informasi transparan mengenai harga virtual office di Jakarta Selatan, rincian layanan per paket, dan kapan virtual office menjadi pilihan paling efisien.'
+const canonicalUrl = 'https://www.bintarobusinesscentre.com/harga-virtual-office'
+
+export const metadata: Metadata = {
+    title,
+    description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+        type: 'article',
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: 'Bintaro Business Centre',
+        images: [{ url: '/images/foto-gedung-bbc.jpg' }]
+    }
+}
 
 export default function HargaVirtualOfficePage() {
     return (
         <WeaponPageTemplate
             url="/harga-virtual-office"
-            title="Harga Virtual Office: Faktor Penentu & Struktur Biaya"
-            description="Informasi transparan mengenai harga virtual office di Jakarta Selatan, rincian layanan per paket, dan kapan virtual office menjadi pilihan paling efisien."
-            canonicalUrl="https://www.bintarobusinesscentre.com/harga-virtual-office"
-            h1="Harga Virtual Office: Faktor Penentu & Struktur Biaya"
+            title={title}
+            description={description}
+            canonicalUrl={canonicalUrl}
+            h1={title}
             intro="Virtual office bukan produk yang satu ukuran cocok untuk semua. Harganya mencerminkan perbedaan nyata dalam layanan yang Anda terima di <a href='/virtual-office'>virtual office Bintaro Business Center</a>."
             entity="virtual-office"
             location="jakarta-selatan"
@@ -124,4 +143,3 @@ export default function HargaVirtualOfficePage() {
         />
     )
 }
-
