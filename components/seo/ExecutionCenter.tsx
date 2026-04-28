@@ -164,9 +164,17 @@ export default function ExecutionCenter({
   })
   const visibleDrafts     = sortedDrafts.slice(0, 5)
   const pendingDraftCount = sortedDrafts.filter(d => d.status === 'pending_review').length
+  // Queue gate: P0/P1 priority AND at least one executable action. A decision
+  // can carry a P0 priority for genuine performance/opportunity reasons (e.g.
+  // high_impression_opportunity) while having actions.length === 0 because
+  // governance + scoring filters cleared the page. Those don't belong in
+  // Today's Focus — they have nothing for the operator to execute.
+  const isExecutable = (d: Decision) =>
+    ['P0', 'P1'].includes(d.intelligence.priority.value) && d.actions.length > 0
+
   // Sort: P0 first, then P1. Within each tier: impact score desc (totalGap desc).
   const queue = [...decisions]
-    .filter(d => ['P0', 'P1'].includes(d.intelligence.priority.value))
+    .filter(isExecutable)
     .sort((a, b) => {
       const aPriority = a.intelligence.priority.value
       const bPriority = b.intelligence.priority.value
@@ -175,8 +183,10 @@ export default function ExecutionCenter({
     })
     .slice(0, 5)
 
-  const p0Count = decisions.filter(d => d.intelligence.priority.value === 'P0').length
-  const p1Count = decisions.filter(d => d.intelligence.priority.value === 'P1').length
+  // Header counts mirror queue eligibility so badges + footer "+N more" stay
+  // in sync with the visible list.
+  const p0Count = decisions.filter(d => isExecutable(d) && d.intelligence.priority.value === 'P0').length
+  const p1Count = decisions.filter(d => isExecutable(d) && d.intelligence.priority.value === 'P1').length
 
   const frozen        = freeze?.frozen === true
   const modeLabel     = frozen ? 'FROZEN' : autoRunSafe ? 'SAFE (AUTO)' : 'MANUAL'
