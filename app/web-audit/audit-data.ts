@@ -372,7 +372,552 @@ export const auditData: any[] = [
                 "position": 74071
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Home"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Home"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Home"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Home"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Home"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/legal",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Home"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Home"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Home"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Home"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Home"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Home"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Home"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Home"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Home"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Home"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/admin",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/login",
+                "anchor": "Home"
+            },
+            {
+                "from": "/login",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/login",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Home"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/signup",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Home"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Home"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Home"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Home"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Home"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Konsultasi Gratis"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "[IMAGE/ICON]"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 11,
@@ -917,7 +1462,536 @@ export const auditData: any[] = [
                 "position": 110448
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/",
+                "anchor": "serviced office Bintaro Business Centre"
+            },
+            {
+                "from": "/",
+                "anchor": "Lihat Ketersediaan Ruangan"
+            },
+            {
+                "from": "/",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Service OfficeKantor fisik private lengkap dengan furniture dan fasilitas all-in. Solusi untuk PKP.Lihat Layanan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "sewa kantor"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Service Office BBC"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Lihat Paket Sewa Kantor"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Solusi Kantor Fisik (PKP)"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Service Office"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "layanan sewa kantor Bintaro Business Center"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Lihat Pilihan Ruang Kantor"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Tinjau Lokasi"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "BBC menyediakan kantor all-in di Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Lihat Detail Paket Bintaro Center"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "sewa kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "sewa kantor berkelas operasional matang tanpa setup modal besar"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Gallery Fasilitas Ruangan Utama Jaksel"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "sewa kantor Bintaro Business Centre (BBC)"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Cek Ruangan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "sewa kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "BBC menyediakan kantor berbatas langsung dengan Bintaro Jaya"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Lihat Unit Tersedia"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "kantor dekat Tol Veteran"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Pilih Kantor"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legal",
+                "anchor": "ruang kantor fisik"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Lihat Sewa Kantor"
+            },
+            {
+                "from": "/legal",
+                "anchor": "sewa kantor BBC"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Hubungi Tim Legal"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Lihat Paket &amp; Harga"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Lihat Sewa Kantor →"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Pelajari Layanan →"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "layanan sewa kantor"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Lihat Layanan Sewa Kantor"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "infrastruktur kantor fisik"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Jadwalkan Kunjungan Survey"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Lihat Unit Tersedia"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "infrastruktur gedung"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Jadwalkan Konsultasi"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "operasional kantor"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Jadwalkan Survey Gratis"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Lihat Unit Tersedia"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Paket Sewa Kantor"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Paket Sewa Kantor"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "penggunaan ruang kantor"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/login",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/login",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Sewa Kantor"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 15,
@@ -1435,7 +2509,484 @@ export const auditData: any[] = [
                 "position": 98653
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/",
+                "anchor": "virtual office Jakarta Selatan"
+            },
+            {
+                "from": "/",
+                "anchor": "Pelajari Paket Virtual Office"
+            },
+            {
+                "from": "/",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "virtual office"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Virtual Office BBC"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Solusi Domisili VO"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Lihat Paket Virtual Office"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "virtual office Bintaro Business Center"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Lihat Detail"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Bandingkan Paket"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "virtual office"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Fasilitas virtual office eksklusif di wilayah Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "alamat bisnis Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Pesan Virtual Office"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "solusi virtual office untuk domisili perusahaan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Sebuah domisili virtual office berkualitas di wilayah selatan seperti BBC"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legal",
+                "anchor": "layanan virtual office Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "alamat bisnis resmi Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "paket virtual office BBC"
+            },
+            {
+                "from": "/legal",
+                "anchor": "alamat bisnis resmi Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "paket virtual office BBC"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "layanan virtual office"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Info Virtual Office"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "alamat bisnis resmi"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "alamat bisnis resmi"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "administrasi perusahaan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Virtual Office Paket CP/FCP"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Pelajari Virtual Office"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/login",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/login",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Virtual Office"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Virtual Office Jakarta Selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 6,
@@ -1908,7 +3459,440 @@ export const auditData: any[] = [
                 "position": 88709
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/",
+                "anchor": "Konsultasi Legal Gratis"
+            },
+            {
+                "from": "/",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "layanan legal pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Jasa Legal Pendirian PTLayanan pengurusan pendirian PT, CV, NIB, dan izin usaha lainnya secara profesional.Lihat Layanan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "layanan pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "pendirian PT di Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Konsultasi Pendirian PT"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Pelajari proses dan syaratnya"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Konsultasi Pendirian PT"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Konsultasi KBLI Profesional"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Kembali ke Layanan Pendirian PT"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Konsultasi Legalitas &amp; PKP"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Kembali ke Layanan Pendirian PT"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "legalitas pendirian perusahaan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "legalitas usaha"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "layanan legalitas"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Legalitas Pendirian"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Layanan Pendirian PT"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/login",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/login",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal/pendirian-pt-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Legalitas Usaha"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Pendirian PT Jakarta Selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -2246,7 +4230,76 @@ export const auditData: any[] = [
                 "position": 40621
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Harga Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "harga sewa kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Harga Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Harga Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Harga Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Bongkar Struktur Harga"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Cek Harga"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Lihat Daftar Tarif Sewa"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Tinjau Harga"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Halaman harga sewa kantor Bintaro yang membahas struktur biaya secara detail"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Analisis Biaya"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Periksa Transparansi"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Bandingkan Harga"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Harga Sewa Bintaro"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Referensi Biaya"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "harga sewa kantor Bintaro dibandingkan kawasan lain di Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/harga-sewa-kantor-bintaro"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -2585,7 +4638,24 @@ export const auditData: any[] = [
                 "position": 40165
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/virtual-office",
+                "anchor": "rincian harga virtual office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Risiko Harga Murah"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "harga virtual office"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "harga virtual office"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -2968,7 +5038,40 @@ export const auditData: any[] = [
                 "position": 47939
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/virtual-office",
+                "anchor": "Harga VO Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "breakdown harga virtual office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Solusi Virtual Pilihan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "rincian harga virtual office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Survei Besaran Harga"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Tinjau Rincian Harga Paket"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/harga-virtual-office-jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/harga-virtual-office-jakarta-selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -3336,7 +5439,20 @@ export const auditData: any[] = [
                 "position": 42594
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/sewa-kantor",
+                "anchor": "List Harga Kantor"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Cara Menilai Harga Sewa Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "perbandingan model konvensional dan modern yang diimplementasi komunal gedung profesional"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -3695,7 +5811,48 @@ export const auditData: any[] = [
                 "position": 43979
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/",
+                "anchor": "Lihat Semua Layanan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Lihat Semua Layanan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Lihat Semua Layanan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Virtual Office Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Area Layanan Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Lihat Lokasi"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Kesesuaian Regulasi Virtual Office Jakarta"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -4043,7 +6200,52 @@ export const auditData: any[] = [
                 "position": 36072
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Alamat Bisnis Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Alamat Bisnis Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "fungsi alamat bisnis di Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Alamat Bisnis Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Alamat Bisnis &amp; Legalitas"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Dampak Peruntukan Domisili Wilayah Atas KPP Pratama"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Baca Panduan Legal KPP"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Alamat Bisnis Sah Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Tinjau Alamat Bisnis"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Simak Panduan Legal"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office/alamat-bisnis-jakarta-selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -4401,7 +6603,196 @@ export const auditData: any[] = [
                 "position": 44157
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Tinjau Geografi Wilayah Alamat"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/login",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/virtual-office-bintaro"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Virtual Office Bintaro"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Virtual Office Bintaro"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -4751,7 +7142,204 @@ export const auditData: any[] = [
                 "position": 43316
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "sewa kantor Jakarta Selatan"
+            },
+            {
+                "from": "/",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "sewa kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "panduan sewa kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan Eksklusif"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Cakupan Perbedaan Wilayah DKI vs Tangsel"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/login",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor/jakarta-selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Sewa Kantor Jakarta Selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -5121,7 +7709,224 @@ export const auditData: any[] = [
                 "position": 41746
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Bandingkan Paket Sewa"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "sewa kantor di Bintaro"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "konsep fasilitas scale up sewa kantor Bintaro skala departemen ini"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "kantor siap pakai di Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "solusi gedung kantor di Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "kantor siap pakai di Bintaro"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "sewa kantor Bintaro dengan detail tipe ruang"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Sewa Kantor Bintaro: Konsep &amp; Fasilitas"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/login",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor/bintaro"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Sewa Kantor Bintaro"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Sewa Kantor Bintaro"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -5484,7 +8289,20 @@ export const auditData: any[] = [
                 "position": 42997
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kantor Siap Pakai"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Cek Pilihan Ruang Sewa"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Jelajahi Solusi"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -5826,7 +8644,28 @@ export const auditData: any[] = [
                 "position": 43473
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Kalkulasi Risiko Harga Murah Terselubung"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Kalkulasi Cerdas Ruang Kerja Murah"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Sewa Kantor Murah di Jakarta Selatan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Menyingkap Harga Kompetitif Jakarta Selatan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/sewa-kantor/murah-jakarta-selatan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -6187,7 +9026,44 @@ export const auditData: any[] = [
                 "position": 40937
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Kantor Dekat Bintaro Jaya"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "kantor dekat Bintaro Jaya"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kantor Dekat Bintaro Jaya"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kantor Dekat Bintaro Jaya"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Kantor Dekat Bintaro Jaya"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Kantor Dekat Bintaro Jaya (Pesanggrahan Jaksel)"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Halaman kantor dekat Bintaro Jaya"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Kantor Dekat Bintaro Jaya"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/kantor-dekat-bintaro-jaya"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -6537,7 +9413,64 @@ export const auditData: any[] = [
                 "position": 41966
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Kantor Dekat Tol Veteran"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "kantor dekat tol Veteran"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kantor Dekat Tol Veteran"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kantor Dekat Tol Veteran"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Kantor Dekat Tol Veteran"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Akses 1,3km dari Pintu Tol Veteran"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Kantor Dekat Tol Veteran JORR (W2S)"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Kenapa Kedekatan Jalan Tol Meringankan Laju Bisnis"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Klien VIP masuk Pintu Tol Veteran JORR W2S"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Lihat Peta Akses Toll"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Evaluasi Akses Kendaraan Tol JORR"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Pintu Tol Veteran di JORR W2S"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Kantor Dekat Tol Veteran"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/kantor-dekat-tol-veteran"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 4,
@@ -6934,7 +9867,16 @@ export const auditData: any[] = [
                 "position": 45415
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Pusat Layanan Legal"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/legal"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 5,
@@ -7218,7 +10160,184 @@ export const auditData: any[] = [
                 "position": 18660
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Cara Cek KBLI Perusahaan"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/legal",
+                "anchor": "pengecekan KBLI"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Cek KBLI usaha Anda"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/login",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Panduan KBLI &amp; Legalitas"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -7516,7 +10635,20 @@ export const auditData: any[] = [
                 "position": 20023
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Syarat PKP Perdagangan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "PKP Sektoral"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Baca panduan lengkap"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -7853,7 +10985,208 @@ export const auditData: any[] = [
                 "position": 30290
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "tentang kami"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Tentang BBC"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Tentang BBC"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Pelajari BBC Lebih Lanjut"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Tentang BBC"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Tentang BBC"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Tentang BBC"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/login",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/tentang-kami"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Tentang Kami"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Tentang Kami"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 3,
@@ -8178,7 +11511,204 @@ export const auditData: any[] = [
                 "position": 27392
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "lokasi kantor"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Lokasi &amp; Akses"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/login",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/lokasi-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Lokasi Kantor"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Lokasi Kantor"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -8473,7 +12003,188 @@ export const auditData: any[] = [
                 "position": 21297
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/",
+                "anchor": "Hubungi Kami Sekarang"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Hubungi Legal Support"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Hubungi Kami"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/login",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Kontak"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/kontak"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Kontak"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 3,
@@ -8806,7 +12517,188 @@ export const auditData: any[] = [
                 "position": 27496
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/login",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/klien-dan-testimoni"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/klien-dan-testimoni"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Klien &amp; Testimoni"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Klien &amp; Testimoni"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 3,
@@ -9133,7 +13025,196 @@ export const auditData: any[] = [
                 "position": 31096
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "fasilitas kantor"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Fasilitas Lainnya"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/legalitas-dan-perizinan-bbc",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/login",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "/fasilitas-kantor"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Fasilitas Gedung"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Fasilitas Gedung"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 3,
@@ -9786,7 +13867,184 @@ export const auditData: any[] = [
                 "position": 26935
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/virtual-office",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/legal/pendirian-pt-jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/harga-sewa-kantor-bintaro",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/harga-virtual-office",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/harga-virtual-office-jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor/harga",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/virtual-office/jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/virtual-office/alamat-bisnis-jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/virtual-office-bintaro",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor/jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor/bintaro",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor/kantor-siap-pakai-bintaro",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/sewa-kantor/murah-jakarta-selatan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/kantor-dekat-bintaro-jaya",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/kantor-dekat-tol-veteran",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/legal",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/legal/cek-kbli",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/legal/pkp-perdagangan",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Verifikasi Legalitas Kami"
+            },
+            {
+                "from": "/tentang-kami",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/lokasi-kantor",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/kontak",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/klien-dan-testimoni",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/fasilitas-kantor",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/ruang-meeting",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/admin",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/login",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/signup",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/auth/reset-password",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/internal-links",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "Legalitas &amp; Perizinan"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "Legalitas &amp; Perizinan"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 3,
@@ -10342,7 +14600,16 @@ export const auditData: any[] = [
                 "position": 17823
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/signup",
+                "anchor": "Sign in"
+            },
+            {
+                "from": "/forgot-password",
+                "anchor": "Back to login"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -10614,7 +14881,16 @@ export const auditData: any[] = [
                 "position": 18936
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/admin",
+                "anchor": "Sign up"
+            },
+            {
+                "from": "/login",
+                "anchor": "Sign up"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -10886,7 +15162,16 @@ export const auditData: any[] = [
                 "position": 17384
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/admin",
+                "anchor": "Forgot password?"
+            },
+            {
+                "from": "/login",
+                "anchor": "Forgot password?"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,
@@ -11440,7 +15725,7 @@ export const auditData: any[] = [
         },
         "orphanRisk": false,
         "status": "Green",
-        "introText": "Internal Link Inventory | BBC Audit | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu INTERNAL LINK EXPLORER Connection Analyzer Cross-linking matrix and anchor text mapping Link Map Size 1598 Connections / 1598 Contextual all money wea...",
+        "introText": "Internal Link Inventory | BBC Audit | Bintaro Business Center Home Sewa Kantor Virtual Office Legalitas Usaha Kontak Konsultasi Gratis Open main menu INTERNAL LINK EXPLORER Connection Analyzer Cross-linking matrix and anchor text mapping Link Map Size 1599 Connections / 1599 Contextual all money wea...",
         "governanceViolations": [
             "HIGH: Anchor \"Internal Link Inventory | BBC Audit | Bintaro Business Center{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"name\":\"Bintaro Business Centre\",\"legalName\":\"PT. Ganesha Dwipaya Bhakti\",\"url\":\"https://www.bintarobusinesscentre.com\",\"logo\":\"https://www.bintarobusinesscentre.com/logo.png\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Jl. RC. Veteran No. 1-i\",\"addressLocality\":\"Pesanggrahan\",\"addressRegion\":\"Jakarta Selatan\",\"postalCode\":\"12330\",\"addressCountry\":\"ID\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-6.2721934\",\"longitude\":\"106.7599445\"},\"telephone\":\"+62-21-7362639\",\"openingHours\":\"Mon-Fri 09:00-17:00, Sat 09:00-15:00\",\"sameAs\":[\"https://www.facebook.com/bintarobusinesscenter\",\"https://www.instagram.com/bintarobusinesscenter\",\"https://www.linkedin.com/company/bintarobusinesscenter\"]}]}\" (Type: location) diarahkan ke \"/images/logo.png\" yang bukan Geo Page."
         ],
@@ -11959,7 +16244,44 @@ export const auditData: any[] = [
                 "position": 54287
             }
         ],
-        "linksIn": [],
+        "linksIn": [
+            {
+                "from": "/internal-links",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/web-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/entity-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/answer-extraction",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/trust-scanner",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/authority-analyzer",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/crawl-audit",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/intent-map",
+                "anchor": "[IMAGE/ICON]"
+            },
+            {
+                "from": "/seo-control-center/llm-scanner",
+                "anchor": "[IMAGE/ICON]"
+            }
+        ],
         "outboundLinksTotal": 0,
         "outboundDomains": [],
         "imagesTotal": 2,

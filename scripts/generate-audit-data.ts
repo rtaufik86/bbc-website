@@ -271,15 +271,69 @@ async function auditFile(route: string): Promise<AuditPage> {
     };
 }
 
+// Normalize a raw href harvested from rendered HTML into a canonical
+// route path, or null if it does not point to a registered audit route.
+// Drops: mailto/tel, hash-only, external (non same-origin) URLs, malformed
+// `/https://...` (anchor-governance bug artifact), wa.me/whatsapp, and
+// asset paths (/images, /_next, /api). Also strips query+hash and trims
+// the trailing slash so "/foo/" and "/foo" map to the same node.
+function normalizeInternalHref(href: string): string | null {
+    if (!href) return null;
+    let h = href.trim();
+    if (!h) return null;
+    if (h.startsWith('#')) return null;
+    if (/^(mailto|tel):/i.test(h)) return null;
+    if (/^https?:\/\//i.test(h)) {
+        const sameOrigin = h.match(/^https?:\/\/(www\.)?bintarobusinesscentre\.com(\/.*)?$/i);
+        if (!sameOrigin) return null;
+        h = sameOrigin[2] || '/';
+    }
+    if (/^\/https?:/i.test(h)) return null;
+    if (/^\/(wa\.me|whatsapp)/i.test(h)) return null;
+    if (h.startsWith('/images/') || h.startsWith('/_next/') || h.startsWith('/api/')) return null;
+    const qIdx = h.indexOf('?');
+    if (qIdx >= 0) h = h.slice(0, qIdx);
+    const hashIdx = h.indexOf('#');
+    if (hashIdx >= 0) h = h.slice(0, hashIdx);
+    if (h.length > 1 && h.endsWith('/')) h = h.slice(0, -1);
+    if (!h.startsWith('/')) return null;
+    return h;
+}
+
 async function run() {
     const routes = Object.keys(PAGE_TYPE_MAP);
     console.log(`[START] Enforcement Audit on ${routes.length} routes...`);
-    const results = [];
+    const results: AuditPage[] = [];
     for (const route of routes) {
         console.log(`[AUTO-SCAN] ${route}`);
         const result = await auditFile(route);
         results.push(result);
     }
+
+    // Inverse graph: for every page A → B link in linksOut, push
+    // { from: A, anchor } onto B.linksIn. Skips self-links and any href that
+    // doesn't normalize to a registered route. This is the inbound signal the
+    // SEO Control Center reads (via p.linksIn.length) to compute authority
+    // strength and orphan_risk; without this step every page looks orphaned.
+    const routeSet = new Set(routes);
+    const inboundMap = new Map<string, Array<{ from: string; anchor: string }>>();
+    for (const r of results) {
+        const source = r.path;
+        for (const link of r.linksOut) {
+            const target = normalizeInternalHref(link.href);
+            if (!target) continue;
+            if (target === source) continue;
+            if (!routeSet.has(target)) continue;
+            const list = inboundMap.get(target);
+            const entry = { from: source, anchor: link.anchor || '' };
+            if (list) list.push(entry);
+            else inboundMap.set(target, [entry]);
+        }
+    }
+    for (const r of results) {
+        r.linksIn = inboundMap.get(r.path) ?? [];
+    }
+
     const output = `export const auditData: any[] = ${JSON.stringify(results, null, 4)};`;
     fs.writeFileSync(OUTPUT_FILE, output);
     console.log(`[SUCCESS] Enforcement Data saved to ${OUTPUT_FILE}`);
