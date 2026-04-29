@@ -14,6 +14,7 @@ import {
     MessageCircle
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
 
 export const metadata: Metadata = {
     title: 'Sewa Ruang Meeting Jakarta Selatan | Bintaro Business Centre',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 export default function RuangMeetingPage() {
-    const waUrl = "https://wa.me/6281311778036?text=Halo%20BBC%2C%20saya%20ingin%20reservasi%20ruang%20meeting"
+    const waUrl = buildWhatsAppLink({ text: 'Halo BBC, saya ingin reservasi ruang meeting', service: 'meeting-room', cta: 'hero', intent: 'booking' })
 
     return (
         <main className="bg-white text-charcoal font-sans">

@@ -4,7 +4,9 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { leadFormSchema, type LeadFormData } from '@/lib/schemas/lead'
-import { getMetaParams, getUTMParams, trackLeadEvent } from '@/lib/tracking/meta'
+import { getMetaParams, trackLeadEvent } from '@/lib/tracking/meta'
+import { getAttributionForPayload } from '@/lib/tracking/attribution'
+import { mapProductTypeToService, type Placement, type ServiceCode } from '@/lib/tracking/cta'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -14,10 +16,12 @@ import { Loader2 } from 'lucide-react'
 
 interface LeadFormProps {
     productType?: string
+    placement?: Placement
+    ctaService?: ServiceCode
     className?: string
 }
 
-export function LeadForm({ productType, className }: LeadFormProps) {
+export function LeadForm({ productType, placement = 'card', ctaService, className }: LeadFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
@@ -38,36 +42,48 @@ export function LeadForm({ productType, className }: LeadFormProps) {
         setSubmitStatus('idle')
 
         try {
-            // Get tracking params
             const metaParams = getMetaParams()
-            const utmParams = getUTMParams()
+            const resolvedService = ctaService || mapProductTypeToService(data.product_type)
+            const attribution = getAttributionForPayload({
+                cta_placement: placement,
+                cta_service: resolvedService,
+            })
 
-            // Submit to API
             const response = await fetch('/api/leads', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...data,
                     source_json: {
-                        ...utmParams,
+                        ...attribution,
                         ...metaParams,
-                        landing_page: window.location.pathname,
-                        referrer: document.referrer,
-                    }
-                })
+                    },
+                }),
             })
 
             if (!response.ok) throw new Error('Failed to submit')
 
-            const result = await response.json()
+            await response.json()
 
-            // Track with Meta Pixel
+            // Meta Pixel Lead event
             trackLeadEvent(data)
 
-            // Show success
+            // GTM lead_submit event for source-to-close attribution
+            if (typeof window !== 'undefined') {
+                const dataLayer = ((window as any).dataLayer = (window as any).dataLayer || [])
+                dataLayer.push({
+                    event: 'lead_submit',
+                    lead_service: resolvedService,
+                    lead_placement: placement,
+                    lead_product_type: data.product_type,
+                    utm_source: attribution.utm_source,
+                    utm_medium: attribution.utm_medium,
+                    utm_campaign: attribution.utm_campaign,
+                })
+            }
+
             setSubmitStatus('success')
             form.reset()
-
         } catch (error) {
             console.error('Form submission error:', error)
             setSubmitStatus('error')

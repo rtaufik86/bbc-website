@@ -1,15 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { MessageCircle, X, Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { buildWhatsAppLink, inferServiceFromPath, trackCtaClick } from '@/lib/tracking/cta'
 
 export function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false)
     const [message, setMessage] = useState('')
+    const pathname = usePathname()
 
     const handleStartChat = () => {
         // 1. Track 'ChatStarted' event to Pixel
@@ -17,10 +20,21 @@ export function ChatWidget() {
             window.fbq('trackCustom', 'ChatStarted', { content_name: 'whatsapp_widget' })
         }
 
-        // 2. Redirect to WhatsApp
+        // 2. Build canonical WhatsApp link with taxonomy
         const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '6281311778036'
-        const text = encodeURIComponent(message || 'Halo, saya tertarik dengan layanan BBC Bintaro.')
-        window.open(`https://wa.me/${phone}?text=${text}`, '_blank')
+        const service = inferServiceFromPath(pathname)
+        const href = buildWhatsAppLink({
+            text: message || 'Halo, saya tertarik dengan layanan BBC Bintaro.',
+            service,
+            cta: 'sticky',
+            intent: 'consultation',
+            phone,
+        })
+
+        // 3. GTM dataLayer event
+        trackCtaClick({ placement: 'sticky', service, destination: 'whatsapp', intent: 'consultation', href, label: 'Chat Widget' })
+
+        window.open(href, '_blank')
 
         setIsOpen(false)
         setMessage('')

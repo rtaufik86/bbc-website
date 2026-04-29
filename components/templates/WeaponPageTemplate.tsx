@@ -11,6 +11,10 @@ import { Button } from '@/components/ui/button'
 import SEOBreadcrumbs from '@/components/seo/Breadcrumbs'
 import { getHeroImage, getSectionImage } from '@/lib/seo/visualMapping'
 import { injectInternalLinks } from '@/lib/seo/linkInjectionEngine'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const fallbackHeroConsult = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi langsung.', service: 'general', cta: 'hero', intent: 'consultation', phone: '6281210002131' })
+const fallbackClosingCta = buildWhatsAppLink({ text: 'Halo BBC, saya ingin daftar layanan.', service: 'general', cta: 'final', intent: 'consultation', phone: '6281210002131' })
 
 // --- BBC V3 UNIVERSAL CONTENT MODEL (WITH VISUAL ENGINE v1) ---
 
@@ -148,7 +152,7 @@ export default function WeaponPageTemplate({
                                         <Link href={internalLinks.intro.href}>{internalLinks.intro.label}</Link>
                                     </Button>
                                     <Button variant="outline" className="border-slate-300 rounded-none px-10 py-7 text-sm font-bold uppercase tracking-widest hover:bg-slate-50" asChild>
-                                        <Link href="https://wa.me/6281210002131">Konsultasi Live</Link>
+                                        <Link href={fallbackHeroConsult} target="_blank" rel="noopener noreferrer">Konsultasi Live</Link>
                                     </Button>
                                 </div>
                             )}
@@ -306,7 +310,7 @@ export default function WeaponPageTemplate({
                         <div className="relative z-10 text-white max-w-3xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold mb-8">Siap Mengatur Domisili?</h2>
                             <Button asChild className="bg-accent hover:bg-bbc-gold-600 text-white px-12 py-8 text-sm font-black uppercase tracking-widest rounded-none shadow-xl shadow-accent/20">
-                                <Link href={internalLinks?.closing?.href || 'https://wa.me/6281210002131'}>
+                                <Link href={internalLinks?.closing?.href || fallbackClosingCta}>
                                     {internalLinks?.closing?.label || 'Daftar Sekarang'}
                                 </Link>
                             </Button>

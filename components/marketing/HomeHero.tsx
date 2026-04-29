@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const heroWaUrl = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi layanan Bintaro Business Centre.', service: 'general', cta: 'hero', intent: 'consultation' })
 
 export default function HomeHero() {
     return (
@@ -32,7 +35,7 @@ export default function HomeHero() {
                         </Link>
                     </Button>
                     <Button size="lg" variant="outline" className="border-2 border-slate-500 text-white hover:bg-white hover:text-slate-900 text-lg px-8 h-14 rounded-full transition-all" asChild>
-                        <Link href="https://wa.me/6281311778036">
+                        <Link href={heroWaUrl} target="_blank" rel="noopener noreferrer">
                             Hubungi via WhatsApp
                         </Link>
                     </Button>

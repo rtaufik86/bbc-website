@@ -23,6 +23,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
 import {
     Accordion,
     AccordionContent,
@@ -54,7 +55,18 @@ const trackEvent = (eventName: string, label: string) => {
 
 export default function PendirianPTClient() {
     const waMessage = "Hallo, saya ingin konsultasi pendirian PT Jakarta Selatan di BBC."
-    const waUrl = `https://wa.me/6281311778036?text=${encodeURIComponent(waMessage)}`
+    const waUrl = buildWhatsAppLink({ text: waMessage, service: 'legal', cta: 'hero', intent: 'pt-setup' })
+    const waUrls = {
+        heroKbli: buildWhatsAppLink({ text: "Hallo, saya ingin cek KBLI bisnis saya untuk pendirian PT di BBC.", service: 'legal', cta: 'hero', intent: 'kbli-check' }),
+        matrixConsult: buildWhatsAppLink({ text: "Halo, saya ingin konsultasi KBLI usaha saya untuk keperluan PKP", service: 'legal', cta: 'mid', intent: 'pkp' }),
+        matrixKbli: buildWhatsAppLink({ text: "Halo, saya ingin cek KBLI bisnis saya", service: 'legal', cta: 'mid', intent: 'kbli-check' }),
+        pkgBasic: buildWhatsAppLink({ text: "Hallo, saya tertarik dengan Paket Dasar Pendirian PT di BBC.", service: 'legal', cta: 'pricing', intent: 'pricing', package: 'basic' }),
+        pkgComplete: buildWhatsAppLink({ text: "Hallo, saya tertarik dengan Paket Complete Pendirian PT di BBC.", service: 'legal', cta: 'pricing', intent: 'pricing', package: 'complete' }),
+        pkgPremium: buildWhatsAppLink({ text: "Hallo, saya tertarik dengan Paket Premium Pendirian PT di BBC.", service: 'legal', cta: 'pricing', intent: 'pricing', package: 'premium' }),
+        finalSewaKantor: buildWhatsAppLink({ text: "Hallo, saya ingin informasi mengenai sewa kantor di BBC.", service: 'office', cta: 'final', intent: 'consultation' }),
+        finalKbli: buildWhatsAppLink({ text: "Hallo, saya mau cek KBLI.", service: 'legal', cta: 'final', intent: 'kbli-check' }),
+        finalChecklist: buildWhatsAppLink({ text: "Hallo, saya mau minta checklist pendirian PT.", service: 'legal', cta: 'final', intent: 'consultation' }),
+    }
 
     return (
         <main className="bg-white font-sans text-charcoal">
@@ -104,7 +116,7 @@ export default function PendirianPTClient() {
                                     onClick={() => trackEvent('cta_click', 'hero_wa_kbli')}
                                     asChild
                                 >
-                                    <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya ingin cek KBLI bisnis saya untuk pendirian PT di BBC.")}`} target="_blank" rel="noopener noreferrer">
+                                    <a href={waUrls.heroKbli} target="_blank" rel="noopener noreferrer">
                                         Cek KBLI Bisnis Anda
                                     </a>
                                 </Button>
@@ -320,7 +332,7 @@ export default function PendirianPTClient() {
                                 onClick={() => trackEvent('cta_consult', 'matrix_wa')}
                                 asChild
                             >
-                                <a href="https://wa.me/6281311778036?text=Halo, saya ingin konsultasi KBLI usaha saya untuk keperluan PKP">
+                                <a href={waUrls.matrixConsult} target="_blank" rel="noopener noreferrer">
                                     Konsultasi Gratis via WhatsApp
                                 </a>
                             </Button>
@@ -330,7 +342,7 @@ export default function PendirianPTClient() {
                                 onClick={() => trackEvent('cta_check', 'matrix_kbli')}
                                 asChild
                             >
-                                <a href="https://wa.me/6281311778036?text=Halo, saya ingin cek KBLI bisnis saya">
+                                <a href={waUrls.matrixKbli} target="_blank" rel="noopener noreferrer">
                                     Cek KBLI Bisnis Anda
                                 </a>
                             </Button>
@@ -425,7 +437,7 @@ export default function PendirianPTClient() {
                                     onClick={() => trackEvent('cta_click', 'package_dasar_wa')}
                                     asChild
                                 >
-                                    <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya tertarik dengan Paket Dasar Pendirian PT di BBC.")}`} target="_blank" rel="noopener noreferrer">Pilih Paket Dasar</a>
+                                    <a href={waUrls.pkgBasic} target="_blank" rel="noopener noreferrer">Pilih Paket Dasar</a>
                                 </Button>
                             </div>
                         </div>
@@ -462,7 +474,7 @@ export default function PendirianPTClient() {
                                     onClick={() => trackEvent('cta_click', 'package_complete_wa')}
                                     asChild
                                 >
-                                    <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya tertarik dengan Paket Complete Pendirian PT di BBC.")}`} target="_blank" rel="noopener noreferrer">Pilih Paket Complete</a>
+                                    <a href={waUrls.pkgComplete} target="_blank" rel="noopener noreferrer">Pilih Paket Complete</a>
                                 </Button>
                             </div>
                         </div>
@@ -498,7 +510,7 @@ export default function PendirianPTClient() {
                                     onClick={() => trackEvent('cta_click', 'package_premium_wa')}
                                     asChild
                                 >
-                                    <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya tertarik dengan Paket Premium Pendirian PT di BBC.")}`} target="_blank" rel="noopener noreferrer">Pilih Paket Premium</a>
+                                    <a href={waUrls.pkgPremium} target="_blank" rel="noopener noreferrer">Pilih Paket Premium</a>
                                 </Button>
                             </div>
                         </div>
@@ -611,7 +623,7 @@ export default function PendirianPTClient() {
                                 onClick={() => trackEvent('cta_click', 'final_wa_sewa_kantor')}
                                 asChild
                             >
-                                <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya ingin informasi mengenai sewa kantor di BBC.")}`} target="_blank" rel="noopener noreferrer">
+                                <a href={waUrls.finalSewaKantor} target="_blank" rel="noopener noreferrer">
                                     Info Sewa Kantor
                                 </a>
                             </Button>
@@ -621,7 +633,7 @@ export default function PendirianPTClient() {
                                 onClick={() => trackEvent('cta_click', 'final_wa_check_kbli')}
                                 asChild
                             >
-                                <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya mau cek KBLI.")}`} target="_blank" rel="noopener noreferrer">
+                                <a href={waUrls.finalKbli} target="_blank" rel="noopener noreferrer">
                                     Cek KBLI Bisnis Anda
                                 </a>
                             </Button>
@@ -631,7 +643,7 @@ export default function PendirianPTClient() {
                                 onClick={() => trackEvent('cta_click', 'final_wa_checklist')}
                                 asChild
                             >
-                                <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya mau minta checklist pendirian PT.")}`} target="_blank" rel="noopener noreferrer">
+                                <a href={waUrls.finalChecklist} target="_blank" rel="noopener noreferrer">
                                     Minta Checklist Pendirian PT
                                 </a>
                             </Button>

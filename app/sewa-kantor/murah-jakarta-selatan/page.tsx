@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info paket sewa kantor terjangkau Jakarta Selatan.', service: 'office', cta: 'mid', intent: 'pricing', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info paket sewa kantor terjangkau Jakarta Selatan.', service: 'office', cta: 'final', intent: 'pricing', phone: '628128888069' })
 
 const title = 'Sewa Kantor Murah Jakarta Selatan: Memahami Harga dan Nilai'
 const description = 'Dalam mancari ruang kantor berharga hemat, Anda harus hati-hati melihat Total Cost of Occupancy (TCO). Ketahui perhitungannya untuk budget bisnis Anda.'
@@ -171,7 +175,7 @@ export default function Page() {
                     h2: "Pilih Fondasi Bisnis, Bukan Cuma Label Harga Tanpa Kepastian",
                     rawHtml: `
                         <p>Angka terendah hari ini belum tentu berarti penghematan di bulan-bulan depan. Hindari pemborosan tersembunyi dengan memahami struktur TCO (Total Cost of Occupancy) bersama spesialis ruang kami.</p>
-                        <p><a href="https://wa.me/628128888069">Lihat Kalkulasi Paket Bebas Bocor</a> | Intip Inventaris Harga</p>
+                        <p><a href="${waUrlInline}">Lihat Kalkulasi Paket Bebas Bocor</a> | Intip Inventaris Harga</p>
                     `
                 }
             ]}
@@ -186,7 +190,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Periksa Transparansi", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Simak Panduan Legal", href: "/virtual-office/alamat-bisnis-jakarta-selatan" },
-                closing: { label: "Lihat Kalkulasi Paket Bebas Bocor", href: "https://wa.me/628128888069" }
+                closing: { label: "Lihat Kalkulasi Paket Bebas Bocor", href: waUrlClosing }
             }}
         />
     )

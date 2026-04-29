@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Header from '@/components/navigation/Header'
 import Footer from '@/components/navigation/Footer'
 import WhatsAppFloating from '@/components/cta/WhatsAppFloating'
+import AttributionBootstrap from '@/components/tracking/AttributionBootstrap'
 import Script from 'next/script'
 import './globals.css'
 
@@ -134,6 +135,7 @@ export default function RootLayout({
                         style={{ display: 'none', visibility: 'hidden' }}
                     />
                 </noscript>
+                <AttributionBootstrap />
                 <Header />
                 <main>{children}</main>
                 <Footer />

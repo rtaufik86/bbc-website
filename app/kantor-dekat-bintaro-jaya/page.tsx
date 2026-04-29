@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin tanya jadwal visit kantor dekat Bintaro Jaya.', service: 'office', cta: 'mid', intent: 'consultation', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin tanya jadwal visit kantor dekat Bintaro Jaya.', service: 'office', cta: 'final', intent: 'consultation', phone: '628128888069' })
 
 const title = 'Kantor Dekat Bintaro Jaya: Akses Jakarta Selatan yang Strategis'
 const description = 'Panduan lokasi kantor di koridor Bintaroâ€“Pesanggrahan. Akses JORR W2S, perbedaan yurisdiksi DKI vs Tangerang Selatan, dan implikasi untuk perizinan usaha.'
@@ -144,7 +148,7 @@ export default function Page() {
                     h2: "Dapatkan Akses Terbaik Dalam Genggaman",
                     rawHtml: `
                         <p>Segera agendakan peninjauan unit. Jadilah tetangga bagi kawasan berkembang pesat Bintaro Jaya dengan tetap menjangkar kaki operasional di ibukota.</p>
-                        <p><a href="https://wa.me/628128888069">Tanya Jadwal Visit</a> | <a href="/harga-sewa-kantor-bintaro">Harga Sewa Bintaro</a></p>
+                        <p><a href="${waUrlInline}">Tanya Jadwal Visit</a> | <a href="/harga-sewa-kantor-bintaro">Harga Sewa Bintaro</a></p>
                     `
                 }
             ]}
@@ -158,7 +162,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Lihat Unit Tersedia", href: "/sewa-kantor" },
                 mid: { label: "Bandingkan Harga", href: "/harga-sewa-kantor-bintaro" },
-                closing: { label: "Tanya Jadwal Visit", href: "https://wa.me/628128888069" }
+                closing: { label: "Tanya Jadwal Visit", href: waUrlClosing }
             }}
         />
     )

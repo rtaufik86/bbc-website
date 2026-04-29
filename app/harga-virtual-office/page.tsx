@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info paket virtual office BBC.', service: 'vo', cta: 'mid', intent: 'pricing', phone: '6281210002131' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info paket virtual office BBC.', service: 'vo', cta: 'final', intent: 'pricing', phone: '6281210002131' })
 
 const title = 'Harga Virtual Office: Faktor Penentu & Struktur Biaya'
 const description = 'Informasi transparan mengenai harga virtual office di Jakarta Selatan, rincian layanan per paket, dan kapan virtual office menjadi pilihan paling efisien.'
@@ -114,7 +118,7 @@ export default function HargaVirtualOfficePage() {
                     h2: "Amankan Alamat Bisnis Anda Sekarang",
                     rawHtml: `
                         <p>Solusi alamat bisnis legal dan prestisius dengan harga paling kompetitif.</p>
-                        <p><a href="https://wa.me/6281210002131">Pilih Paket via WhatsApp</a> | <a href="/virtual-office">Bandingkan Paket</a></p>
+                        <p><a href="${waUrlInline}">Pilih Paket via WhatsApp</a> | <a href="/virtual-office">Bandingkan Paket</a></p>
                     `
                 }
             ]}
@@ -138,7 +142,7 @@ export default function HargaVirtualOfficePage() {
             internalLinks={{
                 intro: { label: "Lihat Detail", href: "/virtual-office" },
                 mid: { label: "Lihat Lokasi", href: "/virtual-office/jakarta-selatan" },
-                closing: { label: "Pilih Paket via WhatsApp", href: "https://wa.me/6281210002131" }
+                closing: { label: "Pilih Paket via WhatsApp", href: waUrlClosing }
             }}
         />
     )

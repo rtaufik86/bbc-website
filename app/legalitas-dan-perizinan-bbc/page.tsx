@@ -13,6 +13,9 @@ import {
     Info
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const legalitasWaUrl = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi terkait legalitas domisili', service: 'legal', cta: 'final', intent: 'consultation' })
 
 export const metadata: Metadata = {
     title: 'Legalitas & Perizinan BBC | Transparansi Infrastruktur Bisnis',
@@ -166,7 +169,7 @@ export default function LegalitasBbcPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
                         <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-none px-12 py-8 h-auto uppercase tracking-widest text-[10px]" asChild>
-                            <a href="https://wa.me/6281311778036?text=Halo BBC, saya ingin konsultasi terkait legalitas domisili">Diskusikan Kebutuhan Bisnis</a>
+                            <a href={legalitasWaUrl} target="_blank" rel="noopener noreferrer">Diskusikan Kebutuhan Bisnis</a>
                         </Button>
                         <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-none px-12 py-8 h-auto uppercase tracking-widest text-[10px]" asChild>
                             <Link href="/virtual-office">Pelajari Virtual Office</Link>

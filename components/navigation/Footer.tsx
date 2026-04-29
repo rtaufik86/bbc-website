@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { MapPin, Phone, Mail, Clock, ArrowRight, MessageCircle } from 'lucide-react'
+import { Phone, Mail, Clock } from 'lucide-react'
+import FooterWhatsAppLink from '@/components/cta/FooterWhatsAppLink'
 
 export default function Footer() {
     return (
@@ -79,15 +80,7 @@ export default function Footer() {
                             </li>
                         </ul>
                         
-                        <a 
-                            href="https://wa.me/628128888069" 
-                            target="_blank"
-                            rel="noopener"
-                            className="bg-bbc-gold-600 hover:bg-bbc-gold-500 text-white text-[10px] font-black uppercase tracking-widest py-4 px-6 text-center transition-all shadow-xl flex items-center justify-center gap-2 group"
-                        >
-                            <MessageCircle size={14} className="group-hover:scale-110 transition-transform" />
-                            Konsultasi Sekarang
-                        </a>
+                        <FooterWhatsAppLink />
                     </div>
                 </div>
 

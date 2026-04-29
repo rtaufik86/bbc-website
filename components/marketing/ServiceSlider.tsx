@@ -8,6 +8,10 @@ import 'swiper/css/pagination'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const officeCardWa = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info private office Bintaro Business Centre.', service: 'office', cta: 'card', intent: 'unit-availability' })
+const voCardWa = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info paket virtual office Bintaro Business Centre.', service: 'vo', cta: 'card', intent: 'package-info' })
 
 // Custom CSS for slider navigation
 const sliderStyles = `
@@ -205,7 +209,7 @@ export default function ServiceSlider() {
                             priceLabel="Mulai dari"
                             price="Rp 3.5 Jt/bln"
                             detailLink="/sewa-kantor"
-                            ctaLink="https://wa.me/6281311778036"
+                            ctaLink={officeCardWa}
                         />
                     </SwiperSlide>
 
@@ -225,7 +229,7 @@ export default function ServiceSlider() {
                             priceLabel="Mulai dari"
                             price="Rp 500rb/bln"
                             detailLink="/virtual-office"
-                            ctaLink="https://wa.me/6281311778036"
+                            ctaLink={voCardWa}
                         />
                     </SwiperSlide>
 

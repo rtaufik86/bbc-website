@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin pembenahan administrasi virtual office Jakarta Selatan.', service: 'vo', cta: 'mid', intent: 'consultation', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin pembenahan administrasi virtual office Jakarta Selatan.', service: 'vo', cta: 'final', intent: 'consultation', phone: '628128888069' })
 
 const title = 'Virtual Office Jakarta Selatan: Fungsi Legalitas Perizinan NIB dan PKP'
 const description = 'Menelusuri batasan operasional penyewaan alamat bisnis komersial. Ketahui posisi virtual office untuk KBLI Jasa dan hubungannya di ranah hukum DKI.'
@@ -173,7 +177,7 @@ export default function Page() {
                     h2: "Menyusun Representasi Menawan Adalah Penentu Pertama Validitas",
                     rawHtml: `
                         <p>Hindari perizinan yang kelak tergembok red-tape birokrasi akibat salah asuhan domisili di hari pertama pembukaan usaha. Pilihan lokasi yang tepat membantu mendongkrak citra B2B yang serius dan terpercaya selamanya di mata klien.</p>
-                        <p><a href="https://wa.me/628128888069">Agendakan Pembenahan Administrasi Anda</a> | <a href="/harga-virtual-office-jakarta-selatan">rincian harga virtual office Jakarta Selatan</a></p>
+                        <p><a href="${waUrlInline}">Agendakan Pembenahan Administrasi Anda</a> | <a href="/harga-virtual-office-jakarta-selatan">rincian harga virtual office Jakarta Selatan</a></p>
                     `
                 }
             ]}
@@ -188,7 +192,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Tinjau Geografi Wilayah Alamat", href: "/virtual-office-bintaro" },
                 mid: { label: "Cek Pilihan Ruang Sewa", href: "/sewa-kantor/kantor-siap-pakai-bintaro" },
-                closing: { label: "Agendakan Pembenahan Administrasi Anda", href: "https://wa.me/628128888069" }
+                closing: { label: "Agendakan Pembenahan Administrasi Anda", href: waUrlClosing }
             }}
         />
     )

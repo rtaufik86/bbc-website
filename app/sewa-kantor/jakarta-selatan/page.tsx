@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi sewa kantor Jakarta Selatan.', service: 'office', cta: 'mid', intent: 'consultation', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi sewa kantor Jakarta Selatan.', service: 'office', cta: 'final', intent: 'consultation', phone: '628128888069' })
 
 const title = 'Sewa Kantor Jakarta Selatan: Lokasi, Akses, dan Kesesuaian Bisnis'
 const description = 'Panduan komprehensif sewa kantor di Jakarta Selatan. Temukan alasan mengapa domisili DKI Jakarta vital untuk perizinan NIB dan pengurusan pajak bisnis Anda.'
@@ -172,7 +176,7 @@ export default function Page() {
                     h2: "Selesai Berkelana, Waktunya Mengambil Resolusi Operasional",
                     rawHtml: `
                         <p>Keputusan lokasi kantor sebaiknya didasarkan pada pola pergerakan logistik modern dan proteksi yurisdiksi. Dapatkan efisiensi dan fasilitas kelas wahid, lalu lihat paket sewa kantor kami untuk memetakan kebutuhan tim.</p>
-                        <p><a href="https://wa.me/628128888069">Tanya Tim Konsultan Eksekutif</a> | <a href="/harga-sewa-kantor-bintaro">Lihat Daftar Tarif Sewa</a></p>
+                        <p><a href="${waUrlInline}">Tanya Tim Konsultan Eksekutif</a> | <a href="/harga-sewa-kantor-bintaro">Lihat Daftar Tarif Sewa</a></p>
                     `
                 }
             ]}
@@ -187,7 +191,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Cek Harga", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Jelajahi Solusi", href: "/sewa-kantor/kantor-siap-pakai-bintaro" },
-                closing: { label: "Tanya Tim Konsultan Eksekutif", href: "https://wa.me/628128888069" }
+                closing: { label: "Tanya Tim Konsultan Eksekutif", href: waUrlClosing }
             }}
         />
     )

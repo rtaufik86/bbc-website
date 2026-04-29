@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin tanya layanan virtual office Jakarta Selatan.', service: 'vo', cta: 'final', intent: 'pricing', phone: '628128888069' })
 
 const title = 'Harga Virtual Office Jakarta Selatan: Breakdown Biaya & Perbandingan'
 const description = 'Breakdown biaya virtual office di Jakarta Selatan. Uraian komponen harga, perbedaan paket, dan variabel layanan yang mempengaruhi nilai tiap pilihan.'
@@ -176,7 +179,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Lihat VO Jakarta Selatan", href: "/virtual-office-jakarta-selatan" },
                 mid: { label: "Baca Panduan", href: "/alamat-bisnis-jakarta-selatan" },
-                closing: { label: "Tanya Layanan via WA", href: "https://wa.me/628128888069" }
+                closing: { label: "Tanya Layanan via WA", href: waUrlClosing }
             }}
         />
     )

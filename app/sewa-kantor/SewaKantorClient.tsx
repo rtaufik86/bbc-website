@@ -31,6 +31,7 @@ import 'swiper/css/pagination'
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
 import SiloNavigation from '@/components/seo/SiloNavigation'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
 import {
     Accordion,
     AccordionContent,
@@ -62,7 +63,8 @@ const trackEvent = (eventName: string, label: string) => {
 
 export default function SewaKantorClient() {
     const waMessage = "Hallo, saya tertarik sewa kantor di BBC. Bisa kirim detail unit yang tersedia?"
-    const waUrl = `https://wa.me/6281311778036?text=${encodeURIComponent(waMessage)}`
+    const waUrl = buildWhatsAppLink({ text: waMessage, service: 'office', cta: 'hero', intent: 'unit-availability' })
+    const waUrlFinal = buildWhatsAppLink({ text: "Halo BBC, saya ingin konsultasi mengenai sewa kantor siap pakai", service: 'office', cta: 'final', intent: 'consultation' })
 
     return (
         <main className="bg-white font-sans text-charcoal">
@@ -852,7 +854,7 @@ export default function SewaKantorClient() {
                                     onClick={() => trackEvent('whatsapp_click', 'final_survey_wa')}
                                     asChild
                                 >
-                                    <a href="https://wa.me/6281311778036?text=Halo%20BBC%2C%20saya%20ingin%20konsultasi%20mengenai%20sewa%20kantor%20siap%20pakai">
+                                    <a href={waUrlFinal} target="_blank" rel="noopener noreferrer">
                                         <MessageCircle className="w-5 h-5 mr-3" /> Chat WhatsApp Sekarang
                                     </a>
                                 </Button>

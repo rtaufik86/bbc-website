@@ -1,4 +1,7 @@
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin info harga sewa kantor Bintaro.', service: 'office', cta: 'mid', intent: 'pricing', phone: '6281210002131' })
 
 export default function HargaSewaKantorBintaroPage() {
     return (
@@ -95,7 +98,7 @@ export default function HargaSewaKantorBintaroPage() {
                     h2: "Dapatkan Penawaran Sewa Terbaik Hari Ini",
                     rawHtml: `
                         <p>Satu harga untuk semua kebutuhan kantor Anda. Tanpa biaya tersembunyi.</p>
-                        <p><a href="https://wa.me/6281210002131">WhatsApp Untuk Info Harga</a> | <a href="/sewa-kantor">Tinjau Lokasi</a></p>
+                        <p><a href="${waUrlInline}">WhatsApp Untuk Info Harga</a> | <a href="/sewa-kantor">Tinjau Lokasi</a></p>
                     `
                 }
             ]}

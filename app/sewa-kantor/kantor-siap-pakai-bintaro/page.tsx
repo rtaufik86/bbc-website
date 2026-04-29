@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin survei kantor siap pakai Bintaro.', service: 'office', cta: 'final', intent: 'survey', phone: '628128888069' })
 
 const title = 'Sewa Kantor Siap Pakai Bintaro: Apa yang Termasuk dalam Paket'
 const description = 'Panduan apa yang biasanya termasuk dalam paket kantor siap pakai di Bintaro, faktor evaluasi sebelum memilih, dan kapan model ini relevan untuk bisnis Anda.'
@@ -169,7 +172,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Analisis Biaya", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Tinjau Alamat Bisnis", href: "/virtual-office/alamat-bisnis-jakarta-selatan" },
-                closing: { label: "Survei Langsung", href: "https://wa.me/628128888069" }
+                closing: { label: "Survei Langsung", href: waUrlClosing }
             }}
         />
     )

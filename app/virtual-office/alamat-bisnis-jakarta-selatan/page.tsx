@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlMid = buildWhatsAppLink({ text: 'Halo BBC, saya ingin cek validasi domisili.', service: 'vo', cta: 'mid', intent: 'consultation', phone: '6281210002131' })
 
 const title = 'Alamat Bisnis Virtual Office Jakarta Selatan: Fungsi & Legalitas'
 const description = 'Pelajari fungsi administratif dan legalitas alamat bisnis virtual office di Jakarta Selatan untuk domisili PT, NIB, NPWP, dan PKP perusahaan Anda.'
@@ -102,7 +105,7 @@ export default function AlamatBisnisJakartaSelatanPage() {
             }}
             internalLinks={{
                 intro: { label: "Pesan Virtual Office", href: "/virtual-office" },
-                mid: { label: "Cek Validasi Domisili", href: "https://wa.me/6281210002131" },
+                mid: { label: "Cek Validasi Domisili", href: waUrlMid },
                 closing: { label: "Hubungi Legal Support", href: "/kontak" }
             }}
             closing="Memilih alamat bisnis yang tepat di Jakarta Selatan adalah investasi strategis untuk kredibilitas perusahaan Anda."

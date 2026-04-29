@@ -2,6 +2,10 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const phoneLinkWa = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi.', service: 'general', cta: 'card', intent: 'consultation' })
+const ctaWa = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi mengenai layanan Bintaro Business Centre', service: 'general', cta: 'final', intent: 'consultation' })
 
 export const metadata: Metadata = {
     title: 'Hubungi Bintaro Business Centre | Layanan Kantor & Legalitas Jakarta Selatan',
@@ -55,7 +59,7 @@ export default function KontakPage() {
                                     <a href="tel:+62217362639" className="hover:text-bbc-blue-600 block">(021) 7362639 (Hunting)</a>
                                     <div className="flex items-center gap-2 mt-2">
                                         <MessageCircle className="w-4 h-4 text-green-600" />
-                                        <a href="https://wa.me/6281311778036" className="hover:text-bbc-blue-600 text-green-600 font-bold">0813-1177-8036 (WhatsApp)</a>
+                                        <a href={phoneLinkWa} target="_blank" rel="noopener noreferrer" className="hover:text-bbc-blue-600 text-green-600 font-bold">0813-1177-8036 (WhatsApp)</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +85,7 @@ export default function KontakPage() {
                             className="w-full bg-green-600 hover:bg-green-700 text-white rounded-none h-16 uppercase tracking-widest text-xs font-bold shadow-xl shadow-green-600/20"
                             asChild
                         >
-                            <a href="https://wa.me/6281311778036?text=Halo%20BBC%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Bintaro%20Business%20Centre">
+                            <a href={ctaWa} target="_blank" rel="noopener noreferrer">
                                 <MessageCircle className="w-5 h-5 mr-2" /> Hubungi Kami via WhatsApp
                             </a>
                         </Button>

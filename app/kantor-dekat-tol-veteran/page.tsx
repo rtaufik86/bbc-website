@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin survei unit kantor dekat Tol Veteran.', service: 'office', cta: 'mid', intent: 'survey', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin survei unit kantor dekat Tol Veteran.', service: 'office', cta: 'final', intent: 'survey', phone: '628128888069' })
 
 const title = 'Kantor Dekat Tol Veteran: Akses Strategis Jakarta Selatan via JORR W2S'
 const description = 'Panduan konektivitas kantor di sekitar Pintu Tol Veteran JORR W2S. Akses ke koridor bisnis Jakarta Selatan, Bintaro, dan Tangerang dalam satu lokasi.'
@@ -143,7 +147,7 @@ export default function Page() {
                     h2: "Maksimalkan Akselerasi Bisnis Armada Anda",
                     rawHtml: `
                         <p>Ambil alih jam produktif Anda. Akses 10 menit ke jalan toll bebas hambatan sangat bernilai ketimbang kemacetan dalam kota metropolitan.</p>
-                        <p><a href="https://wa.me/628128888069">Survei Unit Hari Ini</a></p>
+                        <p><a href="${waUrlInline}">Survei Unit Hari Ini</a></p>
                     `
                 }
             ]}
@@ -157,7 +161,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Referensi Biaya", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Pilih Kantor", href: "/sewa-kantor" },
-                closing: { label: "Survei Unit Hari Ini", href: "https://wa.me/628128888069" }
+                closing: { label: "Survei Unit Hari Ini", href: waUrlClosing }
             }}
         />
     )

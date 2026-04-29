@@ -1,34 +1,53 @@
 "use client"
 
 import { MessageCircle } from 'lucide-react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { trackCtaClick, buildWhatsAppLink, inferServiceFromPath } from '@/lib/tracking/cta'
 
 export default function WhatsAppFloating() {
     const pathname = usePathname()
-    const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '6281311778036'
+    const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '6281311778036'
 
-    // List of money pages where specialized StickyWhatsAppCTA is used
+    // Money pages render their own StickyWhatsAppCTA — avoid double button
     const moneyPages = [
         '/sewa-kantor',
         '/virtual-office',
-        '/legal/pendirian-pt-jakarta-selatan'
+        '/legal/pendirian-pt-jakarta-selatan',
     ]
-
-    // Hide if on money page to avoid double buttons
     if (moneyPages.includes(pathname)) {
         return null
     }
 
+    const service = inferServiceFromPath(pathname)
+    const href = buildWhatsAppLink({
+        text: 'Halo BBC, saya mau konsultasi.',
+        service,
+        cta: 'sticky',
+        intent: 'consultation',
+        phone,
+    })
+
     return (
-        <Link
-            href={`https://wa.me/${waNumber}`}
+        <a
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+                trackCtaClick({
+                    placement: 'sticky',
+                    service,
+                    destination: 'whatsapp',
+                    intent: 'consultation',
+                    href,
+                    label: 'WhatsApp Floating',
+                })
+            }
+            data-cta-placement="sticky"
+            data-cta-service={service}
             className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110"
             aria-label="Chat on WhatsApp"
         >
             <MessageCircle className="w-8 h-8" />
-        </Link>
+        </a>
     )
 }

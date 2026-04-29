@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin survei kantor Bintaro hari ini.', service: 'office', cta: 'mid', intent: 'survey', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin survei kantor Bintaro hari ini.', service: 'office', cta: 'final', intent: 'survey', phone: '628128888069' })
 
 const title = 'Sewa Kantor Bintaro: Konsep, Fasilitas, dan Kesesuaian Bisnis'
 const description = 'Gambaran konsep dan fasilitas private office di kawasan Bintaro, Jakarta Selatan. Ruang privat fully furnished dengan akses langsung ke Pintu Tol Veteran.'
@@ -145,7 +149,7 @@ export default function Page() {
                     h2: "Lihat Langsung Tata Ruang Kami Kapan Saja",
                     rawHtml: `
                         <p>Walk in tour 10 menit dengan tim penasihat operasional ruang BBC bisa mencerahkan struktur dan tata ruang sejati untuk kru Anda.</p>
-                        <p><a href="https://wa.me/628128888069">Agendakan Survei Hari Ini</a> | <a href="/sewa-kantor">Gallery Fasilitas Ruangan Utama Jaksel</a></p>
+                        <p><a href="${waUrlInline}">Agendakan Survei Hari Ini</a> | <a href="/sewa-kantor">Gallery Fasilitas Ruangan Utama Jaksel</a></p>
                     `
                 }
             ]}
@@ -159,7 +163,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Tinjau Harga", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Lihat Peta Akses Toll", href: "/kantor-dekat-tol-veteran" },
-                closing: { label: "Agendakan Survei Hari Ini", href: "https://wa.me/628128888069" }
+                closing: { label: "Agendakan Survei Hari Ini", href: waUrlClosing }
             }}
         />
     )

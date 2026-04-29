@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin tanya penawaran sewa kantor.', service: 'office', cta: 'mid', intent: 'pricing', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin tanya penawaran sewa kantor.', service: 'office', cta: 'final', intent: 'pricing', phone: '628128888069' })
 
 const currentYear = new Date().getFullYear()
 const title = `Cara Menilai Harga Sewa Kantor di Bintaro: Faktor dan Struktur Biaya ${currentYear}`
@@ -146,7 +150,7 @@ export default function Page() {
                     h2: "Negosiasikan Posisi dan Ruangan Anda Sekarang",
                     rawHtml: `
                         <p>Datang langsung bersama pimpinan finance Anda. Hitunglah cost ratio operasional BBC menghadapi risiko capex Ruko/office telanjang sebelum meneken sepeser tagihan pun.</p>
-                        <p><a href="https://wa.me/628128888069">Tanya Penawaran via WA</a> | <a href="/sewa-kantor">Lihat Detail Paket Bintaro Center</a></p>
+                        <p><a href="${waUrlInline}">Tanya Penawaran via WA</a> | <a href="/sewa-kantor">Lihat Detail Paket Bintaro Center</a></p>
                     `
                 }
             ]}
@@ -160,7 +164,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Bongkar Struktur Harga", href: "/harga-sewa-kantor-bintaro" },
                 mid: { label: "Solusi Virtual Pilihan", href: "/harga-virtual-office-jakarta-selatan" },
-                closing: { label: "Tanya Penawaran via WA", href: "https://wa.me/628128888069" }
+                closing: { label: "Tanya Penawaran via WA", href: waUrlClosing }
             }}
         />
     )

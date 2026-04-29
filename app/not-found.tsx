@@ -4,6 +4,9 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Building2, MapPin, Gavel, MessageCircle, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const notFoundWaUrl = buildWhatsAppLink({ text: 'Hallo, saya mengakses halaman yang tidak tersedia dan butuh bantuan.', service: 'general', cta: 'final', intent: 'consultation' })
 
 /**
  * BBC Custom 404 Page - Production Ready v1.1
@@ -110,7 +113,7 @@ export default function NotFound() {
                         Diskusikan kebutuhan kantor atau alamat bisnis Anda langsung dengan tim kami.
                     </p>
                     <Button className="bg-[#B08B3E] text-white hover:bg-[#8F6F2E] px-16 py-8 rounded-none font-bold uppercase tracking-widest text-sm h-auto shadow-[0_20px_50px_rgba(176,139,62,0.3)] transition-all duration-500" asChild>
-                        <a href="https://wa.me/6281311778036?text=Hallo,%20saya%20mengakses%20halaman%20yang%20tidak%20tersedia%20dan%20butuh%20bantuan." target="_blank" rel="noopener noreferrer">
+                        <a href={notFoundWaUrl} target="_blank" rel="noopener noreferrer">
                             <MessageCircle className="w-6 h-6 mr-3" /> Chat via WhatsApp Sekarang
                         </a>
                     </Button>

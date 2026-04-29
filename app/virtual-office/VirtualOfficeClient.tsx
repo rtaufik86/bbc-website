@@ -23,6 +23,7 @@ import {
 import { Button } from '@/components/ui/button'
 import StickyWhatsAppCTA from '@/components/StickyWhatsAppCTA'
 import SiloNavigation from '@/components/seo/SiloNavigation'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
 import {
     Accordion,
     AccordionContent,
@@ -54,7 +55,8 @@ const trackEvent = (eventName: string, label: string) => {
 
 export default function VirtualOfficeClient() {
     const waMessage = "Hallo, saya ingin informasi paket virtual office BBC."
-    const waUrl = `https://wa.me/6281311778036?text=${encodeURIComponent(waMessage)}`
+    const waUrl = buildWhatsAppLink({ text: waMessage, service: 'vo', cta: 'hero', intent: 'package-info' })
+    const waUrlUpgrade = buildWhatsAppLink({ text: "Hallo, saya tertarik konsultasi upgrade dari Virtual Office ke Service Office BBC.", service: 'vo', cta: 'mid', intent: 'upgrade-to-office' })
 
     return (
         <main className="bg-white font-sans text-charcoal">
@@ -399,7 +401,7 @@ export default function VirtualOfficeClient() {
                             onClick={() => trackEvent('cta_click', 'upgrade_to_service_office_wa')}
                             asChild
                         >
-                            <a href={`https://wa.me/6281311778036?text=${encodeURIComponent("Hallo, saya tertarik konsultasi upgrade dari Virtual Office ke Service Office BBC.")}`} target="_blank" rel="noopener noreferrer">Upgrade ke Service Office</a>
+                            <a href={waUrlUpgrade} target="_blank" rel="noopener noreferrer">Upgrade ke Service Office</a>
                         </Button>
                     </div>
                 </div>

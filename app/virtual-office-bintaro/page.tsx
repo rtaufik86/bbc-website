@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 import WeaponPageTemplate from '@/components/templates/WeaponPageTemplate'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const waUrlInline = buildWhatsAppLink({ text: 'Halo BBC, saya ingin koordinasi legalitas virtual office Bintaro.', service: 'vo', cta: 'mid', intent: 'consultation', phone: '628128888069' })
+const waUrlClosing = buildWhatsAppLink({ text: 'Halo BBC, saya ingin koordinasi legalitas virtual office Bintaro.', service: 'vo', cta: 'final', intent: 'consultation', phone: '628128888069' })
 
 const title = 'Virtual Office Bintaro: Alamat Bisnis Jakarta Selatan untuk Perizinan'
 const description = 'Hati-hati, Bintaro terbelah dua kawasan. Pilih virtual office di Pesanggrahan Jakarta Selatan yang 100% tervalidasi oleh sistem administrasi perizinan.'
@@ -173,7 +177,7 @@ export default function Page() {
                     h2: "Hindari Penolakan Izin Karena Letak Koordinat Abu-Abu yang Mematikan Usaha",
                     rawHtml: `
                         <p>Garis batas teritorial tidak kenal kompromi perasaan. Kesalahan domisili adalah perombakan total akta yang melumpuhkan produktivitas 6 bulan ke depan secara administratif rumit. Pastikan perlindungan hukum berdikari operasional entitas tim di Jakarta Selatan bersama representasi kami.</p>
-                        <p><a href="https://wa.me/628128888069">Koordinasi Legalitas Perdana</a> | <a href="/harga-virtual-office-jakarta-selatan">Tinjau Rincian Harga Paket</a></p>
+                        <p><a href="${waUrlInline}">Koordinasi Legalitas Perdana</a> | <a href="/harga-virtual-office-jakarta-selatan">Tinjau Rincian Harga Paket</a></p>
                     `
                 }
             ]}
@@ -188,7 +192,7 @@ export default function Page() {
             internalLinks={{
                 intro: { label: "Survei Besaran Harga", href: "/harga-virtual-office-jakarta-selatan" },
                 mid: { label: "Baca Panduan Legal KPP", href: "/virtual-office/alamat-bisnis-jakarta-selatan" },
-                closing: { label: "Koordinasi Legalitas Perdana", href: "https://wa.me/628128888069" }
+                closing: { label: "Koordinasi Legalitas Perdana", href: waUrlClosing }
             }}
         />
     )

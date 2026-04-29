@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import Container from '@/components/ui/Container'
+import { buildWhatsAppLink } from '@/lib/tracking/cta'
+
+const defaultCtaWaUrl = buildWhatsAppLink({ text: 'Halo BBC, saya ingin konsultasi layanan Bintaro Business Centre.', service: 'general', cta: 'final', intent: 'consultation' })
 
 interface CTASectionProps {
     title?: string
@@ -21,7 +24,7 @@ export default function CTASection({
     description = "Hubungi kami sekarang untuk konsultasi gratis dan dapatkan solusi ruang kantor terbaik untuk bisnis Anda.",
     primaryCTA = {
         text: "Hubungi via WhatsApp",
-        href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '6281311778036'}`
+        href: defaultCtaWaUrl
     },
     secondaryCTA = {
         text: "Jadwalkan Survey",
