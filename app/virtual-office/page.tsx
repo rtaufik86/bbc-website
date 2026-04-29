@@ -222,7 +222,7 @@ export default function VirtualOfficePage() {
                 Untuk kebutuhan pendirian badan usaha, lihat <a href="/legal/pendirian-pt-jakarta-selatan">layanan pendirian PT Jakarta Selatan</a> yang relevan dengan dokumen legal.
             </p>
             <p>
-                Banyak bisnis memulai dari domisili untuk administrasi, lalu menambah kebutuhan operasional seiring waktu.
+                Banyak bisnis memulai dari domisili untuk administrasi, lalu menambah kebutuhan operasional di <a href="/lokasi-kantor">lokasi kantor BBC</a> seiring waktu.
             </p>
             <p>
                 Kenali latar belakang penyedia melalui halaman <a href="/tentang-kami">tentang kami</a> sebelum menentukan paket.
