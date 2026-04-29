@@ -116,6 +116,14 @@ export async function middleware(request: NextRequest) {
             // GROUP D — FEED / RSS
             /(?:^|\/)comments\/feed(?:\/|$)/,
             /(?:^|\/)feed(?:\/|$)/,
+
+            // GROUP E — LEGACY WP PLUGIN / MEDIA / ARCHIVE
+            /^\/classroom(?:\/|$)/,
+            /^\/event(?:\/|$)/,
+            /^\/gallery(?:\/|$)/,
+            /^\/client(?:\/|$)/,
+            /^\/nggallery(?:\/|$)/,
+            /^\/thrive_/,
         ]
 
         // GROUP E — DUPLICATE PATH (selective 301 if mapped, else 410)
@@ -144,13 +152,13 @@ export async function middleware(request: NextRequest) {
         }
     }
 
-    if (normalizedPath !== path) {
-        return NextResponse.redirect(new URL(normalizedPath, request.url), 301)
-    }
-
-    // FIX: permanent redirect normalization (301, not default 308).
+    // FIX: meeting-room → ruang-meeting BEFORE trailing-slash strip to keep it 1-hop.
     if (normalizedPath === '/meeting-room') {
         return NextResponse.redirect(new URL('/ruang-meeting', request.url), 301)
+    }
+
+    if (normalizedPath !== path) {
+        return NextResponse.redirect(new URL(normalizedPath, request.url), 301)
     }
 
     // Refresh session if expired

@@ -34,7 +34,6 @@ const nextConfig: NextConfig = {
       // 3. Contact & Basic Pages (Consolidation)
       { source: '/contact', destination: `${canonicalBase}/kontak`, permanent: true },
       { source: '/about', destination: `${canonicalBase}/tentang-kami`, permanent: true },
-      { source: '/gallery', destination: `${canonicalBase}/tentang-kami`, permanent: true },
 
       // 4. Targeted SEO & Historical Authority
       { source: '/sewa-ruang-kantor-murah-di-jakarta-selatan', destination: `${canonicalBase}/sewa-kantor/murah-jakarta-selatan`, permanent: true },
