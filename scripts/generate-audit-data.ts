@@ -129,6 +129,162 @@ function countWordsBeforeLink(mainHtml: string, position: number): number {
     return visible.split(/\s+/).filter(w => w.length > 0).length;
 }
 
+// Walk a parsed JSON-LD value and yield individual schema "node" objects.
+// Handles: single object, top-level array, and `@graph` wrappers (which can
+// themselves contain arrays/objects). Used by extractJsonLdSchemas.
+function collectJsonLdNodes(value: unknown): Array<Record<string, any>> {
+    const out: Array<Record<string, any>> = [];
+    if (!value) return out;
+    if (Array.isArray(value)) {
+        for (const v of value) out.push(...collectJsonLdNodes(v));
+        return out;
+    }
+    if (typeof value === 'object') {
+        const obj = value as Record<string, any>;
+        if (Array.isArray(obj['@graph'])) {
+            for (const v of obj['@graph']) out.push(...collectJsonLdNodes(v));
+        } else {
+            out.push(obj);
+        }
+    }
+    return out;
+}
+
+// Detect Schema.org types from rendered HTML by parsing every
+// <script type="application/ld+json"> block. Populates two fields the
+// audit pipeline needs but the generator previously left empty:
+//   - schemaTypes: deduped list of `@type` values across all blocks
+//   - faqs: Q/A pairs harvested from FAQPage nodes' mainEntity
+// Null-safe: malformed JSON in any block is skipped, never throws.
+function extractJsonLdSchemas(html: string): {
+    schemaTypes: string[];
+    faqs: Array<{ q: string; a: string }>;
+} {
+    const types = new Set<string>();
+    const faqs: Array<{ q: string; a: string }> = [];
+    if (!html) return { schemaTypes: [], faqs: [] };
+
+    const blockRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+    let match: RegExpExecArray | null;
+    while ((match = blockRegex.exec(html)) !== null) {
+        const raw = match[1].trim();
+        if (!raw) continue;
+        let parsed: unknown;
+        try {
+            parsed = JSON.parse(raw);
+        } catch {
+            continue; // null-safe: skip malformed blocks
+        }
+        for (const node of collectJsonLdNodes(parsed)) {
+            const t = node['@type'];
+            if (typeof t === 'string') types.add(t);
+            else if (Array.isArray(t)) t.forEach(x => { if (typeof x === 'string') types.add(x); });
+
+            const isFaq = (typeof t === 'string' && t === 'FAQPage')
+                || (Array.isArray(t) && t.includes('FAQPage'));
+            if (isFaq && Array.isArray(node.mainEntity)) {
+                for (const item of node.mainEntity) {
+                    const q = typeof item?.name === 'string' ? item.name : '';
+                    const a = typeof item?.acceptedAnswer?.text === 'string' ? item.acceptedAnswer.text : '';
+                    if (q || a) faqs.push({ q, a });
+                }
+            }
+        }
+    }
+    return { schemaTypes: Array.from(types), faqs };
+}
+
+// Walk forward from `start` (an opening `{` of an RSC-escaped object) and
+// return the index just after its matching `}`. RSC-escaped JSON inside the
+// HTML stream uses `\"` (two chars: backslash + quote) for every JSON
+// structural quote, so we recognise `\"` as the string-literal toggle and
+// treat lone `"` chars as ordinary content. Returns -1 if no balanced match.
+function findRscJsonObjectEnd(html: string, start: number): number {
+    let depth = 0;
+    let inString = false;
+    for (let i = start; i < html.length; i++) {
+        const ch = html[i];
+        if (ch === '\\' && i + 1 < html.length) {
+            // RSC-style `\"` toggles JSON string state; other `\X` escapes
+            // (e.g. `\\`, `\n`, `«`) just consume the next character(s)
+            // without affecting depth.
+            if (html[i + 1] === '"') {
+                inString = !inString;
+                i++;
+                continue;
+            }
+            i++;
+            continue;
+        }
+        if (inString) continue;
+        if (ch === '{') depth++;
+        else if (ch === '}') {
+            depth--;
+            if (depth === 0) return i + 1;
+        }
+    }
+    return -1;
+}
+
+// Some templates emit JSON-LD via Next.js `<Script>` (next/script) which, for
+// `dangerouslySetInnerHTML`, doesn't appear as a plain <script> tag in the
+// initial SSR response — the schema string is encoded inside the RSC stream
+// payload using one layer of backslash-escaped quotes (e.g. `\"@type\":\"FAQPage\"`).
+// This helper finds those embedded objects, decodes both layers (RSC string
+// → JSON object), and yields the same `{schemaTypes, faqs}` shape so the
+// caller can merge results with the plain-script extraction.
+function extractRscEscapedJsonLd(html: string): {
+    schemaTypes: string[];
+    faqs: Array<{ q: string; a: string }>;
+} {
+    const types = new Set<string>();
+    const faqs: Array<{ q: string; a: string }> = [];
+    if (!html) return { schemaTypes: [], faqs: [] };
+
+    // Scan for any object whose first key is `@type`. The marker form
+    // `{\"@type\":\"` matches RSC-escaped JSON literally.
+    const markerRegex = /\{\\"@type\\":\\"([A-Za-z]+)\\"/g;
+    let m: RegExpExecArray | null;
+    while ((m = markerRegex.exec(html)) !== null) {
+        const start = m.index;
+        const end = findRscJsonObjectEnd(html, start);
+        if (end < 0) continue;
+        const escaped = html.slice(start, end);
+        // Two-step decode: first treat the substring as a JSON string literal
+        // (strips the outer `\"` → `"`), then JSON.parse the result as an
+        // object. Either step throwing means this block isn't a valid
+        // JSON-LD object — skip silently.
+        let obj: any;
+        try {
+            const inner = JSON.parse('"' + escaped + '"');
+            obj = JSON.parse(inner);
+        } catch {
+            // advance past this opening so we don't infinite-loop on malformed
+            markerRegex.lastIndex = start + 1;
+            continue;
+        }
+        for (const node of collectJsonLdNodes(obj)) {
+            const t = node['@type'];
+            if (typeof t === 'string') types.add(t);
+            else if (Array.isArray(t)) t.forEach(x => { if (typeof x === 'string') types.add(x); });
+
+            const isFaq = (typeof t === 'string' && t === 'FAQPage')
+                || (Array.isArray(t) && t.includes('FAQPage'));
+            if (isFaq && Array.isArray(node.mainEntity)) {
+                for (const item of node.mainEntity) {
+                    const q = typeof item?.name === 'string' ? item.name : '';
+                    const a = typeof item?.acceptedAnswer?.text === 'string' ? item.acceptedAnswer.text : '';
+                    if (q || a) faqs.push({ q, a });
+                }
+            }
+        }
+        // Skip past this object so the next iteration doesn't re-match the
+        // same opening (e.g. for nested @type values inside the object).
+        markerRegex.lastIndex = end;
+    }
+    return { schemaTypes: Array.from(types), faqs };
+}
+
 async function auditFile(route: string): Promise<AuditPage> {
     const config = getPageConfig(route);
     // Homepage override: "/" is registered as `money` in PAGE_TYPE_MAP for
@@ -226,6 +382,19 @@ async function auditFile(route: string): Promise<AuditPage> {
     // Semantic Intent Discovery (v1)
     const semanticAnalysis = analyzeSemantics(cleanContent);
 
+    // JSON-LD schema detection: two passes.
+    //   1. plain <script type="application/ld+json"> blocks (root layout, server-component schemas)
+    //   2. RSC-encoded <Script> payload (next/script with dangerouslySetInnerHTML)
+    // Without pass #2, FAQ-bearing weapon pages (which emit FAQPage via the
+    // template's <Script>) get false-positive no_faq REWRITE actions because
+    // the FAQPage object never appears as a real <script> tag in SSR HTML.
+    const plainLd = extractJsonLdSchemas(content);
+    const rscLd   = extractRscEscapedJsonLd(content);
+    const jsonLd  = {
+        schemaTypes: Array.from(new Set([...plainLd.schemaTypes, ...rscLd.schemaTypes])),
+        faqs:        [...plainLd.faqs, ...rscLd.faqs],
+    };
+
     return {
         path: route,
         pageType,
@@ -251,7 +420,8 @@ async function auditFile(route: string): Promise<AuditPage> {
         outboundDomains: [],
         imagesTotal: (content.match(/<img[^>]*>/gi) || []).length,
         missingAltCount: (content.match(/<img(?!.*?alt=['"])[^>]*>/gi) || []).length,
-        schemaTypes: [],
+        schemaTypes: jsonLd.schemaTypes,
+        faqs: jsonLd.faqs,
         inSitemap: sitemapUrls.includes(route),
         relatedContent: content.includes('Related'),
         breadcrumb: content.includes('nav'),
