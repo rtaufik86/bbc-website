@@ -95,20 +95,26 @@ Lanjutkan development BBC. Baca CLAUDE.md dulu sebelum mulai.
 
 Project: C:\Users\Worknew\Documents\Saas\BBC
 
-Status terakhir:
+Status terakhir (sesi 2026-04-29 — DEPLOY LANDED):
 - ✅ Signal Engine, Intelligence Layer, Performance Engine v1.1
 - ✅ Health Engine v1
 - ✅ Feedback Engine v1.2 → v1.3 (Supabase persistence + 7d-vs-7d window + stability threshold)
 - ✅ SEO Control Center v3 UI (ControlCenterClient single computation boundary)
-- ✅ Action Attribution Engine v1.0 (action log → result → success rate → decision filter)
-- ✅ Action Attribution Engine v1.1 (multi-action decay + MIN_DAYS + pageType segmentation + confidence × successRate)
-- ✅ Auto Execution Engine v0.5 (safeExecute: INJECT/FIX only, 24h cooldown, money-page protected, REWRITE draft-only)
-- ✅ Auto Execution Engine v0.6 (runtime HTML fetch + double-link guard + store original/patched HTML di DB)
-- ✅ Auto Execution Engine v0.7 — GOVERNANCE (hard limits + page protection + HTML safety + link budget + RunContext + freeze circuit breaker + run audit + SAFE/MANUAL mode)
-- ✅ Auto Execution Engine v0.8 — APPROVAL LAYER (diff utility + side-by-side DiffViewer + Apply/Reject flow; status pipeline: `pending_review` → `approved`/`rejected`)
-- ✅ Config Extraction v1 (BBC_CONFIG di lib/seo/config/bbcConfig.ts → governance.ts baca dari config; money gate, link budget, priority allowlist, cooldown, max-actions-per-page)
-- ✅ Entity System v0.1 (BBC_ENTITIES: virtual-office, sewa-kantor, pendirian-pt → getEntity helper → rewriteDraft prompt augmentation + enforcement block "WAJIB DIPATUHI")
-- ✅ Entity Validator v0.1 (validateEntityUsage: entity mention + ≥2 attributes + ≥1 relation → {valid, score, details}; TIDAK dipanggil di rewriteDraft — scorer untuk LLM output downstream)
+- ✅ Action Attribution Engine v1.0 / v1.1 (multi-action decay + MIN_DAYS + pageType segmentation + confidence × successRate)
+- ✅ Auto Execution Engine v0.5 → v0.8 (governance + approval + diff viewer; status pipeline `pending_review` → `approved`/`rejected`)
+- ✅ Config Extraction v1 (BBC_CONFIG → governance.ts)
+- ✅ Entity System v0.1 + Entity Validator v0.1 (3 entities; validator dipanggil HANYA terhadap LLM output)
+- ✅ Rewrite Pipeline v0.45 → v0.8.1 (Anthropic SDK + entity resolver + score-on-save + canonical key di route boundary)
+- ✅ **Audit Generator hardening (sesi ini)**:
+  - Homepage override: `route === '/' → pageType: 'homepage'` (tidak lagi 'money' untuk audit semantics)
+  - Inbound graph populated: `linksIn[]` derived by inverting `linksOut` across all routes (was hardcoded `[]`; broke authority_gap/orphan_risk for 42 pages)
+  - JSON-LD detection 2-pass: plain `<script type="application/ld+json">` blocks PLUS RSC-encoded `<Script>` payload (`extractRscEscapedJsonLd` walks brace-balanced escaped JSON, decodes `\"` → `"`, parses) — surfaces FAQPage/Article/WebPage emitted via `next/script`
+- ✅ **Execution Queue filter (sesi ini)**: ExecutionCenter hides decisions where `actions.length === 0` (P0 from perf-only signals tanpa actionable item tidak pollute Today's Focus)
+- ✅ **SEO Infra cleanup (sesi ini)**: middleware GROUP E kill patterns (`/classroom`, `/event`, `/gallery`, `/client`, `/nggallery`, `/thrive_*` → 410); meeting-room redirect reorder (sebelum trailing-slash strip → 1-hop 301); deleted dead `/gallery → /tentang-kami` rule dari next.config
+- ✅ **Content rewrite (sesi ini)**: `/sewa-kantor/kantor-siap-pakai-bintaro` weapon page (1162 words, 1 H1, FAQ + FAQPage schema, 3 contextual links, soft CTA, KBLI cautious wording)
+- ✅ **Internal authority injection batch (sesi ini)**: 5 page.tsx files × contextual links (legal, sewa-kantor hub, sewa-kantor/bintaro, sewa-kantor/jakarta-selatan, virtual-office)
+- ✅ **TS bugfix (sesi ini)**: `IntentMapClient.tsx` filter predicate narrowed (`(p): p is {...} => !!p.reg && ...`) — pre-existing TS error eliminated
+- ✅ **Production deploy (sesi ini)**: branch `seo-kill-fix-v1` fast-forward merged ke `main` + pushed → Vercel deploy verified PASS (14/14 URLs match expected, GROUP E patterns active, meeting-room reorder confirmed)
 - 0 TS error baru (8 pre-existing di test files — abaikan)
 
 Arsitektur penting:
@@ -127,6 +133,9 @@ Arsitektur penting:
 - Config extraction: `governance.ts` tidak lagi punya magic number untuk money gate/link budget/priority/cooldown/maxActionsPerPage — semua dari `BBC_CONFIG`. Hard-coded yang MASIH di governance: hub+INJECT block, utility block, REWRITE/KILL block, FIX/INJECT eligibility, HTML safety thresholds, freeze thresholds, audit constants.
 - Entity System: `lib/seo/entity/bbcEntities.ts` = source of truth (3 entity: virtual-office, sewa-kantor, pendirian-pt). `getEntity(key)` → null-safe lookup. `rewriteDraft` inject entity block hanya ketika `page.entity` di-pass — interface additive, `primaryEntity` field lama tidak di-rename.
 - Entity Validator: `validateEntityUsage(output, entityData)` dipanggil HANYA terhadap LLM output (bukan prompt). rewriteDraft.ts adalah pure prompt builder — tidak panggil validator. Scorer = entity mention (1) + ≥2 attribute hit (1) + ≥1 relation hit (1); threshold valid ≥ 2.
+- **Audit Generator (sesi 2026-04-29)**: butuh dev server di `http://localhost:3000` saat `npx tsx scripts/generate-audit-data.ts` jalan; tanpa dev server fetch fall through ke error-fallback HTML dan 27/42 pages flip ke Red secara salah. Flow: `auditFile()` → `extractJsonLdSchemas(content)` (plain) + `extractRscEscapedJsonLd(content)` (RSC payload) → merge dedup. Inbound graph dibuild post-loop di `run()`: invert `linksOut` ke `Map<targetPath, {from,anchor}[]>` lalu attach ke `result.linksIn`. Hanya routes di `PAGE_TYPE_MAP` yang di-track (asset/external links di-skip di `normalizeInternalHref`).
+- **ExecutionCenter queue gate (sesi 2026-04-29)**: visible queue + p0Count/p1Count badges semua difilter via `isExecutable(d) = ['P0','P1'].includes(priority) && d.actions.length > 0`. Decisions dengan P0 dari signal performa tapi tanpa action concrete (mis. `query_mismatch` yang tidak nge-build action di buildActions) tidak pollute UI.
+- **Middleware redirect chain (sesi 2026-04-29)**: meeting-room check (`if normalizedPath === '/meeting-room' return redirect('/ruang-meeting', 301)`) HARUS sebelum trailing-slash strip supaya `/meeting-room/` direct 1-hop ke `/ruang-meeting`. Reordering = regression (akan jadi 2-hop).
 
 Sebelum coding pastikan migration sudah dijalankan di Supabase:
 - supabase/migrations/20260424120000_seo_performance_snapshots.sql
@@ -135,13 +144,26 @@ Sebelum coding pastikan migration sudah dijalankan di Supabase:
 - supabase/migrations/20260424150000_seo_execution_logs.sql
 - supabase/migrations/20260424160000_seo_execution_patches.sql
 - supabase/migrations/20260424170000_seo_execution_governance.sql
+- supabase/migrations/20260424180000_seo_rewrite_drafts.sql
+- supabase/migrations/20260424190000_seo_rewrite_entity_score.sql
+- supabase/migrations/20260424200000_seo_rewrite_page_type.sql
 
-Catatan: v0.8 Approval Layer TIDAK butuh migration baru — kolom `status` adalah `text` tanpa CHECK constraint, jadi nilai `pending_review`/`approved`/`rejected` langsung jalan.
+Catatan: v0.8 Approval Layer TIDAK butuh migration baru — kolom `status` adalah `text` tanpa CHECK constraint.
 
-Catatan: semua tabel SEO butuh `alter table ... disable row level security` (internal tool, tidak ada data user).
+Catatan: semua tabel SEO butuh `alter table ... disable row level security` (internal tool, tidak ada data user). Supabase auto-enable RLS untuk tabel baru — manual disable di SQL Editor SETELAH migration jalan.
 
-Executor guardrail (dari retrospective sesi v0.8→v0.10):
-- Kalau spec menyebut variable/flow yang TIDAK visible dalam file-scope yang diizinkan → STOP dan tanya, jangan tebak. Contoh kasus: `validateEntityUsage(prompt, entityData)` awalnya di-wire di rewriteDraft — seharusnya validator untuk LLM output, bukan prompt. File-scope terbatas menyembunyikan kontradiksi ini sampai user flag manual.
+Executor guardrail:
+- Kalau spec menyebut variable/flow yang TIDAK visible dalam file-scope yang diizinkan → STOP dan tanya, jangan tebak.
+- Working tree dirty != merge blocker. Untracked files (mis. V2 artifacts) aman dilewati checkout/merge selama tidak konflik dengan tracked tree di branch tujuan.
+- `npm run dev` ditolak Bash sandbox kalau foreground — pakai `run_in_background: true`. Cold start Next.js 16 Turbopack ~5–10 detik; allow ~30 detik sebelum probe.
+
+Open items (pilih yang mau dikerjakan):
+1. **V2 untracked artifacts** — owner decision: ship / A-B test / discard
+   - `app/sewa-kantor/kantor-siap-pakai-bintaro-v2/page.tsx`
+   - `components/templates/WeaponPageTemplateV2.tsx`
+2. **Supabase migrations** — manual apply ke prod Supabase kalau belum (9 migration di list di atas)
+3. **Verify SEO Control Center queue di prod** — REWRITE/no_faq harus sudah drop setelah FAQ schema fix landed
+4. **Authority gap follow-up** — `/sewa-kantor/kantor-siap-pakai-bintaro` linksIn=3, weapon threshold=4.8 → butuh 1-2 inbound injection lagi dari sister weapon (mis. `/harga-sewa-kantor-bintaro`, `/sewa-kantor/murah-jakarta-selatan`)
 
 Task hari ini: [TULIS TASK DI SINI]
 ```
@@ -813,19 +835,49 @@ npx tsc --noEmit --skipLibCheck 2>&1 | grep "error TS" | grep -v "leads.test\|Le
   - Threaded into 3 spots: scoring lookup, saveRewriteDraft, diagnostic fallback insert
   - Backfill SQL pattern documented for historical rows
 
+- **2026-04-29 — Audit Generator hardening + SEO infra cleanup + Production deploy ✅**
+  - Audit generator: homepage `/` overridden ke `pageType: 'homepage'` (not 'money') untuk decouple metadata-registry dari audit semantics
+  - Audit generator: `linksIn[]` populated by inverting `linksOut` across 42 routes (was hardcoded `[]`; before fix all pages flagged orphan_risk + authority_gap)
+  - Audit generator: JSON-LD detection now 2-pass — plain `<script>` blocks AND RSC-encoded `<Script>` payload (next/script's `dangerouslySetInnerHTML` JSON-LD never appears as plain `<script>` in SSR HTML; lives inside escaped RSC stream). Helper `extractRscEscapedJsonLd` walks brace-balanced escaped JSON, decodes `\"` → `"`, parses
+  - Audit generator: `schemaTypes` and `faqs` now actually populated (FAQPage / Article / WebPage / LocalBusiness / BreadcrumbList all detected)
+  - ExecutionCenter: queue + p0Count/p1Count gated by `isExecutable(d) = ['P0','P1'] && actions.length > 0` — perf-only P0 decisions tanpa actionable item tidak pollute Today's Focus
+  - Middleware: GROUP E kill patterns (`/classroom`, `/event`, `/gallery`, `/client`, `/nggallery`, `/thrive_*` → 410) + meeting-room redirect reorder (BEFORE trailing-slash strip → 1-hop 301 to `/ruang-meeting`)
+  - next.config: deleted dead `/gallery → /tentang-kami` redirect (replaced by middleware 410)
+  - TS bugfix: `IntentMapClient.tsx` filter predicate narrowed via type-guard, eliminates pre-existing TS error
+  - Content rewrite: `/sewa-kantor/kantor-siap-pakai-bintaro` (1162 words, 1 H1, FAQ + FAQPage schema, 3 contextual links, soft CTA, KBLI cautious wording)
+  - Internal authority injections: 5 page.tsx files × contextual links (legal/pendirian-pt, sewa-kantor hub, sewa-kantor/bintaro, sewa-kantor/jakarta-selatan, virtual-office)
+  - **Branch `seo-kill-fix-v1` fast-forward merged ke `main` + pushed**; Vercel production deploy verified PASS (14/14 URLs match expected on `https://www.bintarobusinesscentre.com`)
+
 ---
 
 ### 🔲 Next Tasks
-**Sesi terakhir selesai: 2026-04-28 (Rewrite Pipeline v0.45 → v0.8.1, Entity Resolver, Score on Save)**
+**Sesi terakhir selesai: 2026-04-29 (Audit Generator hardening + Production deploy verified PASS)**
 
-- [ ] **Jalankan migration**:
+- [ ] **V2 untracked artifacts — owner decision needed**:
+  - `app/sewa-kantor/kantor-siap-pakai-bintaro-v2/page.tsx`
+  - `components/templates/WeaponPageTemplateV2.tsx`
+  Sengaja tidak di-commit di sesi 2026-04-29 (eksperimental, no route registry entry). Owner pilih: (a) discard, (b) commit ke feature branch untuk A/B test, (c) replace v1 jika approved.
+
+- [ ] **Jalankan migration di Supabase** (manual paste ke SQL Editor):
   - `supabase/migrations/20260424120000_seo_performance_snapshots.sql`
   - `supabase/migrations/20260424130000_seo_action_attribution.sql`
-  - `supabase/migrations/20260424140000_seo_action_attribution_v1_1.sql` ← BARU (ALTER TABLE tambah `page_type`, `weight`, plus index segment)
+  - `supabase/migrations/20260424140000_seo_action_attribution_v1_1.sql`
+  - `supabase/migrations/20260424150000_seo_execution_logs.sql`
+  - `supabase/migrations/20260424160000_seo_execution_patches.sql`
+  - `supabase/migrations/20260424170000_seo_execution_governance.sql`
+  - `supabase/migrations/20260424180000_seo_rewrite_drafts.sql`
+  - `supabase/migrations/20260424190000_seo_rewrite_entity_score.sql`
+  - `supabase/migrations/20260424200000_seo_rewrite_page_type.sql`
 
-  Tanpa ini, INSERT dengan `page_type`/`weight` akan 400-error silently; stats jadi kosong; filter ter-bypass (pass-through). Jalankan dulu sebelum test UI.
-- [ ] Koneksi GSC data nyata (sekarang masih mock di `performanceMock` array di ControlCenterClient.tsx). Begitu GSC live, snapshot akan terakumulasi dan window comparison menjadi aktif setelah 14 hari data.
-- [ ] **Auto Execution Engine** (next) — generate content otomatis + apply fix otomatis + loop tanpa manual. Attribution Engine sekarang menjadi loss function untuk learning loop ini.
+  Migration files merged ke `main` di sesi 2026-04-29 tapi BUKAN auto-apply ke Supabase cloud — harus di-paste manual. Ingat juga `alter table ... disable row level security` setelah CREATE TABLE.
+
+- [ ] **Verify SEO Control Center queue di prod** — REWRITE/no_faq actions pada weapon pages dengan template-emitted FAQPage seharusnya sudah drop setelah FAQ schema fix (`9e08ce5`) landed. Buka `/seo-control-center` dan konfirmasi.
+
+- [ ] **Authority gap follow-up: `/sewa-kantor/kantor-siap-pakai-bintaro`** — linksIn=3, weapon threshold=4.8 → masih trigger `authority_gap` issue → INJECT action di queue. Solusi: tambah 1-2 inbound link dari sister weapon (mis. `/harga-sewa-kantor-bintaro`, `/sewa-kantor/murah-jakarta-selatan`, `/kantor-dekat-bintaro-jaya`).
+
+- [ ] **Koneksi GSC data nyata** (sekarang masih mock di `performanceMock` array di ControlCenterClient.tsx). Begitu GSC live, snapshot akan terakumulasi dan window comparison menjadi aktif setelah 14 hari data.
+
+- [ ] **Auto Execution Engine v0.9+** — generate content otomatis + apply fix otomatis + loop tanpa manual. Attribution Engine sekarang menjadi loss function untuk learning loop ini.
 
 **File yang dimodifikasi di sesi Attribution v1.0:**
 - `supabase/migrations/20260424130000_seo_action_attribution.sql` ← BARU (tabel `seo_action_logs` + `seo_action_results` + index)
@@ -1026,7 +1078,58 @@ Misc:
 
 **Lanjutkan dari:** Rewrite Pipeline v0.8.1 closed clean — generate / resolve / score / save / approve loop sehat. Score badge UI di RewriteDraftViewer, sort by score di Drafts panel, soft-gate auto-reject score<50, dan v1.0 Apply-to-Page (FS write / git PR) adalah pilihan task berikutnya. Migration v0.8 (`20260424190000_seo_rewrite_entity_score.sql`) sudah ke-apply di prod. Backfill historis untuk row pre-canonicalization sudah dilakukan untuk virtual-office; pattern sama bisa dipakai untuk sewa-kantor / pendirian-pt kalau kelak ada drift.
 
-**⚠️ Context sesi sebelumnya sudah panjang. Disarankan mulai sesi baru untuk task berikutnya.**
+---
+
+**File yang dimodifikasi di sesi 2026-04-29 (Audit Generator hardening + SEO infra cleanup + Production deploy):**
+
+Audit generator + snapshot (5 commits):
+- `scripts/generate-audit-data.ts` ← PATCH (homepage override, `normalizeInternalHref`, inverse `linksIn` graph build, `collectJsonLdNodes`, `extractJsonLdSchemas`, `findRscJsonObjectEnd`, `extractRscEscapedJsonLd`)
+- `app/web-audit/audit-data.ts` ← regenerated multiple times (final state has populated linksIn + schemaTypes + faqs)
+
+SEO Control Center fix (1 commit):
+- `components/seo/ExecutionCenter.tsx` ← PATCH (`isExecutable` predicate; queue + p0Count/p1Count gated by `actions.length > 0`)
+
+Content rewrite (1 commit):
+- `app/sewa-kantor/kantor-siap-pakai-bintaro/page.tsx` ← REWRITE (1162 words, FAQ + FAQPage schema, 3 contextual links, KBLI cautious wording, soft CTA)
+
+Internal authority injection batch (2 commits):
+- `app/legal/pendirian-pt-jakarta-selatan/page.tsx` ← PATCH (2 contextual links: `/legal`, `/legal/pkp-perdagangan`)
+- `app/sewa-kantor/page.tsx` ← PATCH (lead-in expansion: `/kantor-dekat-bintaro-jaya`, `/kantor-dekat-tol-veteran`)
+- `app/sewa-kantor/bintaro/page.tsx` ← PATCH (intro `/kantor-dekat-bintaro-jaya`)
+- `app/sewa-kantor/jakarta-selatan/page.tsx` ← PATCH (Konektivitas section: `/kantor-dekat-tol-veteran`, `/kantor-dekat-bintaro-jaya`)
+- `app/virtual-office/page.tsx` ← PATCH (`/legalitas-dan-perizinan-bbc`)
+- `app/harga-virtual-office/page.tsx` ← PATCH (commit c59ef1f earlier in session: `/harga-virtual-office-jakarta-selatan` in authority section)
+- `app/virtual-office/jakarta-selatan/page.tsx` ← PATCH (commit c59ef1f: closing-CTA target swapped to `/harga-virtual-office-jakarta-selatan`)
+
+SEO infra (1 commit):
+- `middleware.ts` ← PATCH (GROUP E kill patterns + meeting-room redirect reorder before trailing-slash strip)
+- `next.config.ts` ← PATCH (deleted `/gallery → /tentang-kami` rule, replaced by middleware 410)
+
+TS bugfix (1 commit):
+- `app/seo-control-center/intent-map/IntentMapClient.tsx` ← PATCH (filter type-guard predicate)
+
+Production deploy:
+- Branch `seo-kill-fix-v1` (HEAD `98d5f36`) fast-forward merged ke `main` (`d5951e3` → `98d5f36`)
+- Pushed `main` → origin → Vercel auto-deploy
+- 14/14 prod URL probes match expected behavior
+
+**Operational quirks discovered (HARUS DIINGAT untuk debugging future):**
+
+6. **Audit generator REQUIRES live dev server on `localhost:3000`** — without it, all 42 fetches fall through to error-fallback HTML (`<html><body>Error Rendering Path: /...</body></html>`), 27/42 pages flip to Red, and JSON-LD extraction returns empty. Symptom: schemaTypes `[]`, mass Red status. Fix: ensure `npm run dev` is running BEFORE running the generator. Generator otherwise has no way to know.
+
+7. **Next.js `<Script>` JSON-LD invisible to plain HTML scrapers** — `<Script type="application/ld+json" dangerouslySetInnerHTML={...}>` from `next/script` does NOT render as a real `<script>` tag in initial SSR HTML. Instead, the schema string is encoded inside the RSC stream payload as escaped JSON (every `"` becomes `\"`). Plain regex `<script[^>]*application/ld\+json...>` won't catch it. Generator now has 2-pass extraction (plain + RSC-escaped) to compensate. Pattern: server components emitting JSON-LD via raw `<script>` tag (e.g. root layout) ARE visible; only `next/script`-emitted ones need RSC-payload extraction.
+
+8. **Vercel deploys `main` to production by default** — pushing a feature branch goes to *preview*, not production. Confirmed by `git merge-base --is-ancestor` test before deploy validation. To deploy: merge feature branch → main → push main. Force-push to main is forbidden by Git Safety Protocol.
+
+9. **`git push -u origin <branch>`** sets upstream + pushes in one shot; cleanest for first-push. Subsequent pushes use `git push` only. `git fetch origin` followed by `git log --oneline origin/main -5` shows what production is actually running.
+
+10. **Working tree dirty != merge blocker** — untracked files (mis. V2 artifacts) survive `git checkout` and FF merge as long as they don't conflict with tracked files in target branch. They stay in working dir untouched. Tracked-modified files DO block checkout if conflicting; spec saying "STOP if dirty" usually means modified-tracked, not untracked. Verify via `git status --short`: lines starting with ` M` (modified-tracked) block, lines starting with `??` (untracked) generally don't.
+
+11. **Path mangling in Git Bash MSYS curl `-w` format** — string literals like `/path/` inside `-w` format string get auto-converted to Windows paths (`C:/Users/Worknew/AppData/Local/Programs/Git/path/`). Workaround: use `curl -sI <url> | head -1` and `curl -sI <url> | grep -i ^location:` instead of `curl -w`. Path is fine when fed via stdin (`while read -r p; do curl ... "$p" ... done` works for the URL but format string still mangles).
+
+**Lanjutkan dari:** seo-kill-fix-v1 fast-forward merged ke main, Vercel production deploy verified PASS. Working tree clean kecuali 2 V2 untracked artifacts yang sengaja preserved untuk owner decision. Open items prioritized: (1) V2 owner decision, (2) Supabase migration manual apply, (3) prod queue verification, (4) authority gap follow-up untuk `/sewa-kantor/kantor-siap-pakai-bintaro`.
+
+**⚠️ Context sesi sebelumnya sudah panjang (banyak chained tasks: audit → fix → commit → deploy → verify). Disarankan mulai sesi baru untuk task berikutnya.**
 
 ---
 
