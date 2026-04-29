@@ -172,7 +172,7 @@ export default function SewaKantorPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
             <p>
-                Lihat <a href="/lokasi-kantor">lokasi kantor</a> untuk memastikan akses dan kecocokan area sebelum memilih unit.
+                Lihat <a href="/lokasi-kantor">lokasi kantor</a> untuk memastikan akses dan kecocokan area, termasuk <a href="/kantor-dekat-bintaro-jaya">kantor dekat Bintaro Jaya</a> dan akses melalui <a href="/kantor-dekat-tol-veteran">Pintu Tol Veteran</a>, sebelum memilih unit.
             </p>
             <SewaKantorClient />
             <p>

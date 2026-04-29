@@ -97,10 +97,10 @@ export default function Page() {
                     h2: "Konektivitas dan Mobilitas Tim Harian",
                     rawHtml: `
                         <h3>Terkoneksi Jaringan Jalan Tol Utama</h3>
-                        <p>Pilihan strategis untuk operasional sangat dipengaruhi oleh kelancaran logistik udara dan luar kota. Sebuah kantor dekat Tol Veteran secara instan mendapat akses JORR W2S untuk menghubungkan lini kendaraan suplai.</p>
+                        <p>Pilihan strategis untuk operasional sangat dipengaruhi oleh kelancaran logistik udara dan luar kota. Sebuah <a href="/kantor-dekat-tol-veteran" class="text-accent hover:underline">kantor dekat Tol Veteran</a> secara instan mendapat akses JORR W2S untuk menghubungkan lini kendaraan suplai.</p>
 
                         <h3>Mobilitas Lintas Wilayah Jakarta-Banten</h3>
-                        <p>Bagi perusahaan di sektor distribusi laut, otomotif perakitan, konstruksi perumahan, atau layanan jasa terstruktur — memosisikan diri di persimpangan ini memudahkan rekrutmen staff pinggir kota.</p>
+                        <p>Bagi perusahaan di sektor distribusi laut, otomotif perakitan, konstruksi perumahan, atau layanan jasa terstruktur — memosisikan diri di persimpangan ini, termasuk <a href="/kantor-dekat-bintaro-jaya" class="text-accent hover:underline">area Bintaro Jaya</a>, memudahkan rekrutmen staff pinggir kota.</p>
 
                         <h3>Lingkungan Profesional Menunjang Image</h3>
                         <p>Sebuah kantor di yurisdiksi unggulan menumbuhkan impresi bonafide saat pendaftaran tender korporasi besar atau pengajuan proyek BUMN.</p>

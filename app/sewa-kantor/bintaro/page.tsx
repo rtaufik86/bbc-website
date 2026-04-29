@@ -49,7 +49,7 @@ export default function Page() {
             canonicalUrl="https://www.bintarobusinesscentre.com/sewa-kantor/bintaro"
             schemaObject={schemaObject}
             h1="Sewa Kantor Bintaro Eksekutif: Transformasi Ruangan Fisik All-In"
-            intro='Koridor selatan Jakarta memiliki keunggulan aksesibilitas tol maupun ekosistem bisnis mapan (Bintaro Jaya). Ciptakan <a href="/sewa-kantor" class="text-accent font-bold hover:underline">sewa kantor berkelas operasional matang tanpa setup modal besar</a>, sepenuhnya legal di yurisdiksi Jakarta Selatan dengan BBC.'
+            intro='Koridor selatan Jakarta memiliki keunggulan aksesibilitas tol maupun ekosistem bisnis mapan di <a href="/kantor-dekat-bintaro-jaya" class="text-accent hover:underline">area Bintaro Jaya</a>. Ciptakan <a href="/sewa-kantor" class="text-accent font-bold hover:underline">sewa kantor berkelas operasional matang tanpa setup modal besar</a>, sepenuhnya legal di yurisdiksi Jakarta Selatan dengan BBC.'
             entity="sewa-kantor"
             location="bintaro"
             heroBadges={{ b1: "Konsep & Layout", b2: "Working Space" }}

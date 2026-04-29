@@ -215,7 +215,7 @@ export default function VirtualOfficePage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
             <p>
-                Jika Anda butuh konteks domisili, baca <a href="/virtual-office/alamat-bisnis-jakarta-selatan">fungsi alamat bisnis di Jakarta Selatan</a> untuk kebutuhan administratif.
+                Jika Anda butuh konteks domisili, baca <a href="/virtual-office/alamat-bisnis-jakarta-selatan">fungsi alamat bisnis di Jakarta Selatan</a> dan <a href="/legalitas-dan-perizinan-bbc">ketentuan legalitas dan perizinan BBC</a> untuk kebutuhan administratif.
             </p>
             <VirtualOfficeClient />
             <p>

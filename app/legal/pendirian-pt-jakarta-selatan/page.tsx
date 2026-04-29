@@ -140,7 +140,13 @@ export default function JasaLegalPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
+            <p>
+                Untuk konteks menyeluruh sebelum memilih struktur badan usaha, lihat <a href="/legal">panduan legalitas usaha</a> di Jakarta Selatan.
+            </p>
             <PendirianPTClient />
+            <p>
+                Bagi KBLI non-jasa (perdagangan, distribusi, transportasi), pelajari <a href="/legal/pkp-perdagangan">PKP untuk perusahaan perdagangan</a> sebelum menentukan domisili dan paket pendirian.
+            </p>
         </>
     )
 }
