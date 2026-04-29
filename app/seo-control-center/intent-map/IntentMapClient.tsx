@@ -72,7 +72,7 @@ export default function IntentMapClient({ auditData, registryEntries, queryBankB
     Object.entries(queryBankByCluster).forEach(([cluster, queries]) => {
       const pagesInCluster = auditData
         .map(p => ({ page: p, reg: registryEntries.find(r => r.url === p.path) }))
-        .filter(p => p.reg && p.reg.cluster === cluster)
+        .filter((p): p is { page: AuditPage; reg: RegistryEntry } => !!p.reg && p.reg.cluster === cluster)
 
       queries.forEach(query => {
         const coverage = getCoverageStatus(query, pagesInCluster)
