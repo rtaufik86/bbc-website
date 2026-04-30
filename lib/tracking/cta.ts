@@ -88,39 +88,106 @@ export function buildWhatsAppLink(args: BuildWhatsAppLinkArgs): string {
 }
 
 export type ChannelTag = '[GA]' | '[FB]'
+export type LeadSource = 'GA' | 'FB' | 'WEB' | 'unknown'
+
+const LEAD_SOURCE_KEY = 'bbc_lead_source'
+
+const GA_PAID_MEDIUMS = new Set(['cpc', 'paid', 'paidsearch'])
+const FB_PAID_MEDIUMS = new Set(['paid', 'cpc', 'paid_social'])
+const FB_SOURCES = new Set(['meta', 'facebook', 'instagram', 'fb', 'ig'])
 
 /**
  * Returns a sales-readable channel tag if the visitor came (at any touch) from
  * Google Ads or Facebook/Meta Ads. Sales team sees this prefix at the start of
  * the WhatsApp message — instant lead-source signal in chat.
  *
- * Detection priority: explicit click ID > UTM source+medium combo.
- *   Google Ads: gclid present  OR  source=google AND medium in [cpc, paid]
- *   Facebook:   fbclid present OR  source=meta   AND medium in [paid, cpc]
+ * Detection priority (any touch wins):
+ *   GA: gclid OR source=google AND medium in [cpc, paid, paidsearch]
+ *   FB: fbclid OR source in [meta, facebook, instagram, fb, ig]
+ *       AND medium in [paid, cpc, paid_social]
+ *
+ * Sticky read: a previously persisted GA/FB value from `bbc_lead_source` wins
+ * over a now-empty / direct visit, so a returning user keeps their original
+ * paid-channel attribution even after first-touch localStorage TTL expires.
  *
  * Returns null for direct/organic/referral/other — no prefix gets prepended.
  */
 export function getChannelTag(): ChannelTag | null {
     if (typeof window === 'undefined') return null
+
+    // Sticky paid-channel from prior visit
+    try {
+        const persisted = localStorage.getItem(LEAD_SOURCE_KEY)
+        if (persisted === 'GA') return '[GA]'
+        if (persisted === 'FB') return '[FB]'
+    } catch {
+        // private mode / quota — fall through to live detection
+    }
+
     const first = getFirstTouch()
     const last = getLastTouch()
 
     const isGoogleAds = (t: { source?: string; medium?: string; gclid?: string } | null) => {
         if (!t) return false
         if (t.gclid) return true
-        if (t.source === 'google' && (t.medium === 'cpc' || t.medium === 'paid')) return true
+        if (t.source === 'google' && t.medium && GA_PAID_MEDIUMS.has(t.medium)) return true
         return false
     }
     const isFacebookAds = (t: { source?: string; medium?: string; fbclid?: string } | null) => {
         if (!t) return false
         if (t.fbclid) return true
-        if (t.source === 'meta' && (t.medium === 'paid' || t.medium === 'cpc')) return true
+        if (t.source && FB_SOURCES.has(t.source) && t.medium && FB_PAID_MEDIUMS.has(t.medium)) return true
         return false
     }
 
     if (isGoogleAds(first) || isGoogleAds(last)) return '[GA]'
     if (isFacebookAds(first) || isFacebookAds(last)) return '[FB]'
     return null
+}
+
+/**
+ * Resolves the visitor's lead source for analytics / dataLayer:
+ *   'GA'      — Google Ads (gclid or paid google)
+ *   'FB'      — Facebook/Meta Ads (fbclid or paid meta-family)
+ *   'WEB'     — any attribution captured but not paid (organic/referral/direct/etc.)
+ *   'unknown' — attribution not yet captured (e.g. SSR or pre-bootstrap)
+ */
+export function getLeadSource(): LeadSource {
+    if (typeof window === 'undefined') return 'unknown'
+
+    try {
+        const persisted = localStorage.getItem(LEAD_SOURCE_KEY)
+        if (persisted === 'GA' || persisted === 'FB') return persisted
+    } catch {
+        // ignore
+    }
+
+    const tag = getChannelTag()
+    if (tag === '[GA]') return 'GA'
+    if (tag === '[FB]') return 'FB'
+
+    return getFirstTouch() ? 'WEB' : 'unknown'
+}
+
+/**
+ * Sticky-write resolved lead source to localStorage.
+ *   - Once 'GA' or 'FB' is set, it is NEVER overwritten by later visits.
+ *   - 'WEB' / 'unknown' may be written or upgraded later.
+ *
+ * Called once per navigation by AttributionBootstrap after captureAttribution.
+ */
+export function persistLeadSource(): void {
+    if (typeof localStorage === 'undefined') return
+    try {
+        const existing = localStorage.getItem(LEAD_SOURCE_KEY)
+        if (existing === 'GA' || existing === 'FB') return // sticky paid-channel
+        const current = getLeadSource()
+        if (current === 'unknown' && existing) return // do not downgrade existing → unknown
+        if (current === existing) return
+        localStorage.setItem(LEAD_SOURCE_KEY, current)
+    } catch {
+        // quota / private mode — ignore
+    }
 }
 
 export interface CtaClickPayload {
@@ -139,6 +206,7 @@ export function trackCtaClick(payload: CtaClickPayload): void {
     const dataLayer = ((window as any).dataLayer = (window as any).dataLayer || [])
     const first = getFirstTouch()
     const last = getLastTouch()
+    const leadSource = getLeadSource()
 
     dataLayer.push({
         event: 'cta_click',
@@ -154,6 +222,7 @@ export function trackCtaClick(payload: CtaClickPayload): void {
         first_touch_campaign: first?.campaign,
         last_touch_source: last?.source,
         last_touch_medium: last?.medium,
+        lead_source: leadSource,
     })
 
     if (payload.destination === 'whatsapp') {
@@ -165,6 +234,7 @@ export function trackCtaClick(payload: CtaClickPayload): void {
             wa_package: payload.package,
             first_touch_source: first?.source,
             last_touch_source: last?.source,
+            lead_source: leadSource,
         })
     }
 }
