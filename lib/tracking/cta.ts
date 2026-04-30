@@ -87,6 +87,42 @@ export function buildWhatsAppLink(args: BuildWhatsAppLinkArgs): string {
     return `https://wa.me/${num}?${params.toString()}`
 }
 
+export type ChannelTag = '[GA]' | '[FB]'
+
+/**
+ * Returns a sales-readable channel tag if the visitor came (at any touch) from
+ * Google Ads or Facebook/Meta Ads. Sales team sees this prefix at the start of
+ * the WhatsApp message — instant lead-source signal in chat.
+ *
+ * Detection priority: explicit click ID > UTM source+medium combo.
+ *   Google Ads: gclid present  OR  source=google AND medium in [cpc, paid]
+ *   Facebook:   fbclid present OR  source=meta   AND medium in [paid, cpc]
+ *
+ * Returns null for direct/organic/referral/other — no prefix gets prepended.
+ */
+export function getChannelTag(): ChannelTag | null {
+    if (typeof window === 'undefined') return null
+    const first = getFirstTouch()
+    const last = getLastTouch()
+
+    const isGoogleAds = (t: { source?: string; medium?: string; gclid?: string } | null) => {
+        if (!t) return false
+        if (t.gclid) return true
+        if (t.source === 'google' && (t.medium === 'cpc' || t.medium === 'paid')) return true
+        return false
+    }
+    const isFacebookAds = (t: { source?: string; medium?: string; fbclid?: string } | null) => {
+        if (!t) return false
+        if (t.fbclid) return true
+        if (t.source === 'meta' && (t.medium === 'paid' || t.medium === 'cpc')) return true
+        return false
+    }
+
+    if (isGoogleAds(first) || isGoogleAds(last)) return '[GA]'
+    if (isFacebookAds(first) || isFacebookAds(last)) return '[FB]'
+    return null
+}
+
 export interface CtaClickPayload {
     placement: Placement
     service: ServiceCode

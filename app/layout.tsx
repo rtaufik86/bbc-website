@@ -3,6 +3,7 @@ import Header from '@/components/navigation/Header'
 import Footer from '@/components/navigation/Footer'
 import WhatsAppFloating from '@/components/cta/WhatsAppFloating'
 import AttributionBootstrap from '@/components/tracking/AttributionBootstrap'
+import WhatsAppChannelTagger from '@/components/tracking/WhatsAppChannelTagger'
 import Script from 'next/script'
 import './globals.css'
 
@@ -136,6 +137,7 @@ export default function RootLayout({
                     />
                 </noscript>
                 <AttributionBootstrap />
+                <WhatsAppChannelTagger />
                 <Header />
                 <main>{children}</main>
                 <Footer />
