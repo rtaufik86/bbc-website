@@ -59,7 +59,29 @@ export async function middleware(request: NextRequest) {
     const path = url.pathname
     const normalizedPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path
 
-    if (url.search && path !== '/') {
+    // Allowlist for paid-channel + UTM attribution params: leave them on the URL
+    // so client-side AttributionBootstrap can capture gclid / fbclid / utm_* into
+    // first-touch localStorage. Junk / SEO-harmful params still get 301-stripped.
+    const ATTRIBUTION_PARAMS = new Set([
+        'gclid',
+        'fbclid',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'gad_source',
+        'wbraid',
+        'gbraid',
+        'msclkid',
+        'ttclid',
+    ])
+    const hasAttributionParam = (() => {
+        for (const k of url.searchParams.keys()) if (ATTRIBUTION_PARAMS.has(k)) return true
+        return false
+    })()
+
+    if (url.search && path !== '/' && !hasAttributionParam) {
         return NextResponse.redirect(new URL(path, request.url), 301)
     }
 
