@@ -35,6 +35,9 @@ export default function RuangMeetingPage() {
                         <h1 className="text-4xl lg:text-7xl font-bold text-primary leading-[1.1] mb-8 font-heading">
                             Sewa Ruang Meeting Jakarta Selatan: Profesional & Terjangkau
                         </h1>
+                        <p className="text-sm text-charcoal/50 mb-6 leading-relaxed font-light">
+                            Ruang meeting Bintaro Business Centre, dikelola PT. Ganesha Dwipaya Bhakti, berlokasi di Pesanggrahan, Jakarta Selatan, dengan akses melalui RC Veteran dan Pintu Tol Veteran. Fasilitas gedung kami mencakup resepsionis profesional yang siap mendukung setiap sesi pertemuan sejak 2007.
+                        </p>
                         <p className="text-xl text-charcoal/70 mb-12 leading-relaxed font-light">
                             Ruang pertemuan yang dirancang untuk mendukung produktivitas. Dari presentasi klien hingga diskusi internal, lingkungan profesional kami memberikan kesan yang tepat untuk bisnis Anda.
                         </p>

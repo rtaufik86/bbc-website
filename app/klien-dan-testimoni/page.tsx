@@ -48,6 +48,9 @@ export default function KlienTestimoniPage() {
                         <h1 className="text-4xl lg:text-7xl font-bold text-primary leading-[1.1] mb-8 font-heading">
                             1.800+ Perusahaan Mempercayakan Bisnisnya ke BBC
                         </h1>
+                        <p className="text-sm text-charcoal/50 mb-6 leading-relaxed font-light">
+                            Bintaro Business Centre dikelola oleh PT. Ganesha Dwipaya Bhakti dan beroperasi di Pesanggrahan, Jakarta Selatan sejak 2007. Pengalaman melayani lebih dari 1.800 perusahaan menjadi fondasi kepercayaan yang ditampilkan di halaman ini.
+                        </p>
                         <p className="text-xl text-charcoal/70 mb-12 leading-relaxed font-light">
                             Angka adalah satu hal. Konteks adalah segalanya. Sejak 2007, kami telah menjadi mitra infrastruktur bagi startup, firma hukum, hingga perusahaan nasional.
                         </p>
