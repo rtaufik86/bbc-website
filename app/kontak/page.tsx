@@ -18,7 +18,11 @@ export default function KontakPage() {
     return (
         <div className="py-16 md:py-24 bg-slate-50 min-h-screen">
             <div className="container mx-auto px-4 max-w-6xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center text-slate-900 font-heading">Hubungi Kami</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center text-slate-900 font-heading">Hubungi Kami</h1>
+
+                <p className="text-base text-slate-600 mb-10 leading-relaxed font-light text-center max-w-3xl mx-auto">
+                    Bintaro Business Centre dikelola oleh PT. Ganesha Dwipaya Bhakti dan berlokasi di Pesanggrahan, Jakarta Selatan, dekat RC Veteran dan Pintu Tol Veteran. Sejak 2007, tim resepsionis dan kontak BBC membantu perusahaan, tenant, dan calon klien menghubungi layanan kantor dengan jalur komunikasi yang jelas.
+                </p>
 
                 <div className="mb-12">
                     <Image

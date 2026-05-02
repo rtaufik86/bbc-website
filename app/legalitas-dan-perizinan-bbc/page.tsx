@@ -50,6 +50,9 @@ export default function LegalitasBbcPage() {
                         <h1 className="text-4xl lg:text-7xl font-bold text-primary leading-[1.1] mb-8 font-heading">
                             Legalitas & Perizinan BBC: Fondasi Kepercayaan Anda
                         </h1>
+                        <p className="text-xl text-charcoal/70 mb-8 leading-relaxed font-light">
+                            Bintaro Business Centre dikelola oleh PT. Ganesha Dwipaya Bhakti di Pesanggrahan, Jakarta Selatan, dekat RC Veteran. Sejak 2007, BBC menyediakan alamat bisnis, service office, virtual office, dan dukungan administrasi yang berkaitan dengan kebutuhan legalitas dan perizinan perusahaan.
+                        </p>
                         <p className="text-xl text-charcoal/70 mb-12 leading-relaxed font-light">
                             Dalam memilih mitra infrastruktur bisnis, legalitas bukan pertanyaan tambahan—ini pertanyaan pertama. Kami menyediakan transparansi penuh untuk mendukung keamanan operasional bisnis Anda.
                         </p>

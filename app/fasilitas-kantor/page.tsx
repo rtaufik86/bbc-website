@@ -49,6 +49,9 @@ export default function FasilitasKantorPage() {
                         <h1 className="text-4xl lg:text-7xl font-bold text-primary leading-[1.1] mb-8 font-heading">
                             Fasilitas BBC: Infrastruktur Lengkap Mendukung Bisnis
                         </h1>
+                        <p className="text-xl text-charcoal/70 mb-8 leading-relaxed font-light">
+                            Fasilitas kantor Bintaro Business Centre dikelola oleh PT. Ganesha Dwipaya Bhakti di Pesanggrahan, Jakarta Selatan, dekat RC Veteran. Sejak 2007, gedung BBC menyediakan infrastruktur service office dengan area 1.600 m², 4 lantai, 72 unit kantor, resepsionis, dan fasilitas pendukung untuk kebutuhan operasional perusahaan.
+                        </p>
                         <p className="text-xl text-charcoal/70 mb-12 leading-relaxed font-light">
                             Fasilitas bukan nilai jual—fasilitas adalah standar minimum. Di BBC, semua infrastruktur sudah tersedia untuk mendukung <Link href="/sewa-kantor" className="text-accent hover:underline font-bold">operasional kantor</Link> and <Link href="/virtual-office" className="text-accent hover:underline font-bold">administrasi perusahaan</Link> Anda.
                         </p>
