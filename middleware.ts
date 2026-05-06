@@ -118,6 +118,7 @@ export async function middleware(request: NextRequest) {
             /^\/xmlrpc\.php(?:\/|$)/,
             /^\/wp-content(?:\/|$)/,
             /^\/wp-includes(?:\/|$)/,
+            /^\/p(?:\/|$)/,
 
             // GROUP B — TAXONOMY & ARCHIVE
             /^\/category(?:\/|$)/,
