@@ -19,6 +19,8 @@ import { computeHealth } from '../../lib/seo/health'
 import type { HealthResult } from '../../lib/seo/health'
 import { computeWindowFeedback, computeActionStats } from '../../lib/seo/feedback'
 import type { FeedbackResult, WindowAverage, ActionStat, ActionResultRow } from '../../lib/seo/feedback'
+import { computeQuality } from '../../lib/seo/quality'
+import type { QualityResult } from '../../lib/seo/quality'
 import {
   safeExecute,
   createRunContext,
@@ -47,6 +49,7 @@ import SystemOverview      from '../../components/seo/SystemOverview'
 import ExecutionCenter,    { Decision as ExecDecision }     from '../../components/seo/ExecutionCenter'
 import PageExecutionDetail, { Decision as DetailDecision }  from '../../components/seo/PageExecutionDetail'
 import EntityOverview      from '../../components/seo/EntityOverview'
+import QualityGatePanel    from '../../components/seo/QualityGatePanel'
 import OpportunityBoard    from '../../components/seo/OpportunityBoard'
 import type { PatchPreview }                                from '../../components/seo/ExecutionDiffViewer'
 
@@ -60,6 +63,7 @@ interface AuditPage {
   linksOut: { href: string; anchor: string; isContextual: boolean }[];
   status: string; description: string;
   expectedFAQ?: boolean;
+  firstMoneyLinkBefore300?: boolean;
   h1Texts?: string[];
   h2Texts?: string[];
   introText?: string;
@@ -107,6 +111,7 @@ interface CoreDecision {
   performance?:          PagePerformance
   performanceHint?:      string
   feedback?:             FeedbackResult
+  quality?:              QualityResult
   priorityExplanation?:  {
     position:    number | null
     impressions: number
@@ -458,6 +463,7 @@ export default function ControlCenterClient({ auditData }: Props) {
       if (!signals.faq.hasFAQ && p.pageType === 'weapon' && p.expectedFAQ !== false) issues.push('no_faq')
       if (strength < targetThreshold)                                    issues.push('authority_gap')
       if (p.linksIn.length === 0 || p.orphanRisk)                        issues.push('orphan_risk')
+      if (p.pageType === 'weapon' && p.firstMoneyLinkBefore300 === false && p.wordCount > 300) issues.push('missing_money_link')
       if (p.h1Count === 0)                                               issues.push('no_h1')
 
       // 5. Intelligence (runs AFTER issues so priorityEngine has the full list)
@@ -603,6 +609,11 @@ export default function ControlCenterClient({ auditData }: Props) {
         p.h1Texts ?? [],
       )
 
+      // 8. Quality Gate v1A — read-only baseline. Score is attached for
+      // downstream consumers (UI panel arrives in v1B). Does NOT influence
+      // issues, priority, actions, or queue filtering at this version.
+      const quality = computeQuality(p)
+
       return {
         path:         p.path,
         pageType:     p.pageType,
@@ -621,6 +632,7 @@ export default function ControlCenterClient({ auditData }: Props) {
         performance:         performanceMap[p.path],
         performanceHint,
         feedback,
+        quality,
         priorityExplanation: {
           position:    pos,
           impressions,
@@ -1091,7 +1103,16 @@ export default function ControlCenterClient({ auditData }: Props) {
           <EntityOverview decisions={decisions} />
         </section>
 
-        {/* 3. Opportunity Board — upside / quick-wins */}
+        {/* 3. Quality Gate Panel — read-only scoring (v1B) */}
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-2 h-2 rounded-full bg-fuchsia-500" />
+            <h2 className="text-xs font-black text-slate-500 uppercase tracking-widest">Quality Gate</h2>
+          </div>
+          <QualityGatePanel decisions={decisions} />
+        </section>
+
+        {/* 4. Opportunity Board — upside / quick-wins */}
         <section>
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2 h-2 rounded-full bg-amber-500" />

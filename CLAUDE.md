@@ -95,7 +95,7 @@ Lanjutkan development BBC. Baca CLAUDE.md dulu sebelum mulai.
 
 Project: C:\Users\Worknew\Documents\Saas\BBC
 
-Status terakhir (sesi 2026-04-29 — DEPLOY LANDED):
+Status terakhir (sesi 2026-05-02 — QUALITY GATE v2 + TRUST INJECTION PILOT):
 - ✅ Signal Engine, Intelligence Layer, Performance Engine v1.1
 - ✅ Health Engine v1
 - ✅ Feedback Engine v1.2 → v1.3 (Supabase persistence + 7d-vs-7d window + stability threshold)
@@ -105,16 +105,15 @@ Status terakhir (sesi 2026-04-29 — DEPLOY LANDED):
 - ✅ Config Extraction v1 (BBC_CONFIG → governance.ts)
 - ✅ Entity System v0.1 + Entity Validator v0.1 (3 entities; validator dipanggil HANYA terhadap LLM output)
 - ✅ Rewrite Pipeline v0.45 → v0.8.1 (Anthropic SDK + entity resolver + score-on-save + canonical key di route boundary)
-- ✅ **Audit Generator hardening (sesi ini)**:
-  - Homepage override: `route === '/' → pageType: 'homepage'` (tidak lagi 'money' untuk audit semantics)
-  - Inbound graph populated: `linksIn[]` derived by inverting `linksOut` across all routes (was hardcoded `[]`; broke authority_gap/orphan_risk for 42 pages)
-  - JSON-LD detection 2-pass: plain `<script type="application/ld+json">` blocks PLUS RSC-encoded `<Script>` payload (`extractRscEscapedJsonLd` walks brace-balanced escaped JSON, decodes `\"` → `"`, parses) — surfaces FAQPage/Article/WebPage emitted via `next/script`
-- ✅ **Execution Queue filter (sesi ini)**: ExecutionCenter hides decisions where `actions.length === 0` (P0 from perf-only signals tanpa actionable item tidak pollute Today's Focus)
-- ✅ **SEO Infra cleanup (sesi ini)**: middleware GROUP E kill patterns (`/classroom`, `/event`, `/gallery`, `/client`, `/nggallery`, `/thrive_*` → 410); meeting-room redirect reorder (sebelum trailing-slash strip → 1-hop 301); deleted dead `/gallery → /tentang-kami` rule dari next.config
-- ✅ **Content rewrite (sesi ini)**: `/sewa-kantor/kantor-siap-pakai-bintaro` weapon page (1162 words, 1 H1, FAQ + FAQPage schema, 3 contextual links, soft CTA, KBLI cautious wording)
-- ✅ **Internal authority injection batch (sesi ini)**: 5 page.tsx files × contextual links (legal, sewa-kantor hub, sewa-kantor/bintaro, sewa-kantor/jakarta-selatan, virtual-office)
-- ✅ **TS bugfix (sesi ini)**: `IntentMapClient.tsx` filter predicate narrowed (`(p): p is {...} => !!p.reg && ...`) — pre-existing TS error eliminated
-- ✅ **Production deploy (sesi ini)**: branch `seo-kill-fix-v1` fast-forward merged ke `main` + pushed → Vercel deploy verified PASS (14/14 URLs match expected, GROUP E patterns active, meeting-room reorder confirmed)
+- ✅ Audit Generator hardening (2026-04-29): homepage override, linksIn inversion, 2-pass JSON-LD detection
+- ✅ Production deploy (2026-04-29): branch `seo-kill-fix-v1` → main, Vercel PASS (14/14)
+- ✅ **introText extraction fix (sesi ini)**: `extractIntroText(mainHtml)` in `scripts/generate-audit-data.ts` — scopes to `<main>` first `<p>` ≥80 chars, skips NAV_SIGNATURES; eliminates nav/title inflation in answerFirst scores
+- ✅ **Quality Gate v2A (sesi ini)**: `components/seo/QualityGatePanel.tsx` — display-only alert badges (trust_weak/overall_fair/answer_fair/entity_fair) for indexable pages; `isQualityBadgeEligible()` guards; `getQualityAlerts()` max 3 per page; "Quality Alerts" section in panel
+- ✅ **Quality Gate v2C threshold tuning (sesi ini)**: overall_fair <70→<85, entity_fair <57→<72, `/legal/cek-kbli` excluded via `EXCLUDED_QUALITY_ALERT_PATHS`
+- ✅ **Editorial trust injection pilot (sesi ini)**: factual BBC trust proof injected as first `<p>` in hero section:
+  - `/klien-dan-testimoni`: PT. Ganesha Dwipaya Bhakti, Pesanggrahan, Jakarta Selatan, sejak 2007 — tv: 43→86, overall: 78→90, cleared trust_weak+overall_fair+answer_fair
+  - `/ruang-meeting`: PT. Ganesha Dwipaya Bhakti, Pesanggrahan, RC Veteran, Pintu Tol Veteran, resepsionis — tv: 29→100, overall: 80→97, cleared ALL badges
+- ✅ **audit-data.ts regenerated (sesi ini)**: introText updated, wordCount updated (klien-dan-testimoni: 357→386, ruang-meeting: 310→346)
 - 0 TS error baru (8 pre-existing di test files — abaikan)
 
 Arsitektur penting:
@@ -136,6 +135,9 @@ Arsitektur penting:
 - **Audit Generator (sesi 2026-04-29)**: butuh dev server di `http://localhost:3000` saat `npx tsx scripts/generate-audit-data.ts` jalan; tanpa dev server fetch fall through ke error-fallback HTML dan 27/42 pages flip ke Red secara salah. Flow: `auditFile()` → `extractJsonLdSchemas(content)` (plain) + `extractRscEscapedJsonLd(content)` (RSC payload) → merge dedup. Inbound graph dibuild post-loop di `run()`: invert `linksOut` ke `Map<targetPath, {from,anchor}[]>` lalu attach ke `result.linksIn`. Hanya routes di `PAGE_TYPE_MAP` yang di-track (asset/external links di-skip di `normalizeInternalHref`).
 - **ExecutionCenter queue gate (sesi 2026-04-29)**: visible queue + p0Count/p1Count badges semua difilter via `isExecutable(d) = ['P0','P1'].includes(priority) && d.actions.length > 0`. Decisions dengan P0 dari signal performa tapi tanpa action concrete (mis. `query_mismatch` yang tidak nge-build action di buildActions) tidak pollute UI.
 - **Middleware redirect chain (sesi 2026-04-29)**: meeting-room check (`if normalizedPath === '/meeting-room' return redirect('/ruang-meeting', 301)`) HARUS sebelum trailing-slash strip supaya `/meeting-room/` direct 1-hop ke `/ruang-meeting`. Reordering = regression (akan jadi 2-hop).
+- **Quality Gate v2 (sesi 2026-05-02)**: `components/seo/QualityGatePanel.tsx` adalah untracked file (??). Scorer di `lib/seo/quality/` juga untracked. Badge rules: trust_weak(tv<57), overall_fair(overall<85), answer_fair(af<80), entity_fair(ep<72); max 3/page; interaction+taskSuccess sengaja dikecualikan (inflated baseline). `isQualityBadgeEligible()` skip: noindex, utility pageType, NOINDEX_PREFIXES, EXCLUDED_QUALITY_ALERT_PATHS (`['/legal/cek-kbli']`).
+- **introText extractor (sesi 2026-05-02)**: `extractIntroText(mainHtml)` di `scripts/generate-audit-data.ts` — ambil first `<p>` ≥80 chars dari `<main>` content yang tidak match `NAV_SIGNATURES`. Fallback: first 500 chars clean text. PENTING: trustVisibility scorer hanya baca `visibleText()` = introText + H1 + H2 + H3 + FAQs. Trust terms di body `<p>` lain TIDAK terskor. Editorial trust injection harus landing sebagai `<p>` PERTAMA di `<main>` supaya jadi introText.
+- **entity_fair residual on /klien-dan-testimoni**: ep=71 (threshold <72) — satu check gagal karena intro tidak mengandung service terms ('sewa kantor', 'virtual office', dll). Bisa clear dengan tambahkan 1 service term ke intro paragraph injected.
 
 Sebelum coding pastikan migration sudah dijalankan di Supabase:
 - supabase/migrations/20260424120000_seo_performance_snapshots.sql
@@ -164,6 +166,9 @@ Open items (pilih yang mau dikerjakan):
 2. **Supabase migrations** — manual apply ke prod Supabase kalau belum (9 migration di list di atas)
 3. **Verify SEO Control Center queue di prod** — REWRITE/no_faq harus sudah drop setelah FAQ schema fix landed
 4. **Authority gap follow-up** — `/sewa-kantor/kantor-siap-pakai-bintaro` linksIn=3, weapon threshold=4.8 → butuh 1-2 inbound injection lagi dari sister weapon (mis. `/harga-sewa-kantor-bintaro`, `/sewa-kantor/murah-jakarta-selatan`)
+5. **entity_fair residual on /klien-dan-testimoni** — ep=71 (satu check dari clear). Fix: tambahkan service term (mis. "layanan sewa kantor atau virtual office") ke intro paragraph yang sudah ada di halaman itu. Tidak perlu edit besar.
+6. **Trust injection pilot lanjutan** — 10 halaman lain masih `trust_weak` (tv<57). Prioritas tinggi: pages dengan trust_weak + overall_fair + noindex=false. Cek distribusi badge terbaru di QualityGatePanel setelah regenerasi.
+7. **Commit pending changes** — `app/klien-dan-testimoni/page.tsx`, `app/ruang-meeting/page.tsx`, `app/web-audit/audit-data.ts`, `scripts/generate-audit-data.ts`, `components/seo/QualityGatePanel.tsx` (+ lib/seo/quality/ untracked) belum di-commit. Pertimbangkan commit + push ke main.
 
 Task hari ini: [TULIS TASK DI SINI]
 ```
