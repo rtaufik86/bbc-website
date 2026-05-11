@@ -56,6 +56,7 @@ const trackEvent = (eventName: string, label: string) => {
 export default function VirtualOfficeClient() {
     const waMessage = "Hallo, saya ingin informasi paket virtual office BBC."
     const waUrl = buildWhatsAppLink({ text: waMessage, service: 'vo', cta: 'hero', intent: 'package-info' })
+    const waUrlFinal = buildWhatsAppLink({ text: "Hallo, saya ingin konsultasi virtual office BBC.", service: 'vo', cta: 'final', intent: 'consultation' })
     const waUrlUpgrade = buildWhatsAppLink({ text: "Hallo, saya tertarik konsultasi upgrade dari Virtual Office ke Service Office BBC.", service: 'vo', cta: 'mid', intent: 'upgrade-to-office' })
 
     return (
@@ -655,7 +656,7 @@ export default function VirtualOfficeClient() {
                                     onClick={() => trackEvent('whatsapp_click', 'final_vo_wa')}
                                     asChild
                                 >
-                                    <a href={waUrl} target="_blank" rel="noopener noreferrer">
+                                    <a href={waUrlFinal} target="_blank" rel="noopener noreferrer">
                                         <MessageCircle className="w-5 h-5 mr-3" /> Konsultasi via WhatsApp Sekarang
                                     </a>
                                 </Button>

@@ -92,7 +92,7 @@ export default function Page() {
                     rawHtml: `
                         <p>Kantor siap pakai (sering juga disebut serviced office) adalah model penyewaan ruang kerja di mana sebagian besar persiapan operasional sudah disediakan oleh penyedia, sehingga penyewa dapat mulai bekerja relatif lebih cepat dibandingkan menyewa ruang kosong yang masih perlu dirombak.</p>
                         <p>Yang biasanya termasuk dalam paket bervariasi antar penyedia dan antar tipe unit. Beberapa paket bisa mencakup ruang fisik, akses ke fasilitas umum gedung, dan konfigurasi furnitur dasar. Namun cakupan fasilitas perlu dikonfirmasi berdasarkan unit, kapasitas, dan durasi sewa &mdash; tidak semua paket otomatis menyertakan layanan IT khusus, ruang meeting eksklusif, atau pantry pribadi.</p>
-                        <p>Karena itu, ketika menilai sebuah penawaran, langkah pertama bukanlah membandingkan harga akhir, melainkan memetakan apa yang sesungguhnya termasuk: ruang fisik saja, atau ruang plus fasilitas pendukung. Dua paket dengan harga sama bisa memiliki cakupan yang sangat berbeda.</p>
+                        <p>Karena itu, ketika menilai sebuah penawaran, langkah pertama bukanlah membandingkan harga akhir, melainkan memetakan apa yang sesungguhnya termasuk: ruang fisik saja, atau ruang plus fasilitas pendukung. Dua paket dengan harga sama bisa memiliki cakupan yang sangat berbeda. Sebagai referensi awal, <a href="/sewa-kantor" class="text-accent hover:underline">layanan sewa kantor BBC</a> menyajikan gambaran tipe unit dan kapasitas yang dapat disesuaikan dengan kebutuhan operasional bisnis Anda.</p>
                     `
                 },
                 {

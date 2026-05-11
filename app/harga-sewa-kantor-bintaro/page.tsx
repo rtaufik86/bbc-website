@@ -35,7 +35,7 @@ export default function HargaSewaKantorBintaroPage() {
                         <p>Inilah komponen yang paling sering menjadi sumber kejutan biaya. Kantor konvensional menagih berdasarkan konsumsi aktual, sementara model all-inclusive menghilangkan variabel ini dari pengeluaran bulanan Anda.</p>
 
                         <h3>Fasilitas &amp; Layanan Resepsionis</h3>
-                        <p>Apakah harga tersebut sudah termasuk penanganan tamu, surat-menyurat, dan akses internet berkecepatan tinggi? Verifikasi fasilitas yang tercakup sebelum menyetujui kontrak.</p>
+                        <p>Apakah harga tersebut sudah termasuk penanganan tamu, surat-menyurat, dan akses internet berkecepatan tinggi? Verifikasi fasilitas yang tercakup sebelum menyetujui kontrak. Untuk gambaran lengkapnya, lihat <a href="/sewa-kantor/kantor-siap-pakai-bintaro" class="text-accent hover:underline">fasilitas kantor siap pakai BBC</a> yang sudah termasuk dalam satu paket sewa.</p>
                     `
                 },
                 {

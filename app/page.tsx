@@ -288,17 +288,10 @@ export default function HomePage() {
                 <div className="container mx-auto px-6 relative z-10 text-center max-w-6xl pb-8 md:pb-0">
                     <span className="inline-block text-accent font-semibold text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4 md:mb-8">Berdiri Sejak 2007</span>
 
-                    {/* DESKTOP HEADLINE */}
-                    <h1 className="hidden md:block text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-primary leading-[1.1] mb-8 font-heading">
+                    {/* HEADLINE — single H1, responsive sizing */}
+                    <h1 className="text-[clamp(1.75rem,8vw,2.5rem)] md:text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-primary leading-[1.2] md:leading-[1.1] mb-4 md:mb-8 font-heading">
                         Bintaro Business Centre <br />
                         Serviced Office & Virtual Office Jakarta Selatan
-                    </h1>
-
-                    {/* MOBILE HEADLINE - OPTIMIZED */}
-                    <h1 className="md:hidden text-[clamp(1.75rem,8vw,2.5rem)] font-bold text-primary leading-[1.2] mb-4 font-heading">
-                        Bintaro Business Centre <br />
-                        Serviced & Virtual Office <br />
-                        Jakarta Selatan
                     </h1>
 
                     {/* SUBHEADLINE */}

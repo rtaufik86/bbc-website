@@ -146,7 +146,7 @@ export default function Page() {
                         <p>Pendekatan jujur BBC dalam mengakui struktur sewa.</p>
 
                         <h3>Service Office Stabil</h3>
-                        <p>Unit terisolir tanpa gangguan sirkulasi tak dikenal. Arus tagihan listik/kebersihan telah ditutup mati pihak manajemen gedung sebagai operator. Banyak tim memilih <a href="/sewa-kantor/bintaro" class="text-accent hover:underline">kantor siap pakai di Bintaro</a> agar implementasi operasional tidak terseret biaya tak terlihat.</p>
+                        <p>Unit terisolir tanpa gangguan sirkulasi tak dikenal. Arus tagihan listik/kebersihan telah ditutup mati pihak manajemen gedung sebagai operator. Banyak tim memilih <a href="/sewa-kantor/bintaro" class="text-accent hover:underline">kantor siap pakai di Bintaro</a> agar implementasi operasional tidak terseret biaya tak terlihat. Sebelum memutuskan, simak <a href="/sewa-kantor/kantor-siap-pakai-bintaro" class="text-accent hover:underline">apa saja yang termasuk dalam kantor siap pakai</a> agar tidak ada komponen yang terlewat dari anggaran.</p>
                         <p><strong>Cocok Untuk</strong><br/>Startup pengadaan tender, manufaktur cabang kecil, dan badan riset independen.</p>
                         <ul>
                             <li>Biaya Bebas Volatilitas</li>
