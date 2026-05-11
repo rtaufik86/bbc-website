@@ -11,7 +11,7 @@ const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Sewa Kantor', href: '/sewa-kantor' },
     { name: 'Virtual Office', href: '/virtual-office' },
-    { name: 'Legalitas Usaha', href: '/legal/pendirian-pt-jakarta-selatan' },
+    { name: 'Legalitas Usaha', href: '/legal' },
     { name: 'Kontak', href: '/kontak' },
 ]
 

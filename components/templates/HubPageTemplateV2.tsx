@@ -202,7 +202,7 @@ export default function HubPageTemplateV2({
                 <section className="bg-blue-950">
                     <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-5 py-8 text-white sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
                         <div className="max-w-2xl">
-                            <h2 className="text-xl font-semibold">{finalCta.title}</h2>
+                            <h2 className="text-xl font-semibold text-white">{finalCta.title}</h2>
                             <p className="mt-2 text-sm leading-6 text-blue-100">{finalCta.description}</p>
                         </div>
                         <div className="flex flex-col gap-3 sm:flex-row">

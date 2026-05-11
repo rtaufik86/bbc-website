@@ -53,6 +53,7 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-sm mb-6 text-white uppercase tracking-[0.2em] border-b border-white/10 pb-2">Informasi & Legal</h4>
                         <ul className="space-y-4 text-xs text-[#D1D5DB]">
+                            <li><Link href="/legal" className="hover:text-bbc-gold-400 transition-colors py-1 block font-bold">Layanan Legal BBC</Link></li>
                             <li><Link href="/tentang-kami" className="hover:text-white transition-colors py-1 block italic opacity-80">Tentang Kami</Link></li>
                             <li><Link href="/lokasi-kantor" className="hover:text-white transition-colors py-1 block italic opacity-80">Lokasi Kantor</Link></li>
                             <li><Link href="/fasilitas-kantor" className="hover:text-white transition-colors py-1 block italic opacity-80">Fasilitas Gedung</Link></li>
