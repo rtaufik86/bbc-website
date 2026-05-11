@@ -194,6 +194,61 @@ function extractJsonLdSchemas(html: string): {
     return { schemaTypes: Array.from(types), faqs };
 }
 
+// Decode common inline HTML entities so introText is human-readable.
+function decodeHtmlEntities(s: string): string {
+    return s
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&#\d+;/g, ' ')
+        .replace(/&[a-z]{2,8};/g, ' ');
+}
+
+// Global nav signatures that must NOT appear in introText.
+const NAV_SIGNATURES = [
+    'bintaro business center home',
+    'bintaro business centre home',
+    'open main menu',
+    'sewa kantor virtual office',
+    'home sewa kantor',
+    'home virtual office',
+];
+
+// Extract the first meaningful paragraph from main-content HTML.
+// Prefers the first <p> with ≥80 visible chars that doesn't contain
+// global-nav signatures. Falls back to the first 500 clean chars of
+// the main-content block. Never returns nav/title chrome.
+function extractIntroText(mainHtml: string): string {
+    if (!mainHtml) return '';
+
+    const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
+    let match;
+    while ((match = pRegex.exec(mainHtml)) !== null) {
+        const text = decodeHtmlEntities(
+            match[1].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(),
+        );
+        if (text.length < 80) continue;
+        const lower = text.toLowerCase();
+        if (NAV_SIGNATURES.some(sig => lower.includes(sig))) continue;
+        return text.substring(0, 500);
+    }
+
+    // Fallback: first 500 chars of clean main text (still nav-free because
+    // mainHtml is already scoped to <main>/<article>/post-header).
+    const clean = decodeHtmlEntities(
+        mainHtml
+            .replace(/<script[\s\S]*?<\/script>/gi, '')
+            .replace(/<style[\s\S]*?<\/style>/gi, '')
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim(),
+    );
+    return clean.substring(0, 500);
+}
+
 // Walk forward from `start` (an opening `{` of an RSC-escaped object) and
 // return the index just after its matching `}`. RSC-escaped JSON inside the
 // HTML stream uses `\"` (two chars: backslash + quote) for every JSON
@@ -430,7 +485,7 @@ async function auditFile(route: string): Promise<AuditPage> {
         anchorDistribution: distribution,
         orphanRisk: false,
         status,
-        introText: cleanContent.substring(0, 300) + '...',
+        introText: extractIntroText(mainContent),
         governanceViolations: violations,
         semanticGraph: {
             primaryEntity: semanticAnalysis.primaryEntity,
