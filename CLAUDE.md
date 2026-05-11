@@ -1277,9 +1277,9 @@ git status --short
 Expected values:
 
 pwd = C:/Users/Worknew/Documents/Saas/BBC
-branch = seo-kill-fix-v1
+branch = main
 
-If the current working directory is not exactly the main project directory, or if the branch is not seo-kill-fix-v1, Claude Code MUST:
+If the current working directory is not exactly the main project directory, or if the branch is not main, Claude Code MUST:
 
 - STOP immediately
 - report the actual pwd
